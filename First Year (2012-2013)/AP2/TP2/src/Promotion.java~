@@ -1,0 +1,25 @@
+public class Promotion {
+    //Attributs
+    String nom;
+    Etudiant [] listeEtudiants;
+
+    //Constructeur
+    Promotion (String nom; Etudiant liste[] ) {
+	this.nom = nom;
+	this.listeEtudiants = new Etudiant [liste.lentgh];
+	for (int i = 0; i < liste.length; i++) {
+	    this.listeEtudiants[i] = liste[i];
+	}
+    }
+
+    
+    //Accesseurs
+    //getNom
+    /*String getNom () {
+	return this.nom;
+    }
+
+    //moyenne
+    double moyenne () {
+	double ret;
+    */

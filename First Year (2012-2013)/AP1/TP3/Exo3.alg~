@@ -1,0 +1,22 @@
+algo exo3TD3
+
+var
+	tableau_de reel Tab [i];
+	entier i, T;
+	reel X;
+
+principal
+debut
+	i := 0;
+	repeter
+		saisir("Saisir un reel:", @Tab [i]);
+		i := i+1;
+		jusqua (i==N);
+	finrepeter
+	X := Tab [0];
+	pour (i = 0) à (N-2)
+		Tab [i] := Tab [i+1];
+	finpour
+	Tab [N-1] := X;
+	pour i
+fin

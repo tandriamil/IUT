@@ -1,0 +1,130 @@
+
+html, body {
+  color: #283147;
+  background: #cfdfff;
+}
+
+div.header {
+	border:  1px solid #496fb0;
+	background-color: #fffeab; 
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size : 20pt;
+	padding: 2px;
+}
+
+
+div.footer {
+  color: #555;
+  font-size: 60%;
+  font-family: Verdana, "Lucida Sans", Arial, Geneva, Helvetica,sans-serif;
+  text-align: center;
+  margin-top: 10px;
+}
+
+div.main {
+  margin-left: 14em;
+  margin-right: 0em;
+  background-color: #fff;
+  border: 1px solid #7099C5;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+div.left_panel{
+	margin-top: 10px;
+}
+
+.left_panel .sideboxHeader {
+  background-color: #cfdfff;
+  border: 1px solid #000;
+}
+
+
+
+.main { margin: 10px 10px 10px 20px; }
+.main h2 { border-bottom: 1px solid; margin-left: 2px; margin-right: 2px; font-family: Arial, Helvetica, sans-serif; font-size : 12pt; font-weight: bold; }
+.main h3 { margin-left: 5px; font-family: Arial, Helvetica, sans-serif; font-size : 10pt; font-weight: bold;}
+.main h4 { margin-left: 10px; margin-right: 10px;}
+
+
+.left_panel .menuBoxHeader {
+  background-color: #fffeab; 
+  border: 1px solid #496fb0; 
+  padding: 4px 2px 4px 6px;
+  float: left;
+  clear: left;
+  width: 12em;
+}
+
+.left_panel .menuBoxContent {
+  background-color: #fff;
+  border-right: 1px solid #496fb0;
+  border-left: 1px solid #496fb0;
+  border-bottom: 1px solid #496fb0;
+  padding: 4px 2px 4px 6px;
+  margin-bottom: 10px;
+  float: left;
+  clear: left;
+  width: 12em;
+}
+
+
+.left_panel .nav {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 80%;
+  font-family: Verdana, "Lucida Sans", Arial, Geneva, Helvetica,  sans-serif;
+}
+
+.left_panel .menuBoxTitle {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 90%;
+  font-family: Verdana, "Lucida Sans", Arial, Geneva, Helvetica,  sans-serif;
+}
+
+
+
+H1 {
+	color: #000099; 
+	font-family:helvetica, sans-serif, times; 
+	font-size : 16pt; 
+	font-weight: bold;
+	font-style : normal;
+	margin-bottom: 3mm; 
+	margin-top: 3mm; 
+	margin-left: 0mm;
+	margin-right: 0mm;
+	text-align: center
+}
+
+H1.withborder{
+	border: solid 2px ; 
+	border-color:#848181; 
+	background: #fefeff  ;
+	color: #000099 ;
+ 	margin: 1em auto 2.5em auto;
+	padding: 1em 1em 1em 1em;
+        text-align: center;
+	font-size:18pt;
+	font-style : normal;
+	font-weight: bold;
+	font-variant :small-caps ;
+	font-family:helvetica, sans-serif, times; 
+}
+
+H1.left {
+	color: #000099; 
+	font-family:helvetica, sans-serif, times; 
+	font-size : 16pt; 
+	font-weight: bold;
+	font-style : normal;
+	margin-bottom: 3mm; 
+	margin-top: 3mm; 
+	margin-left: 0mm;
+	margin-right: 0mm;
+	text-align: left
+}

@@ -1,0 +1,40 @@
+package mailtab;
+
+
+public class MailItem{
+	private String from;
+	private String to;
+	private String message;
+	
+	
+	public MailItem(String from, String to, String message){
+		this.from=from;
+		this.to=to;
+		this.message=message;
+	}
+	
+	
+	
+	public String getFrom(){
+		return this.from;
+	}
+	
+	
+	
+	public String getTo(){
+		return this.to;
+	}
+	
+	
+	
+	public String getMessage(){
+		return this.message;
+	}
+	
+	
+	public String enChaine(){
+		String ret=new String("");
+		ret=ret+"Le message est envoyé:\n-par: "+this.getFrom()+"\n-a:"+this.getTo()+"\nLe message est:\n"+this.getMessage();
+		return ret;
+	}
+}
