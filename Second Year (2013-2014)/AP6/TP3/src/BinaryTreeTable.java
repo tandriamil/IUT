@@ -223,9 +223,12 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 			}
 
 			//If there are two sons
-			else {
+			else if ((aNode.lSon != null) && (aNode.rSon != null)) {
 				ret = Math.max(highOfNode(aNode.lSon), highOfNode(aNode.rSon)) + 1;
 			}
+
+			//If there's no son
+			else {}
 		}
 
 		return ret;
