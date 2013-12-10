@@ -69,11 +69,9 @@ public class Bag<E> {
 		/**
 		 * Constructor of Element
 		 * @param data The data of this Element
-		 * @param next The next element of it
 		 */
-		Element(E data, Element next) {
+		Element(E data) {
 			this.data = data;
-			this.next = next;
 		}
 	}
 
