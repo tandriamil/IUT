@@ -66,24 +66,28 @@ public class Bag<E> extends AbstractCollection<E> {
 
 		//If the bag isn't empty
 		else {
-			// Recuperation of the index at which we want to insert the new element created
-			int index = (int)(Math.random()*size);
-
-
-			// if the bag contains nothing but the sentinel
-			if (size == 0) {
-				//The next of the sentinel is the element to insert and its own next is the sentinel
-				this.sentinel.next = toInsert;
-				toInsert.next = this.sentinel;
+			//Recuperation of the index at which we want to insert the new element created
+			//The index will be between 0 and size
+			int index = (int)(Math.random()*size); //Can be changer to size + 1 if it doesn't work
 
 			//An element for parsing the bag
 			Element tmp = this.sentinel;
+			Element pastTmp = null;
 
 
 			//Parsing all the bag
-			for (int i = 0; i < index; i++) {
+			for (int i = 0; i <= index; i++) {
+				pastTmp = tmp;
 				tmp = tmp.next;
 			}
+
+			//Linking the elements
+			pastTmp.next = toInsert;
+			toInsert.next = tmp;
+
+			//Incrementing the size and telling that's the size is correct
+			this.size++;
+			ret = true;
 		}
 
 		return ret;
