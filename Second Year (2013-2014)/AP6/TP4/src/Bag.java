@@ -23,7 +23,7 @@ public class Bag<E> {
 		this.size = 0;
 
 		//Initializing the first element
-		this.sentinel = new Element(null, null);
+		this.sentinel = new Element(null);
 		this.sentinel.next = this.sentinel;
 	}
 
@@ -40,7 +40,7 @@ public class Bag<E> {
 	* @return A boolean at false if the size is over Integer.MAX VALUE
 	*/
 	public boolean add(E data) {
-			Element = new Element (data);
+			Element toInsert = new Element(data);
 			boolean ret = false;
 
 			// Recuperation of the index at which we want to insert
