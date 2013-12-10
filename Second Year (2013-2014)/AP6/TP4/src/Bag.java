@@ -40,12 +40,20 @@ public class Bag<E> {
 	* @return A boolean at false if the size is over Integer.MAX VALUE
 	*/
 	public boolean add(E data) {
-			Element toInsert = new Element(data);
 			boolean ret = false;
+
+			// creation of a new element containing the piece of data 
+			Element toInsert = new Element(data);
+			
 
 			// Recuperation of the index at which we want to insert
 			// the new element created
 			int index = (int)(Math.random()*(size+1));
+
+			// if the list contains nothing but the sentinel
+			if (size == 0) {
+				this.sentinel.next = toInsert;
+			}
 
 			return ret;
 	}
