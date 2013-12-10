@@ -27,6 +27,7 @@ public class Bag<E> {
 		this.sentinel.next = this.sentinel;
 	}
 
+
 	/**
 	* Creation of a new Iterator
 	* @return The new Iterator
@@ -34,6 +35,7 @@ public class Bag<E> {
 	public Iterator getIterator() {
 		return new Itr();
 	}
+
 
 	/** 
 	* Redefinition of the abstract method in AbstractCollection<E>
@@ -57,6 +59,7 @@ public class Bag<E> {
 
 			return ret;
 	}
+
 
 	/**
 	* Accesor of the private size attribute
