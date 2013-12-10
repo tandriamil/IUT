@@ -49,6 +49,8 @@ public class BagTest extends TestCase {
 
 
 //Methods tests
+//getSize() will be tested in parallel of add() and remove()
+
 //Test of add()
 	/*
 	@Test

@@ -55,6 +55,7 @@ public class Bag<E> {
 			// if the list contains nothing but the sentinel
 			if (size == 0) {
 				this.sentinel.next = toInsert;
+				toInsert.next = this.sentinel;
 			}
 
 			return ret;
