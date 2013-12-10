@@ -13,6 +13,8 @@ public class Bag<E> {
 
 
 //Methods
+//The most of them are already defined in AbstractCollection so no need to define them
+//Like toString(), isEmpty(), contains(Object o), remove(Object o)
 	/** 
 	 * Constructor of the Bag
 	 */
@@ -157,5 +159,4 @@ public class Bag<E> {
 			}
 		}
 	}
-
 }
