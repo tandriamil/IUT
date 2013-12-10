@@ -37,14 +37,13 @@ public class Bag<E> {
 	}
 
 	/** 
-	* redefinition of the abstract method
-	* in AbstractCollection <E>
-	* @return a boolean at false if the size is over Integer.MAX VALUE
+	* Redefinition of the abstract method in AbstractCollection<E>
+	* @return A boolean at false if the size is over Integer.MAX VALUE
 	*/
-	public boolean add (E data) {
+	public boolean add(E data) {
 			boolean ret = false;
 			return ret;
-		}
+	}
 
 
 	/*########################################### Inner Classes ###########################################*/
