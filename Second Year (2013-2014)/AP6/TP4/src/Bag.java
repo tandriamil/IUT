@@ -52,7 +52,7 @@ public class Bag<E> {
 			// the new element created
 			int index = (int)(Math.random()*(size+1));
 
-			// if the list contains nothing but the sentinel
+			// if the bag contains nothing but the sentinel
 			if (size == 0) {
 				//The next of the sentinel is the element to insert and its own next is the sentinel
 				this.sentinel.next = toInsert;
