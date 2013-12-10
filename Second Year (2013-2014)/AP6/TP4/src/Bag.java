@@ -6,7 +6,7 @@ import java.util.AbstractCollection;
 /**
  * Class for the Bag Collection
  */
-public class Bag<E> {
+public class Bag<E> extends AbstractCollection<E> {
 //Attributes
 	private Element sentinel;
 	private int size;
@@ -32,7 +32,8 @@ public class Bag<E> {
 	* Creation of a new Iterator
 	* @return The new Iterator
 	*/
-	public Iterator getIterator() {
+	@SuppressWarnings("unchecked")
+	public Iterator<E> iterator() {
 		return new Itr();
 	}
 
@@ -42,30 +43,42 @@ public class Bag<E> {
 	* @return A boolean at false if the size is over Integer.MAX VALUE
 	*/
 	public boolean add(E data) {
-			boolean ret = false;
+		boolean ret = false;
 
-			// creation of a new element containing the piece of data 
-			Element toInsert = new Element(data);
-			
+		//Creation of a new element containing the piece of data 
+		Element toInsert = new Element(data);
 
-			// Recuperation of the index at which we want to insert
-			// the new element created
+		//If the bag contains nothing but the sentinel
+		if (this.size == 0) {
+			//The next of the sentinel is the element to insert and its own next is the sentinel
+			this.sentinel.next = toInsert;
+			toInsert.next = this.sentinel;
+
+			//Incrementing the size and telling that's the size is correct
+			this.size++;
+			ret = true;
+		}
+
+		//If the size is too high (Really really high!)
+		else if (this.size >= Integer.MAX_VALUE) {
+			ret = false;
+		}
+
+		//If the bag isn't empty
+		else {
+			// Recuperation of the index at which we want to insert the new element created
 			int index = (int)(Math.random()*(size+1));
 
-			// if the list contains nothing but the sentinel
-			if (size == 0) {
-				//The next of the sentinel is the element to insert and its own next is the sentinel
-				this.sentinel.next = toInsert;
-				toInsert.next = this.sentinel;
+			//An element for parsing the bag
+			Element tmp = this.sentinel;
 
-				//Incrementing the size
-				this.size++;
+			//Parsing all the bag
+			for (int i = 0; i < index; i++) {
+				tmp = tmp.next;
 			}
-			else {
-				
-			}
+		}
 
-			return ret;
+		return ret;
 	}
 
 
@@ -73,7 +86,7 @@ public class Bag<E> {
 	* Accesor of the private size attribute
 	* @return The size of the list
 	*/
-	public int getSize() {
+	public int size() {
 		return this.size;
 	}
 
@@ -108,6 +121,7 @@ public class Bag<E> {
 	/**
 	 * Class for the iterator
 	 */
+	@SuppressWarnings(value={"rawtypes", "unchecked"})
 	private class Itr implements Iterator {
 	//Attributes
 		private Element current;
