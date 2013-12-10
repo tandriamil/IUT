@@ -54,7 +54,12 @@ public class Bag<E> {
 
 			// if the list contains nothing but the sentinel
 			if (size == 0) {
+				//The next of the sentinel is the element to insert and its own next is the sentinel
 				this.sentinel.next = toInsert;
+				toInsert.next = this.sentinel;
+
+				//Incrementing the size
+				this.size++;
 			}
 			else {
 				
