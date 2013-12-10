@@ -40,8 +40,13 @@ public class Bag<E> {
 	* @return A boolean at false if the size is over Integer.MAX VALUE
 	*/
 	public boolean add(E data) {
+			Element = new Element (data);
 			boolean ret = false;
-			double index = Math.random()*(size+1);
+
+			// Recuperation of the index at which we want to insert
+			// 
+			double index = (int)(Math.random()*(size+1));
+
 			return ret;
 	}
 
