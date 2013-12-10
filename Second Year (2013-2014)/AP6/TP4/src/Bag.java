@@ -17,7 +17,10 @@ public class Bag<E> {
 	 * Constructor of the Bag
 	 */
 	public Bag() {
+		//Initializing the size
 		this.size = 0;
+
+		//Initializing the first element
 		this.sentinel = new Element(null, null);
 		this.sentinel.next = this.sentinel;
 	}
@@ -39,8 +42,8 @@ public class Bag<E> {
 	//Methods
 		/**
 		 * Constructor of Element
-		 * @param val The value contained in it
-		 * @param key His key
+		 * @param data The data of this Element
+		 * @param next The next element of it
 		 */
 		Element(E data, Element next) {
 			this.data = data;
@@ -56,6 +59,8 @@ public class Bag<E> {
 			return this.size;
 		}
 
+
+	/*#####################################################################################################*/
 
 
 	/**
