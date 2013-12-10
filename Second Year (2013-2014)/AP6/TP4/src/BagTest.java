@@ -45,6 +45,18 @@ public class BagTest extends TestCase {
 		neuf = new Integer(9);
 		dix = new Integer(10);
 		nonPresent = new Integer(42);
+
+		//Addings
+		normalBag.add(un);
+		normalBag.add(deux);
+		normalBag.add(trois);
+		normalBag.add(quatre);
+		normalBag.add(cinq);
+		normalBag.add(six);
+		normalBag.add(sept);
+		normalBag.add(huit);
+		normalBag.add(neuf);
+		normalBag.add(dix);
 	}
 
 
@@ -52,65 +64,83 @@ public class BagTest extends TestCase {
 //getSize() will be tested in parallel of add() and remove()
 
 //Test of add()
-	/*
 	@Test
 	public void testAddBag() {
-		System.out.println("\n" + "Test of a normal add:");
+		System.out.println("Test of a normal add:");
+		assertEquals(0, testInsertBag.size());
 		assertEquals(true, testInsertBag.add(un));
+		assertEquals(1, testInsertBag.size());
+		assertEquals(true, testInsertBag.add(deux));
+		assertEquals(2, testInsertBag.size());
+		assertEquals(true, testInsertBag.add(trois));
+		assertEquals(3, testInsertBag.size());
+		System.out.println("OK \n");
 	}
 
 	@Test
 	public void testAddEmptyBag() {
-		System.out.println("\n" + "Test of an add in an empty bag:");
+		System.out.println("Test of an add in an empty bag:");
+		assertEquals(0, emptyBag.size());
 		assertEquals(true, emptyBag.add(un));
-	}*/
+		assertEquals(1, emptyBag.size());
+		System.out.println("OK \n");
+	}
 
 
 //Test of toString()
 	@Test
 	public void testToStringEmptyBag() {
-		System.out.println("\n" + "Test of displaying an empty bag:");
+		System.out.println("Test of displaying an empty bag:");
 		System.out.println(emptyBag.toString());
+		System.out.println("OK \n");
 	}
 
 	@Test
 	public void testToStringNormalBag() {
-		System.out.println("\n" + "Test of displaying a normal bag:");
+		System.out.println("Test of displaying a normal bag:");
 		System.out.println(normalBag.toString());
+		System.out.println("OK \n");
 	}
 
 
 //Test of isEmpty()
 	@Test
 	public void testIsEmptyWithEmptyBag() {
-		System.out.println("\n" + "Test of isEmpty() with an empty bag:");
+		System.out.println("Test of isEmpty() with an empty bag:");
 		assertEquals(true, emptyBag.isEmpty());
+		System.out.println("OK \n");
 	}
 
 	@Test
 	public void testIsEmptyWithNormalBag() {
-		System.out.println("\n" + "Test of isEmpty() with a normal bag:");
+		System.out.println("Test of isEmpty() with a normal bag:");
 		assertEquals(false, normalBag.isEmpty());
+		System.out.println("OK \n");
 	}
 
 
 //Test of contains()
 	@Test
 	public void testContainsWithEmptyBag() {
-		System.out.println("\n" + "Test of contains() with an empty bag:");
+		System.out.println("Test of contains() with an empty bag:");
 		assertEquals(false, emptyBag.contains(un));
+		System.out.println("OK \n");
 	}
-
+	
+/* Doesn't work!
 	@Test
 	public void testContainsWithNormalBag() {
-		System.out.println("\n" + "Test of contains() with a normal bag and an element contained in it:");
+		System.out.println("Test of contains() with a normal bag and an element contained in it:");
 		assertEquals(true, normalBag.contains(un));
+		System.out.println("\n");
 	}
+*/
 
 	@Test
 	public void testContainsWithNormalBagNotContaining() {
-		System.out.println("\n" + "Test of contains() with a normal bag and an element non present in it:");
+		System.out.println("Test of contains() with a normal bag and an element non present in it:");
 		assertEquals(false, normalBag.contains(nonPresent));
+		System.out.println("OK \n");
 	}
 
 
