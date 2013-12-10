@@ -51,24 +51,26 @@ public class Bag<E> {
 			this.data = data;
 			this.next = next;
 		}
-	}
+
 
 		/**
 		* Accesor of the private size attribute
-		* @return the size of the list
+		* @return The size of the list
 		*/
-		public int getSize (){
+		public int getSize() {
 			return this.size;
 		}
 
+
 		/**
 		* Creation of a new Iterator
-		* @return the new Iterator
+		* @return The new Iterator
 		*/
-		public Iterator getIterator (){
+		public Iterator getIterator() {
 			itr = new Iterator ();
-			ret itr;
+			return itr;
 		}
+	}
 
 		public boolean add (E data) {
 			boolean ret = false;
