@@ -32,7 +32,7 @@ public class Bag<E> {
 	* @return The new Iterator
 	*/
 	public Iterator getIterator() {
-		return new Iterator();
+		return new Itr();
 	}
 
 	/** 
@@ -43,6 +43,14 @@ public class Bag<E> {
 			boolean ret = false;
 			double index = Math.random()*(size+1);
 			return ret;
+	}
+
+	/**
+	* Accesor of the private size attribute
+	* @return The size of the list
+	*/
+	public int getSize() {
+		return this.size;
 	}
 
 
@@ -67,18 +75,6 @@ public class Bag<E> {
 			this.data = data;
 			this.next = next;
 		}
-
-
-		/**
-		* Accesor of the private size attribute
-		* @return The size of the list
-		*/
-		public int getSize() {
-			return this.size;
-		}
-
-
-		
 	}
 
 		
@@ -90,7 +86,7 @@ public class Bag<E> {
 	/**
 	 * Class for the iterator
 	 */
-	private class Itr {
+	private class Itr implements Iterator {
 	//Attributes
 		private Element current;
 		private Element pastCurrent;
