@@ -32,8 +32,7 @@ public class Bag<E> {
 	* @return The new Iterator
 	*/
 	public Iterator getIterator() {
-		itr = new Iterator ();
-		return itr;
+		return new Iterator();
 	}
 
 	/** 
@@ -42,7 +41,7 @@ public class Bag<E> {
 	*/
 	public boolean add(E data) {
 			boolean ret = false;
-			int index = Math.random()*(size+1);
+			double index = Math.random()*(size+1);
 			return ret;
 	}
 
