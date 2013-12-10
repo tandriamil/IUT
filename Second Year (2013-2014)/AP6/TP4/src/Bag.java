@@ -44,8 +44,8 @@ public class Bag<E> {
 			boolean ret = false;
 
 			// Recuperation of the index at which we want to insert
-			// 
-			double index = (int)(Math.random()*(size+1));
+			// the new element created
+			int index = (int)(Math.random()*(size+1));
 
 			return ret;
 	}
