@@ -54,13 +54,13 @@ public class BagTest extends TestCase {
 	@Test
 	public void testAddBag() {
 		System.out.println("\n" + "Test of a normal add:");
-		assertEquals(true, testInsertBag.add());
+		assertEquals(true, testInsertBag.add(un));
 	}
 
 	//With an empty bag
 	@Test
 	public void testAddEmptyBag() {
 		System.out.println("\n" + "Test of an add in an empty bag:");
-		assertEquals(true, emptyBag.add());
+		assertEquals(true, emptyBag.add(un));
 	}
 }
