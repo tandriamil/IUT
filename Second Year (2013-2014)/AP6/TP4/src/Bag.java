@@ -53,6 +53,14 @@ public class Bag<E> {
 		}
 	}
 
+		/**
+		* Accesor of the private size attribute
+		* @return the size of the list
+		*/
+		public int getSize (){
+			return this.size;
+		}
+
 
 	/*#####################################################################################################*/
 
