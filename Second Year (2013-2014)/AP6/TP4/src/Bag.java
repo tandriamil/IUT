@@ -67,7 +67,7 @@ public class Bag<E> extends AbstractCollection<E> {
 		//If the bag isn't empty
 		else {
 			// Recuperation of the index at which we want to insert the new element created
-			int index = (int)(Math.random()*(size+1));
+			int index = (int)(Math.random()*size);
 
 			//An element for parsing the bag
 			Element tmp = this.sentinel;
