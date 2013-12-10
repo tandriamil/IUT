@@ -43,6 +43,7 @@ public class Bag<E> {
 	*/
 	public boolean add (E data) {
 			boolean ret = false;
+			int index = Math.random()*(size+1);
 			return ret;
 		}
 
