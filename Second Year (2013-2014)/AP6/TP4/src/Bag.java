@@ -56,6 +56,9 @@ public class Bag<E> {
 			if (size == 0) {
 				this.sentinel.next = toInsert;
 			}
+			else {
+				
+			}
 
 			return ret;
 	}
