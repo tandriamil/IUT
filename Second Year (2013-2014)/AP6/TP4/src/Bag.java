@@ -27,7 +27,24 @@ public class Bag<E> {
 		this.sentinel.next = this.sentinel;
 	}
 
+	/**
+	* Creation of a new Iterator
+	* @return The new Iterator
+	*/
+	public Iterator getIterator() {
+		itr = new Iterator ();
+		return itr;
+	}
 
+	/** 
+	* redefinition of the abstract method
+	* in AbstractCollection <E>
+	* @return a boolean at false if the size is over Integer.MAX VALUE
+	*/
+	public boolean add (E data) {
+			boolean ret = false;
+			return ret;
+		}
 
 
 	/*########################################### Inner Classes ###########################################*/
@@ -62,20 +79,10 @@ public class Bag<E> {
 		}
 
 
-		/**
-		* Creation of a new Iterator
-		* @return The new Iterator
-		*/
-		public Iterator getIterator() {
-			itr = new Iterator ();
-			return itr;
-		}
+		
 	}
 
-		public boolean add (E data) {
-			boolean ret = false;
-			return ret;
-		}
+		
 
 
 	/*#####################################################################################################*/
