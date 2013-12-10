@@ -59,6 +59,15 @@ public class Bag<E> {
 			return this.size;
 		}
 
+		/**
+		* Creation of a new Iterator
+		* @return the new Iterator
+		*/
+		public Iterator getIterator (){
+			itr = new Iterator ();
+			ret itr;
+		}
+
 
 	/*#####################################################################################################*/
 
