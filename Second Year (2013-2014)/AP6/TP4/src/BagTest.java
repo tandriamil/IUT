@@ -49,6 +49,13 @@ public class BagTest extends TestCase {
 
 
 //Methods tests
+//Test of toString()
+	@Test
+	public void testToString() {
+		System.out.println("\n" + "Test of displaying an empty list:");
+		System.out.println("\n" + "Test of a normal add:");
+	}
+
 //Test of add()
 	//With a normal bag
 	@Test
