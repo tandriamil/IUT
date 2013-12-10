@@ -70,6 +70,11 @@ public class Bag<E> {
 			ret itr;
 		}
 
+		public boolean add (E data) {
+			boolean ret = false;
+			return ret;
+		}
+
 
 	/*#####################################################################################################*/
 
