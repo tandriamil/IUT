@@ -18,6 +18,7 @@ public class BagTest extends TestCase {
 	private Bag<Integer> cloneNormalBag;
 	private Bag<Integer> partNormalBag;
 	private Bag<Integer> cloneEmptyBag;
+	private Bag<Integer> nonPresentBag;
 
 
 
@@ -30,6 +31,7 @@ public class BagTest extends TestCase {
 		cloneNormalBag = new Bag<Integer>();
 		partNormalBag = new Bag<Integer>();
 		cloneEmptyBag = new Bag<Integer>();
+		nonPresentBag = new Bag<Integer>();
 
 		//Addings
 		normalBag.add(1);
@@ -60,6 +62,10 @@ public class BagTest extends TestCase {
 		partNormalBag.add(6);
 		partNormalBag.add(7);
 		partNormalBag.add(9);
+
+		nonPresentBag.add(42);
+		nonPresentBag.add(55);
+		nonPresentBag.add(99);
 	}
 
 
@@ -187,6 +193,37 @@ public class BagTest extends TestCase {
 
 
 //Test of remove()
+	@Test
+	public void testRemoveEmpty() {
+		System.out.println("Test of remove() with an empty bag:");
+		System.out.println("Before:" + "\n" + emptyBag.toString());
+		assertEquals(0, emptyBag.size());
+		assertEquals(false, emptyBag.remove(1));
+		assertEquals(0, emptyBag.size());
+		System.out.println("After:" + "\n" + emptyBag.toString());
+		System.out.println("OK \n");
+	}
+
+	@Test
+	public void testRemoveNormal() {
+		System.out.println("Test of remove() with a normal bag:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(true, normalBag.remove(5));
+		assertEquals(9, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+	}
+
+	@Test
+	public void testRemoveInexistant() {
+		System.out.println("Test of remove() with a non existant element in a normal bag:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(false, normalBag.remove(42));
+		assertEquals(10, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+		System.out.println("OK \n");
+	}
 
 
 //Test of containsAll()
@@ -213,7 +250,7 @@ public class BagTest extends TestCase {
 	@Test
 	public void testContainsAllNonTrue() {
 		System.out.println("Test of containsAll() with an empty bag compared to a non empty one:");
-		assertEquals(false, normalBag.containsAll(emptyBag));
+		assertEquals(true, normalBag.containsAll(emptyBag)); //true because normalBag contains the empty one ...
 		assertEquals(false, emptyBag.containsAll(normalBag));
 	}
 
@@ -223,7 +260,9 @@ public class BagTest extends TestCase {
 	public void testAddAllOnEmptyBag() {
 		System.out.println("Test of addAll() with an empty bag:" + "\n" + "Before:");
 		System.out.println(emptyBag.toString() + "\n");
+		assertEquals(0, emptyBag.size());
 		emptyBag.addAll(normalBag);
+		assertEquals(10, emptyBag.size());
 		System.out.println("After:" + "\n" + emptyBag.toString());
 		System.out.println("OK \n");
 	}
@@ -232,7 +271,9 @@ public class BagTest extends TestCase {
 	public void testAddAllOnNormalBag() {
 		System.out.println("Test of addAll() with a normal bag:" + "\n" + "Before:");
 		System.out.println(normalBag.toString() + "\n");
+		assertEquals(10, normalBag.size());
 		normalBag.addAll(partNormalBag);
+		assertEquals(16, normalBag.size());
 		System.out.println("After:" + "\n" + normalBag.toString());
 		System.out.println("OK \n");
 	}
@@ -241,18 +282,122 @@ public class BagTest extends TestCase {
 	public void testAddAllOnNormalBagAddingAnEmptyBag() {
 		System.out.println("Test of addAll() with a normal bag adding an empty bag:" + "\n" + "Before:");
 		System.out.println(normalBag.toString() + "\n");
+		assertEquals(10, normalBag.size());
 		normalBag.addAll(emptyBag);
+		assertEquals(10, normalBag.size());
 		System.out.println("After:" + "\n" + normalBag.toString());
 		System.out.println("OK \n");
 	}
 
 
 //Test of removeAll()
+	@Test
+	public void testRemoveAllEmpty() {
+		System.out.println("Test of removeAll() with an empty bag:");
+		System.out.println("Before:" + "\n" + emptyBag.toString());
+		assertEquals(0, emptyBag.size());
+		assertEquals(false, emptyBag.removeAll(partNormalBag));
+		assertEquals(0, emptyBag.size());
+		System.out.println("After:" + "\n" + emptyBag.toString());
+		System.out.println("OK \n");
+	}
 
+	@Test
+	public void testRemoveAllNormal() {
+		System.out.println("Test of removeAll() with a normal bag:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(true, normalBag.remove(partNormalBag));
+		assertEquals(4, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+	}
+
+	@Test
+	public void testRemoveAllClone() {
+		System.out.println("Test of removeAll() with a clone of a normal bag:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(true, normalBag.remove(cloneNormalBag));
+		assertEquals(0, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+	}
 
 
 //Test of retainAll()
+	//A verifier la signification de retainAll!!!
+	@Test
+	public void testRetainAllEmpty() {
+		System.out.println("Test of retainAll() with an empty bag:");
+		System.out.println("Before:" + "\n" + emptyBag.toString());
+		assertEquals(0, emptyBag.size());
+		assertEquals(false, emptyBag.retainAll(partNormalBag));
+		assertEquals(0, emptyBag.size());
+		System.out.println("After:" + "\n" + emptyBag.toString());
+		System.out.println("OK \n");
+	}
+
+	@Test
+	public void testRetainAllNormal() {
+		System.out.println("Test of retainAll() with a normal bag and a part of it:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(true, normalBag.retainAll(partNormalBag));
+		assertEquals(6, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+	}
+
+	@Test
+	public void testRetainAllNormalClone() {
+		System.out.println("Test of retainAll() with a normal bag and a clone of it:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(true, normalBag.retainAll(cloneNormalBag));
+		assertEquals(10, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+	}
+
+	@Test
+	public void testRetainAllNormalEmpty() {
+		System.out.println("Test of retainAll() with a normal bag and an empty one:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(true, normalBag.retainAll(emptyBag));
+		assertEquals(0, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+	}
+
+	@Test
+	public void testRetainAllNormalNonExistant() {
+		System.out.println("Test of retainAll() with a normal bag and another which have no data that both have:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(true, normalBag.retainAll(nonPresentBag));
+		assertEquals(10, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+		System.out.println("OK \n");
+	}
 
 
 //Test of clear()
+	@Test
+	public void testClearEmpty() {
+		System.out.println("Test of clear() with an empty bag:");
+		System.out.println("Before:" + "\n" + emptyBag.toString());
+		assertEquals(0, emptyBag.size());
+		emptyBag.clear();
+		assertEquals(0, emptyBag.size());
+		System.out.println("After:" + "\n" + emptyBag.toString());
+		System.out.println("OK \n");
+	}
+
+	@Test
+	public void testClearNormal() {
+		System.out.println("Test of clear() with a normal bag:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		normalBag.clear();
+		assertEquals(0, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+		System.out.println("OK \n");
+	}
 }
