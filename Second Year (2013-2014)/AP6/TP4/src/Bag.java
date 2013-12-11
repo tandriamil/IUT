@@ -68,7 +68,7 @@ public class Bag<E> extends AbstractCollection<E> {
 		else {
 			//Recuperation of the index at which we want to insert the new element created
 			//The index will be between 0 and size
-			int index = (int)(Math.random()*size); //Can be changer to size + 1 if it doesn't work
+			int index = (int)(Math.random()*(size + 1)); //Can be changer to size + 1 if it doesn't work
 
 			//An element for parsing the bag
 			Element tmp = this.sentinel;
@@ -103,6 +103,32 @@ public class Bag<E> extends AbstractCollection<E> {
 	}
 
 
+	/**
+	 * Permits a correct display of the bag
+	 * @return A String which correctly display the bag
+	 */
+	public String toString() {
+		String ret = "";
+
+		//If the bag is empty
+		if (this.size == 0) {
+			ret = "Empty Bag!";
+		}
+		//If the bag isn't empty
+		else {
+			Element tmp = this.sentinel;
+
+			//Parsing the bag
+			for (int i = 0; i < this.size; i++) {
+				tmp = tmp.next;
+				ret = ret + i + " : " + tmp.data.toString() + "\n";
+			}
+		}
+
+		return ret;
+	}
+
+
 	/*########################################### Inner Classes ###########################################*/
 
  	/**
@@ -123,8 +149,6 @@ public class Bag<E> extends AbstractCollection<E> {
 			this.data = data;
 		}
 	}
-
-		
 
 
 	/*#####################################################################################################*/
