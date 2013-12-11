@@ -182,7 +182,7 @@ public class Bag<E> extends AbstractCollection<E> {
 			boolean ret = false;
 
 			//Just verify the next of the current element
-			if ((this.current.next == Bag.this.sentinel) || (this.current.next == null) || (this.current.next.data == null)) {
+			if (this.current.next == Bag.this.sentinel) {
 				ret = false;
 			}
 			else {
@@ -197,8 +197,8 @@ public class Bag<E> extends AbstractCollection<E> {
 		 * Move the current iterator to the next element
 		 * @return The data contained in the new current element
 		 */
-		public Element next() {
-			Element ret = null;
+		public E next() {
+			E ret = null;
 			
 			if (hasNext()) {
 				//Move the iterator, the past current is the current
@@ -207,8 +207,8 @@ public class Bag<E> extends AbstractCollection<E> {
 				//Then the current became the next of the current
 				this.current = this.current.next;
 
-				//In the end, return the date contained in the new current
-				ret = this.current;
+				//In the end, return the data contained in the new current
+				ret = this.current.data;
 			}
 			else {
 				System.out.println("Can't go to next");
