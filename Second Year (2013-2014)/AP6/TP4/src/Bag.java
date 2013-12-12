@@ -10,6 +10,7 @@ public class Bag<E> extends AbstractCollection<E> {
 //Attributes
 	private Element sentinel;
 	private int size;
+	private int modCount;
 
 
 //Methods
@@ -19,8 +20,9 @@ public class Bag<E> extends AbstractCollection<E> {
 	 * Constructor of the Bag
 	 */
 	public Bag() {
-		//Initializing the size
+		//Initializing the size and the modCount
 		this.size = 0;
+		this.modCount = 0;
 
 		//Initializing the first element
 		this.sentinel = new Element(null);
@@ -54,9 +56,10 @@ public class Bag<E> extends AbstractCollection<E> {
 			this.sentinel.next = toInsert;
 			toInsert.next = this.sentinel;
 
-			//Incrementing the size and telling that's the size is correct
+			//Incrementing the size, the synchronised attribute and telling that's the size is correct
 			this.size++;
 			ret = true;
+			this.modCount++;
 		}
 
 		//If the size is too high (Really really high!)
@@ -85,9 +88,10 @@ public class Bag<E> extends AbstractCollection<E> {
 			pastTmp.next = toInsert;
 			toInsert.next = tmp;
 
-			//Incrementing the size and telling that's the size is correct
+			//Incrementing the size, the synchronized attribute and telling that's the size is correct
 			this.size++;
 			ret = true;
+			this.modCount++;
 		}
 
 		return ret;
@@ -136,6 +140,7 @@ public class Bag<E> extends AbstractCollection<E> {
 	//Attributes
 		private Element current;
 		private Element pastCurrent;
+		private int expectedModCount;
 
 	//Methods
 		/**
@@ -145,6 +150,7 @@ public class Bag<E> extends AbstractCollection<E> {
 			//Initialise the current and past current to the sentinel
 			this.current = Bag.this.sentinel;
 			this.pastCurrent = Bag.this.sentinel;
+			this.expectedModCount = Bag.this.modCount;
 		}
 
 
@@ -155,12 +161,18 @@ public class Bag<E> extends AbstractCollection<E> {
 		public boolean hasNext() {
 			boolean ret = false;
 
-			//Just verify the next of the current element
-			if (this.current.next == Bag.this.sentinel) {
-				ret = false;
+			//If it's not synchronized
+			if (this.expectedModCount != Bag.this.modCount) {
+				System.out.println("Iterator unsynchronized!");
 			}
 			else {
-				ret = true;
+				//Just verify the next of the current element
+				if (this.current.next == Bag.this.sentinel) {
+					ret = false;
+				}
+				else {
+					ret = true;
+				}
 			}
 
 			return ret;
@@ -173,21 +185,27 @@ public class Bag<E> extends AbstractCollection<E> {
 		 */
 		public E next() {
 			E ret = null;
-			
-			if (hasNext()) {
-				//Move the iterator, the past current is the current
-				this.pastCurrent = this.current;
 
-				//Then the current became the next of the current
-				this.current = this.current.next;
-
-				//In the end, return the data contained in the new current
-				ret = this.current.data;
+			//If it's not synchronized
+			if (this.expectedModCount != Bag.this.modCount) {
+				System.out.println("Iterator unsynchronized!");
 			}
 			else {
-				System.out.println("Can't go to next");
+				if (hasNext()) {
+					//Move the iterator, the past current is the current
+					this.pastCurrent = this.current;
+
+					//Then the current became the next of the current
+					this.current = this.current.next;
+
+					//In the end, return the data contained in the new current
+					ret = this.current.data;
+				}
+				else {
+					System.out.println("Can't go to next");
+				}
 			}
-			
+
 			return ret;
 		}
 
@@ -196,21 +214,31 @@ public class Bag<E> extends AbstractCollection<E> {
 		 * Delete the current element, the current became the past current
 		 */
 		public void remove() {
-			//Verify if the current is the pastCurrent
-			if (this.current == this.pastCurrent) {
-				System.out.println("Can't remove, the current is the past current!");
+			//If it's not synchronized
+			if (this.expectedModCount != Bag.this.modCount) {
+				System.out.println("Iterator unsynchronized!");
 			}
-
-			//If not, then remove the current element
 			else {
-				//We link the past current to the next
-				this.pastCurrent.next = this.current.next;
+				//Verify if the current is the pastCurrent
+				if (this.current == this.pastCurrent) {
+					System.out.println("Can't remove, the current is the past current!");
+				}
 
-				//Then move the iterator to the past current
-				this.current = this.pastCurrent;
+				//If not, then remove the current element
+				else {
+					//We link the past current to the next
+					this.pastCurrent.next = this.current.next;
 
-				//Decrement the size of the list
-				Bag.this.size--;
+					//Then move the iterator to the past current
+					this.current = this.pastCurrent;
+
+					//Decrement the size of the list
+					Bag.this.size--;
+
+					//Synchronizing with ONLY this iterator
+					Bag.this.modCount++;
+					this.expectedModCount = Bag.this.modCount;
+				}
 			}
 		}
 	}
