@@ -103,32 +103,6 @@ public class Bag<E> extends AbstractCollection<E> {
 	}
 
 
-	/**
-	 * Permits a correct display of the bag
-	 * @return A String which correctly display the bag
-	 */
-	public String toString() {
-		String ret = "";
-
-		//If the bag is empty
-		if (this.size == 0) {
-			ret = "Empty Bag!";
-		}
-		//If the bag isn't empty
-		else {
-			Element tmp = this.sentinel;
-
-			//Parsing the bag
-			for (int i = 0; i < this.size; i++) {
-				tmp = tmp.next;
-				ret = ret + i + " : " + tmp.data.toString() + "\n";
-			}
-		}
-
-		return ret;
-	}
-
-
 	/*########################################### Inner Classes ###########################################*/
 
  	/**

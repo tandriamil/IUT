@@ -140,7 +140,7 @@ public class BagTest extends TestCase {
 	public void testContainsWithNormalBag() {
 		System.out.println("Test of contains() with a normal bag and an element contained in it:");
 		assertEquals(true, normalBag.contains(1));
-		System.out.println("\n");
+		System.out.println("OK \n");
 	}
 
 	@Test
@@ -212,6 +212,7 @@ public class BagTest extends TestCase {
 		assertEquals(true, normalBag.remove(5));
 		assertEquals(9, normalBag.size());
 		System.out.println("After:" + "\n" + normalBag.toString());
+		System.out.println("OK \n");
 	}
 
 	@Test
@@ -238,6 +239,7 @@ public class BagTest extends TestCase {
 	public void testContainsAllNormal() {
 		System.out.println("Test of containsAll() with a normal bag:");
 		assertEquals(true, normalBag.containsAll(cloneNormalBag));
+		System.out.println("OK \n");
 	}
 
 	@Test
@@ -252,6 +254,7 @@ public class BagTest extends TestCase {
 		System.out.println("Test of containsAll() with an empty bag compared to a non empty one:");
 		assertEquals(true, normalBag.containsAll(emptyBag)); //true because normalBag contains the empty one ...
 		assertEquals(false, emptyBag.containsAll(normalBag));
+		System.out.println("OK \n");
 	}
 
 
@@ -310,6 +313,7 @@ public class BagTest extends TestCase {
 		assertEquals(true, normalBag.removeAll(partNormalBag));
 		assertEquals(4, normalBag.size());
 		System.out.println("After:" + "\n" + normalBag.toString());
+		System.out.println("OK \n");
 	}
 
 	@Test
@@ -320,6 +324,7 @@ public class BagTest extends TestCase {
 		assertEquals(true, normalBag.removeAll(cloneNormalBag));
 		assertEquals(0, normalBag.size());
 		System.out.println("After:" + "\n" + normalBag.toString());
+		System.out.println("OK \n");
 	}
 
 
