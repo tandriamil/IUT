@@ -175,21 +175,39 @@ public class BagTest extends TestCase {
 
 
 //Test of toArray() number two
-	/* DUNNO HOW IT WORKS
 	@Test
 	public void testToArrayNumberTwoNormal() {
 		System.out.println("Test of the second toArray() with a normal bag:");
-		int[] array = normalBag.toArray(new int[10]);
+		Integer[] array = new Integer[10];
+		normalBag.toArray(array);
+
+		//For displaying it
+		String ret = "";
+
+		for (int i = 0; i < array.length; i++) {
+			ret = ret + array[i] + " | ";
+		}
+
+		System.out.println("Displaying the table obtained:" + "\n" + ret);
+		System.out.println("OK \n");
 	}
 
 	@Test
 	public void testToArrayNumberTwoEmpty() {
 		System.out.println("Test of the second toArray() with an empty bag:");
-		int[] array = emptyBag.toArray(new int[0]);
-		assertEquals(0, array.length);
+		Integer[] array = new Integer[10];
+		emptyBag.toArray(array);
+
+		//For displaying it
+		String ret = "";
+
+		for (int i = 0; i < array.length; i++) {
+			ret = ret + array[i] + " | ";
+		}
+
+		System.out.println("Displaying the table obtained:" + "\n" + ret);
 		System.out.println("OK \n");
 	}
-	*/
 
 
 //Test of remove()
@@ -222,6 +240,20 @@ public class BagTest extends TestCase {
 		assertEquals(10, normalBag.size());
 		assertEquals(false, normalBag.remove(42));
 		assertEquals(10, normalBag.size());
+		System.out.println("After:" + "\n" + normalBag.toString());
+		System.out.println("OK \n");
+	}
+
+	@Test
+	//We can't really test this because the iterator used isn't the same!
+	public void testRemoveTwoTimes() {
+		System.out.println("Test of remove() two times in a row:");
+		System.out.println("Before:" + "\n" + normalBag.toString());
+		assertEquals(10, normalBag.size());
+		assertEquals(true, normalBag.remove(5));
+		assertEquals(9, normalBag.size());
+		assertEquals(true, normalBag.remove(1));
+		assertEquals(8, normalBag.size());
 		System.out.println("After:" + "\n" + normalBag.toString());
 		System.out.println("OK \n");
 	}
@@ -407,5 +439,157 @@ public class BagTest extends TestCase {
 		assertEquals(0, normalBag.size());
 		System.out.println("After:" + "\n" + normalBag.toString());
 		System.out.println("OK \n");
+	}
+
+
+//Here, we'll have the tests which aren't really unitary and which are more complex
+	@Test
+	public void testReallyRandom() {
+		System.out.println("Test if the placment of those numbers is really random:");
+
+		//Firstly, we'll see that for the number one
+		int[] caseOfNumberOne = new int[10];
+		int[] caseOfNumberTwo = new int[10];
+		int[] caseOfNumberThree = new int[10];
+		int[] caseOfNumberFour = new int[10];
+		int[] caseOfNumberFive = new int[10];
+		int[] caseOfNumberSix = new int[10];
+		int[] caseOfNumberSeven = new int[10];
+		int[] caseOfNumberEight = new int[10];
+		int[] caseOfNumberNine = new int[10];
+		int[] caseOfNumberTen = new int[10];
+
+		for (int x = 0; x < 10; x++) {
+			caseOfNumberOne[x] = 0;
+			caseOfNumberTwo[x] = 0;
+			caseOfNumberThree[x] = 0;
+			caseOfNumberFour[x] = 0;
+			caseOfNumberFive[x] = 0;
+			caseOfNumberSix[x] = 0;
+			caseOfNumberSeven[x] = 0;
+			caseOfNumberEight[x] = 0;
+			caseOfNumberNine[x] = 0;
+			caseOfNumberTen[x] = 0;
+		}
+
+		//The table where we'll save the array
+		Integer[] array = new Integer[10];
+		
+		//Repetition of the placement about 1000 times
+		for (int i = 1; i <= 1000; i++) {
+			/*System.out.println(i + " " + normalBag.toString());*/
+
+			//Saving the current array to a table
+			normalBag.toArray(array);
+
+			//We'll watch where is the number 1
+			for (int j = 0; j < 10; j++) {
+				if (array[j] == 1) {
+					caseOfNumberOne[j] = caseOfNumberOne[j] + 1;
+				}
+
+				if (array[j] == 2) {
+					caseOfNumberTwo[j] = caseOfNumberTwo[j] + 1;
+				}
+
+				if (array[j] == 3) {
+					caseOfNumberThree[j] = caseOfNumberThree[j] + 1;
+				}
+
+				if (array[j] == 4) {
+					caseOfNumberFour[j] = caseOfNumberFour[j] + 1;
+				}
+
+				if (array[j] == 5) {
+					caseOfNumberFive[j] = caseOfNumberFive[j] + 1;
+				}
+
+				if (array[j] == 6) {
+					caseOfNumberSix[j] = caseOfNumberSix[j] + 1;
+				}
+
+				if (array[j] == 7) {
+					caseOfNumberSeven[j] = caseOfNumberSeven[j] + 1;
+				}
+
+				if (array[j] == 8) {
+					caseOfNumberEight[j] = caseOfNumberEight[j] + 1;
+				}
+
+				if (array[j] == 9) {
+					caseOfNumberNine[j] = caseOfNumberNine[j] + 1;
+				}
+
+				if (array[j] == 10) {
+					caseOfNumberTen[j] = caseOfNumberTen[j] + 1;
+				}
+			}
+
+			normalBag.clear();
+			normalBag.addAll(cloneNormalBag);
+		}
+
+		//Counting the numbers of times where the numbers were in a case
+		System.out.println("For the number 1:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number one was " + caseOfNumberOne[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 2:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number two was " + caseOfNumberTwo[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 3:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number three was " + caseOfNumberThree[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 4:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number four was " + caseOfNumberFour[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 5:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number five was " + caseOfNumberFive[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 6:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number six was " + caseOfNumberSix[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 7:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number seven was " + caseOfNumberSeven[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 8:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number eight was " + caseOfNumberEight[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 9:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number nine was " + caseOfNumberNine[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\nFor the number 10:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("The number ten was " + caseOfNumberTen[i] + " times in the case " + i + ".");
+		}
+
+		System.out.println("\n");
 	}
 }
