@@ -1,0 +1,180 @@
+/*Le corps de toute la page*/
+body {
+	background: url("../img/fond.jpg") fixed top repeat-x white;
+}
+
+/*Le header*/
+#header {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	width: 979px;
+	height: 201px;
+	border: medium none;
+	text-align: center;
+}
+
+#logo {
+	padding-left: 10px;
+	display: inline-block;
+	width: 150px;
+	height: 201px;
+	float: left;
+	border: solid 1px transparent;
+}
+
+#logo img {
+	border-radius: 16px 16px 16px 16px;
+}
+
+#logo img:hover {
+	position: relative;
+	top: 1px;
+	left: 1px;
+	text-decoration: none;
+}
+
+#banner {
+	display: inline-block;
+	float:  right;
+	width: 810px;
+	height: 201px;
+	border: medium none;
+}
+
+
+
+/*La page centrée au milieu*/
+#pageEntiere {
+	width: 999px;
+	position: relative;
+	margin-right: auto; /*Permet de centrer le bloc*/
+	margin-left: auto;
+	border: medium none;
+}
+
+
+
+/*Le contenu de la page*/
+article {
+	margin-right: 15px;
+	margin-left: 15px;
+	text-align: justify;
+}
+
+article h2 {
+	padding-top: 18px;
+}
+
+h1 {
+	text-align: center;
+}
+
+#formulaire {
+	padding-left: 50px;
+}
+
+#button {
+	display: block;
+	background: cyan;
+	text-align: center;
+	width: 150px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+
+#button:hover {
+	background-color: grey;
+}
+
+
+/*Boutons du menu*/
+nav a {
+	display: block;
+    color : green;
+    font : bold 20px 'Satisfy',Arial ,Helvetica ,sans-serif;
+    line-height : 35px;
+    text-decoration : none;
+    width : 119px;
+	border: 1px solid silver;
+	box-shadow: 2px 2px 5px grey;
+    background: url("../img/menu.png") #c3e38c repeat-x;
+}
+
+nav a:hover {
+	text-decoration: none;
+    color : green;
+    background: url("../img/menuhover.png") repeat-x #89c322;
+	position: relative;
+	top: 5px;
+}
+
+nav li {
+	display: inline-block;
+	height: 35px;
+	width: 120px;
+	list-style: none;
+	text-align: center;
+	margin-right: -2px;
+	margin-left: -2px;
+}
+
+nav ul {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0;
+}
+
+nav .premierLien {
+	background: url("../img/acceuil.png") repeat-x #cc0000;
+	color: white;
+	border-radius: 8px 0px 0px 8px;
+}
+
+nav .premierLien:hover {
+	background: url("../img/acceuilhover.png") repeat-x #87c819;
+    color: white;
+}
+
+nav .dernierLien {
+	border-radius: 0px 8px 8px 0px;
+}
+
+
+/* Le menu de gauche */
+#menuGauche {
+	display: block;
+	width: 172px;
+	height: 110px;
+	float: left;
+}
+
+#titreMenuGauche {
+	display: block;
+	height: 26px;
+	border: 1px solid grey;
+	text-align: center;
+	border-radius: 8px 8px 0px 0px;
+	background: url("../img/acceuil.png") repeat-x #cc0000;
+}
+
+#corpsMenuGauche {
+	display: block;
+	height: 84px;
+	border: 1px solid grey;
+	text-align: center;
+	list-style: none;
+	background: white;
+}
+
+
+/*Le footer ici*/
+footer {
+	margin-top: 20px;
+	text-align: center;
+	padding: 15px;
+}
