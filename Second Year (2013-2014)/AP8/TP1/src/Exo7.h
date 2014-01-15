@@ -3,7 +3,7 @@
 
 //Define the include
 #include <iostream>
-#include <isstream>
+#include <istream>
 
 //Define the namespace
 using namespace std;
