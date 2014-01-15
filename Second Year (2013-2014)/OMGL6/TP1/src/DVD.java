@@ -1,3 +1,5 @@
+package media;
+
 /**
  * The DVD class represents a DVD object. Information about the 
  * DVD is stored and can be retrieved. We assume that we only deal 

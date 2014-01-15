@@ -1,3 +1,5 @@
+package media;
+
 /**
  * The CD class represents a CD object. Information about the 
  * CD is stored and can be retrieved.
