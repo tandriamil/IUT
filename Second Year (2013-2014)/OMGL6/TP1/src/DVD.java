@@ -33,7 +33,7 @@ public class DVD
      * Enter a genre for this DVD.
      * @param genre The genre to be entered.
      */
-    public void setgenre(Genre genre)
+    public void setGenre(Genre genre)
     {
         this.genre = genre;
     }
