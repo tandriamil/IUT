@@ -34,7 +34,7 @@ public class CD
      * Enter a genre for this CD.
      * @param genre The genre to be entered.
      */
-    public void setGenret(Genre genre)
+    public void setGenre(Genre genre)
     {
         this.genre = genre;
     }
