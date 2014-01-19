@@ -9,6 +9,13 @@ package media;
 public class DVD extends Item {
 
     /**
+     * Empty constructor
+     */
+    public DVD() {
+        System.out.println("Titre: " + this.title + "\n Artiste: " + this.artist + "\n Temps joué: " + this.playingTime + "\n Possédé: " + this.gotIt + "\n Genre: " + this.genre);
+    }
+
+    /**
      * Constructor for objects of class DVD
      * @param theTitle The title of this DVD
      * @param theDirector The director of this DVD
@@ -21,22 +28,22 @@ public class DVD extends Item {
         this.playingTime = time;
         this.gotIt = false;
         this.genre = theGenre;
+        System.out.println("Titre: " + this.title + "\n Artiste: " + this.artist + "\n Temps joué: " + this.playingTime + "\n Possédé: " + this.gotIt + "\n Genre: " + this.genre);
     }
 
 
     /**
      * Print details about this DVD to the text terminal.
      */
-    public void print()
+    public void toString()
     {
-        System.out.print("DVD: " + title + " (" + playingTime + " mins)");
+        String ret = "";
+        ret = ret + "DVD: " + title + " (" + playingTime + " mins)";
         if(gotIt) {
-            System.out.println("*");
+            ret = ret + "*";
         }
-	else {
-            System.out.println();
-        }
-        System.out.println("    " + artist);
-        System.out.println("    " + genre);
+
+        ret = ret + "    " + artist;
+        ret = ret + "    " + genre;
     }
 }

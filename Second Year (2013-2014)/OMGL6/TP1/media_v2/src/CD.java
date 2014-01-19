@@ -9,6 +9,13 @@ public class CD extends Item {
     private int numberOfTracks;
 
     /**
+     * Empty constructor
+     */
+    public CD() {
+        System.out.println("Titre: " + this.title + "\n Artiste: " + this.artist + "\n Temps joué: " + this.playingTime + "\n Possédé: " + this.gotIt + "\n Genre: " + this.genre);
+    }
+
+    /**
      * Initialize the CD.
      * @param theTitle The title of the CD.
      * @param theArtist The artist of the CD.
@@ -21,6 +28,8 @@ public class CD extends Item {
         this.gotIt = false;
         this.numberOfTracks = 0;
         this.genre = theGenre;
+
+        System.out.println("Titre: " + this.title + "\n Artiste: " + this.artist + "\n Temps joué: " + this.playingTime + "\n Possédé: " + this.gotIt + "\n Genre: " + this.genre);
     }
 
 
@@ -36,17 +45,17 @@ public class CD extends Item {
     /**
      * Print details about this CD to the text terminal.
      */
-    public void print()
+    public void toString()
     {
-        System.out.print("CD: " + title + " (" + playingTime + " mins)");
+        String ret = "";
+        ret = ret + "CD: " + title + " (" + playingTime + " mins)";
+
         if(gotIt) {
-            System.out.println("*");
+            ret = ret + "*";
         }
-	else {
-            System.out.println();
-        }
-        System.out.println("    " + artist);
-        System.out.println("    tracks: " + this.numberOfTracks);
-        System.out.println("    " + genre);
+
+        ret = ret + "    " + artist;
+        ret = ret + "    tracks: " + this.numberOfTracks;
+        ret = ret + "    " + genre;
     }
 }

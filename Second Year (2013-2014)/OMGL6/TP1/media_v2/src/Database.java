@@ -35,16 +35,9 @@ public class Database
      */
     public void list()
     {
-        // print list of CDs
-        for(CD cd : medias) {
-            cd.print();
-            System.out.println();   // empty line between items
-        }
-
-        // print list of DVDs
-        for(DVD dvd : medias) {
-            dvd.print();
-            System.out.println();   // empty line between items
+        while (this.medias.hasNext()) {
+            Item it = this.medias.next();
+            System.out.println(it.toString());
         }
     }
 }

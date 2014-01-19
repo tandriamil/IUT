@@ -12,6 +12,13 @@ public abstract class Item {
     protected Genre genre;
 
 
+    /**
+     * Empty constructor
+     */
+    public Item() {
+        System.out.println("Titre: " + this.title + "\n Artiste: " + this.artist + "\n Temps joué: " + this.playingTime + "\n Possédé: " + this.gotIt + "\n Genre: " + this.genre);
+    }
+
    	/**
      * Constructor for objects of class Item
      * @param theTitle The title of this Item
@@ -25,6 +32,8 @@ public abstract class Item {
         this.playingTime = time;
         this.gotIt = false;
         this.genre = theGenre;
+
+        System.out.println("Titre: " + this.title + "\n Artiste: " + this.artist + "\n Temps joué: " + this.playingTime + "\n Possédé: " + this.gotIt + "\n Genre: " + this.genre);
     }
 
 
@@ -59,10 +68,4 @@ public abstract class Item {
     public boolean getOwn() {
         return gotIt;
     }
-
-
-    /**
-     * Print details about this Item to the text terminal
-     */
-    public abstract void print();
 }

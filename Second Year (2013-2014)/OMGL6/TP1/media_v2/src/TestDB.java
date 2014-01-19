@@ -24,14 +24,14 @@ public class TestDB {
 		CD riseAgainst = new CD("Savior", "Rise Against", 40, Genre.ROCK);
 
 		//Inserts the objects
-		db.addDVD(lotr);
-		db.addDVD(enterTheVoid);
-		db.addDVD(requiemForADream);
+		db.addItem(lotr);
+		db.addItem(enterTheVoid);
+		db.addItem(requiemForADream);
 
-		db.addCD(justinBieber);
-		db.addCD(queen);
-		db.addCD(nightwish);
-		db.addCD(riseAgainst);
+		db.addItem(justinBieber);
+		db.addItem(queen);
+		db.addItem(nightwish);
+		db.addItem(riseAgainst);
 
 		//Then displays the db
 		db.list();
