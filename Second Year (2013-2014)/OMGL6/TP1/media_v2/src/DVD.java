@@ -6,62 +6,23 @@ package media;
  * with movie DVDs at this stage.
  * 
  */
-public class DVD 
-{
-    private String title;
-    private String director;
-    private int playingTime; // playing time of the main feature
-    private boolean gotIt;
-    private Genre genre;
+public class DVD extends Item {
 
     /**
      * Constructor for objects of class DVD
-     * @param theTitle The title of this DVD.
-     * @param theDirector The director of this DVD.
-     * @param time The running time of the main feature.
+     * @param theTitle The title of this DVD
+     * @param theDirector The director of this DVD
+     * @param time The running time of the main feature
+     * @param theGenre The category of this DVD
      */
-    public DVD(String theTitle, String theDirector, int time, Genre theGenre)
-    {
-        title = theTitle;
-        director = theDirector;
-        playingTime = time;
-        gotIt = false;
-        genre = theGenre;
+    public DVD(String theTitle, String theDirector, int time, Genre theGenre) {
+        this.title = theTitle;
+        this.artist = theDirector;
+        this.playingTime = time;
+        this.gotIt = false;
+        this.genre = theGenre;
     }
 
-    /**
-     * Enter a genre for this DVD.
-     * @param genre The genre to be entered.
-     */
-    public void setGenre(Genre genre)
-    {
-        this.genre = genre;
-    }
-
-    /**
-     * @return The genre for this DVD.
-     */
-    public Genre getGenre()
-    {
-        return genre;
-    }
-
-    /**
-     * Set the flag indicating whether we own this DVD.
-     * @param ownIt true if we own the DVD, false otherwise.
-     */
-    public void setOwn(boolean ownIt)
-    {
-        gotIt = ownIt;
-    }
-
-    /**
-     * @return true if we own a copy of this DVD.
-     */
-    public boolean getOwn()
-    {
-        return gotIt;
-    }
 
     /**
      * Print details about this DVD to the text terminal.
@@ -75,7 +36,7 @@ public class DVD
 	else {
             System.out.println();
         }
-        System.out.println("    " + director);
+        System.out.println("    " + artist);
         System.out.println("    " + genre);
     }
 }
