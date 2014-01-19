@@ -10,34 +10,23 @@ import java.util.ArrayList;
  */
 public class Database
 {
-    private ArrayList<CD> cds;
-    private ArrayList<DVD> dvds;
+    private ArrayList<Item> medias;
 
     /**
      * Construct an empty Database.
      */
     public Database()
     {
-        cds = new ArrayList<CD>();
-        dvds = new ArrayList<DVD>();
+        this.medias = new ArrayList<Item>();
     }
 
     /**
-     * Add a CD to the database.
-     * @param theCD The CD to be added.
+     * Add an Item to the database.
+     * @param theItem The Item to be added.
      */
-    public void addCD(CD theCD)
+    public void addItem(Item theItem)
     {
-        cds.add(theCD);
-    }
-
-    /**
-     * Add a DVD to the database.
-     * @param theDVD The DVD to be added.
-     */
-    public void addDVD(DVD theDVD)
-    {
-        dvds.add(theDVD);
+        this.medias.add(theItem);
     }
 
     /**
@@ -47,13 +36,13 @@ public class Database
     public void list()
     {
         // print list of CDs
-        for(CD cd : cds) {
+        for(CD cd : medias) {
             cd.print();
             System.out.println();   // empty line between items
         }
 
         // print list of DVDs
-        for(DVD dvd : dvds) {
+        for(DVD dvd : medias) {
             dvd.print();
             System.out.println();   // empty line between items
         }
