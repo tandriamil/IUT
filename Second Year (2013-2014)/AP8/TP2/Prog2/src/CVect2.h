@@ -10,9 +10,9 @@ class CVect2 {
 		double*	m_pAdr;
 
 	public:
-		CVect2 ( int n );
+		CVect2 (int n);
 		// Constructeur de recopie (voir poly)
-		CVect2 ( const CVect2& );
+		CVect2 (const CVect2&);
 		~CVect2();
 };
 

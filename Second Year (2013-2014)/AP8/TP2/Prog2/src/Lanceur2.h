@@ -4,6 +4,6 @@
 #include "CVect2.h"
 #include "AllIncludes.h"
 
-void fct ( CVect2 b );
+void fct (CVect2 b);
 
 #endif /*LANCEUR2_H_*/
