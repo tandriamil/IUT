@@ -30,5 +30,7 @@ CPoint :: CPoint () {
  * @param toCopy The object to copy, const for not editing it
  */
 CPoint :: CPoint (const CPoint& toCopy) {
-	
+		m_Abs = toCopy.m_Abs;
+		m_Ord = toCopy.m_Ord; 
+	cout << "Copy constructor operation is a success, sir !!" << this << endl;
 }
