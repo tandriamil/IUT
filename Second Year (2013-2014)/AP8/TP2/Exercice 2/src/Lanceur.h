@@ -1,7 +1,6 @@
-#ifndef LANCEUR
-#define LANCEUR
+#ifndef LANCEUR_H_
+#define LANCEUR_H_
 
 #include "CPoint.h"
-#include "Lanceur.h"
 
-#endif
+#endif /*LANCEUR_H_*/
