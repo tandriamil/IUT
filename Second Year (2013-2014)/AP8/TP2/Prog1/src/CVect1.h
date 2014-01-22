@@ -10,7 +10,7 @@ class CVect1 {
 		double*	m_pAdr;
 
 	public:
-		CVect1 ( int n );
+		CVect1 (int n);
 		// Destructeur
 		~CVect1();
 };

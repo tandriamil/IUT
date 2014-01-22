@@ -4,6 +4,6 @@
 #include "CVect1.h"
 #include "AllIncludes.h"
 
-void fct ( CVect1 b );
+void fct (CVect1 b);
 
 #endif /*LANCEUR1_H_*/
