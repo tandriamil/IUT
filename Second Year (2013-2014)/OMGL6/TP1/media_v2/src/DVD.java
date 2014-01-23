@@ -35,7 +35,7 @@ public class DVD extends Item {
     /**
      * Print details about this DVD to the text terminal.
      */
-    public void toString()
+    public String toString()
     {
         String ret = "";
         ret = ret + "DVD: " + title + " (" + playingTime + " mins)";
@@ -45,5 +45,6 @@ public class DVD extends Item {
 
         ret = ret + "    " + artist;
         ret = ret + "    " + genre;
+        return ret;
     }
 }

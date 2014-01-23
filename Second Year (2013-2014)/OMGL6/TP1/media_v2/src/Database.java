@@ -35,8 +35,8 @@ public class Database
      */
     public void list()
     {
-        while (this.medias.hasNext()) {
-            Item it = this.medias.next();
+        while (this.medias.iterator().hasNext()) {
+            Item it = this.medias.iterator().next();
             System.out.println(it.toString());
         }
     }
