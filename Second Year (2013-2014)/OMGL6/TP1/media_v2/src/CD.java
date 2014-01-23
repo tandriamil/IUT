@@ -45,7 +45,7 @@ public class CD extends Item {
     /**
      * Print details about this CD to the text terminal.
      */
-    public void toString()
+    public String toString()
     {
         String ret = "";
         ret = ret + "CD: " + title + " (" + playingTime + " mins)";
@@ -57,5 +57,6 @@ public class CD extends Item {
         ret = ret + "    " + artist;
         ret = ret + "    tracks: " + this.numberOfTracks;
         ret = ret + "    " + genre;
+        return ret;
     }
 }

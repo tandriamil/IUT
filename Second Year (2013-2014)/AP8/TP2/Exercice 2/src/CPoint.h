@@ -14,6 +14,11 @@ class CPoint {
 		CPoint (int x, int y);
 		CPoint ();
 		CPoint (const CPoint& toCopy);
+		void setAbs (int x);
+		void setOrd (int y);
+		int getAbs ();
+		int getOrd ();
+		void presentation ();
 };
 
 #endif /*CPOINT_H_*/
