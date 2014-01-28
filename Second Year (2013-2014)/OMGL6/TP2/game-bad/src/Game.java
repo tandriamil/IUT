@@ -28,32 +28,21 @@ public class Game {
      * Create all the rooms and link their exits together.
      */
     private void createRooms() {
-        Room outside, kitchen, fridgedRoom, bedroom, bathroom, toilets, closet, secretStairs, secretDoor, outRoom, sortie;
+        Room outside, theatre, pub, lab, office;
       
         // create the rooms
-        outside = new Room("outside, in front of an enormous door");
-        kitchen = new Room("little kitchen");
-        fridgedRoom = new Room("fridged room, care it's cold!");
-        bedroom = new Room("closy bedroom");
-        bathroom = new Room("big and classy bathroom");
-        toilets = new Room("little toilets");
-        closet = new Room("little closet");
-        secretStairs = new Room("secret stairs");
-        secretDoor = new Room("secret door behind the toilets");
-        outRoom = new Room("in front of the exit door");
-        sortie = new Room("exit, finally!");
+        outside = new Room("outside the main entrance of the university");
+        theatre = new Room("in a lecture theatre");
+        pub = new Room("in the campus pub");
+        lab = new Room("in a computing lab");
+        office = new Room("in the computing admin office");
         
         // initialise room exits
-        outside.setExits(kitchen, null, null, null);
-        kitchen.setExits(bedroom, fridgedRoom, outside, null);
-        bedroom.setExits(null, bathroom, kitchen, closet);
-        closet.setExits(secretStairs, closet, null, null);
-        secretStairs.setExits(null, outRoom, null, closet);
-        bathroom.setExits(toilets, null, null, bedroom);
-        toilets.setExits(secretDoor, null, bathroom, null);
-        outRoom.setExits(sortie, secretDoor, null, secretStairs);
-        secretDoor.setExits(null, null, toilets, outRoom);
-        sortie.setExits(null, null, outRoom, null);
+        outside.setExits(null, theatre, lab, pub);
+        theatre.setExits(null, null, null, outside);
+        pub.setExits(null, outside, null, null);
+        lab.setExits(outside, office, null, null);
+        office.setExits(null, null, null, lab);
 
         currentRoom = outside;  // start game outside
     }
