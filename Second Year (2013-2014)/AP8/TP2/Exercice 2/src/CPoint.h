@@ -19,6 +19,7 @@ class CPoint {
 		int getAbs ();
 		int getOrd ();
 		void presentation ();
+		~CPoint ();
 };
 
 #endif /*CPOINT_H_*/

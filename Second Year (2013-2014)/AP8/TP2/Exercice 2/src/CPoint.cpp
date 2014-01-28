@@ -7,12 +7,12 @@
  */
 CPoint :: CPoint (int x, int y) {
 	//Initializes the two attributes
-	m_Abs = x;
-	m_Ord = y;
+	this -> m_Abs = x;
+	this -> m_Ord = y;
 
 	//Then prints a message
-	cout << "Construction de l'objet CPoint d'adresse : " << this << endl;
-	cout << "Abscisses initilisées à " << m_Abs << " et Ordonnées à " << m_Ord << "." << endl;
+	cout << "Construction et initialisation par paramètres de l'objet CPoint d'adresse : " << this << endl;
+	
 }
 
 
@@ -20,21 +20,21 @@ CPoint :: CPoint (int x, int y) {
  * The second constructor without parameters
  */
 CPoint :: CPoint () {
-	m_Abs = 0;
-	m_Ord = 0;
+	this -> m_Abs = 0;
+	this -> m_Ord = 0;
 	//Just prints a message
-	cout << "Construction de l'objet CPoint sans paramètres et initialisation des paramètres à 0 : " << this << endl;
+	cout << "Construction de l'objet CPoint sans paramètres et initialisation des paramètres à 0 à l'adresse : " << this << "." << endl;
 }
 
 
 /**
  * The copy constructor
- * @param toCopy The object to copy, const for not editing it
+ * @param toCopy The object to copy, const to set it to not editable
  */
 CPoint :: CPoint (const CPoint& toCopy) {
-		m_Abs = toCopy.m_Abs;
-		m_Ord = toCopy.m_Ord; 
-	cout << "Copy constructor operation is a success, sir !!" << this << endl;
+		this -> m_Abs = toCopy.m_Abs;
+		this -> m_Ord = toCopy.m_Ord; 
+	cout << "Copy constructor operation is a success, sir, " << "and adress is " << this << "." << endl;
 }
 
 /**
@@ -42,7 +42,7 @@ CPoint :: CPoint (const CPoint& toCopy) {
 * @return the integer m_Abs
 */
 int CPoint :: getAbs () {
-	return  m_Abs;
+	return this -> m_Abs;
 }
 
 /**
@@ -50,7 +50,7 @@ int CPoint :: getAbs () {
 * @return the integer m_Ord
 */
  int CPoint :: getOrd () {
-	return m_Ord;
+	return this -> m_Ord;
 }
 
 /**
@@ -58,7 +58,7 @@ int CPoint :: getAbs () {
 * @param an integer x to replace the original value
 */
 void CPoint :: setAbs (int x) {
-	m_Abs = x;
+	this -> m_Abs = x;
 }
 
 /**
@@ -66,12 +66,19 @@ void CPoint :: setAbs (int x) {
 * @param an integer y to replace the original value
 */
 void CPoint :: setOrd (int y) {
-	m_Ord = y;
+	this -> m_Ord = y;
 }
 
 /**
 * presentation method
 */
 void CPoint :: presentation () {
-	cout << "abscisse = " << m_Abs << " " << "ordonnée = " << m_Ord << endl;
+	cout << "abscisse = " << this -> m_Abs << " " << "ordonnée = " << this -> m_Ord << "\n" << endl;
+}
+
+/**
+* destructor
+*/
+CPoint :: ~CPoint () {
+	cout << "destruction de l'objet CPoint d'adresse : " << this << "\n" << endl;
 }

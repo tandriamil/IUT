@@ -1,6 +1,17 @@
-#ifndef LANCEUR_H_
-#define LANCEUR_H_
+#ifndef Lanceur_H_
+#define Lanceur_H_
 
+#include <iostream>
 #include "CPoint.h"
+using namespace std;
 
-#endif /*LANCEUR_H_*/
+
+
+void functionByValue (CPoint cVal);
+void functionByReference (CPoint &cRef);
+void functionByPointer (CPoint *cPoint);
+
+
+
+
+#endif /*Lanceur_H_*/
