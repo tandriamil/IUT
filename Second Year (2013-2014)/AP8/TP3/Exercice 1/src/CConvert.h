@@ -19,6 +19,7 @@ class CConvert {
 		double getDouble();
 		string getString();
 		~CConvert();
+		void presentation();
 };
 
 #endif
