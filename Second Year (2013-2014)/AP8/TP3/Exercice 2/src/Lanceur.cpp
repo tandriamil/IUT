@@ -8,5 +8,10 @@ int main () {
 
 	CManFch f2 ("/home/nap/Téléchargements/coin.ach");
 	f2.afficherAttributs();
+	f2.afficherFichier();
+
+	CManFch f3 ("/home/nap/Téléchargements/coin.bin");
+	f3.afficherAttributs();
+	f3.afficherFichier();
 
 }

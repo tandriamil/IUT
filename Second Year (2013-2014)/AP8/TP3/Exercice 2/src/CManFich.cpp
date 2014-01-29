@@ -122,7 +122,7 @@ void CManFch::afficherFichier() {
 	else if (this->m_TypeFich == 2) {
 		//Creates the full location and name of the file
 		string fullFile;
-		fullFile = this->m_EmplcmtFich + this->m_NomFich;
+		fullFile = this->m_EmplcmtFich + "/" + this->m_NomFich;
 		const char* nameFile = (char*)fullFile.c_str();
 
 		//Opens the file
@@ -130,17 +130,15 @@ void CManFch::afficherFichier() {
 
 		//If everything's ok
 		if (ifs) {
-			//Configures the output (display on screen)
-			cout.setf(ios::hex, ios::basefield);
-			cout.setf(ios::showbase);
-
 			//Var to store the line and one to store the number of line
 			string line;
 			int i = 0;
 
 			//Reads the file line by line
 			while (getline(ifs, line)) {
-				//Displays the line number
+				//Configures the output (display on screen)
+				cout.setf(ios::hex, ios::basefield);
+				cout.setf(ios::showbase);
 				cout.fill('0');
 				cout.width(5);
 				cout << std::right << i;
