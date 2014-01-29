@@ -17,6 +17,8 @@ class CConvert {
 		CConvert();
 		CConvert(string str);
 		CConvert(double dbl);
+		double getReel();
+		string getString();
 		~CConvert();
 };
 
