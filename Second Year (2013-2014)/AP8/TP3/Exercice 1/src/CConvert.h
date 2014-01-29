@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ class CConvert {
 		string getString();
 		~CConvert();
 		void presentation();
+		void affiche();
 };
 
 #endif

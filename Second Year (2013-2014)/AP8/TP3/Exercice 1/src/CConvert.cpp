@@ -72,3 +72,12 @@ double CConvert::getDouble() {
 void CConvert::presentation() {
 	cout << "String attribute = " << this -> m_Str << "Double attribute = " << this -> m_Dbl << endl;
 }
+
+/**
+* the affiche methode
+*/
+void CConvert::affiche() {
+	double f = this -> m_Dbl;
+	std::cout << std::setprecision(5) << "La valeur est : " << f << '\n';
+
+}
