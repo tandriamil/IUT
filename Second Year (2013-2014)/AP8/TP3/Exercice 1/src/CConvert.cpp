@@ -47,3 +47,21 @@ CConvert::CConvert(double dbl) {
 CConvert::~CConvert() {
 	cout << "Destruction de l'objet CConvert d'adresse : " << this << "\n" << endl;
 }
+
+
+/**
+ * Accessor of the string
+ * @return The string of this object
+ */
+CConvert::getString() {
+
+}
+
+
+/**
+ * Accessor of the double
+ * @return The double of this object
+ */
+CConvert::getDouble() {
+	
+}
