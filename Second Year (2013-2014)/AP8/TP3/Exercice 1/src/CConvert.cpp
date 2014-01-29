@@ -29,7 +29,11 @@ CConvert::CConvert(string str) {
 
 
 	//Then prints a message
+<<<<<<< HEAD
 	cout << "Construction et initialisation des variables à " << str << " et à " << converted <<  "de l'objet CConvert d'adresse : " << this << endl;
+=======
+	cout << "Construction et initialisation des variables à " << this->m_Dbl << " et à " << str << " de l'objet CPoint d'adresse : " << this << endl;
+>>>>>>> f0b12885ff959259ac042aa9fb89f40fea17afbc
 }
 
 
@@ -42,10 +46,16 @@ CConvert::CConvert(double dbl) {
 	this->m_Dbl = dbl;
 
 	//Creates the string
-
+	ostringstream tmp;
+	tmp << dbl;
+	this->m_Str = tmp.str();
 
 	//Then prints a message
+<<<<<<< HEAD
 	cout << "Construction et initialisation des variables à une valeur et à \"\" de l'objet CConvert d'adresse : " << this << endl;
+=======
+	cout << "Construction et initialisation des variables à " << dbl << " et à " << this->m_Str << " de l'objet CPoint d'adresse : " << this << endl;
+>>>>>>> f0b12885ff959259ac042aa9fb89f40fea17afbc
 }
 
 
