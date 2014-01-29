@@ -9,7 +9,7 @@ CConvert::CConvert() {
 	this->m_Dbl = 0;
 
 	//Then prints a message
-	cout << "Construction et initialisation des variables à 0 et \"\" de l'objet CPoint d'adresse : " << this << endl;
+	cout << "Construction et initialisation des variables à 0 et \"\" de l'objet CConvert d'adresse : " << this << endl;
 }
 
 
@@ -19,13 +19,17 @@ CConvert::CConvert() {
  */
 CConvert::CConvert(string str) {
 	//Initializes the two attributes
-	this->m_Str = str;
+	this-> m_Str = str;
 
 	//Creates the double
+	istringstream tmp (str);
+	double converted;
+	tmp >> converted;
+	this -> m_Dbl = converted;
 
 
 	//Then prints a message
-	cout << "Construction et initialisation des variables à 0 et à " << str << " de l'objet CPoint d'adresse : " << this << endl;
+	cout << "Construction et initialisation des variables à " << str << " et à " << converted <<  "de l'objet CConvert d'adresse : " << this << endl;
 }
 
 
@@ -41,7 +45,7 @@ CConvert::CConvert(double dbl) {
 
 
 	//Then prints a message
-	cout << "Construction et initialisation des variables à une valeur et à \"\" de l'objet CPoint d'adresse : " << this << endl;
+	cout << "Construction et initialisation des variables à une valeur et à \"\" de l'objet CConvert d'adresse : " << this << endl;
 }
 
 
