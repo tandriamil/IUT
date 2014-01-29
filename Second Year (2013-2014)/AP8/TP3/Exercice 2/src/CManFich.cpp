@@ -88,33 +88,34 @@ void CManFch::afficherFichier() {
 	if (this->m_TypeFich == 1) {
 		//Creates the full location and name of the file
 		string fullFile;
-		fullFile = this->m_EmplcmtFich + this->m_NomFich;
+		fullFile = this->m_EmplcmtFich + "/" + this->m_NomFich;
 		const char* nameFile = (char*)fullFile.c_str();
 
 		//Opens the file
 		ifstream ifs(nameFile, ifstream::in);
 
 		//If everything's ok
-		//if (ifs) {
+		if (ifs) {
 			//Var to store the line
 			string line;
-			int i = 0;
+			int i = 1;
+			cout << endl;
 
 			//Reads the file line by line
 			while (getline(ifs, line)) {
 				//Displays the line number
-				//cout.fill('0');
-				//cout.width(5);
-				//cout << std::right << i;
-				cout << i << ": " << line << endl;
+				cout.fill('0');
+				cout.width(5);
+				cout << std::right << i;
+				cout << ": " << line << endl;
 				i++;
 			}
-		//}
+		}
 
 		//If we can't open the file
-		//else {
-			//cout << "Ouverture du fichier impossible!";
-		//}
+		else {
+			cout << "Ouverture du fichier impossible!";
+		}
 	}
 
 	//If it's a .bin file
