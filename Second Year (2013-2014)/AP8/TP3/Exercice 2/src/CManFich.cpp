@@ -88,6 +88,10 @@ void CManFch::afficherFichier() {
 
 		//If everything's ok
 		if (ifs) {
+			//Configures the output (display on screen)
+			cout.setf(ios::hex, ios::basefield);
+			cout.setf(ios::showbase);
+
 			//Var to store the line and one to store the number of line
 			string line;
 			int i = 0;
