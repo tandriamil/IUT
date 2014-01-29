@@ -2,8 +2,7 @@
 #define CConvert_H_
 
 #include <string>
-#include <istringstream>
-#include <ostringstream>
+#include <iostream>
 
 using namespace std;
 
