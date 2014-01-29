@@ -16,9 +16,10 @@ class CConvert {
 		CConvert();
 		CConvert(string str);
 		CConvert(double dbl);
-		double getReel();
+		double getDouble();
 		string getString();
 		~CConvert();
+		void presentation();
 };
 
 #endif

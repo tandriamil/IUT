@@ -53,8 +53,8 @@ CConvert::~CConvert() {
  * Accessor of the string
  * @return The string of this object
  */
-CConvert::getString() {
-
+string CConvert::getString() {
+	return this -> m_Str;
 }
 
 
@@ -62,6 +62,13 @@ CConvert::getString() {
  * Accessor of the double
  * @return The double of this object
  */
-CConvert::getDouble() {
-	
+double CConvert::getDouble() {
+	return this -> m_Dbl;
+}
+
+/**
+* Presentation method to print attributes
+*/
+void CConvert::presentation() {
+	cout << "String attribute = " << this -> m_Str << "Double attribute = " << this -> m_Dbl << endl;
 }
