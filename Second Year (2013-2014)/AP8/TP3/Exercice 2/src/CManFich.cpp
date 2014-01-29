@@ -62,12 +62,17 @@ void CManFch::afficherFichier() {
 		if (ifs) {
 			//Var to store the line
 			string line;
+			int i = 0;
 
 			//Reads the file line by line
-			getline(ifs, line);
-
-			//Then displays the line
-			cout << line;
+			while (getline(ifs, line)) {
+				//Displays the line number
+				cout.fill('0');
+				cout.width(5);
+				cout << std::right << i;
+				cout << ": " << line << endl;
+				i++;
+			}
 		}
 
 		//If we can't open the file
@@ -98,8 +103,11 @@ void CManFch::afficherFichier() {
 
 			//Reads the file line by line
 			while (getline(ifs, line)) {
-				//Displays the line
-				cout << i << ": " << line << endl;
+				//Displays the line number
+				cout.fill('0');
+				cout.width(5);
+				cout << std::right << i;
+				cout << ": " << line << endl;
 				i++;
 			}
 		}
