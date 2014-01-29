@@ -63,7 +63,11 @@ void CManFch::setNomFichier(string str) {
  * Displays the attributes
  */
 void CManFch::afficherAttributs() {
+<<<<<<< HEAD
 	cout << "Nom du fichier : " << this-> m_NomFich << "\n" << "Emplacement du fichier: " << this->m_EmplcmtFich << "\n" << "Type du fichier: " << this->m_TypeFich << "\n";
+=======
+	cout << "Nom du fichier: " << this->m_NomFich << endl << "Emplacement du fichier: " << this->m_EmplcmtFich << endl << "Type du fichier: " << this->m_TypeFich << endl;
+>>>>>>> 93d1cfd9235e9c48e39750b9ed3d68f850e8370d
 }
 
 
@@ -73,12 +77,68 @@ void CManFch::afficherAttributs() {
 void CManFch::afficherFichier() {
 	//If it's a .txt file
 	if (this->m_TypeFich == 1) {
-		
+		//Creates the full location and name of the file
+		string fullFile;
+		fullFile = this->m_EmplcmtFich + this->m_NomFich;
+		const char* nameFile = (char*)fullFile.c_str();
+
+		//Opens the file
+		ifstream ifs(nameFile, ifstream::in);
+
+		//If everything's ok
+		if (ifs) {
+			//Var to store the line
+			string line;
+
+			//Reads the file line by line
+			getline(ifs, line);
+
+			//Then displays the line
+			cout << line;
+		}
+
+		//If we can't open the file
+		else {
+			cout << "Ouverture du fichier impossible!";
+		}
 	}
 
 	//If it's a .bin file
+<<<<<<< HEAD
 	if (this->m_TypeFich == 2) {
+=======
+	else if (this->m_TypeFich == 2) {
+		//Creates the full location and name of the file
+		string fullFile;
+		fullFile = this->m_EmplcmtFich + this->m_NomFich;
+		const char* nameFile = (char*)fullFile.c_str();
 
+		//Opens the file
+		ifstream ifs(nameFile, ifstream::in);
+
+		//If everything's ok
+		if (ifs) {
+			//Configures the output (display on screen)
+			cout.setf(ios::hex, ios::basefield);
+			cout.setf(ios::showbase);
+
+			//Var to store the line and one to store the number of line
+			string line;
+			int i = 0;
+
+			//Reads the file line by line
+			while (getline(ifs, line)) {
+				//Displays the line
+				cout << i << ": " << line << endl;
+				i++;
+			}
+		}
+>>>>>>> 93d1cfd9235e9c48e39750b9ed3d68f850e8370d
+
+		//If we can't open the file
+		else {
+			cout << "Ouverture du fichier impossible!";
+		}
 	}
 
 	//If there's no file
