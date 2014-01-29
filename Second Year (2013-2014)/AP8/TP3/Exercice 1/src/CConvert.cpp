@@ -58,13 +58,7 @@ CConvert::~CConvert() {
  * @return The string of this object
  */
 string CConvert::getString() {
-<<<<<<< HEAD
-	string ret;
-	ret = m_Str;
-	return ret;
-=======
 	return this -> m_Str;
->>>>>>> 768a3ea3dc91f004f47a91400e5243a347b97563
 }
 
 
@@ -73,11 +67,6 @@ string CConvert::getString() {
  * @return The double of this object
  */
 double CConvert::getDouble() {
-<<<<<<< HEAD
-	double ret;
-	ret = m_Dbl;
-	return ret;
-=======
 	return this -> m_Dbl;
 }
 
@@ -86,5 +75,4 @@ double CConvert::getDouble() {
 */
 void CConvert::presentation() {
 	cout << "String attribute = " << this -> m_Str << "Double attribute = " << this -> m_Dbl << endl;
->>>>>>> 768a3ea3dc91f004f47a91400e5243a347b97563
 }
