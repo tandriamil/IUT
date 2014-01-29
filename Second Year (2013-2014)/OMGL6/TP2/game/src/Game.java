@@ -25,6 +25,7 @@ public class Game {
         parser = new Parser();
     }
 
+
     /**
      * Create all the rooms and link their exits together.
      */
@@ -60,6 +61,7 @@ public class Game {
         exitRoom = sortie;
     }
 
+
     /**
      *  Main play routine.  Loops until end of play.
      */
@@ -77,6 +79,7 @@ public class Game {
         System.out.println("Thank you for playing.  Good bye.");
     }
 
+
     /**
      * Print out the opening message for the player.
      */
@@ -86,18 +89,9 @@ public class Game {
         System.out.println("World of Adventure is a new, incredibly boring adventure game.");
         System.out.println("Type 'help' if you need help.");
         System.out.println();
-        System.out.println("You are " + currentRoom.getDescription());
-        System.out.print("Exits: ");
-        if(currentRoom.northExit != null)
-            System.out.print("north ");
-        if(currentRoom.eastExit != null)
-            System.out.print("east ");
-        if(currentRoom.southExit != null)
-            System.out.print("south ");
-        if(currentRoom.westExit != null)
-            System.out.print("west ");
-        System.out.println();
+        this.printLocation();
     }
+
 
     /**
      * Given a command, process (that is: execute) the command.
@@ -123,6 +117,7 @@ public class Game {
         return wantToQuit;
     }
 
+
     // implementations of user commands:
 
     /**
@@ -137,6 +132,7 @@ public class Game {
         System.out.println("Your command words are:");
         System.out.println("   go quit help");
     }
+
 
     /** 
      * Try to go to one direction. If there is an exit, enter
@@ -170,20 +166,10 @@ public class Game {
         }
         else {
             currentRoom = nextRoom;
-            System.out.println("You are " + currentRoom.getDescription());
-
-            System.out.print("Exits: ");
-            if(currentRoom.northExit != null)
-                System.out.print("north ");
-            if(currentRoom.eastExit != null)
-                System.out.print("east ");
-            if(currentRoom.southExit != null)
-                System.out.print("south ");
-            if(currentRoom.westExit != null)
-                System.out.print("west ");
-            System.out.println();
+            this.printLocation();
         }
     }
+
 
     /** 
      * "Quit" was entered. Check the rest of the command to see
@@ -203,6 +189,25 @@ public class Game {
     public static void main(String[] args) {
     	    Game jeu = new Game();
     	    jeu.play();
+    }
+
+
+    /**
+     * Displays the current location and all the available exits
+     */
+    private void printLocation() {
+        System.out.println("You are " + currentRoom.getDescription());
+
+        System.out.print("Exits: ");
+        if(currentRoom.northExit != null)
+            System.out.print("north ");
+        if(currentRoom.eastExit != null)
+            System.out.print("east ");
+        if(currentRoom.southExit != null)
+            System.out.print("south ");
+        if(currentRoom.westExit != null)
+            System.out.print("west ");
+        System.out.println();
     }
     	    
 }

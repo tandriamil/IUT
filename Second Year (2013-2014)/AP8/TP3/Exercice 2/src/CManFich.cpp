@@ -103,10 +103,10 @@ void CManFch::afficherFichier() {
 			//Reads the file line by line
 			while (getline(ifs, line)) {
 				//Displays the line number
-				cout.fill('0');
-				cout.width(5);
-				cout << std::right << i;
-				cout << ": " << line << endl;
+				//cout.fill('0');
+				//cout.width(5);
+				//cout << std::right << i;
+				cout << i << ": " << line << endl;
 				i++;
 			}
 		//}
