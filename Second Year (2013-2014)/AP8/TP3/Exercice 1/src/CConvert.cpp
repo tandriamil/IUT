@@ -20,7 +20,9 @@ CConvert::CConvert() {
 CConvert::CConvert(string str) {
 	//Initializes the two attributes
 	this->m_Str = str;
-	this->m_Dbl = 0;
+
+	//Creates the double
+
 
 	//Then prints a message
 	cout << "Construction et initialisation des variables à 0 et à " << str << " de l'objet CPoint d'adresse : " << this << endl;
@@ -33,8 +35,10 @@ CConvert::CConvert(string str) {
  */
 CConvert::CConvert(double dbl) {
  	//Initializes the two attributes
-	this->m_Str = "";
 	this->m_Dbl = dbl;
+
+	//Creates the string
+
 
 	//Then prints a message
 	cout << "Construction et initialisation des variables à une valeur et à \"\" de l'objet CPoint d'adresse : " << this << endl;
@@ -53,8 +57,10 @@ CConvert::~CConvert() {
  * Accessor of the string
  * @return The string of this object
  */
-CConvert::getString() {
-
+string CConvert::getString() {
+	string ret;
+	ret = m_Str;
+	return ret;
 }
 
 
@@ -62,6 +68,8 @@ CConvert::getString() {
  * Accessor of the double
  * @return The double of this object
  */
-CConvert::getDouble() {
-	
+double CConvert::getDouble() {
+	double ret;
+	ret = m_Dbl;
+	return ret;
 }
