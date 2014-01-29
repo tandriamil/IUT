@@ -29,7 +29,7 @@ CConvert::CConvert(string str) {
 
 
 	//Then prints a message
-	cout << "Construction et initialisation des variables à " << this->m_Dbl << " et à " << str << " de l'objet CConvert d'adresse : " << this << endl;
+	cout << "Construction et initialisation des variables à " << str << " et à " << converted <<  " de l'objet CConvert d'adresse : " << this << endl;
 }
 
 
@@ -48,6 +48,10 @@ CConvert::CConvert(double dbl) {
 
 	//Then prints a message
 	cout << "Construction et initialisation des variables à " << dbl << " et à " << this->m_Str << " de l'objet CConvert d'adresse : " << this << endl;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3cbc0aaf266577e8b7ea642fbcf53cb005497adb
 }
 
 
@@ -88,6 +92,6 @@ void CConvert::presentation() {
 */
 void CConvert::affiche() {
 	double f = this -> m_Dbl;
-	std::cout << std::setprecision(5) << "La valeur est : " << f << '\n';
+	std::cout << std::setprecision(5) << "La valeur est : " << f << "\n";
 
 }
