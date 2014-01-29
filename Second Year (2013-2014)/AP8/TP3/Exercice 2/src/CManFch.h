@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -11,7 +13,7 @@ class CManFch {
 	private:
 		string m_NomFich;  //Nom plus l'extension
 		string m_EmplcmtFich;  //Chemin d'accès absolu (sans le nom)
-		int m_TypeFich;  //1 si .txt, 2 si binaire, 0 sinon
+		int m_TypeFich;  //1 si .txt, 2 si .bin, 0 sinon
 
 	public:
 		CManFch();
