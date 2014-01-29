@@ -50,12 +50,60 @@ void CManFch::afficherAttributs() {
 void CManFch::afficherFichier() {
 	//If it's a .txt file
 	if (this->m_TypeFich == 1) {
-		
+		//Creates the full location and name of the file
+		string fullFile;
+		fullFile = this->m_EmplcmtFich + this->m_NomFich;
+		const char* nameFile = (char*)fullFile.c_str();
+
+		//Opens the file
+		ifstream ifs(nameFile, ifstream::in);
+
+		//If everything's ok
+		if (ifs) {
+			//Var to store the line
+			string line;
+
+			//Reads the file line by line
+			getline(ifs, line);
+
+			//Then displays the line
+			cout << line;
+		}
+
+		//If we can't open the file
+		else {
+			cout << "Ouverture du fichier impossible!";
+		}
 	}
 
 	//If it's a .bin file
-	if ($this->m_TypeFich == 2) {
+	else if (this->m_TypeFich == 2) {
+		//Creates the full location and name of the file
+		string fullFile;
+		fullFile = this->m_EmplcmtFich + this->m_NomFich;
+		const char* nameFile = (char*)fullFile.c_str();
 
+		//Opens the file
+		ifstream ifs(nameFile, ifstream::in);
+
+		//If everything's ok
+		if (ifs) {
+			//Var to store the line and one to store the number of line
+			string line;
+			int i = 0;
+
+			//Reads the file line by line
+			while (getline(ifs, line)) {
+				//Displays the line
+				cout << i << ": " << line << "\n";
+				i++;
+			}
+		}
+
+		//If we can't open the file
+		else {
+			cout << "Ouverture du fichier impossible!";
+		}
 	}
 
 	//If there's no file
