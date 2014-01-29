@@ -40,7 +40,7 @@ void CManFch::setNomFichier(string str) {
  * Displays the attributes
  */
 void CManFch::afficherAttributs() {
-	cout << "Nom du fichier: " << this->m_NomFich << "\n" << "Emplacement du fichier: " << this->m_EmplcmtFich << "\n" << "Type du fichier: " << this->m_TypeFich << "\n";
+	cout << "Nom du fichier: " << this->m_NomFich << endl << "Emplacement du fichier: " << this->m_EmplcmtFich << endl << "Type du fichier: " << this->m_TypeFich << endl;
 }
 
 
@@ -95,7 +95,7 @@ void CManFch::afficherFichier() {
 			//Reads the file line by line
 			while (getline(ifs, line)) {
 				//Displays the line
-				cout << i << ": " << line << "\n";
+				cout << i << ": " << line << endl;
 				i++;
 			}
 		}
