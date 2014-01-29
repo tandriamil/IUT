@@ -15,6 +15,7 @@
 public class Game {
     private Parser parser;
     private Room currentRoom;
+    private Room exitRoom;
         
     /**
      * Create the game and initialise its internal map.
@@ -32,14 +33,14 @@ public class Game {
       
         // create the rooms
         outside = new Room("outside, in front of an enormous door");
-        kitchen = new Room("little kitchen");
-        fridgedRoom = new Room("fridged room, care it's cold!");
-        bedroom = new Room("closy bedroom");
-        bathroom = new Room("big and classy bathroom");
-        toilets = new Room("little toilets");
-        closet = new Room("little closet");
-        secretStairs = new Room("secret stairs");
-        secretDoor = new Room("secret door behind the toilets");
+        kitchen = new Room("in a little kitchen");
+        fridgedRoom = new Room("in a fridged room, care it's cold!");
+        bedroom = new Room("in a closy bedroom");
+        bathroom = new Room("in a big and classy bathroom");
+        toilets = new Room("in a little toilets");
+        closet = new Room("in a little closet");
+        secretStairs = new Room("on secret stairs");
+        secretDoor = new Room("in front of a secret door behind the toilets");
         outRoom = new Room("in front of the exit door");
         sortie = new Room("exit, finally!");
         
@@ -56,6 +57,7 @@ public class Game {
         sortie.setExits(null, null, outRoom, null);
 
         currentRoom = outside;  // start game outside
+        exitRoom = sortie;
     }
 
     /**
@@ -68,7 +70,7 @@ public class Game {
         // execute them until the game is over.
                 
         boolean finished = false;
-        while (! finished) {
+        while ((!finished) && (this.currentRoom != this.exitRoom)) {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
@@ -165,11 +167,11 @@ public class Game {
         }
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
         }
         else {
             currentRoom = nextRoom;
             System.out.println("You are " + currentRoom.getDescription());
+
             System.out.print("Exits: ");
             if(currentRoom.northExit != null)
                 System.out.print("north ");
