@@ -26,19 +26,32 @@ CManFch::CManFch(string str) {
 	string fileExtension = this -> m_NomFich.substr(found+1); // prend tout ce qu'il y après le "."
 	
 	char tabChar[6]="txt"; // création d'un tableau statique contenant "txt"
+	char tabChar1[6]="bin"; // création d'un tableau statique contenant "bin"
 	char tabChar2[6]; // création d'un tableau statique contenant l'extension trouvée du fichier
 
 	for (int i=0; i < 6; i++) {
 		tabChar2[i] = fileExtension[i]; // recopie de fileExtention dans tabChar2
 	}
 
-	int test = strcmp(tabChar,tabChar2); // comparaison des 2 chaîness
-	if (test == 0 ){
-		this -> m_TypeFich = 1;
+
+	int test1 = strcmp(tabChar,tabChar2); // test entre "txt" et l'extension du fichier en paramètre
+	int test2 = strcmp(tabChar1,tabChar2); // test entre "bin" et l'extension du fichier en paramètre
+	if (test1 == 0 ) {
+		this -> m_TypeFich = 1; // si c'est un fichier .txt
+		//cout << "\n" << "nom du fichier : " << this -> m_NomFich << "\n" << "emplacement du fichier : " << this -> m_EmplcmtFich << "\n" << "extension du fichier : "<< this -> m_TypeFich << "\n" << endl;
+	}
+	else if (test2 == 0) {
+		this -> m_TypeFich = 2; // si c'est un fichier .bin
+		//cout << "\n" << "nom du fichier : " << this -> m_NomFich << "\n" << "emplacement du fichier : " << this -> m_EmplcmtFich << "\n" << "extension du fichier : "<< this -> m_TypeFich << "\n" << endl;
+	}
+	else {
+		this -> m_TypeFich = 0; // si c'est un .ach
+		//cout << "nom du fichier : " << this -> m_NomFich << "\n" << "emplacement du fichier : " << this -> m_EmplcmtFich << "\n" << "extension du fichier : "<< this -> m_TypeFich << endl;
+		cout << "\n" << "/!\\  Erreur concernant le fichier " << this -> m_NomFich << ", extension incorrecte ! (uniquement extensions .bin et .txt autorisées)" << "\n" << endl;
 	}
 
 
-	cout << "nom du fichier : " << this -> m_NomFich << "\n" << "emplacement du fichier : " << this -> m_EmplcmtFich << "\n" << "extension du fichier : "<< this -> m_TypeFich <<endl;
+	
 
 }
 
@@ -82,7 +95,7 @@ void CManFch::afficherFichier() {
 		ifstream ifs(nameFile, ifstream::in);
 
 		//If everything's ok
-		if (ifs) {
+		//if (ifs) {
 			//Var to store the line
 			string line;
 			int i = 0;
@@ -96,12 +109,12 @@ void CManFch::afficherFichier() {
 				cout << ": " << line << endl;
 				i++;
 			}
-		}
+		//}
 
 		//If we can't open the file
-		else {
-			cout << "Ouverture du fichier impossible!";
-		}
+		//else {
+			//cout << "Ouverture du fichier impossible!";
+		//}
 	}
 
 	//If it's a .bin file
