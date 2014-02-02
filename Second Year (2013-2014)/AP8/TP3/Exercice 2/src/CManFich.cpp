@@ -132,18 +132,21 @@ void CManFch::afficherFichier() {
 		if (ifs) {
 			//Var to store the line and one to store the number of line
 			string line;
-			int i = 1;
+			int i = 0;
+			int x = 1;
+			cout << "llllllakqsjdiofhdsfjhsdiof" << endl;
 
 			//Reads the file line by line
 			while (getline(ifs, line)) {
 				//Configures the output (display on screen)
-				cout.setf(ios::hex, ios::basefield);
-				cout.setf(ios::showbase);
 				cout.fill('0');
 				cout.width(5);
 				cout << std::right << i;
-				cout << ": " << line << endl;
-				i++;
+
+				i = 16*x + i;
+				x++;
+
+				cout << ": " << std::hex << std::setfill('0') << std::nouppercase << std::setw(6) << line << endl;
 			}
 		}
 
@@ -155,6 +158,6 @@ void CManFch::afficherFichier() {
 
 	//If there's no file
 	else {
-		cout << "Fichier non compatible avec cet affichage.";
+		cout << "Fichier non compatible avec cet affichage." << endl;
 	}
 }

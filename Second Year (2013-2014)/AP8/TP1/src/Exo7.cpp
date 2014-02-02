@@ -27,9 +27,6 @@ int main() {
 	cout << "Veuillez entrer le message: " << delimiter;
 	cin.getline(text, maxSize, delimiter);
 
-	//Put the end line char
-	text[120] = '\0';
-
 	//Link the pointer to its tab
 	p1 = &text[0];
 
@@ -44,8 +41,9 @@ int main() {
 		for (int j = 0; j <= 26; j++) {
 
 			//If it's the letter
-			if ((*p1 == (majuscule + j)) || (*p1 == (minuscule + j))) {
-				cout << "La lettre majuscule est le " << majuscule + j << delimiter;
+			if ((*p1 == (char)(majuscule + j)) || (*p1 == (char)(minuscule + j))) {
+				cout << "La lettre est le " << *p1 << delimiter;
+				cout << "La lettre majuscule est le " << (char)(majuscule + j) << delimiter;
 				tab[j]++;
 			}
 		}
