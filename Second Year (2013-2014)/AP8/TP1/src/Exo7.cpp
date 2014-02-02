@@ -2,27 +2,61 @@
 #include "Exo7.h"
 
 /**
- * The main method, here it'll just display "Ca marche!"
+ * The main method
  */
 int main() {
-	//The max size
+	//For the getline() method
 	const int maxSize = 121;
+	const char delimiter = '\n';
 
-	//The delimiter
-	char delimiter = '\n';
-
-	//The pointer which points the buffer
-	char *pCh;
-
-	//The tab where we'll count the number of occurence of a letter
+	//The tab to store the occurence value of each letters
 	int tab[26];
 
-	//The pointers to point on tab and pCh
+	//Initialize each cells to 0
+	for (int x = 0; x < 26; x++) {
+		tab[x] = 0;
+	}
+
+	//The pointers to travel the buffer
 	char *p1;
-	int *p2;
 
-	//Displays the message
-	cout << "Entrez une chaîne de caractère:";
+	//To store the text enterred
+	char text[maxSize];
 
-	cin.getline(*pCh, maxSize, '\n');
+	//Gets the message enterred
+	cout << "Veuillez entrer le message: " << delimiter;
+	cin.getline(text, maxSize, delimiter);
+
+	//Put the end line char
+	text[120] = '\0';
+
+	//Link the pointer to its tab
+	p1 = &text[0];
+
+	//The ascii code of a letter
+	int majuscule = 65;  // = A
+	int minuscule = 97;  // = a
+
+	//Travels it
+	for (int i = 0; i < maxSize; i++) {
+
+		//Look the char in this cell
+		for (int j = 0; j <= 26; j++) {
+
+			//If it's the letter
+			if ((*p1 == (majuscule + j)) || (*p1 == (minuscule + j))) {
+				cout << "La lettre majuscule est le " << majuscule + j << delimiter;
+				tab[j]++;
+			}
+		}
+
+		//Increments the value of the pointer on the text enterred
+		p1++;
+	}
+
+	//Then show the values in the tab
+	cout << "Les valeurs du tableau:" << delimiter;
+	for (int y = 0; y < 26; y++) {
+		cout << " est apparu " << tab[y] << " fois." << delimiter;
+	}
 }

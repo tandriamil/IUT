@@ -132,7 +132,7 @@ void CManFch::afficherFichier() {
 		if (ifs) {
 			//Var to store the line and one to store the number of line
 			string line;
-			int i = 0;
+			int i = 1;
 
 			//Reads the file line by line
 			while (getline(ifs, line)) {
