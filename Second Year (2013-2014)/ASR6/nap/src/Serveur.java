@@ -20,6 +20,10 @@ public class Serveur {
         //Gets the port
         int numPort = Integer.parseInt(args[0]);
 
+        //Creates the buffer and the writer to send/receive messages
+        BufferedReader in = null;
+        PrintWriter out = null;
+
 
         //Creates the ServerSocket and catches errors if there are some
         try {

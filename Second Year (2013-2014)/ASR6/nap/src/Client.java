@@ -2,6 +2,9 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 /**
  * The client class
@@ -14,10 +17,14 @@ public class Client {
     public static void main(String[] args) {
         
         //Creates and initialises the socket to default
-        Socket socket = new Socket();
+        Socket socket = null;
 
         //Gets the port
         int numPort = Integer.parseInt(args[0]);
+
+        //Creates the buffer and the writer to send/receive messages
+        BufferedReader in = null;
+        PrintWriter out = null;
 
 
 
@@ -37,7 +44,47 @@ public class Client {
         }
 
         //If the connection successed
-        System.out.println ("Connexion au serveur réussie!");
+        System.out.println ("Demande de connexion ...");
+
+
+
+        //Creates the printer-out to transmit messages to the server
+        try {
+            out = new PrintWriter(socket.getOutputStream());
+        }
+
+        catch (IOException e) {
+            System.out.println("IOException catched when initializing the print writer: " + "\n" + e.getMessage());
+            e.printStackTrace();
+        }
+
+        out.println("Connection Client/Serveur établie.");
+        out.flush();
+
+
+
+        //Creates the reader to get an enterred message
+        try {
+            in = new BufferedReader(new InputStreamReader (socket.getInputStream()));
+        }
+
+        catch (IOException e) {
+            System.out.println("IOException catched when initializing the buffer: " + "\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        
+
+
+        //read lines then
+        try {
+            String message_distant = in.readLine();
+            System.out.println(message_distant);
+        }
+
+        catch (IOException e) {
+            System.out.println("IOException catched when trying to read: " + "\n" + e.getMessage());
+            e.printStackTrace();
+        }
 
 
 
