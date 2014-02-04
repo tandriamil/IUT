@@ -1,48 +1,61 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 
 public class Client {
     
-    public static void main(String[] zero) {
+    public static void main(String[] args) {
 
 
-        Socket socket; // socket entre le client et le serveur
-        BufferedReader in; // buffer in pour récupérer des messages
-        PrintWriter out; // printer out pour envoyer des messages
+        if (args.length != 2) {
+            System.err.println ("nombre d'arguments incorrect");
+        }
 
-        try {
+        else {
+            try {
+                Socket clientsocket = new Socket (args[0], Integer.parseInt(args [1]));
+                PrintStream out = new PrintStream (clientsocket.getOutputStream (), true);
+                for (;;) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Veuillez saisir un mot :");
+                    String str = sc.nextLine();
+                    System.out.println("Vous avez saisi : " + str);
+                    out.println (str);
+                    out.flush();
+                    clientsocket.shutdownOutput();
+                
+
+
+                    BufferedReader in = new BufferedReader (new InputStreamReader (clientsocket.getInputStream ()));
+                
+                    String line = in.readLine();
+                    if (line == null) {
+                        break;
+                    }
+                    System.err.println(line);
+                    System.err.flush();
+                    out.close();
+                }
+            }
+
+            catch (IOException e){
+                System.err.println("socket closed");
+                System.err.flush();
+            }
+
+            catch (Exception e) {
+                e.printStackTrace ();
+            }
             
-            // demande de connexion sur le port 1234
-            socket = new Socket(InetAddress.getLocalHost(),1234);   
-            System.out.println("Demande de connexion");
 
-            // création d'un printer-out pour transmettre un message au server
-            out = new PrintWriter(socket.getOutputStream());
-            out.println("message du client : connexion établie !");
-            out.flush();
-
-            // création du lecteur pour récupérer un éventuel message venant du server
-            in = new BufferedReader (new InputStreamReader (socket.getInputStream()));
-            String message_distant = in.readLine();
-            System.out.println(message_distant);
+        }
             
-            // fermeture du socket     
-            socket.close();
-               
-        }
-
-        catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-
-        catch (IOException e) {   
-            e.printStackTrace();
-        }
     }
+        
 }
