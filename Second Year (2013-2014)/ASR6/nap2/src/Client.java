@@ -10,27 +10,24 @@ import java.io.InputStreamReader;
  * The client class
  */
 public class Client {
-    
+//Attributes
+    private int numPort;
+    private String name;
+    private Socket socket = null;
+    private BufferedReader in = null;
+    private PrintWriter out = null;
+
+
+//Methods
     /**
-     * The main method
+     * The constructor
      */
-    public static void main(String[] args) {
-        
-        //Creates and initialises the socket to default
-        Socket socket = null;
-
-        //Gets the port
-        int numPort = Integer.parseInt(args[0]);
-
-        //Creates the buffer and the writer to send/receive messages
-        BufferedReader in = null;
-        PrintWriter out = null;
-
-
+    public Client(int port) {
+        this.numPort = port;
 
         //Try to creates the socket and catches error if there are some
         try {
-            socket = new Socket(InetAddress.getLocalHost(), numPort);
+            this.socket = new Socket(InetAddress.getLocalHost(), numPort);
         }
 
         catch (IOException e) {
@@ -44,13 +41,13 @@ public class Client {
         }
 
         //If the connection successed
-        System.out.println ("Demande de connexion ...");
+        System.out.println ("Client correctly created.");
 
 
 
-        //Creates the printer-out to transmit messages to the server
+        //Creates the printer-out to transmit messages to the server, auto flush actived
         try {
-            out = new PrintWriter(socket.getOutputStream());
+            this.out = new PrintWriter(this.socket.getOutputStream(), true);
         }
 
         catch (IOException e) {
@@ -58,37 +55,58 @@ public class Client {
             e.printStackTrace();
         }
 
-        out.println("Connection Client/Serveur établie.");
-        out.flush();
+        System.out.println ("PrintWriter correctly created.");
 
 
 
         //Creates the reader to get an enterred message
         try {
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
         }
 
         catch (IOException e) {
             System.out.println("IOException catched when initializing the buffer: " + "\n" + e.getMessage());
             e.printStackTrace();
         }
-        
+
+        System.out.println ("BufferedReader correctly created.");
+    }
 
 
+
+    /**
+     * Permits to create his name
+     * @param nom His name
+     */
+    public void setNom(String nom) {
+        this.name = nom;
+        System.out.println ("Client named " + this.name + ".");
+    }
+
+
+
+    /**
+     * Permits to read a line
+     */
+    public void read() {
         //read lines then
         try {
-            String message_distant = in.readLine();
+            String message_distant = this.in.readLine();
             out.println(message_distant);
-            out.println("exit");
         }
 
         catch (IOException e) {
             System.out.println("IOException catched when trying to read: " + "\n" + e.getMessage());
             e.printStackTrace();
         }
+    }
 
 
 
+    /**
+     * Permits to close the reader/writer and the socket
+     */
+    public void closeAll() {
         //Closes the reader/writer
         try {
             in.close();
@@ -100,6 +118,7 @@ public class Client {
             e.printStackTrace();
         }
 
+        System.out.println("Reader/Writer correctly closed.");
 
 
 
@@ -113,6 +132,6 @@ public class Client {
             e.printStackTrace();
         }
 
-        System.out.println("Le Socket client est correctement fermé.");
+        System.out.println("Socket correctly closed.");
     }
 }
