@@ -9,7 +9,7 @@ public class Lanceur {
 	public static void main(String[] args) {
 		//Gets the port
 		int port = Integer.parseInt(args[0]);
-		System.out.println("Lancement de l'application sur le port " + port + ".");
+		System.out.println("Lancement de l'application sur le port " + port + "." + "\n" + "################################################");
 
 		//Creates the server
 		Serveur serv = new Serveur(port);

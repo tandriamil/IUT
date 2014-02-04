@@ -20,6 +20,7 @@ public class Serveur {
     private PrintWriter out = null;
     private boolean waitNext;
     private Client[] listClient;
+    private int nbClient;
 
 
 //Methods
@@ -32,6 +33,7 @@ public class Serveur {
         this.numPort = port;
         this.listClient = new Client[10];
         this.waitNext = true;
+        this.nbClient = 0;
 
 
 
@@ -184,7 +186,7 @@ public class Serveur {
                 waitNext = false;
             }
 
-            System.out.println("Message: " + str);   // trace locale
+            System.out.println("Message: " + str);
             out.println(str);
         }
     }
