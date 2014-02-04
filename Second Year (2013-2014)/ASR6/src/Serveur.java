@@ -2,20 +2,30 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * The server class
+ */
 public class Serveur {
 
-	public static void main(String[] zero) {
+    /** 
+     * The main method to be thrown
+     */
+	public static void main(String[] args) {
         
+        //Creates the sockets
         ServerSocket socketserver;
         Socket socketduserveur;
 
+        //Gets the port
+        int numPort = Integer.parseInt(args[0]);
+
         try {
-            // création d'un objet serveur à l'écoute du port 80
-            socketserver = new ServerSocket(80);
-            System.out.println ("socketserver lancé !");
+            //Creates the server's socket
+            socketserver = new ServerSocket(numPort);
+            System.out.println ("Socketserver lancé!");
 
             socketduserveur = socketserver.accept(); 
-            System.out.println("connexion réussie et établissement d'un socket entre le serveur et le client !");
+            System.out.println("Connexion réussie et établissement d'un socket entre le serveur et le client!");
             socketserver.close();
             socketduserveur.close();
         }
