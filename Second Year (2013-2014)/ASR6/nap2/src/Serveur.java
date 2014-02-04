@@ -56,25 +56,6 @@ public class Serveur {
 
 
 
-        //Creates the Socket of the server and catches errors if there are some
-        try {
-            this.socketduserveur = new Socket(InetAddress.getLocalHost(), this.numPort);
-        }
-
-        catch (IOException e) {
-            System.out.println("IOException catched when initializing the socketduserveur: " + "\n" + e.getMessage());
-            e.printStackTrace();
-        }
-
-        catch (SecurityException e) {
-            System.out.println("SecurityException catched when initializing the socketduserveur: " + "\n" + e.getMessage());
-            e.printStackTrace();
-        }
-
-        System.out.println("Server's socket created on localhost:" + this.numPort + ".");
-
-
-
         //Creates the BufferedReader
         try {
             in = new BufferedReader(new InputStreamReader(socketduserveur.getInputStream()));
@@ -101,20 +82,6 @@ public class Serveur {
         }
 
         System.out.println ("PrintWriter correctly created!");
-
-
-
-        //Accepts sockets incomings
-        try {
-            socketduserveur = socketserver.accept();
-        }
-
-        catch (IOException e) {
-            System.out.println("IOException catched when the socketduserveur waits some sockets: " + "\n" + e.getMessage());
-            e.printStackTrace();
-        }
-
-        System.out.println ("The server accepts sockets now.");
     }
 
 
@@ -169,6 +136,19 @@ public class Serveur {
     public void waitConnection() {
         //Then the boucle to wait
         while (this.waitNext) {
+            //Accepts sockets incomings
+            try {
+                socketduserveur = socketserver.accept();
+            }
+
+            catch (IOException e) {
+                System.out.println("IOException catched when the socketduserveur waits some sockets: " + "\n" + e.getMessage());
+                e.printStackTrace();
+            }
+
+            System.out.println ("The server accepts now clients!");
+
+
             String str = "";
 
             //Read the message
@@ -183,7 +163,7 @@ public class Serveur {
 
             //If it's the exit message
             if (str.equals("exit")) {
-                waitNext = false;
+                this.waitNext = false;
             }
 
             System.out.println("Message: " + str);
