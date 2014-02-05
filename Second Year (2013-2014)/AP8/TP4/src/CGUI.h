@@ -5,7 +5,7 @@
 #include <sstream>
 
 //Define of constants
-#define NB_COL_LIG = 10
+#define NB_COL_LIG = 11
 
 using namespace std;
 
@@ -22,7 +22,17 @@ class CGUI {
 //Methods
 	public:
 		//Constructors, destructors
-		CGUI();
+		CGUI(CArmada∗ pTheArmada);
+
+		//Other methods
+		void printGrille(ostream& os);
+
+
+	private:
+		void initGrille();
+
+
+	friend ostream& operator<<(ostream& os, CGUI& theG);
 };
 
 #endif /* CGUI_H_ */

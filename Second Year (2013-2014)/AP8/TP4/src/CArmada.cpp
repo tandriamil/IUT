@@ -11,6 +11,8 @@ CArmada :: CArmada (int nbsub) {
 	cout << "Objet CArmada créé et tableau initialisé à " << nbsub << " sous-marins" << endl;
 }
 
+
+
 /*
 * accessor of the pointer of the table of submarines
 * @return the pointer m_pTabSousMarins
@@ -19,6 +21,8 @@ string* CArmada :: getTabSM() {
 	return this -> m_pTabSousMarins;
 }
 
+
+
 /*
 * accessor of the number of submarines
 * @return the number of submarine m_nbTotSSM
@@ -26,6 +30,8 @@ string* CArmada :: getTabSM() {
 int CArmada::getNbSub () {
 	return this -> m_nbTotSSM;
 }
+
+
 
 /**
 * method filling the table with the coordinates entered by the user
@@ -53,6 +59,7 @@ void CArmada::remplirStruct () {
 		}
     }
 }
+
 	
 
 /**
@@ -62,6 +69,7 @@ CArmada::~CArmada () {
 	cout << "destruction de l'objet CArmada d'adresse : " << this << "et libération de l'espace mémoire du tableau " << "\n" << endl;
 	delete [] m_pTabSousMarins;
 }
+
 
 
 /**
@@ -80,10 +88,7 @@ void CArmada::analyser(string saisie) {
 		//Gets the two letters
 		char firstLetter = saisie.at(0);
 		char secondLetter = saisie.at(1);
-
-		//Displays the chars casted
-		//cout << "Le cast du premier caractère: " << (int)firstLetter << " , et le deuxième: " << (int)secondLetter << endl;
-
+		
 		//Verify if the first is between A and J
 		if (!(((int)firstLetter >= 65) && ((int)firstLetter <= 74))) {
 			throw logic_error("/!\\ first letter incompatible.");
