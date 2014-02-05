@@ -29,7 +29,13 @@ int CArmada :: getNbSub () {
 * method filling the table with the coordinates entered by the user
 */
 void CArmada :: remplirStruct () {
-	char chain[2];
+	char coordinates[2];
+	char stopchar = '\n';
+	for (int i=0; i < m_nbTotSSM; i++) {
+		cout << "enter the coordinates of the submarine : " << endl;
+	  	cin.getline(coordinates, 2, stopchar);
+	  	cout << "coordonnées " << coordinates << " à la case " << i+1 << endl;
+    }
 }
 	
 
