@@ -106,7 +106,7 @@ void CArmada::analyser(string saisie) {
 			else {
 
 				//Travels the tab where the submarines are already enterred
-				for (int i = 0; i < nbsub; i++) {
+				for (int i = 0; i < m_nbTotSSM; i++) {
 					if (this->m_pTabSousMarins[i] == saisie) {
 						throw logic_error("/!\\ Case already occupied!");
 					}

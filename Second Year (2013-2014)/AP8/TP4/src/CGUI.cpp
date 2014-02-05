@@ -25,7 +25,7 @@ void CGUI::initGrille() {
 	}
 
 	//Then add a line jump
-	this->m_grille[0] = this->m_grille[0] + "\n"
+	this->m_grille[0] = this->m_grille[0] + "\n";
 
 	//Then add all the lines
 	for (int i = 0; i < this->NB_COL_LIG; i++) {
