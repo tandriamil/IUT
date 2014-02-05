@@ -12,4 +12,4 @@ using namespace std;
 
 
 
-#endif
+#endif /* BiblioStd_H_ */
