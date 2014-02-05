@@ -5,7 +5,7 @@
 * and initialising the table at this number
 * @param nbsub the number of submarine
 */
-CArmada :: CArmada (int nbsub) {
+CArmada::CArmada (int nbsub) {
 	this -> m_pTabSousMarins = new string [nbsub];
 	this -> m_nbTotSSM = nbsub;
 	cout << "Objet CArmada créé et tableau initialisé à " << nbsub << " sous-marins" << endl;
@@ -96,6 +96,7 @@ void CArmada::analyser(string saisie) {
 
 		//If the first char is ok
 		else {
+			
 			//Verify if the second letter is between 0 and 9
 			if (!(((int) secondLetter >= 48) && ((int)secondLetter <= 57))) {
 				throw logic_error("/!\\ Second letter incompatible!");
@@ -103,19 +104,12 @@ void CArmada::analyser(string saisie) {
 
 			//If they are all corrects, verify that there is no submarine already in this case!
 			else {
-				//The variable to store if the case is occupied
-				bool occupied = false;
 
 				//Travels the tab where the submarines are already enterred
 				for (int i = 0; i < nbsub; i++) {
 					if (this->m_pTabSousMarins[i] == saisie) {
-						occupied = true;
+						throw logic_error("/!\\ Case already occupied!");
 					}
-				}
-
-				//If the place is already occupied
-				if (occupied) {
-					throw logic_error("/!\\ Case already occupied!");
 				}
 			}
 		}
