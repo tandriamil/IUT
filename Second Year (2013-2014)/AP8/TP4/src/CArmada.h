@@ -39,4 +39,4 @@ class CArmada {
 		void analyser(string saisie);
 };
 
-#endif
+#endif /*CArmada_H_*/
