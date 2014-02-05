@@ -7,6 +7,8 @@
 */
 CArmada :: CArmada (int nbsub) {
 	this -> m_pTabSousMarins = new string [nbsub];
+	this -> m_nbTotSSM = nbsub;
+	cout << "Objet CArmada créé et tableau initialisé à " << nbsub << " sous-marins" << endl;
 }
 
 
@@ -25,7 +27,7 @@ string* CArmada :: getTabSM() {
 * accessor of the number of submarines
 * @return the number of submarine m_nbTotSSM
 */
-int CArmada :: getNbSub () {
+int CArmada::getNbSub () {
 	return this -> m_nbTotSSM;
 }
 
@@ -34,13 +36,27 @@ int CArmada :: getNbSub () {
 /**
 * method filling the table with the coordinates entered by the user
 */
-void CArmada :: remplirStruct () {
-	char coordinates[2];
-	char stopchar = '\n';
+void CArmada::remplirStruct () {
+
+	string coordinates; // tmp chain containing the coordinates entered by the user
+	
+
+
 	for (int i=0; i < m_nbTotSSM; i++) {
-		cout << "enter the coordinates of the submarine : " << endl;
-	  	cin.getline(coordinates, 2, stopchar);
-	  	cout << "coordonnées " << coordinates << " à la case " << i+1 << endl;
+	
+		cout << "\n" << "Enter the coordinates of the submarine for the case " << i+1 << endl;
+		std::getline(std::cin, coordinates);
+		  
+		try {	
+			this -> analyser (coordinates);
+			this -> m_pTabSousMarins[i] = coordinates;
+			cout << " You entered " << coordinates << " at the case " << i+1 << endl;
+		}
+		catch (logic_error e) {
+			cout << e.what() << endl;
+			i--;
+			cout << " Please re-enter the coordinates" << endl;
+		}
     }
 }
 
@@ -49,7 +65,7 @@ void CArmada :: remplirStruct () {
 /**
 * destructor of CArmada
 */
-CArmada :: ~CArmada () {
+CArmada::~CArmada () {
 	cout << "destruction de l'objet CArmada d'adresse : " << this << "et libération de l'espace mémoire du tableau " << "\n" << endl;
 	delete [] m_pTabSousMarins;
 }
@@ -61,7 +77,7 @@ CArmada :: ~CArmada () {
  * @param saisie The string ot analyse
  * @throw logic_error If the chars enterred isn't correct
  */
-CArmada :: analyser(string saisie) {
+void CArmada::analyser(string saisie) {
 	//If the string does'nt have exactrly 2 chars
 	if (!(saisie.size() == 2)) {
 		throw logic_error("Taille du string entré incorrect.");
@@ -72,17 +88,17 @@ CArmada :: analyser(string saisie) {
 		//Gets the two letters
 		char firstLetter = saisie.at(0);
 		char secondLetter = saisie.at(1);
-
+		
 		//Verify if the first is between A and J
 		if (!(((int)firstLetter >= 65) && ((int)firstLetter <= 74))) {
-			throw logic_error("Premier caractère incompatible.");
+			throw logic_error("/!\\ first letter incompatible.");
 		}
 
 		//If the first char is ok
 		else {
 			//Verify if the second letter is between 0 and 9
 			if (!(((int) secondLetter >= 48) && ((int)secondLetter <= 57))) {
-				throw logic_error("Deuxième caractère incompatible.");
+				throw logic_error("/!\\ second letter incompatible.");
 			}
 		}
 	}
