@@ -48,10 +48,6 @@ CConvert::CConvert(double dbl) {
 
 	//Then prints a message
 	cout << "Construction et initialisation des variables à " << dbl << " et à " << this->m_Str << " de l'objet CConvert d'adresse : " << this << endl;
-<<<<<<< HEAD
-=======
-
->>>>>>> 3cbc0aaf266577e8b7ea642fbcf53cb005497adb
 }
 
 

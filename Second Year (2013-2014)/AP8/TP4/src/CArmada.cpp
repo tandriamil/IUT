@@ -29,7 +29,13 @@ int CArmada :: getNbSub () {
 * method filling the table with the coordinates entered by the user
 */
 void CArmada :: remplirStruct () {
-	char chain[2];
+	char coordinates[2];
+	char stopchar = '\n';
+	for (int i=0; i < m_nbTotSSM; i++) {
+		cout << "enter the coordinates of the submarine : " << endl;
+	  	cin.getline(coordinates, 2, stopchar);
+	  	cout << "coordonnées " << coordinates << " à la case " << i+1 << endl;
+    }
 }
 	
 
@@ -45,6 +51,7 @@ CArmada :: ~CArmada () {
 /**
  * Analyses a string to know if it's correct
  * @param saisie The string ot analyse
+ * @throw logic_error If the chars enterred isn't correct
  */
 CArmada :: analyser(string saisie) {
 	//If the string does'nt have exactrly 2 chars
@@ -54,6 +61,24 @@ CArmada :: analyser(string saisie) {
 
 	//If it has exactly 2 chars
 	else {
-		
+		//Gets the two letters
+		char firstLetter = saisie.at(0);
+		char secondLetter = saisie.at(1);
+
+		//Displays the chars casted
+		cout << "Le cast du premier caractère: " << (int)firstLetter << " , et le deuxième: " << (int)secondLetter << endl;
+
+		//Verify if the first is between A and J
+		if (!(((int)firstLetter >= 65) && ((int)firstLetter <= 74))) {
+			throw logic_error("Premier caractère incompatible.");
+		}
+
+		//If the first char is ok
+		else {
+			//Verify if the second letter is between 0 and 9
+			if (!(((int) secondLetter >= 48) && ((int)secondLetter <= 57))) {
+				throw logic_error("Deuxième caractère incompatible.");
+			}
+		}
 	}
 }

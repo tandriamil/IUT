@@ -7,6 +7,7 @@
 #include <fstream>
 #include <stdexcept>
 #include <cstdlib>
+#include <cstring>
 
 using namespace std;
 
