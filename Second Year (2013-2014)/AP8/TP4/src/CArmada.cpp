@@ -15,7 +15,7 @@ CArmada :: CArmada (int nbsub) {
 * accessor of the pointer of the table of submarines
 * @return the pointer m_pTabSousMarins
 */
-string* CArmada :: getTabSM() {
+string* CArmada::getTabSM() {
 	return this -> m_pTabSousMarins;
 }
 
@@ -59,7 +59,7 @@ void CArmada::remplirStruct () {
 * destructor of CArmada
 */
 CArmada::~CArmada () {
-	cout << "destruction de l'objet CArmada d'adresse : " << this << "et libération de l'espace mémoire du tableau " << "\n" << endl;
+	cout << "\n" << "Destruction de l'objet CArmada d'adresse : " << this << " et libération de l'espace mémoire du tableau " << "\n" << endl;
 	delete [] m_pTabSousMarins;
 }
 
