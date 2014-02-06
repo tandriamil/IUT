@@ -51,7 +51,7 @@ public class Command {
      * @return true if this command was not understood.
      */
     public boolean isUnknown()   {
-        return (commandWord == null);
+        return (commandWord == CommandWord.unknown.getCommand());
     }
 
     /**

@@ -118,13 +118,13 @@ public class Game {
         }
 
         String commandWord = command.getCommandWord();
-        if (commandWord.equals("help"))
+        if (commandWord.equals(CommandWord.help.getCommand()))
             printHelp();
-        else if (commandWord.equals("go"))
+        else if (commandWord.equals(CommandWord.go.getCommand()))
             goRoom(command);
-        else if (commandWord.equals("quit"))
+        else if (commandWord.equals(CommandWord.quit.getCommand()))
             wantToQuit = quit(command);
-        else if (commandWord.equals("look"))
+        else if (commandWord.equals(CommandWord.look.getCommand()))
             this.printLocation();
 
         return wantToQuit;

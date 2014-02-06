@@ -53,7 +53,7 @@ public class Parser {
             return new Command(word1, word2);
         }
         else {
-            return new Command(null, word2); 
+            return new Command(CommandWord.unknown.getCommand(), word2); 
         }
     }
 }

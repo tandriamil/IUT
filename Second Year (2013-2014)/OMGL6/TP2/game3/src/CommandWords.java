@@ -24,7 +24,7 @@ public class CommandWords {
         for(CommandWord cw : CommandWord.values()) {
 
             //If it's a valid command word
-            if(cw.toString().equals(aString)) {
+            if(cw.getCommand().equals(aString)) {
                 return true;
             }
         }
@@ -42,10 +42,10 @@ public class CommandWords {
         for(CommandWord cw : CommandWord.values()){
 
             //If it's a valid command word
-            if(cw.toString().equals(command)) {
+            if(cw.getCommand().equals(command)) {
                 return cw;
             }
-                
+
         }
 
         //If the command is unknow
