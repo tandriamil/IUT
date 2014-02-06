@@ -7,17 +7,13 @@
  */
 
 public class CommandWords {
-    // a constant array that holds all valid command words
-    private static final String[] validCommands = {
-        "go", "quit", "help"
-    };
-
     /**
      * Constructor - initialise the command words.
      */
     public CommandWords()   {
-        // nothing to do at the moment...
+        // nothing to do
     }
+
 
     /**
      * Check whether a given String is a valid command word. 
@@ -25,11 +21,34 @@ public class CommandWords {
      * false if it isn't.
      */
     public boolean isCommand(String aString)  {
-        for(int i = 0; i < validCommands.length; i++) {
-            if(validCommands[i].equals(aString))
+        for(CommandWord cw : CommandWord.values()) {
+
+            //If it's a valid command word
+            if(cw.toString().equals(aString)) {
                 return true;
+            }
         }
+
         // if we get here, the string was not found in the commands
         return false;
+    }
+
+
+    /**
+     * Method to get a command word
+     * @return The CommandWord class
+     */
+    public CommandWord getCommandWord(String command) {
+        for(CommandWord cw : CommandWord.values()){
+
+            //If it's a valid command word
+            if(cw.toString().equals(command)) {
+                return cw;
+            }
+                
+        }
+
+        //If the command is unknow
+        return CommandWord.unknown;
     }
 }

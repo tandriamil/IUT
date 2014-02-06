@@ -70,6 +70,15 @@ public class Room {
 
 
     /**
+     * Permits to get a long description
+     * @return A String of long description
+     */
+    public String getLongDescription() {
+        return "You are " + this.description + "\n" + this.getExitString();
+    }
+
+
+    /**
      * @return The description of the room.
      */
     public String getDescription() {

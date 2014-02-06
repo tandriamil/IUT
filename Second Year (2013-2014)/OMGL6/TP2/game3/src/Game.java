@@ -124,6 +124,8 @@ public class Game {
             goRoom(command);
         else if (commandWord.equals("quit"))
             wantToQuit = quit(command);
+        else if (commandWord.equals("look"))
+            this.printLocation();
 
         return wantToQuit;
     }
@@ -175,9 +177,7 @@ public class Game {
      * Displays the current location and all the available exits
      */
     private void printLocation() {
-        System.out.println("You are " + this.currentRoom.getDescription());
-
-        System.out.println(this.currentRoom.getExitString());
+        System.out.println(this.currentRoom.getLongDescription());
     }
 
 
