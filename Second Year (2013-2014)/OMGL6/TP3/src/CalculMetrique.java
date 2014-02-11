@@ -6,7 +6,8 @@ import java.lang.reflect.*;
 public class CalculMetrique {
 
 //Attributes
-	Object theObject;
+	Object o;
+	Class c;
 
 
 //Methods
@@ -15,42 +16,92 @@ public class CalculMetrique {
 	 * @param o The object to analyse
 	 */
 	public CalculMetrique(Object o) {
-		this.theObject = o;
+		this.o = o;
+		this.c = this.o.getClass();
 
 		//Displays the name of the class
-		Class oClass = o.getClass();
-		String name = oClass.getName();
+		String name = c.getName();
 		System.out.println("L'objet est instance de " + name + ".");
 	}
 
 
 	/**
 	 * Method to get the number of methods
-	 * @return The number of methods, -1 if error
+	 * @return The number of methods
 	 */
 	public int getNumberMethods() {
-		int ret = -1;
-
-		//Firstly, gets the class of the object
-		Class c = o.getClass();
+		int ret;
 
 		//Then gets its methods
-		Method[] m = c.getMethods();
+		Method[] m = this.c.getMethods();
 
 		//Then gets the number of methods
-		ret = m.lenth();
+		ret = m.length;
 
+		//And returns it
 		return ret;
 	}
 
 
 	/**
 	 * Method to get the number of classes attributes
-	 * @return The number of classes attributes, -1 if error
+	 * @return The number of classes attributes
 	 */
 	public int getNumberAttributes() {
-		int ret = -1;
+		int ret;
+
+		//Gets all the fields (= attributes)
+		Field[] f = this.c.getFields();
+
+		//Then gets the number of fields
+		ret = f.length;
 
 		return ret;
 	}
+
+
+	/**
+	 * Method to get the number of classes instances attributes
+	 * @return The number of classes instances attributes
+	 */
+	public int getNumberInstancesAttributes() {
+		int ret = 0;
+
+		//Gets all the fields (= attributes)
+		Field[] f = this.c.getFields();
+
+		//Then gets the number of instances fields
+		for (int i = 0; i < f.length; i++) {
+
+			//If it contains "static"
+			if (f[i].getName().contentEquals("static")) {
+				ret++;
+			}
+		}
+
+		return ret;
+	}
+
+
+	/**
+	 * Method to get the number of classes instances attributes
+	 * @return The number of classes instances attributes
+	 */
+	public int getNumberSuperClasses() {
+		int ret = 0;
+
+		//Gets the first super class, if it's null, don't enter in the boucle
+		Class superClass = this.c.getSuperclass();
+		Class current;
+
+		//While there is a super class of this current one
+      	while (superClass != null) {
+      		ret++;
+	        current = superClass;
+	        superClass = current.getSuperclass();
+     	}
+
+		return ret;
+	}
+
 }
