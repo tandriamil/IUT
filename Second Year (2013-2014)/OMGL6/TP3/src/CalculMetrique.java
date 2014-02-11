@@ -1,4 +1,4 @@
-import java.reflect.*;
+import java.lang.reflect.*;
 
 /**
  * Class to count a lot of things in a class
@@ -29,7 +29,7 @@ public class CalculMetrique {
 	 * @return The number of methods
 	 */
 	public int getNumberMethods() {
-		int ret;
+		int ret = -1;
 
 		return ret;
 	}
@@ -40,18 +40,7 @@ public class CalculMetrique {
 	 * @return The number of classes attributes
 	 */
 	public int getNumberAttributes() {
-		int ret;
-
-		return ret;
-	}
-
-
-	/**
-	 * Method to get the number of classes attributes
-	 * @return The number of classes attributes
-	 */
-	public int getNumberAttributes() {
-		int ret;
+		int ret = -1;
 
 		return ret;
 	}
