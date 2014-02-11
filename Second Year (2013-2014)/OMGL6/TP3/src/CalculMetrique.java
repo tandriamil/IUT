@@ -18,10 +18,6 @@ public class CalculMetrique {
 	public CalculMetrique(Object o) {
 		this.o = o;
 		this.c = this.o.getClass();
-
-		//Displays the name of the class
-		String name = c.getName();
-		System.out.println("L'objet est instance de " + name + ".");
 	}
 
 
@@ -51,7 +47,7 @@ public class CalculMetrique {
 		int ret;
 
 		//Gets all the fields (= attributes)
-		Field[] f = this.c.getFields();
+		Field[] f = this.c.getDeclaredFields();
 
 		//Then gets the number of fields
 		ret = f.length;
@@ -68,7 +64,7 @@ public class CalculMetrique {
 		int ret = 0;
 
 		//Gets all the fields (= attributes)
-		Field[] f = this.c.getFields();
+		Field[] f = this.c.getDeclaredFields();
 
 		//Then gets the number of instances fields
 		for (int i = 0; i < f.length; i++) {
@@ -102,6 +98,18 @@ public class CalculMetrique {
      	}
 
 		return ret;
+	}
+
+
+	/**
+	 * Displays all the informations
+	 */
+	public void displaysInformations() {
+		System.out.println("\n" + "Début des mesures de la classe " + this.c.getName() + ":");
+		System.out.println("Nombre de méthodes: " + this.getNumberMethods());
+		System.out.println("Nombre d'attributs de classe: " + this.getNumberAttributes());
+		System.out.println("Nombre d'attributs d'instances: " + this.getNumberAttributes());
+		System.out.println("Nombre de super classes: " + this.getNumberSuperClasses());
 	}
 
 }
