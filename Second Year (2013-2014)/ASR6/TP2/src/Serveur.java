@@ -19,8 +19,6 @@ public class Serveur {
     private BufferedReader in = null;
     private PrintWriter out = null;
     private boolean waitNext;
-    private Client[] listClient;
-    private int nbClient;
 
 
 //Methods
@@ -31,9 +29,7 @@ public class Serveur {
     public Serveur(int port) {
         //Initializes the port, the boolean and the list of client
         this.numPort = port;
-        this.listClient = new Client[10];
         this.waitNext = true;
-        this.nbClient = 0;
 
 
 
@@ -58,7 +54,7 @@ public class Serveur {
 
         //Creates the BufferedReader
         try {
-            in = new BufferedReader(new InputStreamReader(socketduserveur.getInputStream()));
+            this.in = new BufferedReader(new InputStreamReader(socketduserveur.getInputStream()));
         }
 
         catch (IOException e) {
@@ -73,7 +69,7 @@ public class Serveur {
         //Creates the PrintWriter
         try {
             //true for auto_flush so it flushed everytime we do a println
-            out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketduserveur.getOutputStream())), true);
+            this.out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketduserveur.getOutputStream())), true);
         }
 
         catch (IOException e) {
@@ -91,8 +87,8 @@ public class Serveur {
     public void closeServer() {
         //Closes the reader/writer
         try {
-            in.close();
-            out.close();
+            this.in.close();
+            this.out.close();
         }
 
         catch (IOException e) {
@@ -138,7 +134,7 @@ public class Serveur {
         while (this.waitNext) {
             //Accepts sockets incomings
             try {
-                socketduserveur = socketserver.accept();
+                this.socketduserveur = socketserver.accept();
             }
 
             catch (IOException e) {
@@ -153,7 +149,7 @@ public class Serveur {
 
             //Read the message
             try {
-                str = in.readLine();
+                str = this.in.readLine();
             }
 
             catch (IOException e) {
@@ -167,7 +163,7 @@ public class Serveur {
             }
 
             System.out.println("Message: " + str);
-            out.println(str);
+            this.out.println(str);
         }
     }
 }

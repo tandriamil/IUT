@@ -5,11 +5,13 @@ import java.net.UnknownHostException;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.Thread;
+
 
 /**
  * The client class
  */
-public class Client {
+public class Client extends Thread {
 //Attributes
     private int numPort;
     private String name;
@@ -75,24 +77,13 @@ public class Client {
 
 
     /**
-     * Permits to create his name
-     * @param nom His name
-     */
-    public void setNom(String nom) {
-        this.name = nom;
-        System.out.println ("Client named " + this.name + ".");
-    }
-
-
-
-    /**
      * Permits to read a line
      */
     public void read() {
         //read lines then
         try {
-            String message_distant = this.in.readLine();
-            out.println(message_distant);
+            String message = this.in.readLine();
+            this.out.println(message);
         }
 
         catch (IOException e) {
@@ -109,8 +100,8 @@ public class Client {
     public void closeAll() {
         //Closes the reader/writer
         try {
-            in.close();
-            out.close();
+            this.in.close();
+            this.out.close();
         }
 
         catch (IOException e) {
@@ -124,7 +115,7 @@ public class Client {
 
         //Then closes the socket
         try {
-            socket.close();
+            this.socket.close();
         }
 
         catch (IOException e) {
