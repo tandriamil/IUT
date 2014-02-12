@@ -99,7 +99,7 @@ public:
 	/**
 		affiche le contenu de la matrice TPieceTable à l'écran
 	*/
-	friend iostream& operator<< ( iostream& flux, const CPieceAbstract& p );
+	friend ostream& operator<< ( ostream& flux, const CPieceAbstract& p );
 
 protected:
 	/**
@@ -121,7 +121,6 @@ protected:
 
 	// dans le sens horlogique
 	enum State {
-
 		S_Top,
 		S_Right,
 		S_Bottom,
