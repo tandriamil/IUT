@@ -48,6 +48,10 @@ public class Serveur {
                     System.err.println(line);
                     System.err.flush();
 
+<<<<<<< HEAD
+        catch (IOException e) {
+           e.printStackTrace();
+=======
                     Scanner sc = new Scanner(System.in);
                     System.out.println("Veuillez saisir un mot :");
                     String str = sc.nextLine();
@@ -62,6 +66,7 @@ public class Serveur {
         }
         catch (Exception e) {
             e.printStackTrace();
+>>>>>>> 0099d99bd16a4aea87a30885ab60fb2e943851d1
         }
     }
 
