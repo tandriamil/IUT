@@ -5,7 +5,7 @@
 * and initialising the table at this number
 * @param nbsub the number of submarine
 */
-CArmada :: CArmada (int nbsub) {
+CArmada::CArmada (int nbsub) {
 	this -> m_pTabSousMarins = new string [nbsub];
 	this -> m_nbTotSSM = nbsub;
 	cout << "Objet CArmada créé et tableau initialisé à " << nbsub << " sous-marins" << endl;
@@ -17,7 +17,7 @@ CArmada :: CArmada (int nbsub) {
 * accessor of the pointer of the table of submarines
 * @return the pointer m_pTabSousMarins
 */
-string* CArmada :: getTabSM() {
+string* CArmada::getTabSM() {
 	return this -> m_pTabSousMarins;
 }
 
@@ -66,7 +66,7 @@ void CArmada::remplirStruct () {
 * destructor of CArmada
 */
 CArmada::~CArmada () {
-	cout << "destruction de l'objet CArmada d'adresse : " << this << "et libération de l'espace mémoire du tableau " << "\n" << endl;
+	cout << "\n" << "Destruction de l'objet CArmada d'adresse : " << this << " et libération de l'espace mémoire du tableau " << "\n" << endl;
 	delete [] m_pTabSousMarins;
 }
 
@@ -88,17 +88,29 @@ void CArmada::analyser(string saisie) {
 		//Gets the two letters
 		char firstLetter = saisie.at(0);
 		char secondLetter = saisie.at(1);
-		
+
 		//Verify if the first is between A and J
 		if (!(((int)firstLetter >= 65) && ((int)firstLetter <= 74))) {
-			throw logic_error("/!\\ first letter incompatible.");
+			throw logic_error("/!\\ First letter incompatible!");
 		}
 
 		//If the first char is ok
 		else {
+
 			//Verify if the second letter is between 0 and 9
 			if (!(((int) secondLetter >= 48) && ((int)secondLetter <= 57))) {
-				throw logic_error("/!\\ second letter incompatible.");
+				throw logic_error("/!\\ Second letter incompatible!");
+			}
+
+			//If they are all corrects, verify that there is no submarine already in this case!
+			else {
+
+				//Travels the tab where the submarines are already enterred
+				for (int i = 0; i < this->m_nbTotSSM; i++) {
+					if (this->m_pTabSousMarins[i] == saisie) {
+						throw logic_error("/!\\ Case already occupied!");
+					}
+				}
 			}
 		}
 	}

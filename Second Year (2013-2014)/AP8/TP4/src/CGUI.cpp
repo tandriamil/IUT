@@ -21,8 +21,11 @@ void CGUI::initGrille() {
 
 	//Then add the colon numbers to the first line
 	for (int i = 0; i < this->NB_COL_LIG; i++) {
-		this->m_grille[0] = this->m_grille[0] + "  " + (char)(i+48) + "\n";
+		this->m_grille[0] = this->m_grille[0] + "  " + (char)(i+48);
 	}
+
+	//Then add a line jump
+	this->m_grille[0] = this->m_grille[0] + "\n";
 
 	//Then add all the lines
 	for (int i = 0; i < this->NB_COL_LIG; i++) {
