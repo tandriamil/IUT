@@ -16,8 +16,8 @@
 
 CPieceAbstract::CPieceAbstract ( unsigned int dim, int iX, int iY, const CVector3& color ) {
 	m_dim = dim;
-	TPieceRow rows = TPieceRow ( dim, 0 );
-	m_table = TPieceTable ( dim, rows );
+	TPieceRow rows = TPieceRow (dim, 0);
+	m_table = TPieceTable (dim, rows);
 	m_state = S_Top;
 	m_colIndex = iX;
 	m_rowIndex = iY;
@@ -86,7 +86,7 @@ const CVector3& CPieceAbstract::GetColor() {
 
 /****************************************/
 
-/*friend iostream& CPieceAbstract::operator<< (iostream& flux, const CPieceAbstract& p) {
+/*friend ostream& CPieceAbstract::operator<< (ostream& flux, const CPieceAbstract& p) {
 	
 }
 */
