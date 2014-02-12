@@ -58,7 +58,7 @@ public class Serveur {
 
         //Creates the BufferedReader
         try {
-            in = new BufferedReader(new InputStreamReader(socketduserveur.getInputStream()));
+            this.in = new BufferedReader(new InputStreamReader(socketduserveur.getInputStream()));
         }
 
         catch (IOException e) {
@@ -73,7 +73,7 @@ public class Serveur {
         //Creates the PrintWriter
         try {
             //true for auto_flush so it flushed everytime we do a println
-            out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketduserveur.getOutputStream())), true);
+            this.out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketduserveur.getOutputStream())), true);
         }
 
         catch (IOException e) {
@@ -91,8 +91,8 @@ public class Serveur {
     public void closeServer() {
         //Closes the reader/writer
         try {
-            in.close();
-            out.close();
+            this.in.close();
+            this.out.close();
         }
 
         catch (IOException e) {
