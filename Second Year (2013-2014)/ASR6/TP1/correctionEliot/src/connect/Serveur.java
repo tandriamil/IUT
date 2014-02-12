@@ -22,11 +22,11 @@ public class Serveur {
 				Socket call = serverSocket.accept();
 
 				System.out.println("Client coming from " + call.getRemoteSocketAddress());
-				// On recupère les flux d'entrée et de sortie
+				// On recupere les flux d'entree et de sortie
 				BufferedReader in = new BufferedReader(new InputStreamReader(call.getInputStream()));
 				PrintStream out = new PrintStream(call.getOutputStream(), true);
 				
-				// On créé et ajoute un nouveau client à notre liste
+				// On cree et ajoute un nouveau client a notre liste
 				Client client = new Client(in, out, clients);
 				synchronized(clients) {
 					clients.add(client);
