@@ -1,15 +1,9 @@
 #include "CIPiece.h"
 
 /**
-	\brief Constructor of CIPiece, no parameters because it'll creates them
+	\brief Constructor of CIPiece
 */
-CIPiece::CIPiece(unsigned int dim, int iX, int iY) {
-	//Creates the color of those pieces
-	CVector3 col = new CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f);
-	
-	//Call the super constructor
-	super(dim, iX, iY, &col);
-
+CIPiece::CIPiece(unsigned int dim, int iX, int iY, const CVector3& color) : CPieceAbstract(dim, iX, iY, color) {
 	//Prints a log message
 	cout << "CIPiece created in case " << this << endl;
 }
@@ -26,6 +20,20 @@ CIPiece::~CIPiece() {
 /**
 	\brief Turns the piece
 */
-void Turn() {
-	
+void CIPiece::Turn() {
+	//Colors the grids in function of the actual new state
+
+	//If it's vertical
+	if ((this->m_state == S_Top) || (this->m_state == S_Bottom)) {
+		this->m_table[1][0];
+		this->m_table[1][1];
+		this->m_table[1][2];
+	}
+
+	//If it's horizontal
+	else {
+		this->m_table[0][1];
+		this->m_table[1][1];
+		this->m_table[2][1];
+	}
 }

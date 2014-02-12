@@ -6,7 +6,7 @@
 class CIPiece : public CPieceAbstract {
 
 	public:
-		CIPiece(unsigned int dim, int iX, int iY);
+		CIPiece(unsigned int dim, int iX, int iY, const CVector3& color);
 		~CIPiece();
 		void Turn();
 

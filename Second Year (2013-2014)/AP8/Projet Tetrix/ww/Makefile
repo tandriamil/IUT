@@ -21,8 +21,8 @@ all: tetris
 #------------------------------------------------------------
 # execution projet tetris
 #------------------------------------------------------------
-tetris: CProjetTetris.o CTetrisGame.o CPieceAbstract.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o main.o
-	$(GPP) -o $(BIN)/tetris.bin $(BIN)/CProjetTetris.o $(BIN)/CTetrisGame.o $(BIN)/CPieceAbstract.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(LIBS) $(BIN)/main.o
+tetris: CProjetTetris.o CTetrisGame.o CPieceAbstract.o CIPiece.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o main.o
+	$(GPP) -o $(BIN)/tetris.bin $(BIN)/CProjetTetris.o $(BIN)/CTetrisGame.o $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(LIBS) $(BIN)/main.o
 
 #------------------------------------------------------------
 # compilation projet tetris
@@ -35,6 +35,9 @@ CTetrisGame.o: $(SRC)/tetris/CTetrisGame.cpp
 
 CPieceAbstract.o: $(SRC)/tetris/CPieceAbstract.cpp
 	$(GPP) -o $(BIN)/CPieceAbstract.o -c $(SRC)/tetris/CPieceAbstract.cpp
+
+CIPiece.o: $(SRC)/tetris/CIPiece.cpp
+	$(GPP) -o $(BIN)/CIPiece.o -c $(SRC)/tetris/CIPiece.cpp
 
 CRandomizer.o: $(SRC)/tetris/CRandomizer.cpp
 	$(GPP) -o $(BIN)/CRandomizer.o -c $(SRC)/tetris/CRandomizer.cpp 
@@ -73,6 +76,3 @@ mrproper: clean
 
 cleansrctetris:
 	rm -f $(SRC)/tetris/*.*~
-
-	
-
