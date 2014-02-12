@@ -2,11 +2,11 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.io.PrintWriter;
+import java.io.PrintStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.OutputStream;
 
 /**
  * The server class
@@ -14,11 +14,11 @@ import java.io.OutputStreamWriter;
 public class Serveur {
 //Attributes
     private ServerSocket socketserver = null;
-    private Socket socketduserveur = null;
     private int numPort;
-    private BufferedReader in = null;
-    private PrintWriter out = null;
+    private BufferedReader in;
+    private PrintStream out = null;
     private boolean waitNext;
+    private Socket socketTravail = null;
 
 
 //Methods
@@ -30,7 +30,6 @@ public class Serveur {
         //Initializes the port, the boolean and the list of client
         this.numPort = port;
         this.waitNext = true;
-
 
 
         //Creates the ServerSocket and catches errors if there are some
@@ -54,7 +53,7 @@ public class Serveur {
 
         //Creates the BufferedReader
         try {
-            this.in = new BufferedReader(new InputStreamReader(socketduserveur.getInputStream()));
+            this.in = new BufferedReader(new InputStreamReader(socketTravail.getInputStream()));
         }
 
         catch (IOException e) {
@@ -69,7 +68,7 @@ public class Serveur {
         //Creates the PrintWriter
         try {
             //true for auto_flush so it flushed everytime we do a println
-            this.out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketduserveur.getOutputStream())), true);
+            this.out = new PrintStream(socketTravail.getOutputStream(), true);
         }
 
         catch (IOException e) {
@@ -111,18 +110,6 @@ public class Serveur {
         }
 
         System.out.println("ServerSocket is correctly closed.");
-
-
-        try {
-            this.socketduserveur.close();
-        }
-
-        catch (IOException e) {
-            System.out.println("IOException catched when closing the socketduserveur: " + "\n" + e.getMessage());
-            e.printStackTrace();
-        }
-
-        System.out.println("Server's socket is correctly closed.");
     }
 
 
@@ -134,7 +121,7 @@ public class Serveur {
         while (this.waitNext) {
             //Accepts sockets incomings
             try {
-                this.socketduserveur = socketserver.accept();
+                this.socketTravail = socketserver.accept();
             }
 
             catch (IOException e) {
@@ -145,27 +132,23 @@ public class Serveur {
             System.out.println ("The server accepts now clients!");
 
 
-
             //Creates a client
-            Client cli = new Client(this.numPort);
+            Client cli = new Client(socketTravail);
 
             //Read the message
-            try {
-                this.cli.start();
-            }
-
-            catch (IOException e) {
-                System.out.println("IOException catched when trying to read the line: " + "\n" + e.getMessage());
-                e.printStackTrace();
-            }
-
-            //If it's the exit message
-            if (str.equals("exit")) {
-                this.waitNext = false;
-            }
-
-            System.out.println("Message: " + str);
-            this.out.println(str);
+            cli.start();
         }
+
+        //Then closes it
+        try {
+            socketTravail.close();
+        }
+
+        catch (IOException e) {
+            System.out.println("IOException catched when closing the socketduserveur: " + "\n" + e.getMessage());
+            e.printStackTrace();
+        }
+
+        System.out.println("Server's socket is correctly closed.");
     }
 }

@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.io.PrintWriter;
+import java.io.PrintStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.Thread;
@@ -13,28 +13,22 @@ import java.lang.Thread;
  */
 public class Client extends Thread {
 //Attributes
-    private int numPort;
     private String name;
     private Socket socket = null;
     private BufferedReader in = null;
-    private PrintWriter out = null;
+    private PrintStream out = null;
+    private boolean waitNext = true;
 
 
 //Methods
     /**
      * The constructor
      */
-    public Client(int port) {
-        this.numPort = port;
+    public Client(Socket sock) {
 
         //Try to creates the socket and catches error if there are some
         try {
-            this.socket = new Socket(InetAddress.getLocalHost(), numPort);
-        }
-
-        catch (IOException e) {
-            System.out.println("IOException catched when initializing the client socket: " + "\n" + e.getMessage());
-            e.printStackTrace();
+            this.socket = sock;
         }
 
         catch (SecurityException e) {
@@ -49,7 +43,7 @@ public class Client extends Thread {
 
         //Creates the printer-out to transmit messages to the server, auto flush actived
         try {
-            this.out = new PrintWriter(this.socket.getOutputStream(), true);
+            this.out = new PrintStream(this.socket.getOutputStream(), true);
         }
 
         catch (IOException e) {
@@ -80,15 +74,23 @@ public class Client extends Thread {
      * Permits to read a line
      */
     public void run() {
-        //read lines then
-        try {
-            String message = this.in.readLine();
-            this.out.println(message);
-        }
+        while (this.waitNext) {
+            //read lines then
+            try {
+                String message = this.in.readLine();
 
-        catch (IOException e) {
-            System.out.println("IOException catched when trying to read: " + "\n" + e.getMessage());
-            e.printStackTrace();
+                if (message == "exit") {
+                    this.waitNext = false;
+                }
+
+                System.out.println(message);
+                out.close();
+            }
+
+            catch (IOException e) {
+                System.out.println("IOException catched when trying to read: " + "\n" + e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
 
