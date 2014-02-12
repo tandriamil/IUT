@@ -22,6 +22,16 @@ public class CalculMetrique {
 
 
 	/**
+	 * Constructor
+	 * @param c The class of the object
+	 */
+	public CalculMetrique(Class c) {
+		this.c = c;
+		this.o = null;
+	}
+
+
+	/**
 	 * Method to get the number of methods
 	 * @return The number of methods
 	 */
@@ -70,7 +80,7 @@ public class CalculMetrique {
 		for (int i = 0; i < f.length; i++) {
 
 			//If it contains "static"
-			if (f[i].getName().contentEquals("static")) {
+			if (f[i].getName().matches("(?i).*static.*")) {
 				ret++;
 			}
 		}
@@ -108,7 +118,7 @@ public class CalculMetrique {
 		System.out.println("\n" + "Début des mesures de la classe " + this.c.getName() + ":");
 		System.out.println("Nombre de méthodes: " + this.getNumberMethods());
 		System.out.println("Nombre d'attributs de classe: " + this.getNumberAttributes());
-		System.out.println("Nombre d'attributs d'instances: " + this.getNumberAttributes());
+		System.out.println("Nombre d'attributs d'instances: " + this.getNumberInstancesAttributes());
 		System.out.println("Nombre de super classes: " + this.getNumberSuperClasses());
 	}
 
