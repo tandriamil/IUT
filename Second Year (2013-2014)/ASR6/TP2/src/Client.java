@@ -79,7 +79,7 @@ public class Client extends Thread {
     /**
      * Permits to read a line
      */
-    public void read() {
+    public void run() {
         //read lines then
         try {
             String message = this.in.readLine();

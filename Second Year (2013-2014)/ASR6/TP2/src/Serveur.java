@@ -145,11 +145,13 @@ public class Serveur {
             System.out.println ("The server accepts now clients!");
 
 
-            String str = "";
+
+            //Creates a client
+            Client cli = new Client(this.numPort);
 
             //Read the message
             try {
-                str = this.in.readLine();
+                this.cli.start();
             }
 
             catch (IOException e) {
