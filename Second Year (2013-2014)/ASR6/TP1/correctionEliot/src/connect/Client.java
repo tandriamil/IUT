@@ -24,14 +24,14 @@ public class Client implements Runnable{
 			// On demande le nom au client
 			out.println("Quel est votre nom?");
 			nom = in.readLine();
-			System.out.println(nom + " s'est connecté.");
+			System.out.println(nom + " s'est connecte.");
 			out.println("Welcome " + nom);
 			
 			// On envoi le message de connection du nouveau client aux autres clients
 			synchronized(clients) {
 				for(int i = 0; i < clients.size(); i++) {
 					if(clients.get(i) != this) {
-						clients.get(i).getPrintStream().println(nom + " s'est connecté.");
+						clients.get(i).getPrintStream().println(nom + " s'est connecte.");
 						clients.get(i).getPrintStream().flush();
 					}
 				}
@@ -40,18 +40,18 @@ public class Client implements Runnable{
 			while(true) {
 				String lineIn = in.readLine();
 				
-				// Déconnection d'un client
+				// Deconnection d'un client
 				if(lineIn == null) {
 					synchronized(clients){
 						clients.remove(this);
 						
 						for(int i = 0; i < clients.size(); i++) {
-							clients.get(i).getPrintStream().println(nom + " s'est déconnecté.");
+							clients.get(i).getPrintStream().println(nom + " s'est deconnecte.");
 							clients.get(i).getPrintStream().flush();		
 						}	
 					}
 					
-					System.out.println(nom + " s'est déconnecté.");
+					System.out.println(nom + " s'est deconnecte.");
 					System.out.flush();
 					break;
 				}
