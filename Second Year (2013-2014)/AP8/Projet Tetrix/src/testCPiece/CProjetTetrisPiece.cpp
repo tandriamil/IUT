@@ -86,7 +86,7 @@ void CProjetTetris::OnRender() {
 }
 
 //----------------------------------------------------------
-// destructuion de notre appli (rien car dessiner un cube à l'écran ne nécéssite aucune destruction)
+// destruction de notre appli (rien car dessiner un cube à l'écran ne nécessite aucune destruction)
 // !! Méthode appelée dans la méthode Release de la classe CApplication
 //----------------------------------------------------------
 void CProjetTetris::OnRelease() {
@@ -114,9 +114,9 @@ void CProjetTetris::DrawTetris() {
 	float	tetrisWidth = gameTable[0].size()* m_game.GetCaseDim();
 	float	tetrisHeight = gameTable.size() * m_game.GetCaseDim();
 
-	// fond du tetris
-	DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(153.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
-	//DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f) );
+	// couleur de fond du tetris
+	//DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(153.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
+	DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f) );
 	
 	// affichage du "cadre" tetris
 	DrawRect ( m_game.GetXPos()-0.1f, m_game.GetYPos()-0.1f, (tetrisWidth+0.2f), (tetrisHeight+0.2f), CVector3(213.0f/255.0f,213.0f/255.0f,213.0f/255.0f) );

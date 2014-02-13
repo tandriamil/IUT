@@ -22,7 +22,6 @@ CIPiece::~CIPiece() {
 */
 void CIPiece::Turn() {
 	//Colors the grids in function of the actual new state
-
 	//If it's vertical
 	if ((this->m_state == S_Top) || (this->m_state == S_Bottom)) {
 		this->m_table[1][0];
