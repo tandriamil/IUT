@@ -80,19 +80,16 @@ public:
 
 	/**
 		\brief permet de modifier l'index en abcisse de la piece dans le tetrix
-		\return entier de l'index en abcisse de la piece dans le tetrix
 	*/
 	void SetColIndex ( int newColIndex );
 
 	/**
 		\brief permet de modifier l'index en ordonnée de la piece dans le tetrix
-		\return entier de l'index en abcisse de la piece dans le tetrix
 	*/
 	void SetRowIndex ( int newRowIndex );
 
 	/**
 		\brief renvoit la couleur de la piece
-		\return vecteur 3 sur la couleur rgb de la piece
 	*/
 	const CVector3& GetColor();
 
