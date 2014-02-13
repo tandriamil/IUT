@@ -24,15 +24,31 @@ void CIPiece::Turn() {
 	//Colors the grids in function of the actual new state
 	//If it's vertical
 	if ((this->m_state == S_Top) || (this->m_state == S_Bottom)) {
-		this->m_table[1][0];
-		this->m_table[1][1];
-		this->m_table[1][2];
+		//Clean the grid
+		for (int i = 0; i < this->m_dim; i++) {
+			for (int j = 0; j < this->m_dim; j++) {
+				this->m_table[i][j] = 0;
+			}
+		}
+
+		//Colors the correct shape
+		this->m_table[1][0] = 1;
+		this->m_table[1][1] = 1;
+		this->m_table[1][2] = 1;
 	}
 
 	//If it's horizontal
 	else {
-		this->m_table[0][1];
-		this->m_table[1][1];
-		this->m_table[2][1];
+		//Clean the grid
+		for (int i = 0; i < this->m_dim; i++) {
+			for (int j = 0; j < this->m_dim; j++) {
+				this->m_table[i][j] = 0;
+			}
+		}
+
+		//Colors the correct shape
+		this->m_table[0][1] = 1;
+		this->m_table[1][1] = 1;
+		this->m_table[2][1] = 1;
 	}
 }
