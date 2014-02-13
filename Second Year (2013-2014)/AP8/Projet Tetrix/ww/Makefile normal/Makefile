@@ -1,5 +1,3 @@
-# /!\ Ceci est le makefile de test /!\ #
-
 # Répertoire des fichiers sources du projet
 SRC = ../src
 INCDIRS = -I../src/appliBase
@@ -63,17 +61,7 @@ CMatrix44.o: $(SRC)/math/CMatrix44.cpp
 	$(GPP) -o $(BIN)/CMatrix44.o -c $(SRC)/math/CMatrix44.cpp 
 
 main.o: $(SRC)/main.cpp
-	$(GPP) -o $(BIN)/main.o -c $(SRC)/main.cpp
-
-
-#------------------------------------------------------------
-# compilation des tests de CPiece
-#------------------------------------------------------------
-testCIPiece.o: $(SRC)/testCPiece/testCIPiece.cpp
-	$(GPP) -o $(BIN)/testCIPiece.o -c $(SRC)/testCPiece/testCIPiece.cpp
-
-testCOPiece.o: $(SRC)/testCPiece/testCOPiece.cpp
-	$(GPP) -o $(BIN)/testCOPiece.o -c $(SRC)/testCPiece/testCOPiece.cpp
+	$(GPP) -o $(BIN)/main.o -c $(SRC)/main.cpp 
 
 
 

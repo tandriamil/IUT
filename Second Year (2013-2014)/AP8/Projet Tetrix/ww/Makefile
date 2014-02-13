@@ -1,5 +1,3 @@
-# /!\ Ceci est le makefile de test /!\ #
-
 # Répertoire des fichiers sources du projet
 SRC = ../src
 INCDIRS = -I../src/appliBase
@@ -69,6 +67,10 @@ main.o: $(SRC)/main.cpp
 #------------------------------------------------------------
 # compilation des tests de CPiece
 #------------------------------------------------------------
+testPiece: testCIPiece.o testCOPiece.o
+	$(GPP) -o $(BIN)/testCIPiece.bin $(BIN)/testCOPiece.bin
+
+
 testCIPiece.o: $(SRC)/testCPiece/testCIPiece.cpp
 	$(GPP) -o $(BIN)/testCIPiece.o -c $(SRC)/testCPiece/testCIPiece.cpp
 

@@ -25,8 +25,8 @@ void CIPiece::Turn() {
 	//If it's vertical
 	if ((this->m_state == S_Top) || (this->m_state == S_Bottom)) {
 		//Clean the grid
-		for (int i = 0; i < this->m_dim; i++) {
-			for (int j = 0; j < this->m_dim; j++) {
+		for (unsigned int i = 0; i < this->m_dim; i++) {
+			for (unsigned int j = 0; j < this->m_dim; j++) {
 				this->m_table[i][j] = 0;
 			}
 		}
@@ -40,8 +40,8 @@ void CIPiece::Turn() {
 	//If it's horizontal
 	else {
 		//Clean the grid
-		for (int i = 0; i < this->m_dim; i++) {
-			for (int j = 0; j < this->m_dim; j++) {
+		for (unsigned int i = 0; i < this->m_dim; i++) {
+			for (unsigned int j = 0; j < this->m_dim; j++) {
 				this->m_table[i][j] = 0;
 			}
 		}
