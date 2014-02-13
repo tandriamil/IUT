@@ -1,3 +1,5 @@
+# /!\ Ceci est le makefile de test /!\ #
+
 # Répertoire des fichiers sources du projet
 SRC = ../src
 INCDIRS = -I../src/appliBase

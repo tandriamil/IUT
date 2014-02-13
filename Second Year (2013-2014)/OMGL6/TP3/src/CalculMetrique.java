@@ -6,7 +6,6 @@ import java.lang.reflect.*;
 public class CalculMetrique {
 
 //Attributes
-	Object o;
 	Class c;
 
 
@@ -16,7 +15,6 @@ public class CalculMetrique {
 	 * @param o The object to analyse
 	 */
 	public CalculMetrique(Object o) {
-		this.o = o;
 		this.c = this.o.getClass();
 	}
 
@@ -27,7 +25,6 @@ public class CalculMetrique {
 	 */
 	public CalculMetrique(Class c) {
 		this.c = c;
-		this.o = null;
 	}
 
 
