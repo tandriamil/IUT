@@ -7,12 +7,7 @@
 //-------------------------------------------------------------------------------------------------------------------
 
 // Constructor of the COPiece class
-COPiece::COPiece(unsigned int dim, int iX, int iY) {
-	// Creates the color of the O piece
-	CVector3 col = new CVector3(1.0, 1.0, 0.0)
-
-	// We call the attributes of the super-class
-	super(dim, iX, iY, &col);
+COPiece::COPiece(unsigned int dim, int iX, int iY, const CVector3& color) : CPieceAbstract(dim, iX, iY, color) {
 
 	cout << "COPiece created in case " << this << endl;
 }
@@ -33,11 +28,11 @@ COPiece::~COPiece() {
 * The method turn which allows to rotate the piece in terms of its state
 */
 void COPiece::Turn() {
-	// 1st case : where the O piece is turned once
-	if ((this -> m_state == S_Top) || (this -> m_state == S_Bottom)) {
-		
-	}
-	
+	// Activates the cases to draw the O piece. As the O piece doesn't move, we don't have to initialize the other cases to 0, which are by default
+		this->m_table[1][1] = 1;
+		this->m_table[1][2] = 1;
+		this->m_table[2][1] = 1;
+		this->m_table[2][2] = 1;
 }
 
 /********************************************************************************************************/
