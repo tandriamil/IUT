@@ -13,7 +13,7 @@ class COPiece : public CPieceAbstract {
 
 	public:
 		~COPiece();
-		COPiece(unsigned int dim, int iX, int iY);
+		COPiece(unsigned int dim, int iX, int iY, const CVector3& color);
 		void Turn();
 };
 

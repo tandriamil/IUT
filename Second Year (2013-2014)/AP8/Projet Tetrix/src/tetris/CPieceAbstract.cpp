@@ -103,24 +103,28 @@ void CPieceAbstract::TurnRight() {
 		case S_Top:
 		{
 			this -> m_state = S_Right;
+			cout << "état de la pièce après rotation = S_Right" << endl;
 			break;
 		}
 
 		case S_Bottom:
 		{
 			this -> m_state = S_Left;
+			cout << "état de la pièce après rotation = S_Left" << endl;
 			break;
 		}
 
 		case S_Left:
 		{
 			this -> m_state = S_Top;
+			cout << "état de la pièce après rotation = S_Top" << endl;
 			break;
 		} 
 
 		case S_Right:
 		{
 			this -> m_state = S_Bottom;
+			cout << "état de la pièce après rotation = S_Bottom" << endl;
 		}
 	}
 	
@@ -136,33 +140,38 @@ void CPieceAbstract::TurnLeft() {
 		case S_Top:
 		{
 			this -> m_state = S_Left;
+			cout << "état de la pièce après rotation = S_Left" << endl;
 			break;
 		}
 
 		case S_Bottom:
 		{
 			this -> m_state = S_Right;
+			cout << "état de la pièce après rotation = S_Right" << endl;
 			break;
 		}
 
 		case S_Left:
 		{
 			this -> m_state = S_Bottom;
+			cout << "état de la pièce après rotation = S_Bottom" << endl;
 			break;
 		} 
 
 		case S_Right:
 		{
 			this -> m_state = S_Top;
+			cout << "état de la pièce après rotation = S_Top" << endl;
 		}
 	}
+
 }		
 
 /*************************************/
 /* method overriding the output stream */ 
 ostream& operator<< ( ostream& flux, const CPieceAbstract& p ) {
 	for (int i=0; i< 3; i++) {
-		for (int j=0; j < 3 ; i++) {
+		for (int j=0; j < 3 ; j++) {
 			flux << "contenu de la case [" << i << "]" << "[" << j << "] : " << p.m_table[i][j] << endl;
 			 
 		}
@@ -170,10 +179,3 @@ ostream& operator<< ( ostream& flux, const CPieceAbstract& p ) {
 	return flux;
 
 }
-
-/****************************************/
-
-/*friend ostream& CPieceAbstract::operator<< (ostream& flux, const CPieceAbstract& p) {
-	
-}
-*/

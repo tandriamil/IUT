@@ -11,4 +11,4 @@ class testCIPiece {
 
 };
 
-#endif
+#endif /*TEST_CIPIECE_H*/

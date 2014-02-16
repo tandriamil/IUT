@@ -1,9 +1,12 @@
+
+
 # Répertoire des fichiers sources du projet
 SRC = ../src
 INCDIRS = -I../src/appliBase
 INCDIRS += -I../src/glut
 INCDIRS += -I../src/math
 INCDIRS += -I../src/tetris
+INCDIRS += -I../src/dossier_de_test
 
 # Répertoire des destinations des binaires
 BIN = ../bin
@@ -16,13 +19,13 @@ LIBS = -lX11 -lglut -lGL -lGLU -lm
 OPTFLAGS = -Wall
 GPP = g++ $(OPTFLAGS) $(INCDIRS)
 
-all: tetris
+all: testCIPiece, testCPiece, testCOPiece
 
 #------------------------------------------------------------
-# execution projet tetris
+# execution classe de test de CIPiece
 #------------------------------------------------------------
-tetris: CProjetTetris.o CTetrisGame.o CPieceAbstract.o CIPiece.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o main.o
-	$(GPP) -o $(BIN)/tetris.bin $(BIN)/CProjetTetris.o $(BIN)/CTetrisGame.o $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(LIBS) $(BIN)/main.o
+testCIPiece: CPieceAbstract.o CIPiece.o mainI.o
+	$(GPP) -o $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(LIBS) $(BIN)/mainI.o
 
 #------------------------------------------------------------
 # compilation projet tetris
@@ -38,6 +41,12 @@ CPieceAbstract.o: $(SRC)/tetris/CPieceAbstract.cpp
 
 CIPiece.o: $(SRC)/tetris/CIPiece.cpp
 	$(GPP) -o $(BIN)/CIPiece.o -c $(SRC)/tetris/CIPiece.cpp
+
+CTPiece.o: $(SRC)/tetris/CTPiece.cpp
+	$(GPP) -o $(BIN)/CTPiece.o -c $(SRC)/tetris/CTPiece.cpp
+
+COPiece.o: $(SRC)/tetris/COPiece.cpp
+	$(GPP) -o $(BIN)/COPiece.o -c $(SRC)/tetris/COPiece.cpp
 
 CRandomizer.o: $(SRC)/tetris/CRandomizer.cpp
 	$(GPP) -o $(BIN)/CRandomizer.o -c $(SRC)/tetris/CRandomizer.cpp 
@@ -60,8 +69,21 @@ CRenderer.o: $(SRC)/appliBase/CRenderer.cpp
 CMatrix44.o: $(SRC)/math/CMatrix44.cpp
 	$(GPP) -o $(BIN)/CMatrix44.o -c $(SRC)/math/CMatrix44.cpp 
 
-main.o: $(SRC)/main.cpp
-	$(GPP) -o $(BIN)/main.o -c $(SRC)/main.cpp 
+mainI.o: $(SRC)/testCIPiece.cpp
+	$(GPP) -o $(BIN)/testCIPiece.o -c $(SRC)/testCIPiece.cpp
+
+
+#------------------------------------------------------------
+# compilation des tests de CPiece
+#------------------------------------------------------------
+#testCTPiece.o: $(SRC)/tetris/testCIPiece.cpp
+#	$(GPP) -o $(BIN)/testCTPiece.o -c $(SRC)/tetris/testCTPiece.cpp
+
+#testCIPiece.o: $(SRC)/tetris/testCIPiece.cpp
+#	$(GPP) -o $(BIN)/testCIPiece.o -c $(SRC)/tetris/testCIPiece.cpp
+
+#testCOPiece.o: $(SRC)/tetris/testCOPiece.cpp
+#	$(GPP) -o $(BIN)/testCOPiece.o -c $(SRC)/tetris/testCOPiece.cpp
 
 
 

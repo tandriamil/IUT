@@ -1,14 +1,15 @@
 # /!\ Ceci est le makefile de test /!\ #
 
 # Répertoire des fichiers sources du projet
-SRC = ../src
-INCDIRS = -I../src/appliBase
-INCDIRS += -I../src/glut
-INCDIRS += -I../src/math
-INCDIRS += -I../src/tetris
+SRC = ../../src
+INCDIRS = -I../../src/appliBase
+INCDIRS += -I../../src/glut
+INCDIRS += -I../../src/math
+INCDIRS += -I../../src/tetris
+INCDIRS += -I../../src/dossier_de_test
 
 # Répertoire des destinations des binaires
-BIN = ../bin
+BIN = ../../bin/lanceur_test
 
 # Usage des librairies Linux
 LIBS = -lX11 -lglut -lGL -lGLU -lm
@@ -18,13 +19,20 @@ LIBS = -lX11 -lglut -lGL -lGLU -lm
 OPTFLAGS = -Wall
 GPP = g++ $(OPTFLAGS) $(INCDIRS)
 
-all: tetris
+all: testCIPiece testCTPiece testCOPiece
 
 #------------------------------------------------------------
-# execution projet tetris
+# execution classe de test de CIPiece, CTPiece et COPiece
 #------------------------------------------------------------
-tetris: CProjetTetris.o CTetrisGame.o CPieceAbstract.o CIPiece.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o main.o
-	$(GPP) -o $(BIN)/tetris.bin $(BIN)/CProjetTetris.o $(BIN)/CTetrisGame.o $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(LIBS) $(BIN)/main.o
+testCIPiece: CPieceAbstract.o CIPiece.o testCIPiece.o
+	$(GPP) -o $(BIN)/lanceurCIPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(LIBS) $(BIN)/testCIPiece.o
+
+testCTPiece: CPieceAbstract.o CTPiece.o testCTPiece.o
+	$(GPP) -o $(BIN)/lanceurCTPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CTPiece.o $(LIBS) $(BIN)/testCTPiece.o
+
+testCOPiece: CPieceAbstract.o COPiece.o testCOPiece.o
+	$(GPP) -o $(BIN)/lanceurCOPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/COPiece.o $(LIBS) $(BIN)/testCOPiece.o
+
 
 #------------------------------------------------------------
 # compilation projet tetris
@@ -40,6 +48,12 @@ CPieceAbstract.o: $(SRC)/tetris/CPieceAbstract.cpp
 
 CIPiece.o: $(SRC)/tetris/CIPiece.cpp
 	$(GPP) -o $(BIN)/CIPiece.o -c $(SRC)/tetris/CIPiece.cpp
+
+CTPiece.o: $(SRC)/tetris/CTPiece.cpp
+	$(GPP) -o $(BIN)/CTPiece.o -c $(SRC)/tetris/CTPiece.cpp
+
+COPiece.o: $(SRC)/tetris/COPiece.cpp
+	$(GPP) -o $(BIN)/COPiece.o -c $(SRC)/tetris/COPiece.cpp
 
 CRandomizer.o: $(SRC)/tetris/CRandomizer.cpp
 	$(GPP) -o $(BIN)/CRandomizer.o -c $(SRC)/tetris/CRandomizer.cpp 
@@ -69,11 +83,14 @@ main.o: $(SRC)/main.cpp
 #------------------------------------------------------------
 # compilation des tests de CPiece
 #------------------------------------------------------------
-testCIPiece.o: $(SRC)/testCPiece/testCIPiece.cpp
-	$(GPP) -o $(BIN)/testCIPiece.o -c $(SRC)/testCPiece/testCIPiece.cpp
+testCTPiece.o: $(SRC)/dossier_de_test/testCIPiece.cpp
+	$(GPP) -o $(BIN)/testCTPiece.o -c $(SRC)/dossier_de_test/testCTPiece.cpp
 
-testCOPiece.o: $(SRC)/testCPiece/testCOPiece.cpp
-	$(GPP) -o $(BIN)/testCOPiece.o -c $(SRC)/testCPiece/testCOPiece.cpp
+testCIPiece.o: $(SRC)/dossier_de_test/testCIPiece.cpp
+	$(GPP) -o $(BIN)/testCIPiece.o -c $(SRC)/dossier_de_test/testCIPiece.cpp
+
+testCOPiece.o: $(SRC)/dossier_de_test/testCOPiece.cpp
+	$(GPP) -o $(BIN)/testCOPiece.o -c $(SRC)/dossier_de_test/testCOPiece.cpp
 
 
 

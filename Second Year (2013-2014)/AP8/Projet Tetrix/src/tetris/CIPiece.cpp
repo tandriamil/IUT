@@ -35,6 +35,7 @@ void CIPiece::Turn() {
 		this->m_table[1][0] = 1;
 		this->m_table[1][1] = 1;
 		this->m_table[1][2] = 1;
+
 	}
 
 	//If it's horizontal

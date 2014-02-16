@@ -21,8 +21,8 @@ all: tetris
 #------------------------------------------------------------
 # execution projet tetris
 #------------------------------------------------------------
-tetris: CProjetTetris.o CTetrisGame.o CPieceAbstract.o CIPiece.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o main.o
-	$(GPP) -o $(BIN)/tetris.bin $(BIN)/CProjetTetris.o $(BIN)/CTetrisGame.o $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(LIBS) $(BIN)/main.o
+tetris: CProjetTetris.o CTetrisGame.o CPieceAbstract.o CIPiece.o CTPiece.o COPiece.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o main.o 
+	$(GPP) -o $(BIN)/tetris.bin $(BIN)/CProjetTetris.o $(BIN)/CTetrisGame.o $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(BIN)/COPiece.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(LIBS) $(BIN)/main.o
 
 #------------------------------------------------------------
 # compilation projet tetris
@@ -38,6 +38,12 @@ CPieceAbstract.o: $(SRC)/tetris/CPieceAbstract.cpp
 
 CIPiece.o: $(SRC)/tetris/CIPiece.cpp
 	$(GPP) -o $(BIN)/CIPiece.o -c $(SRC)/tetris/CIPiece.cpp
+
+CTPiece.o: $(SRC)/tetris/CTPiece.cpp
+	$(GPP) -o $(BIN)/CTPiece.o -c $(SRC)/tetris/CTPiece.cpp
+
+COPiece.o: $(SRC)/tetris/COPiece.cpp
+	$(GPP) -o $(BIN)/COPiece.o -c $(SRC)/tetris/COPiece.cpp
 
 CRandomizer.o: $(SRC)/tetris/CRandomizer.cpp
 	$(GPP) -o $(BIN)/CRandomizer.o -c $(SRC)/tetris/CRandomizer.cpp 
@@ -67,15 +73,14 @@ main.o: $(SRC)/main.cpp
 #------------------------------------------------------------
 # compilation des tests de CPiece
 #------------------------------------------------------------
-testPiece: testCIPiece.o testCOPiece.o
-	$(GPP) -o $(BIN)/testCIPiece.bin $(BIN)/testCOPiece.bin
+#testCTPiece.o: $(SRC)/tetris/testCIPiece.cpp
+#	$(GPP) -o $(BIN)/testCTPiece.o -c $(SRC)/tetris/testCTPiece.cpp
 
+#testCIPiece.o: $(SRC)/tetris/testCIPiece.cpp
+#	$(GPP) -o $(BIN)/testCIPiece.o -c $(SRC)/tetris/testCIPiece.cpp
 
-testCIPiece.o: $(SRC)/testCPiece/testCIPiece.cpp
-	$(GPP) -o $(BIN)/testCIPiece.o -c $(SRC)/testCPiece/testCIPiece.cpp
-
-testCOPiece.o: $(SRC)/testCPiece/testCOPiece.cpp
-	$(GPP) -o $(BIN)/testCOPiece.o -c $(SRC)/testCPiece/testCOPiece.cpp
+#testCOPiece.o: $(SRC)/tetris/testCOPiece.cpp
+#	$(GPP) -o $(BIN)/testCOPiece.o -c $(SRC)/tetris/testCOPiece.cpp
 
 
 

@@ -12,4 +12,4 @@ class CTPiece : public CPieceAbstract {
 
 };
 
-#endif
+#endif /*__CTPIECE_H__*/
