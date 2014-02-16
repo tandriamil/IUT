@@ -57,22 +57,23 @@ int main () {
 
 
 	//Test of setRowIndex(y)
-	cout << "\n Test of SetRowIndex(x) : " << endl;
+	cout << "\n Test of SetRowIndex(y) : " << endl;
 	c1 -> SetRowIndex(456);
 	cout << "The rowIndex of c1 after modification : " << c1 -> GetRowIndex() << endl;
 	c2 -> SetRowIndex(654);
 	cout << "The rowIndex of c2 after modification : " << c2 -> GetRowIndex() << endl;
 
-
-	//Test of SetIncDecRowIndex(x)
-	cout << "\n Test of SetIncDecRowIndex(x) : " << endl;
+	//Test of SetIncDecRowIndex(y)
+	cout << "\n Test of SetIncDecRowIndex(y) : " << endl;
 	c1 -> SetIncDecRowIndex(1);
 	cout << "The rowIndex of c1 after incrementation : " << c1 -> GetRowIndex() << endl;
 	c2 -> SetIncDecRowIndex(-1);
 	cout << "The rowIndex of c2 after decrementation : " << c2 -> GetRowIndex() << endl;
 
 
-	//Test of Turn(), TurnLeft() and TurnRight() 
+
+
+	//Test of Turn(), TurnLeft(), TurnRight() and operator overriding
 
 		//Initialize the shapes of c1
 		cout << "\n affichage de c1 avant initialisation : " << endl;
