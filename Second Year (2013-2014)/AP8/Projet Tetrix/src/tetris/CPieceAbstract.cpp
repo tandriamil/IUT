@@ -27,7 +27,7 @@ CPieceAbstract::CPieceAbstract ( unsigned int dim, int iX, int iY, const CVector
 /****************************************/
 
 CPieceAbstract::~CPieceAbstract() {
-	cout << "Piece " << this << " correctement detruite." << endl;
+	cout << "\n Piece " << this << " correctement detruite.\n " << endl;
 }
 
 /****************************************/

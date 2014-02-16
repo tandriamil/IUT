@@ -28,6 +28,11 @@ void CTPiece::Turn() {
 		//If it's top
 		case S_Top:
 		{
+			for (unsigned int i = 0; i < this->m_dim; i++) {
+				for (unsigned int j = 0; j < this->m_dim; j++) {
+					this->m_table[i][j] = 0;
+				}
+			}
 			m_table[1][0]=1;
 			m_table[1][1]=1;
 			m_table[1][2]=1;
@@ -37,6 +42,11 @@ void CTPiece::Turn() {
 		//If it's bottom
 		case S_Bottom:
 		{
+			for (unsigned int i = 0; i < this->m_dim; i++) {
+				for (unsigned int j = 0; j < this->m_dim; j++) {
+					this->m_table[i][j] = 0;
+				}
+			}
 			m_table[1][1]=1;
 			m_table[2][0]=1;
 			m_table[2][1]=1;
@@ -46,8 +56,13 @@ void CTPiece::Turn() {
 		//If it's left
 		case S_Left:
 		{
+			for (unsigned int i = 0; i < this->m_dim; i++) {
+				for (unsigned int j = 0; j < this->m_dim; j++) {
+					this->m_table[i][j] = 0;
+				}
+			}
 			m_table[0][1]=1;
-			m_table[1][0]=1;
+			m_table[1][2]=1;
 			m_table[1][1]=1;
 			m_table[2][1]=1;
 			break;
@@ -55,9 +70,14 @@ void CTPiece::Turn() {
 		//If it's right
 		case S_Right:
 		{
+			for (unsigned int i = 0; i < this->m_dim; i++) {
+				for (unsigned int j = 0; j < this->m_dim; j++) {
+					this->m_table[i][j] = 0;
+				}
+			}
 			m_table[0][1]=1;
 			m_table[1][1]=1;
-			m_table[1][2]=1;
+			m_table[1][0]=1;
 			m_table[2][1]=1;
 			break;
 		}
