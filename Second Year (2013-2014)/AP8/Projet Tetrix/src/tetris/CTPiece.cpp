@@ -33,9 +33,8 @@ void CTPiece::Turn() {
 					this->m_table[i][j] = 0;
 				}
 			}
-			// les 2 axes x et y de la matrice dans le tétris
-			//sont inversés par rapport à un tableau normal 
-			// donc on considérera pour la suite m_table [y][x]
+			// /!\ attention aux cases et aux axes de la matrice
+			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
 			m_table[0][1]=1;
 			m_table[1][0]=1;
 			m_table[1][1]=1;
@@ -50,13 +49,12 @@ void CTPiece::Turn() {
 					this->m_table[i][j] = 0;
 				}
 			}
-			// les 2 axes x et y de la matrice dans le tétris
-			//sont inversés par rapport à un tableau normal 
-			// donc on considérera pour la suite m_table [y][x]
+			// /!\ attention aux cases et aux axes de la matrice
+			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
+			m_table[0][1]=1;
 			m_table[1][1]=1;
-			m_table[0][2]=1;
 			m_table[1][2]=1;
-			m_table[2][2]=1;
+			m_table[2][1]=1;
 			break;
 		}
 		//If it's left
@@ -67,13 +65,12 @@ void CTPiece::Turn() {
 					this->m_table[i][j] = 0;
 				}
 			}
-			// les 2 axes x et y de la matrice dans le tétris
-			//sont inversés par rapport à un tableau normal 
-			// donc on considérera pour la suite m_table [y][x]
+			// /!\ attention aux cases et aux axes de la matrice
+			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
 			m_table[1][0]=1;
-			m_table[2][1]=1;
 			m_table[1][1]=1;
 			m_table[1][2]=1;
+			m_table[2][1]=1;
 			break;
 		} 
 		//If it's right
@@ -84,14 +81,20 @@ void CTPiece::Turn() {
 					this->m_table[i][j] = 0;
 				}
 			}
-			// les 2 axes x et y de la matrice dans le tétris
-			//sont inversés par rapport à un tableau normal 
-			// donc on considérera pour la suite m_table [y][x]
+			// /!\ attention aux cases et aux axes de la matrice
+			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
+			m_table[0][1]=1;
 			m_table[1][0]=1;
 			m_table[1][1]=1;
-			m_table[0][1]=1;
 			m_table[1][2]=1;
 			break;
 		}
-	}
+
+		// disposition des axes de la matrice sur la grille     	
+		//		j2	.	.	.
+		//		j1	.	.	.
+		//		j0	.	.	.
+		//		   x0   x1 	x2
+
+	}	
 }
