@@ -170,10 +170,16 @@ void CPieceAbstract::TurnLeft() {
 /*************************************/
 /* method overriding the output stream */ 
 ostream& operator<< ( ostream& flux, const CPieceAbstract& p ) {
+	int count = 0;
 	for (int i=0; i< 3; i++) {
 		for (int j=0; j < 3 ; j++) {
-			flux << "contenu de la case [" << i << "]" << "[" << j << "] : " << p.m_table[i][j] << endl;
-			 
+			count ++;
+			if (count%3 == 0) {
+				flux << p.m_table[i][j] << endl;
+			}
+			else {
+				flux  << p.m_table[i][j] << " - ";
+			} 
 		}
 	}
 	return flux;
