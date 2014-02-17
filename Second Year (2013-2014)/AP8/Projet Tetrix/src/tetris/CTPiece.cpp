@@ -33,9 +33,12 @@ void CTPiece::Turn() {
 					this->m_table[i][j] = 0;
 				}
 			}
+			// les 2 axes x et y de la matrice dans le tétris
+			//sont inversés par rapport à un tableau normal 
+			// donc on considérera pour la suite m_table [y][x]
+			m_table[0][1]=1;
 			m_table[1][0]=1;
 			m_table[1][1]=1;
-			m_table[1][2]=1;
 			m_table[2][1]=1;
 			break;
 		}
@@ -47,9 +50,12 @@ void CTPiece::Turn() {
 					this->m_table[i][j] = 0;
 				}
 			}
+			// les 2 axes x et y de la matrice dans le tétris
+			//sont inversés par rapport à un tableau normal 
+			// donc on considérera pour la suite m_table [y][x]
 			m_table[1][1]=1;
-			m_table[2][0]=1;
-			m_table[2][1]=1;
+			m_table[0][2]=1;
+			m_table[1][2]=1;
 			m_table[2][2]=1;
 			break;
 		}
@@ -61,10 +67,13 @@ void CTPiece::Turn() {
 					this->m_table[i][j] = 0;
 				}
 			}
-			m_table[0][1]=1;
-			m_table[1][2]=1;
-			m_table[1][1]=1;
+			// les 2 axes x et y de la matrice dans le tétris
+			//sont inversés par rapport à un tableau normal 
+			// donc on considérera pour la suite m_table [y][x]
+			m_table[1][0]=1;
 			m_table[2][1]=1;
+			m_table[1][1]=1;
+			m_table[1][2]=1;
 			break;
 		} 
 		//If it's right
@@ -75,10 +84,13 @@ void CTPiece::Turn() {
 					this->m_table[i][j] = 0;
 				}
 			}
-			m_table[0][1]=1;
-			m_table[1][1]=1;
+			// les 2 axes x et y de la matrice dans le tétris
+			//sont inversés par rapport à un tableau normal 
+			// donc on considérera pour la suite m_table [y][x]
 			m_table[1][0]=1;
-			m_table[2][1]=1;
+			m_table[1][1]=1;
+			m_table[0][1]=1;
+			m_table[1][2]=1;
 			break;
 		}
 	}
