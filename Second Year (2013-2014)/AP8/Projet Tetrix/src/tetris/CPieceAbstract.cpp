@@ -178,7 +178,7 @@ ostream& operator<< ( ostream& flux, const CPieceAbstract& p ) {
 				flux << p.m_table[i][j] << endl;
 			}
 			else {
-				flux  << p.m_table[i][j] << " - ";
+				flux  << p.m_table[i][j] << "-";
 			} 
 		}
 	}

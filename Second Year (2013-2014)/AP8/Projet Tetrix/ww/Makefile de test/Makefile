@@ -27,8 +27,8 @@ all: testCIPiece testCTPiece testCOPiece
 testCIPiece: CPieceAbstract.o CIPiece.o testCIPiece.o
 	$(GPP) -o $(BIN)/lanceurCIPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(LIBS) $(BIN)/testCIPiece.o
 
-testCTPiece: CPieceAbstract.o CTPiece.o testCTPiece.o
-	$(GPP) -o $(BIN)/lanceurCTPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CTPiece.o $(LIBS) $(BIN)/testCTPiece.o
+testCTPiece: CPieceAbstract.o CTPiece.o testCTPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCTPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCTPiece.o
 
 testCOPiece: CPieceAbstract.o COPiece.o testCOPiece.o
 	$(GPP) -o $(BIN)/lanceurCOPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/COPiece.o $(LIBS) $(BIN)/testCOPiece.o
@@ -37,8 +37,8 @@ testCOPiece: CPieceAbstract.o COPiece.o testCOPiece.o
 #------------------------------------------------------------
 # compilation projet tetris
 #------------------------------------------------------------
-CProjetTetris.o: $(SRC)/tetris/CProjetTetris.cpp
-	$(GPP) -o $(BIN)/CProjetTetris.o -c $(SRC)/tetris/CProjetTetris.cpp 
+CProjetTetrisPiece.o: $(SRC)/dossier_de_test/CProjetTetrisPiece.cpp
+	$(GPP) -o $(BIN)/CProjetTetrisPiece.o -c $(SRC)/dossier_de_test/CProjetTetrisPiece.cpp 
 
 CTetrisGame.o: $(SRC)/tetris/CTetrisGame.cpp
 	$(GPP) -o $(BIN)/CTetrisGame.o -c $(SRC)/tetris/CTetrisGame.cpp 
