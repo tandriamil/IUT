@@ -19,28 +19,31 @@ LIBS = -lX11 -lglut -lGL -lGLU -lm
 OPTFLAGS = -Wall
 GPP = g++ $(OPTFLAGS) $(INCDIRS)
 
-all: testCIPiece testCTPiece testCOPiece testCL1Piece testCL2Piece testCZ1Piece
+all: testCIPiece testCTPiece testCOPiece testCL1Piece testCL2Piece testCZ1Piece testCZ2Piece
 
 #------------------------------------------------------------
 # execution classe de test de CIPiece, CTPiece et COPiece
 #------------------------------------------------------------
-testCIPiece: CPieceAbstract.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCIPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
-	$(GPP) -o $(BIN)/lanceurCIPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCIPiece.o
+testCIPiece: CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCIPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCIPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CZ2Piece.o $(BIN)/CZ1Piece.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCIPiece.o
 
-testCTPiece: CPieceAbstract.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCTPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
-	$(GPP) -o $(BIN)/lanceurCTPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCTPiece.o
+testCTPiece: CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCTPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCTPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CZ2Piece.o $(BIN)/CZ1Piece.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCTPiece.o
 
-testCOPiece: CPieceAbstract.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCOPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
-	$(GPP) -o $(BIN)/lanceurCOPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCOPiece.o
+testCOPiece: CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCOPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCOPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CZ2Piece.o $(BIN)/CZ1Piece.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCOPiece.o
 
-testCL1Piece: CPieceAbstract.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCL1Piece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
-	$(GPP) -o $(BIN)/lanceurCL1Pièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCL1Piece.o
+testCL1Piece: CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCL1Piece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCL1Pièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CZ2Piece.o $(BIN)/CZ1Piece.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCL1Piece.o
 
-testCL2Piece: CPieceAbstract.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCL2Piece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
-	$(GPP) -o $(BIN)/lanceurCL2Pièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCL2Piece.o
+testCL2Piece: CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCL2Piece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCL2Pièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CZ2Piece.o $(BIN)/CZ1Piece.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCL2Piece.o
 
-testCZ1Piece: CPieceAbstract.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCZ1Piece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
-	$(GPP) -o $(BIN)/lanceurCZ1Pièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCZ1Piece.o
+testCZ1Piece: CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCZ1Piece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCZ1Pièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CZ2Piece.o $(BIN)/CZ1Piece.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCZ1Piece.o
+
+testCZ2Piece: CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o COPiece.o CIPiece.o CTPiece.o testCZ2Piece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCZ2Pièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CZ2Piece.o $(BIN)/CZ1Piece.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/COPiece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCZ2Piece.o
 
 
 #------------------------------------------------------------
@@ -72,6 +75,9 @@ CL2Piece.o: $(SRC)/tetris/CL2Piece.cpp
 
 CZ1Piece.o: $(SRC)/tetris/CZ1Piece.cpp
 	$(GPP) -o $(BIN)/CZ1Piece.o -c $(SRC)/tetris/CZ1Piece.cpp
+
+CZ2Piece.o: $(SRC)/tetris/CZ2Piece.cpp
+	$(GPP) -o $(BIN)/CZ2Piece.o -c $(SRC)/tetris/CZ2Piece.cpp
 
 CRandomizer.o: $(SRC)/tetris/CRandomizer.cpp
 	$(GPP) -o $(BIN)/CRandomizer.o -c $(SRC)/tetris/CRandomizer.cpp 
@@ -118,6 +124,9 @@ testCL2Piece.o: $(SRC)/dossier_de_test/testCL2Piece.cpp
 
 testCZ1Piece.o: $(SRC)/dossier_de_test/testCZ1Piece.cpp
 	$(GPP) -o $(BIN)/testCZ1Piece.o -c $(SRC)/dossier_de_test/testCZ1Piece.cpp
+
+testCZ2Piece.o: $(SRC)/dossier_de_test/testCZ2Piece.cpp
+	$(GPP) -o $(BIN)/testCZ2Piece.o -c $(SRC)/dossier_de_test/testCZ2Piece.cpp
 
 
 

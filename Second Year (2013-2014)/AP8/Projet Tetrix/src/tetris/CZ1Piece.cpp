@@ -51,10 +51,10 @@ void CZ1Piece::Turn() {
 			}
 			// /!\ attention aux cases et aux axes de la matrice
 			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
-			m_table[0][2]=1;
 			m_table[1][0]=1;
 			m_table[1][1]=1;
-			m_table[1][2]=1;
+			m_table[2][1]=1;
+			m_table[2][2]=1;
 			break;
 		}
 		//If it's left
@@ -68,9 +68,9 @@ void CZ1Piece::Turn() {
 			// /!\ attention aux cases et aux axes de la matrice
 			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
 			m_table[0][1]=1;
+			m_table[1][0]=1;
 			m_table[1][1]=1;
-			m_table[2][1]=1;
-			m_table[2][2]=1;
+			m_table[2][0]=1;
 			break;
 		} 
 		//If it's right
@@ -83,9 +83,9 @@ void CZ1Piece::Turn() {
 			}
 			// /!\ attention aux cases et aux axes de la matrice
 			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
-			m_table[0][0]=1;
-			m_table[0][1]=1;
+			m_table[0][2]=1;
 			m_table[1][1]=1;
+			m_table[1][2]=1;
 			m_table[2][1]=1;
 			break;
 		}
