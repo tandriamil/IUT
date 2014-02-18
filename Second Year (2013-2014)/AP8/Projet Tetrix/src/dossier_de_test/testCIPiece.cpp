@@ -1,12 +1,15 @@
 //Test class of CIPiece
 
 #include "testCIPiece.h"
+#include "CProjetTetrisPiece.h"
+#include "CTPiece.h"
+#include "CGuiGlut.h"
 
 /**
 	\brief Main method to test the CIPiece class
  */
 
-int main() {
+int main ( int argc, char *argv[] ) {
 
 //Initialisation
 	//Creates the color vector
@@ -121,5 +124,11 @@ int main() {
 //Destruction of c1, c2 and c3
 	delete c1;
 	delete c2;
+
+
+CProjetTetrisPiece* monProjet = new CProjetTetrisPiece();
+	CGuiGlut::InitializeGraphics ( argc, argv, monProjet );
+	CGuiGlut::RunGraphics();
+	delete monProjet;
 
 }

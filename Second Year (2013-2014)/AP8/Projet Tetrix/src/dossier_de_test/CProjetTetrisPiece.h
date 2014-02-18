@@ -21,6 +21,7 @@
 #include "CApplication.h"		// ensemble des fonctions contenant notre environnement de développement
 #include "CTetrisGame.h"			// le jeu tétris (pas d'affichage dedans  !!!!!)
 #include "CTPiece.h"
+#include "CIPiece.h"
 
 ////////////////////////////////////////////////////////////////////////
 /// classe Demo: elle est notre classe cliente, elle possède l'ensemble des propriétés de la classe CApplication
@@ -68,7 +69,8 @@ private:
 	//----------------------------------------------------------
 	unsigned int		m_step;			///< compteur de passage dans la méthode onRender() permet de gérer implicitement le temps
 	CTetrisGame		m_game;			///< le jeu !!
-	CTPiece* m_pPiece;
+	CTPiece* m_pPieceT;
+	CIPiece* m_pPieceI;
 
 	// Attributs temporaires
 	// Il s'agit d'un test i.e. un carré qui descend pour vous montrer comment évolue le jeu au cours du temps

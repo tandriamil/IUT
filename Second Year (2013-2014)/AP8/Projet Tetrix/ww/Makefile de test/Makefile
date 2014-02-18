@@ -9,7 +9,7 @@ INCDIRS += -I../../src/tetris
 INCDIRS += -I../../src/dossier_de_test
 
 # Répertoire des destinations des binaires
-BIN = ../../bin/lanceur_test
+BIN = ../../bin/lanceurs_des_tests
 
 # Usage des librairies Linux
 LIBS = -lX11 -lglut -lGL -lGLU -lm
@@ -24,11 +24,11 @@ all: testCIPiece testCTPiece testCOPiece
 #------------------------------------------------------------
 # execution classe de test de CIPiece, CTPiece et COPiece
 #------------------------------------------------------------
-testCIPiece: CPieceAbstract.o CIPiece.o testCIPiece.o
-	$(GPP) -o $(BIN)/lanceurCIPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(LIBS) $(BIN)/testCIPiece.o
+testCIPiece: CPieceAbstract.o CIPiece.o CTPiece.o testCIPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCIPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCIPiece.o
 
-testCTPiece: CPieceAbstract.o CTPiece.o testCTPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
-	$(GPP) -o $(BIN)/lanceurCTPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCTPiece.o
+testCTPiece: CPieceAbstract.o CIPiece.o CTPiece.o testCTPiece.o CProjetTetrisPiece.o CTetrisGame.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o
+	$(GPP) -o $(BIN)/lanceurCTPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(LIBS)  $(BIN)/CProjetTetrisPiece.o $(BIN)/CTetrisGame.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(BIN)/testCTPiece.o
 
 testCOPiece: CPieceAbstract.o COPiece.o testCOPiece.o
 	$(GPP) -o $(BIN)/lanceurCOPièce.bin $(BIN)/CPieceAbstract.o $(BIN)/COPiece.o $(LIBS) $(BIN)/testCOPiece.o

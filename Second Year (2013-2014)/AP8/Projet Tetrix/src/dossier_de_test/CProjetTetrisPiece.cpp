@@ -7,6 +7,7 @@
 //========================================================================
 
 #include "CProjetTetrisPiece.h"
+#include "CIPiece.h"
 #include "CTPiece.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,8 +20,12 @@ CProjetTetrisPiece::CProjetTetrisPiece() {
 	m_step = 0;
 
 	// création d'une nouvelle pièce T, avec 0 et 0 pour coordonnées dans la grille
-	m_pPiece = new CTPiece(3, 0, 0, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
-	m_pPiece -> Turn(); // initialisation de la pièce 
+	m_pPieceT = new CTPiece(3, 0, 0, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceT -> Turn(); // initialisation de la pièce 
+
+	// création d'une nouvelle pièce I, avec 3 et 3 pour coordonnées dans la grille
+	m_pPieceI = new CIPiece(3, 3, 3, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceI -> Turn(); // initialisation de la pièce 
 
 	// attributs rajoutés pour montrer un exemple de pièce qui descend
 	m_posYPiece = HEIGHT_BOARD;
@@ -33,7 +38,7 @@ CProjetTetrisPiece::~CProjetTetrisPiece() {
 
 	cout << "Destruction objet CProjetTetrisPiece" << endl;
 
-	delete m_pPiece;
+	delete m_pPieceT;
 	cout << "Destruction de la pièce effectuée" << endl;
 }
 
@@ -64,12 +69,32 @@ void CProjetTetrisPiece::OnRender() {
 	//-------------------------------------------------------
 	// commande utilisateur
 	//-------------------------------------------------------
-	if(m_UserEvents->m_keyBoardEvents[Key_a])cout << "la touche 'a' a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_z])cout << "la touche 'z' a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_DOWN])cout << "la touche flèche bas a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_RIGHT])cout << "la touche flèche droite a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_LEFT])cout << "la touche flèche gauche a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_SPACE])cout << "la touche espace a bien été utilisée" << endl;
+	if(m_UserEvents->m_keyBoardEvents[Key_a]) {
+		cout << "la touche 'a' a bien été utilisée" << endl;
+		m_pPieceT -> TurnLeft ();
+		m_pPieceT -> Turn();
+		DrawTetris();
+	}
+
+
+	if(m_UserEvents->m_keyBoardEvents[Key_z]) {
+		cout << "la touche 'z' a bien été utilisée" << endl;
+		m_pPieceT -> TurnRight ();
+		m_pPieceT -> Turn();
+		DrawTetris();
+	}
+
+	if(m_UserEvents->m_keyBoardEvents[Key_DOWN])
+		cout << "la touche flèche bas a bien été utilisée" << endl;
+
+	if(m_UserEvents->m_keyBoardEvents[Key_RIGHT])
+		cout << "la touche flèche droite a bien été utilisée" << endl;
+
+	if(m_UserEvents->m_keyBoardEvents[Key_LEFT])
+		cout << "la touche flèche gauche a bien été utilisée" << endl;
+
+	if(m_UserEvents->m_keyBoardEvents[Key_SPACE])
+		cout << "la touche espace a bien été utilisée" << endl;
 	
 	//-------------------------------------------------------
 	// affichage
@@ -134,16 +159,30 @@ void CProjetTetrisPiece::DrawTetris() {
 	// affichage du tableau tetris
 
 
-	// affichage de la pièce en cours
+	// affichage de la pièce T en cours
 	// le i et le j*m_game.GetCaseDim() permettent de se décaler dans la grille et
 	// ainsi de colorier une nouvelle case
 	for (int i=0; i<3; i++) {
 		for (int j=0; j<3; j++) {
 
 			// si il n'y a pas de 1 dans la case de la matrice, on ne colorie pas
-			if (m_pPiece -> GetTable()[i][j] == 1) {
-				//DrawFillRect ( m_game.GetXPos() + m_pPiece -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPiece -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
-				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPiece -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPiece -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+			if (m_pPieceT -> GetTable()[i][j] == 1) {
+				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+			}
+		}
+	}
+
+	// affichage de la pièce T en cours
+	// le i et le j*m_game.GetCaseDim() permettent de se décaler dans la grille et
+	// ainsi de colorier une nouvelle case
+	for (int i=0; i<3; i++) {
+		for (int j=0; j<3; j++) {
+
+			// si il n'y a pas de 1 dans la case de la matrice, on ne colorie pas
+			if (m_pPieceI -> GetTable()[i][j] == 1) {
+				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceI -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceI -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
 			}
 		}
 	}
