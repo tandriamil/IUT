@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>ASR 6</title>
+  
+  <script type="text/javascript">
+    
+    //Store the step variable
+    step = 0;
+    
+    function addListeners() {
+      if(window.addEventListener) {
+        document.getElementById('aButton').addEventListener("click", btnfunc, false);
+        document.getElementById('magicText').addEventListener("mouseover", txtfunc, false);
+        document.getElementById('magicText').addEventListener("mouseout", revtxtfunc, false);
+        document.getElementById('colorButton').addEventListener("click", colorfunc, false);
+      }
+      
+      else if (window.attachEvent){ // Added For Inetenet Explorer versions previous to IE9
+        document.getElementById('aButton').attachEvent("onclick", btnfunc);
+        document.getElementById('magicText').attachEvent("onmouseover", txtfunc);
+        document.getElementById('magicText').addEventListener("onmouseout", revtxtfunc);
+        document.getElementById('colorButton').addEventListener("click", colorfunc);
+      }
+    }
+      
+    // Functions
+    function btnfunc() {
+       alert("What's up?");
+    }
+    
+    function txtfunc() {
+      document.getElementById('magicText').childNodes[0].nodeValue = 'The text changes!  So magic,  so much  wow,  doge,  how can reverse this,  nice,  internet,   fabulous';
+    }
+    
+    function revtxtfunc() {
+      document.getElementById('magicText').childNodes[0].nodeValue = 'This ... Is a magical text ...';
+    }
+    
+    function colorfunc() {
+      //Store the different buttons
+      b = document.getElementById('colorButton');
+      f = document.getElementById('first');
+      s = document.getElementById('second');
+      t = document.getElementById('third');
+      
+      //Colors
+      if (step == 0) {
+        f.style.backgroundColor = 'grey';
+        s.style.backgroundColor = 'grey';
+        t.style.backgroundColor = 'grey';
+      }
+      
+      else if (step == 1) {
+        f.style.backgroundColor = 'red';
+        s.style.backgroundColor = 'grey';
+        t.style.backgroundColor = 'grey';
+      }
+      
+      else if (step == 2) {
+        f.style.backgroundColor = 'grey';
+        s.style.backgroundColor = 'red';
+        t.style.backgroundColor = 'grey';
+      }
+      
+      else if (step == 3) {
+        f.style.backgroundColor = 'grey';
+        s.style.backgroundColor = 'grey';
+        t.style.backgroundColor = 'red';
+        
+        step = 0;
+      }
+      
+      step++;
+    }
+    
+    //Load the listener
+    window.onload = addListeners;
+  </script>
+  
+</head>
+  
+<body>
+  
+  <button id="aButton" >Hello</button>
+  
+  <p id="magicText" >This ... Is a magical text ...</p>
+  
+  <button id="colorButton" >Button</button>
+  <button id="first" >First</button>
+  <button id="second" >Second</button>
+  <button id="third" >Third</button>
+  
+</body>
+</html>
