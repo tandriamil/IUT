@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>ASR 6</title>
+  
+  <script type="text/javascript">
+    
+    function addListeners() {
+      if(window.addEventListener) {
+        document.getElementById('aButton').addEventListener("click", btnfunc, false);
+      }
+      
+      else if (window.attachEvent){ // Added For Inetenet Explorer versions previous to IE9
+        document.getElementById('aButton').attachEvent("onclick", btnfunc);
+      }
+    }
+      
+    // Functions
+    function btnfunc(){
+       alert("Hello World!");
+    }
+      
+    window.onload = addListeners;
+  </script>
+  
+</head>
+  
+<body>
+  
+  <button id="aButton" >Coucou</button>
+  
+</body>
+</html>

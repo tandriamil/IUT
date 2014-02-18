@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>ASR 6</title>
+  
+  <script type="text/javascript">
+    
+    function addListeners() {
+      if(window.addEventListener) {
+        document.getElementById('aButton').addEventListener("click", btnfunc, false);
+        document.getElementById('magicText').addEventListener("mouseover", txtfunc, false);
+        document.getElementById('magicText').addEventListener("mouseout", revtxtfunc, false);
+      }
+      
+      else if (window.attachEvent){ // Added For Inetenet Explorer versions previous to IE9
+        document.getElementById('aButton').attachEvent("onclick", btnfunc);
+        document.getElementById('magicText').attachEvent("onmouseover", txtfunc);
+        document.getElementById('magicText').addEventListener("onmouseout", revtxtfunc);
+      }
+    }
+      
+    // Functions
+    function btnfunc() {
+       alert("What's up?");
+    }
+    
+    function txtfunc() {
+      document.getElementById('magicText').childNodes[0].nodeValue = 'The text changes!  So magic,  so much,  wow,  doge,  how can reverse this,  nice,  internet,   fabulous';
+    }
+    
+    function revtxtfunc() {
+      document.getElementById('magicText').childNodes[0].nodeValue = 'This ... Is a magical text ...';
+    }
+    
+    //Load the listener
+    window.onload = addListeners;
+  </script>
+  
+</head>
+  
+<body>
+  
+  <button id="aButton" >Hello</button>
+  
+  <p id="magicText" >This ... Is a magical text ...</p>
+  
+</body>
+</html>
