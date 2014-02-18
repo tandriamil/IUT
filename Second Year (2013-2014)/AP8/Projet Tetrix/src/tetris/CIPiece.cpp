@@ -52,4 +52,13 @@ void CIPiece::Turn() {
 		this->m_table[1][1] = 1;
 		this->m_table[2][1] = 1;
 	}
+
+
+	// disposition des axes de la matrice sur la grille avec la pièce    	
+		//		j2	.	1	.
+		//		j1	.	1	.
+		//		j0	.	1	.
+		//		   x0   x1 	x2
+
+
 }

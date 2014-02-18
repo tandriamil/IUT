@@ -103,28 +103,28 @@ void CPieceAbstract::TurnRight() {
 		case S_Top:
 		{
 			this -> m_state = S_Right;
-			cout << "état de la pièce après rotation = S_Right" << endl;
+			cout << "état de la pièce après rotation = S_Right";
 			break;
 		}
 
 		case S_Bottom:
 		{
 			this -> m_state = S_Left;
-			cout << "état de la pièce après rotation = S_Left" << endl;
+			cout << "état de la pièce après rotation = S_Left";
 			break;
 		}
 
 		case S_Left:
 		{
 			this -> m_state = S_Top;
-			cout << "état de la pièce après rotation = S_Top" << endl;
+			cout << "état de la pièce après rotation = S_Top";
 			break;
 		} 
 
 		case S_Right:
 		{
 			this -> m_state = S_Bottom;
-			cout << "état de la pièce après rotation = S_Bottom" << endl;
+			cout << "état de la pièce après rotation = S_Bottom";
 		}
 	}
 	
@@ -140,28 +140,28 @@ void CPieceAbstract::TurnLeft() {
 		case S_Top:
 		{
 			this -> m_state = S_Left;
-			cout << "état de la pièce après rotation = S_Left" << endl;
+			cout << "état de la pièce après rotation = S_Left";
 			break;
 		}
 
 		case S_Bottom:
 		{
 			this -> m_state = S_Right;
-			cout << "état de la pièce après rotation = S_Right" << endl;
+			cout << "état de la pièce après rotation = S_Right";
 			break;
 		}
 
 		case S_Left:
 		{
 			this -> m_state = S_Bottom;
-			cout << "état de la pièce après rotation = S_Bottom" << endl;
+			cout << "état de la pièce après rotation = S_Bottom";
 			break;
 		} 
 
 		case S_Right:
 		{
 			this -> m_state = S_Top;
-			cout << "état de la pièce après rotation = S_Top" << endl;
+			cout << "état de la pièce après rotation = S_Top";
 		}
 	}
 

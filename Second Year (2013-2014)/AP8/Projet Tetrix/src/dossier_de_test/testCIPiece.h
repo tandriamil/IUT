@@ -3,6 +3,8 @@
 
 #include "CIPiece.h"
 #include "Common.h"
+#include "CGuiGlut.h"
+#include "CProjetTetrisPiece.h"
 
 class testCIPiece {
 

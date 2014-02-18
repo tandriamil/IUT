@@ -1,12 +1,10 @@
-//Test class of CIPiece
+//Test class of CL2Piece
 
-#include "testCIPiece.h"
-#include "CProjetTetrisPiece.h"
-#include "CTPiece.h"
-#include "CGuiGlut.h"
+#include "testCL2Piece.h"
+
 
 /**
-	\brief Main method to test the CIPiece class
+	\brief Main method to test the CL2Piece class
  */
 
 int main ( int argc, char *argv[] ) {
@@ -15,9 +13,9 @@ int main ( int argc, char *argv[] ) {
 	//Creates the color vector
 	const CVector3 color(0.0f, 1.0f, 0.0f);
 
-	//Creates some objects CIPiece
-	CIPiece* c1 = new CIPiece(3, 500, 450, color);
-	CIPiece* c2 = new CIPiece(3, 400, 350, color);
+	//Creates some objects CL2Piece
+	CL2Piece* c1 = new CL2Piece(3, 500, 450, color);
+	CL2Piece* c2 = new CL2Piece(3, 400, 350, color);
 
 	cout << "\n The initialisation succeeded." << endl;
 
@@ -65,7 +63,6 @@ int main ( int argc, char *argv[] ) {
 	cout << "The rowIndex of c1 after modification : " << c1 -> GetRowIndex() << endl;
 	c2 -> SetRowIndex(654);
 	cout << "The rowIndex of c2 after modification : " << c2 -> GetRowIndex() << endl;
-
 
 	//Test of SetIncDecRowIndex(y)
 	cout << "\n Test of SetIncDecRowIndex(y) : " << endl;
@@ -161,8 +158,7 @@ int main ( int argc, char *argv[] ) {
 	delete c1;
 	delete c2;
 
-
-CProjetTetrisPiece* monProjet = new CProjetTetrisPiece();
+	CProjetTetrisPiece* monProjet = new CProjetTetrisPiece();
 	CGuiGlut::InitializeGraphics ( argc, argv, monProjet );
 	CGuiGlut::RunGraphics();
 	delete monProjet;

@@ -2,6 +2,9 @@
 #define testCTPiece_H_
 
 #include "CTPiece.h"
+#include "CGuiGlut.h"
+#include "Common.h"
+#include "CProjetTetrisPiece.h"
 
 using namespace std;
 

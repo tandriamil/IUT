@@ -1,9 +1,7 @@
 //Test class of CTPiece
 
 #include "testCTPiece.h"
-#include "CProjetTetrisPiece.h"
-#include "CTPiece.h"
-#include "CGuiGlut.h"
+
 
 /**
 	\brief Main method to test the CTPiece class
@@ -89,14 +87,32 @@ int main ( int argc, char *argv[] ) {
 
 
 		// turns c1 left and checks the modifications in the matrix
-		cout << "\n test de rotation à gauche de c1, affichage avant rotation : " << endl;
+		cout << "\n*********************** test de rotation à gauche de c1 **********************************" << endl;
+
+		c1 -> TurnLeft();
+		c1 -> Turn();
+
+		cout << "\n affichage après rotation vers la gauche : " << endl;
 		cout << *c1 << endl;
 
 		c1 -> TurnLeft();
 		c1 -> Turn();
 
-		cout << "\n affichage après rotation : " << endl;
+		cout << "\n affichage après rotation vers la gauche : " << endl;
 		cout << *c1 << endl;
+
+		c1 -> TurnLeft();
+		c1 -> Turn();
+
+		cout << "\n affichage après rotation vers la gauche : " << endl;
+		cout << *c1 << endl;
+
+		c1 -> TurnLeft();
+		c1 -> Turn();
+
+		cout << "\n affichage après rotation vers la gauche : " << endl;
+		cout << *c1 << endl;
+		cout << "**************************** fin du test de rotation de c1 ********************************" << endl;
 
 
 		//Initialize the shapes of c2
@@ -110,14 +126,32 @@ int main ( int argc, char *argv[] ) {
 
 
 		// turns c2 right and checks the modifications in the matrix
-		cout << "\n test de rotation à droite de c2, affichage avant rotation : " << endl;
+		cout << "\n*********************** test de rotation à droite de c2 **********************************" << endl;
+
+		c2 -> TurnRight();
+		c2 -> Turn();
+
+		cout << "\n affichage après rotation vers la droite : " << endl;
 		cout << *c2 << endl;
 
 		c2 -> TurnRight();
 		c2 -> Turn();
 
-		cout << "\n affichage après rotation : " << endl;
+		cout << "\n affichage après rotation vers la droite : " << endl;
 		cout << *c2 << endl;
+
+		c2 -> TurnRight();
+		c2 -> Turn();
+
+		cout << "\n affichage après rotation vers la droite : " << endl;
+		cout << *c2 << endl;
+
+		c2 -> TurnRight();
+		c2 -> Turn();
+
+		cout << "\n affichage après rotation vers la droite : " << endl;
+		cout << *c2 << endl;
+		cout << "**************************** fin du test de rotation de c2 ********************************" << endl;
 
 
 //Destruction of c1, c2 and c3

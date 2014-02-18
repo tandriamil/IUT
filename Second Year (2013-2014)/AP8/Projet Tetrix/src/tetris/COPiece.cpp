@@ -29,10 +29,19 @@ COPiece::~COPiece() {
 */
 void COPiece::Turn() {
 	// Activates the cases to draw the O piece. As the O piece doesn't move, we don't have to initialize the other cases to 0, which are by default
+		this->m_table[0][0] = 1;
+		this->m_table[0][1] = 1;
+		this->m_table[1][0] = 1;
 		this->m_table[1][1] = 1;
-		this->m_table[1][2] = 1;
-		this->m_table[2][1] = 1;
-		this->m_table[2][2] = 1;
+
+
+
+		// disposition des axes de la matrice sur la grille avec la pièce  	
+		//		j2	.	.	.
+		//		j1	1	1	.
+		//		j0	1	1	.
+		//		   x0   x1 	x2
+
 }
 
 /********************************************************************************************************/

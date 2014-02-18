@@ -1,11 +1,11 @@
-#ifndef TESTCOPIECE_H_
-#define TESTCOPIECE_H
+#ifndef testCL1Piece_H_
+#define testCL1Piece_H_
 
-#include "COPiece.h"
+#include "CL1Piece.h"
 #include "CGuiGlut.h"
 #include "Common.h"
 #include "CProjetTetrisPiece.h"
 
 using namespace std;
 
-#endif /*TESTCOPIECE_H_*/
+#endif /*testCL1Piece_H_*/

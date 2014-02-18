@@ -2,11 +2,12 @@
 
 #include "testCOPiece.h"
 
+
 /**
 	\brief Main method to test the COPiece class
  */
 
-int main() {
+int main ( int argc, char *argv[] ) {
 
 //Initialisation
 	//Creates the color vector
@@ -86,14 +87,32 @@ int main() {
 
 
 		// turns c1 left and checks the modifications in the matrix
-		cout << "\n test de rotation à gauche de c1, affichage avant rotation : " << endl;
+		cout << "\n*********************** test de rotation à gauche de c1 **********************************" << endl;
+
+		c1 -> TurnLeft();
+		c1 -> Turn();
+
+		cout << "\n affichage après rotation vers la gauche : " << endl;
 		cout << *c1 << endl;
 
 		c1 -> TurnLeft();
 		c1 -> Turn();
 
-		cout << "\n affichage après rotation : " << endl;
+		cout << "\n affichage après rotation vers la gauche : " << endl;
 		cout << *c1 << endl;
+
+		c1 -> TurnLeft();
+		c1 -> Turn();
+
+		cout << "\n affichage après rotation vers la gauche : " << endl;
+		cout << *c1 << endl;
+
+		c1 -> TurnLeft();
+		c1 -> Turn();
+
+		cout << "\n affichage après rotation vers la gauche : " << endl;
+		cout << *c1 << endl;
+		cout << "**************************** fin du test de rotation de c1 ********************************" << endl;
 
 
 		//Initialize the shapes of c2
@@ -107,18 +126,41 @@ int main() {
 
 
 		// turns c2 right and checks the modifications in the matrix
-		cout << "\n test de rotation à droite de c2, affichage avant rotation : " << endl;
+		cout << "\n*********************** test de rotation à droite de c2 **********************************" << endl;
+
+		c2 -> TurnRight();
+		c2 -> Turn();
+
+		cout << "\n affichage après rotation vers la droite : " << endl;
 		cout << *c2 << endl;
 
 		c2 -> TurnRight();
 		c2 -> Turn();
 
-		cout << "\n affichage après rotation : " << endl;
+		cout << "\n affichage après rotation vers la droite : " << endl;
 		cout << *c2 << endl;
+
+		c2 -> TurnRight();
+		c2 -> Turn();
+
+		cout << "\n affichage après rotation vers la droite : " << endl;
+		cout << *c2 << endl;
+
+		c2 -> TurnRight();
+		c2 -> Turn();
+
+		cout << "\n affichage après rotation vers la droite : " << endl;
+		cout << *c2 << endl;
+		cout << "**************************** fin du test de rotation de c2 ********************************" << endl;
 
 
 //Destruction of c1, c2 and c3
 	delete c1;
 	delete c2;
+
+	CProjetTetrisPiece* monProjet = new CProjetTetrisPiece();
+	CGuiGlut::InitializeGraphics ( argc, argv, monProjet );
+	CGuiGlut::RunGraphics();
+	delete monProjet;
 
 }

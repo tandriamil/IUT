@@ -1,26 +1,26 @@
-#include "CTPiece.h"
+#include "CL2Piece.h"
 
 /**
-	\brief Constructor of CTPiece
+	\brief Constructor of CL2Piece
 */
-CTPiece::CTPiece(unsigned int dim, int iX, int iY, const CVector3& color) : CPieceAbstract(dim, iX, iY, color) {
+CL2Piece::CL2Piece(unsigned int dim, int iX, int iY, const CVector3& color) : CPieceAbstract(dim, iX, iY, color) {
 	//Prints a log message
-	cout << "CTPiece created in case " << this << endl;
+	cout << "CL2Piece created in case " << this << endl;
 }
 
 
 /**
-	\brief Desctructor of CTPiece
+	\brief Desctructor of CL2Piece
 */
-CTPiece::~CTPiece() {
-	cout << "CTPiece in case " << this << " deleted";
+CL2Piece::~CL2Piece() {
+	cout << "CL2Piece in case " << this << " deleted";
 }
 
 
 /**
 	\brief Turns the piece
 */
-void CTPiece::Turn() {
+void CL2Piece::Turn() {
 	//Colors the grids in function of the actual new state
 	
 	switch (m_state)
@@ -35,10 +35,10 @@ void CTPiece::Turn() {
 			}
 			// /!\ attention aux cases et aux axes de la matrice
 			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
-			m_table[0][1]=1;
 			m_table[1][0]=1;
 			m_table[1][1]=1;
-			m_table[2][1]=1;
+			m_table[1][2]=1;
+			m_table[2][0]=1;
 			break;
 		}
 		//If it's bottom
@@ -51,10 +51,10 @@ void CTPiece::Turn() {
 			}
 			// /!\ attention aux cases et aux axes de la matrice
 			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
-			m_table[0][1]=1;
+			m_table[0][2]=1;
+			m_table[1][0]=1;
 			m_table[1][1]=1;
 			m_table[1][2]=1;
-			m_table[2][1]=1;
 			break;
 		}
 		//If it's left
@@ -67,10 +67,10 @@ void CTPiece::Turn() {
 			}
 			// /!\ attention aux cases et aux axes de la matrice
 			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
-			m_table[1][0]=1;
+			m_table[0][1]=1;
 			m_table[1][1]=1;
-			m_table[1][2]=1;
 			m_table[2][1]=1;
+			m_table[2][2]=1;
 			break;
 		} 
 		//If it's right
@@ -83,17 +83,17 @@ void CTPiece::Turn() {
 			}
 			// /!\ attention aux cases et aux axes de la matrice
 			// qui n'ont pas la même disposition qu'avec tableau à 2 dimensions classique
+			m_table[0][0]=1;
 			m_table[0][1]=1;
-			m_table[1][0]=1;
 			m_table[1][1]=1;
-			m_table[1][2]=1;
+			m_table[2][1]=1;
 			break;
 		}
 
-		// disposition des axes de la matrice sur la grille avec la pièce    	
-		//		j2	.	.	.
-		//		j1	1	1	1
-		//		j0	.	1	.
+		// disposition des axes de la matrice sur la grille     	
+		//		j2	.	1	.
+		//		j1	.	1	.
+		//		j0	1	1	.
 		//		   x0   x1 	x2
 
 	}	

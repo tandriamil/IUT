@@ -22,6 +22,10 @@
 #include "CTetrisGame.h"			// le jeu tétris (pas d'affichage dedans  !!!!!)
 #include "CTPiece.h"
 #include "CIPiece.h"
+#include "COPiece.h"
+#include "CL1Piece.h"
+#include "CL2Piece.h"
+#include "CZ1Piece.h"
 
 ////////////////////////////////////////////////////////////////////////
 /// classe Demo: elle est notre classe cliente, elle possède l'ensemble des propriétés de la classe CApplication
@@ -71,6 +75,10 @@ private:
 	CTetrisGame		m_game;			///< le jeu !!
 	CTPiece* m_pPieceT;
 	CIPiece* m_pPieceI;
+	COPiece* m_pPieceO;
+	CL1Piece* m_pPieceL1;
+	CL2Piece* m_pPieceL2;
+	CZ1Piece* m_pPieceZ1;
 
 	// Attributs temporaires
 	// Il s'agit d'un test i.e. un carré qui descend pour vous montrer comment évolue le jeu au cours du temps

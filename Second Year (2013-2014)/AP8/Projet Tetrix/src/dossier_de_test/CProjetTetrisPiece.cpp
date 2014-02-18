@@ -7,8 +7,6 @@
 //========================================================================
 
 #include "CProjetTetrisPiece.h"
-#include "CIPiece.h"
-#include "CTPiece.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Projet Tetris
@@ -23,9 +21,25 @@ CProjetTetrisPiece::CProjetTetrisPiece() {
 	m_pPieceT = new CTPiece(3, 0, 0, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceT -> Turn(); // initialisation de la pièce 
 
-	// création d'une nouvelle pièce I, avec 3 et 3 pour coordonnées dans la grille
-	m_pPieceI = new CIPiece(3, 3, 3, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	// création d'une nouvelle pièce I, avec 3 et 0 pour coordonnées dans la grille
+	m_pPieceI = new CIPiece(3, 3, 0, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceI -> Turn(); // initialisation de la pièce 
+
+	// création d'une nouvelle pièce O, avec 6 et 3 pour coordonnées dans la grille
+	m_pPieceO = new COPiece(3, 6, 0, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceO -> Turn(); // initialisation de la pièce 
+
+	// création d'une nouvelle pièce L1, avec 0 et 4 pour coordonnées dans la grille
+	m_pPieceL1 = new CL1Piece(3, 0, 4, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceL1 -> Turn(); // initialisation de la pièce 
+
+	// création d'une nouvelle pièce L1, avec 0 et 4 pour coordonnées dans la grille
+	m_pPieceL2 = new CL2Piece(3, 3, 4, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceL2 -> Turn(); // initialisation de la pièce 
+
+	// création d'une nouvelle pièce Z1, avec 0 et 4 pour coordonnées dans la grille
+	m_pPieceZ1 = new CZ1Piece(3, 6, 4, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceZ1 -> Turn(); // initialisation de la pièce
 
 	// attributs rajoutés pour montrer un exemple de pièce qui descend
 	m_posYPiece = HEIGHT_BOARD;
@@ -39,7 +53,13 @@ CProjetTetrisPiece::~CProjetTetrisPiece() {
 	cout << "Destruction objet CProjetTetrisPiece" << endl;
 
 	delete m_pPieceT;
-	cout << "Destruction de la pièce effectuée" << endl;
+	delete m_pPieceI;
+	delete m_pPieceO;
+	delete m_pPieceL1;
+	delete m_pPieceL2;
+	delete m_pPieceZ1;
+	
+	cout << "Destruction des pièces effectuée" << endl;
 }
 
 //----------------------------------------------------------
@@ -71,16 +91,16 @@ void CProjetTetrisPiece::OnRender() {
 	//-------------------------------------------------------
 	if(m_UserEvents->m_keyBoardEvents[Key_a]) {
 		cout << "la touche 'a' a bien été utilisée" << endl;
-		m_pPieceT -> TurnLeft ();
-		m_pPieceT -> Turn();
+		m_pPieceI -> TurnLeft ();
+		m_pPieceI -> Turn();
 		DrawTetris();
 	}
 
 
 	if(m_UserEvents->m_keyBoardEvents[Key_z]) {
 		cout << "la touche 'z' a bien été utilisée" << endl;
-		m_pPieceT -> TurnRight ();
-		m_pPieceT -> Turn();
+		m_pPieceI -> TurnRight ();
+		m_pPieceI -> Turn();
 		DrawTetris();
 	}
 
@@ -159,33 +179,57 @@ void CProjetTetrisPiece::DrawTetris() {
 	// affichage du tableau tetris
 
 
-	// affichage de la pièce T en cours
+	// affichage des pièces de test
 	// le i et le j*m_game.GetCaseDim() permettent de se décaler dans la grille et
 	// ainsi de colorier une nouvelle case
 	for (int i=0; i<3; i++) {
 		for (int j=0; j<3; j++) {
 
-			// si il n'y a pas de 1 dans la case de la matrice, on ne colorie pas
+			//affichage de la pièce T
+			// si il n'y a pas de 1 dans la case de la matrice de la pièce T, on ne colorie pas
 			if (m_pPieceT -> GetTable()[i][j] == 1) {
 				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
 				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
 			}
-		}
-	}
 
-	// affichage de la pièce T en cours
-	// le i et le j*m_game.GetCaseDim() permettent de se décaler dans la grille et
-	// ainsi de colorier une nouvelle case
-	for (int i=0; i<3; i++) {
-		for (int j=0; j<3; j++) {
-
-			// si il n'y a pas de 1 dans la case de la matrice, on ne colorie pas
+			//affichage de la pièce I
+			// si il n'y a pas de 1 dans la case de la matrice de la pièce I, on ne colorie pas
 			if (m_pPieceI -> GetTable()[i][j] == 1) {
 				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
 				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceI -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceI -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
 			}
+
+			//affichage de la pièce O
+			// si il n'y a pas de 1 dans la case de la matrice de la pièce O, on ne colorie pas
+			if (m_pPieceO -> GetTable()[i][j] == 1) {
+				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceO -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceO -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+			}
+
+			//affichage de la pièce L1
+			// si il n'y a pas de 1 dans la case de la matrice de la pièce L1, on ne colorie pas
+			if (m_pPieceL1 -> GetTable()[i][j] == 1) {
+				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceL1 -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceL1 -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+			}
+
+			//affichage de la pièce L2
+			// si il n'y a pas de 1 dans la case de la matrice de la pièce L2, on ne colorie pas
+			if (m_pPieceL2 -> GetTable()[i][j] == 1) {
+				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceL2 -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceL2 -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+			}
+
+			//affichage de la pièce Z1
+			// si il n'y a pas de 1 dans la case de la matrice de la pièce L2, on ne colorie pas
+			if (m_pPieceZ1 -> GetTable()[i][j] == 1) {
+				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceZ1 -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceZ1 -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+			}
+
 		}
 	}
+
 	
 
 }
