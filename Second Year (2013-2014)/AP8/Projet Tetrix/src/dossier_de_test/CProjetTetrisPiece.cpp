@@ -96,16 +96,16 @@ void CProjetTetrisPiece::OnRender() {
 	//-------------------------------------------------------
 	if(m_UserEvents->m_keyBoardEvents[Key_a]) {
 		cout << "la touche 'a' a bien été utilisée" << endl;
-		m_pPieceI -> TurnLeft ();
-		m_pPieceI -> Turn();
+		m_pPieceT -> TurnLeft ();
+		m_pPieceT -> Turn();
 		DrawTetris();
 	}
 
 
 	if(m_UserEvents->m_keyBoardEvents[Key_z]) {
 		cout << "la touche 'z' a bien été utilisée" << endl;
-		m_pPieceI -> TurnRight ();
-		m_pPieceI -> Turn();
+		m_pPieceT -> TurnRight ();
+		m_pPieceT -> Turn();
 		DrawTetris();
 	}
 
@@ -173,8 +173,8 @@ void CProjetTetrisPiece::DrawTetris() {
 	float	tetrisHeight = gameTable.size() * m_game.GetCaseDim();
 
 	// couleur de fond du tetris
-	//DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(153.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
-	DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f) );
+	DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(153.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
+	//DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f) );
 	
 	// affichage du "cadre" tetris
 	DrawRect ( m_game.GetXPos()-0.1f, m_game.GetYPos()-0.1f, (tetrisWidth+0.2f), (tetrisHeight+0.2f), CVector3(213.0f/255.0f,213.0f/255.0f,213.0f/255.0f) );
