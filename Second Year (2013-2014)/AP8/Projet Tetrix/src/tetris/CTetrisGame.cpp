@@ -15,6 +15,8 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 	m_xPos = gamePosX; 
 	m_yPos = gamePosY;
 	m_caseDim = dimCase; 
+	m_pPiece = null;
+	m_randomizer = CRandomizer (void);
 }
 
 /****************************************/
@@ -53,54 +55,97 @@ float& CTetrisGame::GetCaseDim()
 }
 
 
-void CTetrisGame::AddPiece() 
-{
+void CTetrisGame::AddPiece() {
 
+
+	const CVector3 color(0.0f, 1.0f, 0.0f);
+
+
+	switch (m_randomizer -> First()) 
+	{
+		case 1:
+		{
+			m_pPiece = new CIPiece (3, 3, 17, color);
+			break;
+		}
+
+		case 2:
+		{
+			m_pPiece = new CTPiece (3, 3, 17, color);
+			break;
+		}
+
+		case 3:
+		{
+			m_pPiece = new COPiece (3, 3, 17, color);
+			break;
+		} 
+
+		case 4:
+		{
+			m_pPiece = new CL1Piece (3, 3, 17, color);
+		}
+
+		case 5:
+		{
+			m_pPiece = new CL2Piece (3, 3, 17, color);
+			break;
+		}
+
+		case 6:
+		{
+			m_pPiece = new CZ1Piece (3, 3, 17, color);
+			break;
+		} 
+
+		case 7:
+		{
+			m_pPiece = new CZ2Piece (3, 3, 17, color);
+		}
+	}
 }
 
 ActionResult MovePiece(PieceAction action) {
 
-	/*switch (action)
+	switch (action)
 	{
-		case PA_RotateRight:
+		case PA_RotateRight :
 		{
-			this -> m_state = S_Right;
-			cout << "état de la pièce après rotation = S_Right";
+			m_pPiece -> TurnRight ();
+			m_pPiece -> Turn();
 			break;
 		}
 
-		case PA_RotateLeft:
+		case PA_RotateLeft :
 		{
-			this -> m_state = S_Left;
-			cout << "état de la pièce après rotation = S_Left";
+			m_pPiece -> TurnLeft ();
+			m_pPiece -> Turn();
 			break;
 		}
 
-		case PA_MoveRight:
+		case PA_MoveRight :
 		{
-			this -> m_state = S_Top;
-			cout << "état de la pièce après rotation = S_Top";
+			m_pPiece -> SetIncDecColIndex(1);
 			break;
 		} 
 
-		case PA_MoveLeft:
+		case PA_MoveLeft :
 		{
-			this -> m_state = S_Bottom;
-			cout << "état de la pièce après rotation = S_Bottom";
+			m_pPiece -> SetIncDecColIndex(-1);
+			break;
 		}
 
-		case PA_MoveBottom:
+		case PA_MoveBottom :
 		{
-			this -> m_state = S_Bottom;
-			cout << "état de la pièce après rotation = S_Bottom";
+			m_pPiece -> SetIncDecRowIndex(-1);
+			break;
 		}
 
-		case PA_MoveLeft:
+		case PA_MoveBottom2 :
 		{
-			this -> m_state = S_Bottom;
-			cout << "état de la pièce après rotation = S_Bottom";
+			m_pPiece -> SetIncDecRowIndex(-3);
 		}
-	}*/
+	}
 }
 
 

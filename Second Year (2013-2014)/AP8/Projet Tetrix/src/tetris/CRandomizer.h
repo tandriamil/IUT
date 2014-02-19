@@ -29,6 +29,7 @@ public:
 	/* renvoit la première valeur */
 	int First();
 
+
 /* Private attribut */
 private:
 	std::vector<int> m_set;
@@ -38,7 +39,7 @@ private:
 	/* Remplir la liste */
 	void Fill();
 
-    	unsigned int	m_max		;
+    unsigned int	m_max		;
 	unsigned int	m_sizeList	;
 
 };
