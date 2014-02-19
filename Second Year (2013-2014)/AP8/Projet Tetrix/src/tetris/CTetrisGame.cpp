@@ -123,6 +123,89 @@ int CTetrisGame::GetFullRow() {
 	bool found = false;
 	int i = 0;
 
+	//Gets the vector of game table
+	vector<TGameRow> vect = this->m_board.GetGameTable();
+
 	//Travels the board
-	//while (!found) && ()
+	while ((!(found)) && (i < vect.size())) {
+		//Var to store a bool to know if the line is full
+		bool lineFull = true;
+
+		//Gets rows one by one
+		vector<Case> aRow = vect[i];
+
+		//Then gets cases one by one
+		for (int j = 0; j < aRow.size(); j++) {
+
+			//If a case is empty, so the line isn't full
+			if (!(aRow[j].m_used)) {
+				lineFull = false;
+			}
+		}
+
+		//If the row is full
+		if (lineFull) {
+			found = true;
+		}
+
+		//If it isn't
+		else {
+			//Increments i
+			i++;
+		}
+	}
+
+	//If we found a line, return its index
+	if (found) {
+		return i;
+	}
+
+	//If not, just return -1
+	else {
+		return -1;
+	}
+}
+
+
+/****************************************/
+
+/**
+	\brief Delete a full row
+	\return The index of this row
+*/
+void DeleteRow(unsigned int rowIndex) {
+
+}
+
+
+/****************************************/
+
+/**
+	\brief Check if the game is over
+	\return true if over, false if not
+*/
+bool IsGameOver() {
+
+}
+
+
+/****************************************/
+
+/**
+	\brief Get the number of colons
+	\return A signed int of the width of the table
+*/
+int NbBoardCols() {
+
+}
+
+
+/****************************************/
+
+/**
+	\brief Get the number of rows
+	\return A signed int of the width of the table
+*/
+int NbBoardRows() {
+
 }
