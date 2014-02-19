@@ -1,0 +1,2 @@
+package composite;import java.util.ArrayList;import java.util.List;/** class that is the "Composite" */public class CompositeGraphic implements Graphic {		//Collection of child graphics.	private List<Graphic> mChildGraphics = new ArrayList<Graphic>();		//Prints the graphic.	public void print() {	}		//Adds the graphic to the composition.	public void add(Graphic graphic) {			}		//Removes the graphic from the composition.	public void remove(Graphic graphic) {
+	}}

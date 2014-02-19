@@ -3,6 +3,7 @@ Bugs à corriger:
 
 
 Fonctionnalités:
+	- 5  => A faire
 	- 7
 	- 6  => En cours (fanch)
 	- 2  => En cours (fanch)
