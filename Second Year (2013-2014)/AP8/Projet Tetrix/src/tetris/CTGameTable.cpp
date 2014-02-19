@@ -9,6 +9,7 @@ CTGameTable::CTGameTable ( int width, int height ) {
 	m_GameTable = vector<TGameRow>( height, uneLgn );
 }
 
+
 /****************************************/
 
 ostream& operator<< ( ostream& out, const CTGameTable& tab ) {
@@ -35,4 +36,3 @@ vector<TGameRow>& CTGameTable::GetGameTable() {
 	return m_GameTable;
 
 }
-
