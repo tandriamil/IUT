@@ -59,3 +59,16 @@ void CTetrisGame::AddPiece()
 }
 
 /****************************************/
+
+/**
+	\brief Search the first full line
+	\return The index of this line, -1 if there's no one
+**/
+int CTetrisGame::GetFullRow() {
+	//The var to know if he already found one or not and the index i
+	bool found = false;
+	int i = 0;
+
+	//Travels the board
+	//while (!found) && ()
+}
