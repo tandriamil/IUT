@@ -106,8 +106,7 @@ void CTetrisGame::AddPiece() {
 }
 
 ActionResult CTetrisGame::MovePiece(PieceAction action) {
-	ActionResult* ar = new ActionResult();
-	ActionResult& ret = *ar;
+	ActionResult ret = ActionResult();
 
 	switch (action)
 	{
@@ -255,6 +254,17 @@ void CTetrisGame::DeleteRow(unsigned int rowIndex) {
 */
 bool CTetrisGame::IsGameOver() {
 	bool ret = false;
+
+	//Gets the row index of the piece
+	int rowIndex = this->m_pPiece->GetRowIndex();
+
+	//Gets the height of the board
+	int nbBoardRows = this->NbBoardRows();
+
+	//Then look if it's upper than the size of the board
+	if (rowIndex >= nbBoardRows) {
+		ret = true;
+	}
 
 	return ret;
 }
