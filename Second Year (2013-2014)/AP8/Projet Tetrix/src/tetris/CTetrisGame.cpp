@@ -19,7 +19,7 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 
 /****************************************/
 
-CTetrisGame::~CTetrisGame(){
+CTetrisGame::~CTetrisGame() {
 
 	
 }
@@ -209,10 +209,16 @@ int CTetrisGame::NbBoardCols() {
 
 /**
 	\brief Get the number of rows
-	\return A signed int of the width of the table
+	\return A signed int of the high of the table
 */
 int CTetrisGame::NbBoardRows() {
 	int ret = 0;
 
+	//Gets the vector of game table
+	vector<TGameRow> vect = this->m_board.GetGameTable();
+
+	//Then gets its size (so the high of the board)
+	ret = vect.size();
+	
 	return ret;
 }
