@@ -21,8 +21,8 @@ all: tetris
 #------------------------------------------------------------
 # execution projet tetris
 #------------------------------------------------------------
-tetris: CProjetTetris.o CTetrisGame.o CPieceAbstract.o CIPiece.o CTPiece.o COPiece.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o main.o 
-	$(GPP) -o $(BIN)/tetris.bin $(BIN)/CProjetTetris.o $(BIN)/CTetrisGame.o $(BIN)/CPieceAbstract.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(BIN)/COPiece.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(LIBS) $(BIN)/main.o
+tetris: CProjetTetris.o CTetrisGame.o CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o CIPiece.o CTPiece.o COPiece.o CRandomizer.o CGuiGlut.o CApplication.o CRenderer.o CMatrix44.o CTGameTable.o main.o 
+	$(GPP) -o $(BIN)/tetris.bin $(BIN)/CProjetTetris.o $(BIN)/CTetrisGame.o $(BIN)/CPieceAbstract.o $(BIN)/CZ2Piece.o $(BIN)/CZ1Piece.o $(BIN)/CL2Piece.o $(BIN)/CL1Piece.o $(BIN)/CIPiece.o $(BIN)/CTPiece.o $(BIN)/COPiece.o $(BIN)/CRandomizer.o $(BIN)/CGuiGlut.o $(BIN)/CApplication.o $(BIN)/CRenderer.o $(BIN)/CMatrix44.o $(BIN)/CTGameTable.o $(LIBS) $(BIN)/main.o
 
 #------------------------------------------------------------
 # compilation projet tetris
@@ -44,6 +44,18 @@ CTPiece.o: $(SRC)/tetris/CTPiece.cpp
 
 COPiece.o: $(SRC)/tetris/COPiece.cpp
 	$(GPP) -o $(BIN)/COPiece.o -c $(SRC)/tetris/COPiece.cpp
+
+CL1Piece.o: $(SRC)/tetris/CL1Piece.cpp
+	$(GPP) -o $(BIN)/CL1Piece.o -c $(SRC)/tetris/CL1Piece.cpp
+
+CL2Piece.o: $(SRC)/tetris/CL2Piece.cpp
+	$(GPP) -o $(BIN)/CL2Piece.o -c $(SRC)/tetris/CL2Piece.cpp
+
+CZ1Piece.o: $(SRC)/tetris/CZ1Piece.cpp
+	$(GPP) -o $(BIN)/CZ1Piece.o -c $(SRC)/tetris/CZ1Piece.cpp
+
+CZ2Piece.o: $(SRC)/tetris/CZ2Piece.cpp
+	$(GPP) -o $(BIN)/CZ2Piece.o -c $(SRC)/tetris/CZ2Piece.cpp
 
 CRandomizer.o: $(SRC)/tetris/CRandomizer.cpp
 	$(GPP) -o $(BIN)/CRandomizer.o -c $(SRC)/tetris/CRandomizer.cpp 
