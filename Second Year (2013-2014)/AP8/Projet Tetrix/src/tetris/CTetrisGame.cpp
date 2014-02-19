@@ -171,9 +171,9 @@ int CTetrisGame::GetFullRow() {
 
 /**
 	\brief Delete a full row
-	\return The index of this row
+	\param The index of this row
 */
-void DeleteRow(unsigned int rowIndex) {
+void CTetrisGame::DeleteRow(unsigned int rowIndex) {
 
 }
 
@@ -184,7 +184,7 @@ void DeleteRow(unsigned int rowIndex) {
 	\brief Check if the game is over
 	\return true if over, false if not
 */
-bool IsGameOver() {
+bool CTetrisGame::IsGameOver() {
 
 }
 
@@ -195,7 +195,7 @@ bool IsGameOver() {
 	\brief Get the number of colons
 	\return A signed int of the width of the table
 */
-int NbBoardCols() {
+int CTetrisGame::NbBoardCols() {
 
 }
 
@@ -206,6 +206,6 @@ int NbBoardCols() {
 	\brief Get the number of rows
 	\return A signed int of the width of the table
 */
-int NbBoardRows() {
+int CTetrisGame::NbBoardRows() {
 
 }
