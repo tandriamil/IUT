@@ -19,6 +19,6 @@ public class MlgAddress extends Address {
      * @return A String object of the full address
      */
     public String getFullAddress(){
-        return getStreet() + EOL_STRING + getPostalCode() + SPACE + getCity() + EOL_STRING + COUNTRY + EOL_STRING;
+        return "Lot " + getStreet() + EOL_STRING + getPostalCode() + SPACE + getCity() + EOL_STRING + getRegion() + EOL_STRING + COUNTRY + EOL_STRING;
     }
 }
