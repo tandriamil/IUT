@@ -226,7 +226,7 @@ void CTetrisGame::DeleteRow(unsigned int rowIndex) {
 	vector<TGameRow> vect = this->m_board.GetGameTable();
 
 	//Gets the high of this board
-	unsigned int boardHeight = this.NbBoardRows();
+	unsigned int boardHeight = this->NbBoardRows();
 
 	//Value to increment
 	unsigned int i = 0;
@@ -238,8 +238,9 @@ void CTetrisGame::DeleteRow(unsigned int rowIndex) {
 
 	//Then, clean the last row (= the highest)
 	//Create a blank row
-	Case c = new Case();
-	TGameRow aRow (this.NbBoardCols, c);
+	Case c = Case();
+	int nbCols = this->NbBoardCols();
+	TGameRow aRow (nbCols, c);
 
 	//Then put it in the highest row
 	vect[boardHeight - 1] = aRow;
