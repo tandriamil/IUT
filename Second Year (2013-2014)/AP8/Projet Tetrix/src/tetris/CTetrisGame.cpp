@@ -220,7 +220,7 @@ int CTetrisGame::GetFullRow() {
 /****************************************/
 
 /**
-	\brief Delete a full row
+	\brief Delete a full row then moving all the rows upper than it
 	\param The index of this row
 */
 void CTetrisGame::DeleteRow(unsigned int rowIndex) {
@@ -230,15 +230,21 @@ void CTetrisGame::DeleteRow(unsigned int rowIndex) {
 	//Gets the high of this board
 	unsigned int boardHeight = this.NbBoardRows();
 
-	//Gets the highest value, 
-	int maxJValue = boardHeight - 2;
-	maxJValue = maxJValue - rowIndex;
+	//Value to increment
+	unsigned int i = 0;
 
-	//And in the end, move all the line at the top of this one
-	for (unsigned int j = 0; j <= maxJValue; j++) {
-		//Move all the rows, except the last one
-		vect[rowIndex + j] = vect[rowIndex + j + 1];
+	//Move all the upper rows
+	while ((i + rowIndex) < (boardHeight - 1)) {
+		vect[rowIndex + i] = vect[rowIndex + i + 1];
 	}
+
+	//Then, clean the last row (= the highest)
+	//Create a blank row
+	Case c = new Case();
+	TGameRow aRow (this.NbBoardCols, c);
+
+	//Then put it in the highest row
+	vect[boardHeight - 1] = aRow;
 }
 
 

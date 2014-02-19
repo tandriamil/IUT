@@ -3,8 +3,10 @@ Bugs à corriger:
 
 
 Fonctionnalités:
+	- 7
+	- 6  => En cours (fanch)
 	- 2  => En cours (fanch)
-	- 4  => En cours (nap)
+	- 4  => CHECK
 	- NbBoardRows()  => CHECK
 	- NbBoardCols()  => CHECK
 	- 3  => CHECK
@@ -13,7 +15,7 @@ Fonctionnalités:
 
 
 Tests à faire:
-	- CTetrisGame  => CHECK
+	- CTetrisGame
 	- Toutes les CPiece  => CHECK
 
 
