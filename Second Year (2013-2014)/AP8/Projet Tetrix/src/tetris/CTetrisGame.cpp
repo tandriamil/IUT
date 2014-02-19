@@ -15,8 +15,8 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 	m_xPos = gamePosX; 
 	m_yPos = gamePosY;
 	m_caseDim = dimCase; 
-	m_pPiece = null;
-	m_randomizer = CRandomizer (void);
+	m_pPiece = NULL;
+	m_randomizer = new CRandomizer ();
 }
 
 /****************************************/
@@ -65,7 +65,7 @@ void CTetrisGame::AddPiece() {
 	{
 		case 1:
 		{
-			m_pPiece = new CIPiece (3, 3, 17, color);
+			 m_pPiece =  new CIPiece (3, 3, 17, color);
 			break;
 		}
 
@@ -147,13 +147,11 @@ ActionResult CTetrisGame::MovePiece(PieceAction action) {
 		{
 			m_pPiece -> SetIncDecRowIndex(-3);
 		}
-<<<<<<< HEAD
+
 	}
-=======
-	}*/
 
 	return ret;
->>>>>>> da54f54741bd4194484b316a3bc8616857e9e98d
+
 }
 
 

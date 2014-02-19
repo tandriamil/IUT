@@ -13,6 +13,13 @@
 #include "CTGameTable.h"
 #include "CRandomizer.h"
 #include "TetrisUtils.h"
+#include "CIPiece.h"
+#include "CTPiece.h"
+#include "COPiece.h"
+#include "CL1Piece.h"
+#include "CL2Piece.h"
+#include "CZ1Piece.h"
+#include "CZ2Piece.h"
 
 class CTetrisGame {
 
@@ -128,7 +135,7 @@ private:
 		\return entier signé de la largeur du tableau
 	*/
 	int NbBoardCols();
-	
+
 
 	/**
 		\brief renvoit par un entier signé le nombre de lignes du tableau
