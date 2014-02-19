@@ -22,10 +22,10 @@ typedef vector<Case> TGameRow;
 
 class CTGameTable {
 
-	private :
+	private:
 		vector<TGameRow> m_GameTable;
 
-	public :
+	public:
 
 		CTGameTable ( int width, int height );					// grille de jeu, nombre de cases en hauteur (height) et en largeur (width)
 		CTGameTable () {};							// constructeur par défaut obligatoire pour la déclaration CTGameTable m_board dans CTetrisGame

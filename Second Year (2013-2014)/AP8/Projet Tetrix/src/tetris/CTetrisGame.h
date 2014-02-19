@@ -55,25 +55,25 @@ public:
 
 	/**
 		\brief renvoit position du jeu dans la fenètre openGL
-		\param entier en abcisse
+		\return entier en abcisse
 	*/
 	unsigned int GetXPos();
 
 	/**
 		\brief renvoit position du jeu dans la fenètre openGL
-		\param entier en ordonnée
+		\return entier en ordonnée
 	*/
 	unsigned int GetYPos();
 
 	/**
 		\brief renvoit la taille d'une case du tetris
-		\param entier sur la taille des cases
+		\return entier sur la taille des cases
 	*/
 	float& GetCaseDim();
 
 	/**
 		\brief renvoit un pointeur sur la pièce courante
-		\return  poniteur sur CPieceAbstract
+		\return poniteur sur CPieceAbstract
 	*/
 	CPieceAbstract* GetPiece();
 
@@ -113,7 +113,7 @@ private:
 
 	/**
 		\brief supprime une ligne pleine
-		\return index de la ligne pleine
+		\param index de la ligne pleine
 	*/
 	void DeleteRow(unsigned int rowIndex);
 
