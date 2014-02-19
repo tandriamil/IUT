@@ -110,8 +110,14 @@ void CTetrisGame::AddPiece() {
 	}
 }
 
+
+/**
+	\brief Move a piece after an action of the user
+	\param action The action that the user did
+	\return An ActionResult object that show the result of the action, NULL if there was an error
+ */
 ActionResult CTetrisGame::MovePiece(PieceAction action) {
-	ActionResult ret = ActionResult();
+	ActionResult ret = NULL;
 
 	switch (action)
 	{
