@@ -218,11 +218,32 @@ int CTetrisGame::GetFullRow() {
 /****************************************/
 
 /**
-	\brief Delete a full row
+	\brief Delete a full row then moving all the rows upper than it
 	\param The index of this row
 */
 void CTetrisGame::DeleteRow(unsigned int rowIndex) {
+	//Gets the vector of game table
+	vector<TGameRow> vect = this->m_board.GetGameTable();
 
+	//Gets the high of this board
+	unsigned int boardHeight = this->NbBoardRows();
+
+	//Value to increment
+	unsigned int i = 0;
+
+	//Move all the upper rows
+	while ((i + rowIndex) < (boardHeight - 1)) {
+		vect[rowIndex + i] = vect[rowIndex + i + 1];
+	}
+
+	//Then, clean the last row (= the highest)
+	//Create a blank row
+	Case c = Case();
+	int nbCols = this->NbBoardCols();
+	TGameRow aRow (nbCols, c);
+
+	//Then put it in the highest row
+	vect[boardHeight - 1] = aRow;
 }
 
 
@@ -248,6 +269,15 @@ bool CTetrisGame::IsGameOver() {
 int CTetrisGame::NbBoardCols() {
 	int ret = 0;
 
+	//Gets the vector of game table
+	vector<TGameRow> vect = this->m_board.GetGameTable();
+
+	//Then gets a single row (here it's the first one)
+	vector<Case> singleRow = vect[0];
+
+	//And gets its number of cases (so it's width)
+	ret = singleRow.size();
+
 	return ret;
 }
 
@@ -266,6 +296,7 @@ int CTetrisGame::NbBoardRows() {
 
 	//Then gets its size (so the high of the board)
 	ret = vect.size();
-	
+
+	//Then returns the result
 	return ret;
 }
