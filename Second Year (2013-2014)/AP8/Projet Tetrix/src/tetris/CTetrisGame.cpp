@@ -58,7 +58,9 @@ void CTetrisGame::AddPiece()
 
 }
 
-ActionResult MovePiece(PieceAction action) {
+ActionResult CTetrisGame::MovePiece(PieceAction action) {
+	ActionResult* ar = new ActionResult();
+	ActionResult& ret = *ar;
 
 	/*switch (action)
 	{
@@ -101,6 +103,8 @@ ActionResult MovePiece(PieceAction action) {
 			cout << "état de la pièce après rotation = S_Bottom";
 		}
 	}*/
+
+	return ret;
 }
 
 
@@ -121,7 +125,7 @@ void InsertPiece() {
 int CTetrisGame::GetFullRow() {
 	//The var to know if he already found one or not and the index i
 	bool found = false;
-	int i = 0;
+	unsigned int i = 0;
 
 	//Gets the vector of game table
 	vector<TGameRow> vect = this->m_board.GetGameTable();
@@ -135,7 +139,7 @@ int CTetrisGame::GetFullRow() {
 		vector<Case> aRow = vect[i];
 
 		//Then gets cases one by one
-		for (int j = 0; j < aRow.size(); j++) {
+		for (unsigned int j = 0; j < aRow.size(); j++) {
 
 			//If a case is empty, so the line isn't full
 			if (!(aRow[j].m_used)) {
@@ -155,15 +159,12 @@ int CTetrisGame::GetFullRow() {
 		}
 	}
 
-	//If we found a line, return its index
-	if (found) {
-		return i;
+	//If we didn't found a full row
+	if (!(found)) {
+		i = -1;
 	}
 
-	//If not, just return -1
-	else {
-		return -1;
-	}
+	return i;
 }
 
 
@@ -185,7 +186,9 @@ void CTetrisGame::DeleteRow(unsigned int rowIndex) {
 	\return true if over, false if not
 */
 bool CTetrisGame::IsGameOver() {
+	bool ret = false;
 
+	return ret;
 }
 
 
@@ -196,7 +199,9 @@ bool CTetrisGame::IsGameOver() {
 	\return A signed int of the width of the table
 */
 int CTetrisGame::NbBoardCols() {
+	int ret = 0;
 
+	return ret;
 }
 
 
@@ -207,5 +212,7 @@ int CTetrisGame::NbBoardCols() {
 	\return A signed int of the width of the table
 */
 int CTetrisGame::NbBoardRows() {
+	int ret = 0;
 
+	return ret;
 }
