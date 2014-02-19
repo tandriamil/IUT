@@ -18,31 +18,31 @@ CProjetTetrisPiece::CProjetTetrisPiece() {
 	m_step = 0;
 
 	// création d'une nouvelle pièce T, avec 0 et 0 pour coordonnées dans la grille
-	m_pPieceT = new CTPiece(3, 0, 0, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceT = new CTPiece(3, 0, 8, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceT -> Turn(); // initialisation de la pièce 
 
 	// création d'une nouvelle pièce I, avec 3 et 0 pour coordonnées dans la grille
-	m_pPieceI = new CIPiece(3, 3, 0, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceI = new CIPiece(3, 3, 8, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceI -> Turn(); // initialisation de la pièce 
 
 	// création d'une nouvelle pièce O, avec 6 et 0 pour coordonnées dans la grille
-	m_pPieceO = new COPiece(3, 6, 0, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceO = new COPiece(3, 6, 8, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceO -> Turn(); // initialisation de la pièce 
 
 	// création d'une nouvelle pièce L1, avec 0 et 4 pour coordonnées dans la grille
-	m_pPieceL1 = new CL1Piece(3, 0, 4, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceL1 = new CL1Piece(3, 0, 12, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceL1 -> Turn(); // initialisation de la pièce 
 
 	// création d'une nouvelle pièce L1, avec 3 et 4 pour coordonnées dans la grille
-	m_pPieceL2 = new CL2Piece(3, 3, 4, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceL2 = new CL2Piece(3, 3, 12, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceL2 -> Turn(); // initialisation de la pièce 
 
 	// création d'une nouvelle pièce Z1, avec 7 et 4 pour coordonnées dans la grille
-	m_pPieceZ1 = new CZ1Piece(3, 7, 4, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceZ1 = new CZ1Piece(3, 7, 12, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceZ1 -> Turn(); // initialisation de la pièce
 
 	// création d'une nouvelle pièce Z2, avec 0 et 8 pour coordonnées dans la grille
-	m_pPieceZ2 = new CZ2Piece(3, 0, 8, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceZ2 = new CZ2Piece(3, 0, 16, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceZ2 -> Turn(); // initialisation de la pièce
 
 	// attributs rajoutés pour montrer un exemple de pièce qui descend
@@ -96,36 +96,39 @@ void CProjetTetrisPiece::OnRender() {
 	//-------------------------------------------------------
 	if(m_UserEvents->m_keyBoardEvents[Key_a]) {
 		cout << "la touche 'a' a bien été utilisée" << endl;
-		m_pPieceT -> TurnLeft ();
-		m_pPieceT -> Turn();
+		m_pPieceZ1 -> TurnLeft ();
+		m_pPieceZ1 -> Turn();
 		DrawTetris();
 	}
 
 
 	if(m_UserEvents->m_keyBoardEvents[Key_z]) {
 		cout << "la touche 'z' a bien été utilisée" << endl;
-		m_pPieceT -> TurnRight ();
-		m_pPieceT -> Turn();
-		DrawTetris();
-	}
-
-	if(m_UserEvents->m_keyBoardEvents[Key_DOWN])
-		cout << "la touche flèche bas a bien été utilisée" << endl;
-		m_pPieceZ2 -> TurnRight ();
-		m_pPieceZ2 -> Turn();
-		DrawTetris();
-
-	if(m_UserEvents->m_keyBoardEvents[Key_RIGHT])
-		cout << "la touche flèche droite a bien été utilisée" << endl;
 		m_pPieceZ1 -> TurnRight ();
 		m_pPieceZ1 -> Turn();
 		DrawTetris();
+	}
 
-	if(m_UserEvents->m_keyBoardEvents[Key_LEFT])
+	if(m_UserEvents->m_keyBoardEvents[Key_DOWN]) {
+		cout << "la touche flèche bas a bien été utilisée" << endl;
+		m_pPieceZ1 -> SetIncDecRowIndex(-2);
+	}
+
+	if(m_UserEvents->m_keyBoardEvents[Key_RIGHT]) {
+		cout << "la touche flèche droite a bien été utilisée" << endl;
+		m_pPieceZ1 -> SetIncDecColIndex(1);
+		DrawTetris();
+	}
+
+	if(m_UserEvents->m_keyBoardEvents[Key_LEFT]) {
 		cout << "la touche flèche gauche a bien été utilisée" << endl;
+		m_pPieceZ1 -> SetIncDecColIndex(-1);
+		DrawTetris();
+	}
 
-	if(m_UserEvents->m_keyBoardEvents[Key_SPACE])
+	if(m_UserEvents->m_keyBoardEvents[Key_SPACE]) {
 		cout << "la touche espace a bien été utilisée" << endl;
+	}
 	
 	//-------------------------------------------------------
 	// affichage
