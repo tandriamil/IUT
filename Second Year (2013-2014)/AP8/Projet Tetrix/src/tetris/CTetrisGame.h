@@ -128,6 +128,7 @@ private:
 		\return entier signé de la largeur du tableau
 	*/
 	int NbBoardCols();
+	
 
 	/**
 		\brief renvoit par un entier signé le nombre de lignes du tableau
