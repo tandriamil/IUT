@@ -65,7 +65,7 @@ void CTetrisGame::AddPiece() {
 	{
 		case 1:
 		{
-			 m_pPiece =  new CIPiece (3, 3, 17, color);
+			m_pPiece =  new CIPiece (3, 3, 17, color);
 			break;
 		}
 
