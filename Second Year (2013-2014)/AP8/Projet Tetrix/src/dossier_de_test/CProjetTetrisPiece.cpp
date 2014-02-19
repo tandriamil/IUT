@@ -111,9 +111,15 @@ void CProjetTetrisPiece::OnRender() {
 
 	if(m_UserEvents->m_keyBoardEvents[Key_DOWN])
 		cout << "la touche flèche bas a bien été utilisée" << endl;
+		m_pPieceZ2 -> TurnRight ();
+		m_pPieceZ2 -> Turn();
+		DrawTetris();
 
 	if(m_UserEvents->m_keyBoardEvents[Key_RIGHT])
 		cout << "la touche flèche droite a bien été utilisée" << endl;
+		m_pPieceZ1 -> TurnRight ();
+		m_pPieceZ1 -> Turn();
+		DrawTetris();
 
 	if(m_UserEvents->m_keyBoardEvents[Key_LEFT])
 		cout << "la touche flèche gauche a bien été utilisée" << endl;
