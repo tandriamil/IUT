@@ -21,15 +21,7 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 
 /****************************************/
 
-CTetrisGame::~CTetrisGame() {
-	m_board = CTGameTable();
-	m_xPos = 0;
-	m_yPos = 0;
-	m_caseDim = 0;
-	m_randomizer = new CRandomizer();
-	m_pPiece = NULL;
-	m_dim = 0;
-}
+CTetrisGame::~CTetrisGame() {}
 
 /****************************************/
 
