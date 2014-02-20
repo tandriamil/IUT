@@ -13,8 +13,9 @@ CRandomizer::CRandomizer(void)
 	:m_max(7), m_sizeList(6)
 {
 	unsigned int i;
-	for(i = 0 ; i < m_max; i++) 
+	for(i = 0 ; i < m_max; i++) {
 		m_set.push_back(i);
+	}
 }
 
 /****************************************/
@@ -23,8 +24,9 @@ CRandomizer::CRandomizer(unsigned int sizeList, unsigned int maxRand)
 	:m_max(maxRand), m_sizeList(sizeList)
 {
 	unsigned int i;
-	for(i = 0 ; i < m_max; i++) 
+	for(i = 0 ; i < m_max; i++) {
 		m_set.push_back(i);
+	}
 }
 
 /****************************************/
