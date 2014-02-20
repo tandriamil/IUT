@@ -16,7 +16,9 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 	m_yPos = gamePosY;
 	m_caseDim = dimCase; 
 	m_pPiece = NULL;
-	m_randomizer = new CRandomizer (7, 6);
+	m_randomizer = new CRandomizer ();
+
+	AddPiece();
 }
 
 /****************************************/
@@ -53,12 +55,12 @@ float& CTetrisGame::GetCaseDim()
 
 
 void CTetrisGame::AddPiece() {
-	int integer = 5;
+	
 
 	const CVector3 color(0.0f, 1.0f, 0.0f);
 
 
-	switch (integer) 
+	switch (m_randomizer -> First()) 
 	{
 		case 1:
 		{
@@ -102,7 +104,6 @@ void CTetrisGame::AddPiece() {
 		}
 	}
 	cout << m_randomizer -> First() << endl;
-	cout << m_randomizer -> Next() << endl;
 }
 
 
