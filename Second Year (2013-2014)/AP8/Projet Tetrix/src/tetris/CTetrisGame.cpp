@@ -23,9 +23,13 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 
 /****************************************/
 
+<<<<<<< HEAD
 CTetrisGame::~CTetrisGame() {
 	delete m_pPiece;
 }
+=======
+CTetrisGame::~CTetrisGame() {}
+>>>>>>> 9d881351a4596782fc024905ec5a78dd2d5ade9c
 
 /****************************************/
 
