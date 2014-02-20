@@ -41,5 +41,25 @@ public class RunPattern{
         System.out.println(frenchAddress.getFullAddress());
         System.out.println("French phone number:");
         System.out.println(frenchPhone.getPhoneNumber());
+        System.out.println();
+        System.out.println();
+
+
+        //For the MlgAddress
+        System.out.println("Creating Madagascarian Address and Phone Number:");
+        AddressFactory mlgAddressFactory = new MlgAddressFactory();
+        Address mlgAddress = mlgAddressFactory.createAddress();
+        PhoneNumber mlgPhone = mlgAddressFactory.createPhoneNumber();
+        
+        mlgAddress.setStreet("02 B 67");
+        mlgAddress.setCity("Antsirabe");
+        mlgAddress.setPostalCode("15 575");
+        mlgAddress.setRegion("Toamasina");
+        mlgPhone.setPhoneNumber("101324290");
+        
+        System.out.println("Madagascarian address:");
+        System.out.println(mlgAddress.getFullAddress());
+        System.out.println("Madagascarian phone number:");
+        System.out.println(mlgPhone.getPhoneNumber());
     }
 }

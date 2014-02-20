@@ -25,8 +25,13 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 /****************************************/
 
 CTetrisGame::~CTetrisGame() {
-
-	
+	m_board = CTGameTable();
+	m_xPos = 0;
+	m_yPos = 0;
+	m_caseDim = 0;
+	m_randomizer = new CRandomizer();
+	m_pPiece = NULL;
+	m_dim = 0;
 }
 
 /****************************************/
@@ -111,9 +116,14 @@ void CTetrisGame::AddPiece() {
 	cout << m_randomizer -> Next() << endl;
 }
 
+
+/**
+	\brief Move a piece after an action of the user
+	\param action The action that the user did
+	\return An ActionResult object that show the result of the action, NULL if there was an error
+ */
 ActionResult CTetrisGame::MovePiece(PieceAction action) {
-	ActionResult* ar = new ActionResult();
-	ActionResult& ret = *ar;
+	ActionResult ret = NULL;
 
 	switch (action)
 	{
@@ -266,6 +276,17 @@ void CTetrisGame::DeleteRow(unsigned int rowIndex) {
 */
 bool CTetrisGame::IsGameOver() {
 	bool ret = false;
+
+	//Gets the row index of the piece
+	int rowIndex = this->m_pPiece->GetRowIndex();
+
+	//Gets the height of the board
+	int nbBoardRows = this->NbBoardRows();
+
+	//Then look if it's upper than the size of the board
+	if (rowIndex >= nbBoardRows) {
+		ret = true;
+	}
 
 	return ret;
 }
