@@ -123,11 +123,8 @@ void CTetrisGame::AddPiece() {
 	\return An ActionResult object that show the result of the action
  */
 ActionResult CTetrisGame::MovePiece(PieceAction action) {
-<<<<<<< HEAD
+
 	ActionResult ret = (ActionResult) NULL;
-=======
-	ActionResult ret = ActionResult();
->>>>>>> a4d7d8c226c6e3e3ed934a5d71944b668ee1653e
 
 	switch (action)
 	{
