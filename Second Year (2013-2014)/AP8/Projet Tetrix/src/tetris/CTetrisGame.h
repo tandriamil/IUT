@@ -90,6 +90,12 @@ public:
 	*/
 	unsigned int GetScore();
 
+	/**
+		\brief collision avec autre objets dans la scene ?
+	*/
+	bool CheckCollision();
+
+
 private:
 
 	/**
@@ -97,10 +103,7 @@ private:
 	*/
 	void AddPiece();
 
-	/**
-		\brief collision avec autre objets dans la scene ?
-	*/
-	bool CheckCollision();
+	
 
 	/**
 		\brief collision avec les bords du jeu ?
@@ -151,7 +154,7 @@ private:
 	unsigned int	m_xPos				;	///< position en abcisse du jeu dans la fenètre openGL
 	unsigned int	m_yPos				;	///< position en ordonnée du jeu dans la fenètre openGL
 	float			m_caseDim			;	///< taille d'une case du tetris
-	CRandomizer*	m_randomizer		;   ///< 
+	CRandomizer		m_randomizer		;   ///< 
 	CPieceAbstract*	m_pPiece			;	///< une pièce de type abstract
 	unsigned int	m_dim				;	///< dimension de la piece
 	unsigned int	m_score				;	///< score actuel du joueur

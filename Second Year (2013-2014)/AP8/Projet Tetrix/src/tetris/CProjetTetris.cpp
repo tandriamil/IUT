@@ -50,7 +50,14 @@ void CProjetTetris::OnRender() {
 	if ( m_step> 50 ) 
 	{
 		m_step = 0; 
-		m_posYPiece--; // à chaque pas de temps, on fait évoluer la coordonnée en y de la pièce 
+		//m_posYPiece--; // à chaque pas de temps, on fait évoluer la coordonnée en y de la pièce 
+		CPieceAbstract* m_piece = m_game.GetPiece();
+
+		bool check = m_game.CheckCollision();
+		if (check != true) {
+			m_piece -> SetIncDecRowIndex(-1);
+		}
+	
 	}
 
 	//-------------------------------------------------------
@@ -89,12 +96,26 @@ void CProjetTetris::OnRender() {
 	// affichage du score
 	DrawInfo();
 
+	
+
 	// affichage du tetris
 	DrawTetris();
 
 	// ICI AFFICHAGE DE MON CARRE DE TEST
-	DrawFillRect ( m_game.GetXPos() + m_posXPiece*m_game.GetCaseDim(), m_game.GetYPos()+ m_posYPiece*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
+	//DrawFillRect ( m_game.GetXPos() + m_posXPiece*m_game.GetCaseDim(), m_game.GetYPos()+ m_posYPiece*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
+	m_game.Update(m_step);
+	CPieceAbstract* m_piece = m_game.GetPiece();
+	TPieceTable& table = m_piece->GetTable();
+	for (unsigned int i = 0; i < table.size(); ++i){
+		for (unsigned int j = 0; j < table.size(); ++j){
+			if(table[i][j]==1){
+				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_piece -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_piece -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+			}
+		}
+	}
+	
 
+	
 	// fin du rendu 2d
 	m_renderer.End2DRender();
 
@@ -132,8 +153,8 @@ void CProjetTetris::DrawTetris() {
 	float	tetrisHeight = gameTable.size() * m_game.GetCaseDim();
 
 	// couleur de fond du tetris
-	//DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(153.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
-	DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f) );
+	DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(153.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
+	//DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f) );
 	
 	// affichage du "cadre" tetris
 	DrawRect ( m_game.GetXPos()-0.1f, m_game.GetYPos()-0.1f, (tetrisWidth+0.2f), (tetrisHeight+0.2f), CVector3(213.0f/255.0f,213.0f/255.0f,213.0f/255.0f) );
@@ -144,7 +165,9 @@ void CProjetTetris::DrawTetris() {
 
 
 	// affichage de la pîece en cours
-			
+	
+
+		
 
 }
 

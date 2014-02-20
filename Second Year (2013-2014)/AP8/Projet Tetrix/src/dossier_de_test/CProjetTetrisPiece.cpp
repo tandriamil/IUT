@@ -26,7 +26,7 @@ CProjetTetrisPiece::CProjetTetrisPiece() {
 	m_pPieceI -> Turn(); // initialisation de la pièce 
 
 	// création d'une nouvelle pièce O, avec 6 et 0 pour coordonnées dans la grille
-	m_pPieceO = new COPiece(3, 6, 8, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
+	m_pPieceO = new COPiece(2, 6, 8, (CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f)));
 	m_pPieceO -> Turn(); // initialisation de la pièce 
 
 	// création d'une nouvelle pièce L1, avec 0 et 4 pour coordonnées dans la grille
@@ -213,13 +213,6 @@ void CProjetTetrisPiece::DrawTetris() {
 				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceI -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceI -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
 			}
 
-			//affichage de la pièce O
-			// si il n'y a pas de 1 dans la case de la matrice de la pièce O, on ne colorie pas
-			if (m_pPieceO -> GetTable()[i][j] == 1) {
-				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
-				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceO -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceO -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
-			}
-
 			//affichage de la pièce L1
 			// si il n'y a pas de 1 dans la case de la matrice de la pièce L1, on ne colorie pas
 			if (m_pPieceL1 -> GetTable()[i][j] == 1) {
@@ -251,6 +244,16 @@ void CProjetTetrisPiece::DrawTetris() {
 		}
 	}
 
+	for (int i=0; i<2; i++) {
+		for (int j=0; j<2; j++) {
+			//affichage de la pièce O
+			// si il n'y a pas de 1 dans la case de la matrice de la pièce O, on ne colorie pas
+			if (m_pPieceO -> GetTable()[i][j] == 1) {
+				//DrawFillRect ( m_game.GetXPos() + m_pPieceT -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + m_pPieceT -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+				DrawFillRect ( m_game.GetXPos()+ i*m_game.GetCaseDim() + m_pPieceO -> GetColIndex()*m_game.GetCaseDim(), m_game.GetYPos() + j*m_game.GetCaseDim() + m_pPieceO -> GetRowIndex()*m_game.GetCaseDim(), m_game.GetCaseDim(), m_game.GetCaseDim(), CVector3(255.0f/255.0f,153.0f/255.0f,153.0f/255.0f));
+			}
+		}
+	}
 	
 
 }

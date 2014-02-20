@@ -16,21 +16,15 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 	m_yPos = gamePosY;
 	m_caseDim = dimCase; 
 	m_pPiece = NULL;
-	m_randomizer = new CRandomizer ();
+	m_randomizer = CRandomizer (1, 7);
 
-	AddPiece();
+	//AddPiece();
 }
 
 /****************************************/
 
 CTetrisGame::~CTetrisGame() {
-	m_board = CTGameTable();
-	m_xPos = 0;
-	m_yPos = 0;
-	m_caseDim = 0;
-	m_randomizer = new CRandomizer();
-	m_pPiece = NULL;
-	m_dim = 0;
+	delete m_pPiece;
 }
 
 /****************************************/
@@ -63,55 +57,67 @@ float& CTetrisGame::GetCaseDim()
 
 
 void CTetrisGame::AddPiece() {
-	
 
-	const CVector3 color(0.0f, 1.0f, 0.0f);
+	if (m_pPiece == NULL) {
+
+		srand(time(NULL));
+		int tirage = (rand() %7);
+
+		const CVector3 color(0.0f, 1.0f, 0.0f);
 
 
-	switch (m_randomizer -> First()) 
-	{
-		case 1:
+		switch (tirage) 
 		{
-			m_pPiece =  new CIPiece (3, 3, 17, color);
-			break;
-		}
+			case 0:
+			{
+				m_pPiece =  new CIPiece (3, 3, 17, color);
+				m_pPiece -> Turn();
+				break;
+			}
 
-		case 2:
-		{
-			m_pPiece = new CTPiece (3, 3, 17, color);
-			break;
-		}
+			case 1:
+			{
+				m_pPiece = new CTPiece (3, 3, 17, color);
+				m_pPiece -> Turn();
+				break;
+			}
 
-		case 3:
-		{
-			m_pPiece = new COPiece (3, 3, 17, color);
-			break;
-		} 
+			case 2:
+			{
+				m_pPiece = new COPiece (3, 3, 17, color);
+				m_pPiece -> Turn();
+				break;
+			} 
 
-		case 4:
-		{
-			m_pPiece = new CL1Piece (3, 3, 17, color);
-			break;
-		}
+			case 3:
+			{
+				m_pPiece = new CL1Piece (3, 3, 17, color);
+				m_pPiece -> Turn();
+				break;
+			}
 
-		case 5:
-		{
-			m_pPiece = new CL2Piece (3, 3, 17, color);
-			break;
-		}
+			case 4:
+			{
+				m_pPiece = new CL2Piece (3, 3, 17, color);
+				m_pPiece -> Turn();
+				break;
+			}
 
-		case 6:
-		{
-			m_pPiece = new CZ1Piece (3, 3, 17, color);
-			break;
-		} 
+			case 5:
+			{
+				m_pPiece = new CZ1Piece (3, 3, 17, color);
+				m_pPiece -> Turn();
+				break;
+			} 
 
-		case 7:
-		{
-			m_pPiece = new CZ2Piece (3, 3, 17, color);
+			case 6:
+			{
+				m_pPiece = new CZ2Piece (3, 3, 17, color);
+				m_pPiece -> Turn();
+			}
 		}
 	}
-	cout << m_randomizer -> First() << endl;
+	
 }
 
 
@@ -143,24 +149,28 @@ ActionResult CTetrisGame::MovePiece(PieceAction action) {
 		case PA_MoveRight :
 		{
 			m_pPiece -> SetIncDecColIndex(1);
+			m_pPiece -> Turn();
 			break;
 		} 
 
 		case PA_MoveLeft :
 		{
 			m_pPiece -> SetIncDecColIndex(-1);
+			m_pPiece -> Turn();
 			break;
 		}
 
 		case PA_MoveBottom :
 		{
 			m_pPiece -> SetIncDecRowIndex(-1);
+			m_pPiece -> Turn();
 			break;
 		}
 
 		case PA_MoveBottom2 :
 		{
 			m_pPiece -> SetIncDecRowIndex(-3);
+			m_pPiece -> Turn();
 		}
 
 	}
@@ -171,16 +181,27 @@ ActionResult CTetrisGame::MovePiece(PieceAction action) {
 
 
 void CTetrisGame::InsertPiece() {
-	unsigned int i,j;
+	CPieceAbstract* piece = this->GetPiece();
+	TPieceTable& table = piece->GetTable();
 
-	for ( i=0; i< this->m_board.GetGameTable().size(); i++ ) {
-		for ( j=0; j< this->m_board.GetGameTable()[i].size(); j++ ) {
-			if ( m_pPiece->GetTable()[i][j] == 1) {
-				 this->m_board.GetGameTable()[i][j].m_used = true;
+	vector<TGameRow>& g_table = m_board.GetGameTable();
+
+	bool check = this -> CheckCollision();
+	if (check == true) {
+
+		for (unsigned int i = 0; i < table.size(); ++i){
+			for (unsigned int j = 0; j < table.size(); ++j){
+				if(table[i][j] == 1){
+					g_table[i][j].m_used = true;
+					g_table[i][j].m_color = piece->GetColor();
+				}
 			}
 		}
-
+		m_pPiece == NULL;
 	}
+
+
+	
 }
 
 /****************************************/
@@ -352,4 +373,26 @@ CPieceAbstract* CTetrisGame::GetPiece() {
 */
 unsigned int CTetrisGame::GetScore() {
 	return this->m_score;
+}
+
+
+ActionResult CTetrisGame::Update(unsigned int step) {
+	if (m_pPiece != NULL) {
+		this->InsertPiece();
+	}
+	else {
+		this->AddPiece();
+	}
+	
+	
+	return AR_Ok;
+}
+
+bool CTetrisGame::CheckCollision() {
+	bool checkcol = false;
+	if (m_pPiece -> GetRowIndex() < 1) {
+		checkcol = true;
+		cout << "collision détectée !";
+	}
+	return checkcol;
 }
