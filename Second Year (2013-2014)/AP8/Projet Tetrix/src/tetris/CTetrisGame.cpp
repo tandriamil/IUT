@@ -17,9 +17,6 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 	m_caseDim = dimCase; 
 	m_pPiece = NULL;
 	m_randomizer = new CRandomizer (7, 6);
-
-	AddPiece();
-
 }
 
 /****************************************/
@@ -274,7 +271,7 @@ void CTetrisGame::DeleteRow(unsigned int rowIndex) {
 	\brief Check if the game is over
 	\return true if over, false if not
 */
-bool CTetrisGame::IsGameOver() {
+bool CTetrisGame::IsGameOver() { //Peut être à revoir
 	bool ret = false;
 
 	//Gets the row index of the piece
@@ -331,4 +328,26 @@ int CTetrisGame::NbBoardRows() {
 
 	//Then returns the result
 	return ret;
+}
+
+
+/****************************************/
+
+/**
+	\brief Get the current piece
+	\return A pointer to the current piece
+*/
+CPieceAbstract* CTetrisGame::GetPiece() {
+	return this->m_pPiece;
+}
+
+
+/****************************************/
+
+/**
+	\brief Get the current score
+	\return A pointer to the current piece
+*/
+unsigned int CTetrisGame::GetScore() {
+	return this->m_score;
 }

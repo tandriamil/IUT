@@ -154,6 +154,7 @@ private:
 	CRandomizer*	m_randomizer		;   ///< 
 	CPieceAbstract*	m_pPiece			;	///< une pièce de type abstract
 	unsigned int	m_dim				;	///< dimension de la piece
+	unsigned int	m_score				;	///< score actuel du joueur
 };
 
 #endif
