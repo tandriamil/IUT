@@ -56,12 +56,29 @@ void CProjetTetris::OnRender() {
 	//-------------------------------------------------------
 	// commande utilisateur
 	//-------------------------------------------------------
-	if(m_UserEvents->m_keyBoardEvents[Key_a])cout << "la touche 'a' a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_z])cout << "la touche 'z' a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_DOWN])cout << "la touche flèche bas a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_RIGHT])cout << "la touche flèche droite a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_LEFT])cout << "la touche flèche gauche a bien été utilisée" << endl;
-	if(m_UserEvents->m_keyBoardEvents[Key_SPACE])cout << "la touche espace a bien été utilisée" << endl;
+	if(m_UserEvents->m_keyBoardEvents[Key_a]) {
+		cout << "\n la touche 'a' a bien été utilisée" << endl;
+		m_game.MovePiece(PA_RotateLeft);
+	}
+	if(m_UserEvents->m_keyBoardEvents[Key_z]) {
+		cout << "\n la touche 'z' a bien été utilisée" << endl;
+		m_game.MovePiece(PA_RotateRight);
+	}
+	if(m_UserEvents->m_keyBoardEvents[Key_DOWN]) {
+		cout << "\n la touche flèche bas a bien été utilisée" << endl;
+		m_game.MovePiece(PA_MoveBottom);
+	}
+	if(m_UserEvents->m_keyBoardEvents[Key_RIGHT]) {
+		cout << "\n la touche flèche droite a bien été utilisée" << endl;
+		m_game.MovePiece(PA_MoveRight);
+	}
+	if(m_UserEvents->m_keyBoardEvents[Key_LEFT]) {
+		cout << "\n la touche flèche gauche a bien été utilisée" << endl;
+		m_game.MovePiece(PA_MoveLeft);
+	}
+	if(m_UserEvents->m_keyBoardEvents[Key_SPACE]) {
+		cout << "la touche espace a bien été utilisée" << endl;
+	}
 	
 	//-------------------------------------------------------
 	// affichage
@@ -127,6 +144,7 @@ void CProjetTetris::DrawTetris() {
 
 
 	// affichage de la pîece en cours
+			
 
 }
 

@@ -16,7 +16,10 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 	m_yPos = gamePosY;
 	m_caseDim = dimCase; 
 	m_pPiece = NULL;
-	m_randomizer = new CRandomizer ();
+	m_randomizer = new CRandomizer (7, 6);
+
+	AddPiece();
+
 }
 
 /****************************************/
@@ -61,12 +64,12 @@ float& CTetrisGame::GetCaseDim()
 
 
 void CTetrisGame::AddPiece() {
-
+	int integer = 5;
 
 	const CVector3 color(0.0f, 1.0f, 0.0f);
 
 
-	switch (m_randomizer -> First()) 
+	switch (integer) 
 	{
 		case 1:
 		{
@@ -89,6 +92,7 @@ void CTetrisGame::AddPiece() {
 		case 4:
 		{
 			m_pPiece = new CL1Piece (3, 3, 17, color);
+			break;
 		}
 
 		case 5:
@@ -108,6 +112,8 @@ void CTetrisGame::AddPiece() {
 			m_pPiece = new CZ2Piece (3, 3, 17, color);
 		}
 	}
+	cout << m_randomizer -> First() << endl;
+	cout << m_randomizer -> Next() << endl;
 }
 
 
@@ -165,12 +171,17 @@ ActionResult CTetrisGame::MovePiece(PieceAction action) {
 }
 
 
-void InsertPiece() {
-	/*for (int i=0; i<tab.m_GameTable.size(); i++) {
-		for (int j=0; j<tab.m_GameTable.size(); j++ ) {
+void CTetrisGame::InsertPiece() {
+	unsigned int i,j;
 
+	for ( i=0; i< this->m_board.GetGameTable().size(); i++ ) {
+		for ( j=0; j< this->m_board.GetGameTable()[i].size(); j++ ) {
+			if ( m_pPiece->GetTable()[i][j] == 1) {
+				 this->m_board.GetGameTable()[i][j].m_used = true;
+			}
 		}
-	}*/
+
+	}
 }
 
 /****************************************/
