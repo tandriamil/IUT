@@ -23,13 +23,11 @@ CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned 
 
 /****************************************/
 
-<<<<<<< HEAD
+
 CTetrisGame::~CTetrisGame() {
 	delete m_pPiece;
 }
-=======
-CTetrisGame::~CTetrisGame() {}
->>>>>>> 9d881351a4596782fc024905ec5a78dd2d5ade9c
+
 
 /****************************************/
 
@@ -190,19 +188,15 @@ void CTetrisGame::InsertPiece() {
 
 	vector<TGameRow>& g_table = m_board.GetGameTable();
 
-	bool check = this -> CheckCollision();
-	if (check == true) {
-
-		for (unsigned int i = 0; i < table.size(); ++i){
-			for (unsigned int j = 0; j < table.size(); ++j){
-				if(table[i][j] == 1){
-					g_table[i][j].m_used = true;
-					g_table[i][j].m_color = piece->GetColor();
-				}
+	for (unsigned int i = 0; i < table.size(); ++i){
+		for (unsigned int j = 0; j < table.size(); ++j){
+			if(table[i][j] == 1){
+				g_table[i][j].m_used = true;
+				g_table[i][j].m_color = piece->GetColor();
 			}
 		}
-		m_pPiece == NULL;
 	}
+	this -> m_pPiece = NULL;
 
 
 	
@@ -381,22 +375,41 @@ unsigned int CTetrisGame::GetScore() {
 
 
 ActionResult CTetrisGame::Update(unsigned int step) {
-	if (m_pPiece != NULL) {
-		this->InsertPiece();
-	}
-	else {
+	
+	if (step == 0) {
 		this->AddPiece();
 	}
 	
-	
+
 	return AR_Ok;
 }
 
 bool CTetrisGame::CheckCollision() {
 	bool checkcol = false;
-	if (m_pPiece -> GetRowIndex() < 1) {
+	int row = m_pPiece -> GetRowIndex();
+	if (row < 0) {
+		m_pPiece -> SetRowIndex(0);
 		checkcol = true;
-		cout << "collision détectée !";
 	}
+	this -> CheckBorderCollision();
+	if (this -> CheckBorderCollision() == true) {
+		checkcol = true;
+	}
+
 	return checkcol;
+}
+
+bool CTetrisGame::CheckBorderCollision() {
+	bool checkbordercol = false;
+	int col = m_pPiece -> GetColIndex();
+	if (col < 0) {
+		m_pPiece -> SetColIndex(0);
+		checkbordercol = true;
+	}
+	if (col > 8) {
+		m_pPiece -> SetColIndex(8);
+		checkbordercol = true;
+	}
+
+	return checkbordercol;
 }

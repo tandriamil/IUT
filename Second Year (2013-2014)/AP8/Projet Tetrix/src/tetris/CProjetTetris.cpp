@@ -52,11 +52,9 @@ void CProjetTetris::OnRender() {
 		m_step = 0; 
 		//m_posYPiece--; // à chaque pas de temps, on fait évoluer la coordonnée en y de la pièce 
 		CPieceAbstract* m_piece = m_game.GetPiece();
-
-		bool check = m_game.CheckCollision();
-		if (check != true) {
-			m_piece -> SetIncDecRowIndex(-1);
-		}
+		
+		m_piece -> SetIncDecRowIndex(-1);
+		m_game.CheckCollision();
 	
 	}
 
@@ -95,7 +93,6 @@ void CProjetTetris::OnRender() {
 
 	// affichage du score
 	DrawInfo();
-
 	
 
 	// affichage du tetris
