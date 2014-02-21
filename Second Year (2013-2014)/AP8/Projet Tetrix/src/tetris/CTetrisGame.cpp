@@ -391,7 +391,6 @@ bool CTetrisGame::CheckCollision() {
 		m_pPiece -> SetRowIndex(-1);
 		checkcol = true;
 	}
-	this -> CheckBorderCollision();
 	if (this -> CheckBorderCollision() == true) {
 		checkcol = true;
 	}
