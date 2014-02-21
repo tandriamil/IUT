@@ -387,8 +387,8 @@ ActionResult CTetrisGame::Update(unsigned int step) {
 bool CTetrisGame::CheckCollision() {
 	bool checkcol = false;
 	int row = m_pPiece -> GetRowIndex();
-	if (row < 0) {
-		m_pPiece -> SetRowIndex(0);
+	if (row < -1) {
+		m_pPiece -> SetRowIndex(-1);
 		checkcol = true;
 	}
 	this -> CheckBorderCollision();
@@ -402,8 +402,8 @@ bool CTetrisGame::CheckCollision() {
 bool CTetrisGame::CheckBorderCollision() {
 	bool checkbordercol = false;
 	int col = m_pPiece -> GetColIndex();
-	if (col < 0) {
-		m_pPiece -> SetColIndex(0);
+	if (col < -1) {
+		m_pPiece -> SetColIndex(-1);
 		checkbordercol = true;
 	}
 	if (col > 8) {
