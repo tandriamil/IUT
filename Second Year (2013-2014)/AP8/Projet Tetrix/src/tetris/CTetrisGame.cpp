@@ -178,28 +178,36 @@ ActionResult CTetrisGame::MovePiece(PieceAction action) {
 	}
 
 	return ret;
-
 }
 
 
+/****************************************/
+
+/**
+	\brief Insert a piece when he can't going down anymore
+**/
 void CTetrisGame::InsertPiece() {
-	CPieceAbstract* piece = this->GetPiece();
-	TPieceTable& table = piece->GetTable();
+	//Get the piece, its table and its color
+	TPieceTable& table = m_pPiece->GetTable();
+	const CVector3& color = m_pPiece->GetColor();
 
-	vector<TGameRow>& g_table = m_board.GetGameTable();
+	//Then gets its row and col index to know where it is
+	int colId = m_pPiece->GetColIndex();
+	int rowId = m_pPiece->GetRowIndex();
 
-	for (unsigned int i = 0; i < table.size(); ++i){
-		for (unsigned int j = 0; j < table.size(); ++j){
-			if(table[i][j] == 1){
-				g_table[i][j].m_used = true;
-				g_table[i][j].m_color = piece->GetColor();
-			}
-		}
-	}
-	this -> m_pPiece = NULL;
+	//Then colors the case by
+	//Getting the rows
+	vector<TGameRow> rows = this->m_board.GetGameTable();
 
+	//Then gets the row of the piece
+	vector<Case> pieceRow = rows[rowId];
 
-	
+	//Then gets the case from the row of the piece by its col
+	Case c = pieceRow[colId];
+
+	//Then colors it to the color of the piece and make it used
+	c.m_color = color;
+	c.m_used = true;
 }
 
 /****************************************/
