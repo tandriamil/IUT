@@ -200,9 +200,8 @@ void CTetrisGame::InsertPiece() {
 	vector<TGameRow> rows = this->m_board.GetGameTable();
 
 	//Here, will color all the cases of the piece
-	//-1 because the center of the case is considered as the case [1][1] and we'll color from [0][0] 
-	for (int i = colId - 1; i < 3; i++) {
-		for (int j = rowId - 1; j < 3; j++) {
+	for (int i = colId; i < 3; i++) {
+		for (int j = rowId; j < 3; j++) {
 			//If it's in the case table
 			if (table[colId][rowId] == 1) {
 				//Then gets the row of the piece
