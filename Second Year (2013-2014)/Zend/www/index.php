@@ -16,6 +16,38 @@
 	//We load the classes to use
 	Zend_Loader::loadClass('Zend_Controller_Front');
 
+
+	//Here we'll try the connection to the database
+	//We can load automatically all the classes, we don't need Zend autoload for this
+	/* Zend_Loader::loadClass('Zend_Config_Ini');
+	Zend_Loader::loadClass('Zend_Registry');
+	Zend_Loader::loadClass('Zend_Db');
+	Zend_Loader::loadClass('Zend_Db_Table'); */
+
+
+	//$configPath is an array here
+	$configPath = '../www/config/config.ini';
+
+	//Creates a new object from the config.ini
+	$config = new Zend_Config_Ini($configPath, 'dev');
+
+	//Builds the $db object for using the db
+	$db = Zend_Db::factory($config->database);
+
+	//getConnection() forces the adaptator to connect to the db system
+	//It will return an object representing the connection in function of the php extension used, or an exception if error
+	//Here we use PDO, so it'll return PDO
+	$db->getConnection();
+
+	//A registry is used to store values for all the application, so the same object will be available everywhere
+	Zend_Registry::set('db', $db);
+
+	//Default database
+	Zend_Db_Table::setDefaultAdapter($db);
+
+
+
+	//Trying to launch the application
 	try {
 	    //getInstance() is used to get an instance (singleton pattern) of the front controller 
 		$front = Zend_Controller_Front::getInstance();
@@ -40,5 +72,15 @@
 	catch (Exception $e) {
 		include 'errors/500.phtml';
 	}
+
+
+/* ############################## HERE ARE THE INSTRUCTIONS ######################### */
+
+
+
+
+
+
+/* ############################## END OF THOSE ######################### */
 
 ?>
