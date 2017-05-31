@@ -75,7 +75,7 @@ public class TestAnnuaire {
 
 //Test de toString()  ==> CHECK
 		System.out.println("Test de toString():");
-		
+
 		System.out.println(pagesJaunes.toString());
 
 		System.out.println("SUCCES du test de toString()." + '\n');
@@ -122,7 +122,7 @@ public class TestAnnuaire {
 
 //Test de existe()  ==> CHECK
 		System.out.println("Test de existe():");
-		
+
 		try {
 			pagesJaunes.ajouter("Laura", f4);
 		}
@@ -187,7 +187,7 @@ public class TestAnnuaire {
 		}
 
 		System.out.println("du test de consulter() avec cle nulle." + '\n');
-	
+
 
 //Test de modifier()  ==> CHECK
 		System.out.println("Test de modifier():");

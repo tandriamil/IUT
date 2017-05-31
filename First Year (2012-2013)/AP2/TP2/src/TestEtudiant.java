@@ -24,7 +24,7 @@ class TestEtudiant {
 	else {
 	    System.out.println ("Test constructeur échoué! La taille du tableau et getNbNotes échouent.");
 	}
-	
+
 	//Test setNom
 	pierre.setNom("roger");
 	System.out.println ("Le nouveau nom de l'étudiant est " + pierre.getNom() + ".");
@@ -34,7 +34,7 @@ class TestEtudiant {
 	else {
 	    System.out.println ("Test de setNom échoué!");
 	}
-	
+
 	//Test getUneNote
 	System.out.println ("La 3è note est de " + pierre.getUneNote(2) + " .");
 	if (pierre.getUneNote(2) <= 20 && pierre.getUneNote(2) >= 0) {
@@ -43,7 +43,7 @@ class TestEtudiant {
 	else {
 	    System.out.println ("Test getUneNote échoué!");
 	}
-	
+
 	//Test Moyenne
 	System.out.println ("La moyenne est de " + pierre.moyenne() + " .");
 	if (pierre.moyenne() <= 20 && pierre.moyenne() >= 0) {

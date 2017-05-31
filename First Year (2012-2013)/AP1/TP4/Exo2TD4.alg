@@ -8,7 +8,7 @@ var
 principal
 var
 	entier a;
-	
+
 debut
 	afficher(@Tab);
 fin
@@ -16,12 +16,12 @@ fin
 #############################################################
 procedure afficheTab (par_ref tableau_de entier Tab)
 debut
-	pour nbelements=0 à taille-1
+	pour nbelements=0 a taille-1
 		saisir("Entrez un reel:", @a);
 		Tab [nbelements] := a;
 	finpour
-	
-	pour nbelements=0 à taille-1
+
+	pour nbelements=0 a taille-1
 		afficher(Tab [nbelements]);
 	finpour
 fin

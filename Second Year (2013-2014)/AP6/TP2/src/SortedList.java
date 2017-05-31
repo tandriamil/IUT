@@ -8,7 +8,7 @@ import java.util.Iterator;
  */
 public interface SortedList {
 //Methods
-	
+
 	/**
 	 * Insert an object
 	 * @param comp A comparable object to insert
@@ -22,7 +22,7 @@ public interface SortedList {
 	 * @return true if the list is empty, false if not
 	 */
 	public boolean isEmpty();
-	
+
 
 	/**
 	 * Permits to know the size of the list
@@ -36,7 +36,7 @@ public interface SortedList {
 	 * @return A string of the list
 	 */
 	public String toString();
-	
+
 
 	/**
 	 * Method to get the current iterator of the list

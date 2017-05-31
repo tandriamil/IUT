@@ -11,21 +11,21 @@
 // classe GUI, s'occupe du fenetrage et de l'interface avec l'utilisateur
 //=====================================================================
 //-----------------------------------------------------------------
-// Ici fichier des déclarations des fonctions. Une fonction ne peut être déclarée qu'une seule fois
-// d'ou l'ajout d'une routine qui dit que si votre fichier à déjà été inclu avant pas la peine de le re-inclure
+// Ici fichier des dÃ©clarations des fonctions. Une fonction ne peut Ãªtre dÃ©clarÃ©e qu'une seule fois
+// d'ou l'ajout d'une routine qui dit que si votre fichier Ã  dÃ©jÃ  Ã©tÃ© inclu avant pas la peine de le re-inclure
 //-----------------------------------------------------------------
-#ifndef __GUI_H__	// routine qui sert à pas inclure 2 fois le même fichier
+#ifndef __GUI_H__	// routine qui sert Ã  pas inclure 2 fois le mÃªme fichier
 #define __GUI_H__	//
 
 
 //-----------------------------------------------------------------
-// On inclu les fichiers .h qui contiennent les déclarations des fonctions
-// On a besoin ici des objets SDL (SDLKey, SDL_Event) déclarés dans SDL.h
-// ainsi que des déclarations des fonctions OPENGL
+// On inclu les fichiers .h qui contiennent les dÃ©clarations des fonctions
+// On a besoin ici des objets SDL (SDLKey, SDL_Event) dÃ©clarÃ©s dans SDL.h
+// ainsi que des dÃ©clarations des fonctions OPENGL
 //-----------------------------------------------------------------
 
-#include <vector>					// utilisé par "std::vector<SDLKey> m_keyEvents;"
-#include "Common.h"					// structure UserEvents utilisée pour récupérer les données liées à la souris
+#include <vector>					// utilisÃ© par "std::vector<SDLKey> m_keyEvents;"
+#include "Common.h"					// structure UserEvents utilisÃ©e pour rÃ©cupÃ©rer les donnÃ©es donnÃ©es Ã  la souris
 
 
 #include "GL/glut.h"
@@ -39,11 +39,11 @@
 //};
 
 ////////////////////////////////////////////////////////////////////////
-// Class qui définit un GUI à partir de la bibliotheque GLFW, à savoir la création de la fenetre,  gestion de la caméra, clavier , joystik ...
+// Class qui dÃ©finit un GUI Ã  partir de la bibliotheque GLFW, Ã  savoir la crÃ©ation de la fenetre,  gestion de la camÃ©ra, clavier , joystik ...
 ////////////////////////////////////////////////////////////////////////
 class CGuiGlut
 {
-public:	// les fonctions suivantes peuvent être appelées par d'autres classes / programmes
+public:	// les fonctions suivantes peuvent Ãªtre appelÃ©es par d'autres classes / programmes
 
 	//----------------------------------------------------------
 	// constructeur
@@ -64,15 +64,15 @@ public:	// les fonctions suivantes peuvent être appelées par d'autres classes / 
 	// instruction a lancer pour le rendu de la scene
 	//----------------------------------------------------------
 	static void RunGraphics (void);
-	
-protected:	// les fonctions suivantes peuvent être appelées seulement pas cettte même classe et les classes filles de cette classe
-	
+
+protected:	// les fonctions suivantes peuvent Ãªtre appelÃ©es seulement pas cettte mÃªme classe et les classes filles de cette classe
+
 	static void InitGL(void);
 	static void ReshapeFunc(int width, int height);
 	static void DisplayFunc(void);
 	static void KeyboardFunc(unsigned char key, int /*x*/, int /*y*/);
 	static void SpecialFunc(int key, int /*x*/, int /*y*/);
-	
+
 	// application
 	static CApplication*	m_application;
 

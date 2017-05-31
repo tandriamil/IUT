@@ -15,13 +15,13 @@ public class Promotion {
 	}
     }
 
-    
+
 //Accesseurs
 
     //enChaine
     public String enChaine() {
 	String ret;
-	
+
 	ret = " ";
 
 	for (int i = 0; i < this.listeEtudiants.length; i++) {
@@ -42,7 +42,7 @@ public class Promotion {
     //moyenne
     public double moyenne () {
 	double ret;
-	
+
 	ret = 0;
 	for (int i = 0; i < listeEtudiants.length; i++) {
 
@@ -57,10 +57,10 @@ public class Promotion {
     //moyenneMax
     public double moyenneMax() {
 	double ret;
-	
+
 	ret = 0;
 	for (int i = 0; i < this.listeEtudiants.length; i++) {
-	    
+
 	    if (this.listeEtudiants[i].moyenne() > ret) {
 		ret = this.listeEtudiants[i].moyenne();
 	    }
@@ -68,14 +68,14 @@ public class Promotion {
 	return ret;
     }
 
-    
+
     //moyenneMin
     public double moyenneMin() {
 	double ret;
-	
+
 	ret = 20;
 	for (int i = 0; i < this.listeEtudiants.length; i++) {
-	    
+
 	    if (this.listeEtudiants[i].moyenne() < ret) {
 		ret = this.listeEtudiants[i].moyenne();
 	    }
@@ -83,18 +83,18 @@ public class Promotion {
 	return ret;
     }
 
-    
+
     //getMajor
     public Etudiant getMajor() {
 	Etudiant ret;
 
 	ret = null;
 	for (int i = 0; i < this.listeEtudiants.length; i++) {
-	    
+
 	    if (this.listeEtudiants[i].moyenne() > this.listeEtudiants[i+1].moyenne()) {
 		    ret = this.listeEtudiants[i];
 	    }
-		
+
 	}
 	return ret;
     }

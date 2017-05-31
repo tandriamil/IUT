@@ -9,7 +9,7 @@ public class LinkedList implements List {
 	private Element current;
 	private int nbElement;
 
-	
+
 //Methodes
 	/**
 	 * Constructeur
@@ -24,7 +24,7 @@ public class LinkedList implements List {
 		//Initilisation du nombre d'elements a 0
 		this.nbElement = 0;
 	}
-	
+
 	@Override
 	public void insert(Object data) {
 		//Creation du nouvel element, son prev est le current, son next est le suivant du current
@@ -43,7 +43,7 @@ public class LinkedList implements List {
 		this.nbElement++;
 	}
 
-	
+
 	@Override
 	public void delete() {
 		this.current.prev.next = this.current.next;
@@ -56,40 +56,40 @@ public class LinkedList implements List {
 		}
 	}
 
-	
+
 	@Override
 	public boolean contains(Object data) {
 		boolean ret = false;
 		Element tmp = sentinel.next;
 		int i = 0;
-		
-		while ((!ret) && (i < nbElement)) {		
+
+		while ((!ret) && (i < nbElement)) {
 			if (tmp.info == data) {
 				ret = true;
-			}			
+			}
 			else {
 				tmp = tmp.next;
 				i++;
-			}		
-		}		
+			}
+		}
 		return ret;
 	}
-	
-	
+
+
 	@Override
 	public Object getValue() {
 		Object ret = current.info; //Acces direct grace a la classe interne
 		return ret;
 	}
 
-	
+
 
 	@Override
 	public void setValue(Object newData) {
 		current.info = newData; //On y a acces directement grace au mecanisme de classe interne
 	}
 
-	
+
 	@Override
 	public boolean isEmpty() {
 		boolean ret = false;
@@ -102,7 +102,7 @@ public class LinkedList implements List {
 		return ret;
 	}
 
-	
+
 	@Override
 	public int getSize() {
 		return this.nbElement;
@@ -116,8 +116,8 @@ public class LinkedList implements List {
 		//On considere ici que la liste commence a l'element situe juste apres la sentinelle
 		this.current = this.sentinel.next;
 	}
-	
-	
+
+
 	/**
 	* Methode placant le curseur a la fin de la liste
 	*/
@@ -125,8 +125,8 @@ public class LinkedList implements List {
 		//On considere ici que la liste finit a l'element situe juste avant la sentinelle
 		this.current = this.sentinel.prev;
 	}
-	
-	
+
+
 	/**
 	* Methode positionant le curseur sur l'element situe avant le current
 	* @return Un booleen indiquant si le positionnement a bien ete effectue
@@ -149,12 +149,12 @@ public class LinkedList implements List {
 		}
 		return ret;
 	}
-		
-	
+
+
 	/**
 	* Methode positionant le curseur sur l'element situe apres le current
 	* @return Un booleen indiquant si le positionnement a bien ete effectue
-	*/	
+	*/
 	public boolean next() {
 		boolean ret = false;
 		try {
@@ -188,7 +188,7 @@ public class LinkedList implements List {
 	*/
 	public Object getValueAt(int index) {
 		Object ret = null;
-		
+
 		//Verif si l'index est correcte ou non
 		if ((index <= this.nbElement) && (index >= 0)) {
 			Element tmp = this.sentinel.next;
@@ -202,15 +202,15 @@ public class LinkedList implements List {
 		}
 		return ret;
 	}
-	
-	
+
+
 	/**
 	 * Methode retournant un affichage de la chaine
 	 * @return Une chaine de caractere pour l'affichage
 	 */
 	public String toString() {
 		String ret = "";
-		
+
 		//Si liste vide!
 		if (this.nbElement == 0) {
 			ret = "Liste vide!";
@@ -225,8 +225,8 @@ public class LinkedList implements List {
 		}
 		return ret;
 	}
-	
-	
+
+
 	/**
 	* Methode verifiant si il y a un element avant le courant
 	* @return Un booleen indiquant si il y a un element avant le courant
@@ -239,8 +239,8 @@ public class LinkedList implements List {
 		}
 		return ret;
 	}
-	
-	
+
+
 	/**
 	* Methode verifiant si il y a un element apres le courant
 	* @return Un booleen indiquant si oui ou non un element est present
@@ -253,15 +253,15 @@ public class LinkedList implements List {
 		}
 		return ret;
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	/*########################################### Classes internes ###########################################*/
-	
-	
+
+
 	/**
 	 * La classe pour les elements de la liste chainee
 	 */

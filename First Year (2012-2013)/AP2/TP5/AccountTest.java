@@ -3,7 +3,7 @@ import bankap.*;
 
 public class AccountTest {
     public static void main (String [] args) {
-	//Constructeurs	
+	//Constructeurs
 	SavingsAccount sa1 = new SavingsAccount (20, 4);
 	SavingsAccount sa2 = new SavingsAccount (25, 5);
 

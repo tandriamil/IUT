@@ -53,7 +53,7 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 		return ret;
 	}
 
-	
+
  	@Override
  	public boolean insert (E key, T data) {
  		boolean ret = false;
@@ -259,7 +259,7 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 				tmp = tmp.rSon;
 			}
 
-			//Here, we don't have equals because 
+			//Here, we don't have equals because
 
 			//If the key is smaller than the current tmp, go to the left
 			else if (comp < 0) {
@@ -357,7 +357,7 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 				ret = theNode;
 			}
 		}
-		
+
 		return ret;
 	}
 
@@ -371,7 +371,7 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 
 		//If it has no sons
 		if ((nodeToRmv.lSon == null) && (nodeToRmv.rSon == null)) {
-			
+
 			//If it's the right son
 			if (nodeToRmv.father.rSon == nodeToRmv) {
 				nodeToRmv.father.rSon = null;
@@ -461,7 +461,7 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 	 * Allows to get all data contained in a node and its relatives
 	 * @return A String object containing all data found
 	 */
-	/* 
+	/*
 	private String getString () {
 		String ret = data.toString();
 		if (lSon != null) {
@@ -472,7 +472,7 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 		}
 		return ret;
 	}*/
-	
+
 
 
  	/*########################################### Inner Classes ###########################################*/

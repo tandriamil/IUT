@@ -1,4 +1,4 @@
-<?php 
+<?php
 import('phpens.framework.Template');
 import('phpens.framework.Application');
 import('phpens.framework.html.*');
@@ -30,4 +30,3 @@ $page->addElement($divRightPanel);
 $page->addElement($divfoot);
 
 ?>
-

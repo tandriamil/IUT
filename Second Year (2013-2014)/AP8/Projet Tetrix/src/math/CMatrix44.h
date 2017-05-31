@@ -17,30 +17,30 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Col-major !!!!! ATTENTION: l'inverse de la notation mathématique
-// J'ai choisi en col-major car c'est le type de matrice  que prend en entrée OPENGL par défaut ...
+// Col-major !!!!! ATTENTION: l'inverse de la notation mathÃ©matique
+// J'ai choisi en col-major car c'est le type de matrice  que prend en entrÃ©e OPENGL par dÃ©faut ...
 //
 //	| 1 2 3 |
 //	| 4 5 6	|	=> 1 4 2 5 3 6
 //
-//	b[0] = m[0][0]		b[4] = m[1][0]		b[8]  = m[2][0]		b[12] = m[3][0]	
-//	b[1] = m[0][1]		b[5] = m[1][1]		b[9]  = m[2][1]		b[13] = m[3][1]	
-//	b[2] = m[0][2]		b[6] = m[1][2]		b[10] = m[2][2]		b[14] = m[3][2]	
-//	b[3] = m[0][3]		b[7] = m[1][3]		b[11] = m[2][3]		b[15] = m[3][3]	
+//	b[0] = m[0][0]		b[4] = m[1][0]		b[8]  = m[2][0]		b[12] = m[3][0]
+//	b[1] = m[0][1]		b[5] = m[1][1]		b[9]  = m[2][1]		b[13] = m[3][1]
+//	b[2] = m[0][2]		b[6] = m[1][2]		b[10] = m[2][2]		b[14] = m[3][2]
+//	b[3] = m[0][3]		b[7] = m[1][3]		b[11] = m[2][3]		b[15] = m[3][3]
 //
 //
-//	notation mathématique
-//	a00 a01	a02	a03	
-//	a10 a11	a12	a13	
-//	a20 a21	a22	a23	
-//	a30 a31	a32	a33	
+//	notation mathÃ©matique
+//	a00 a01	a02	a03
+//	a10 a11	a12	a13
+//	a20 a21	a22	a23
+//	a30 a31	a32	a33
 //
 //
 //	notation col-major
-//	a00 a10	a20	a30	
-//	a01 a11	a21	a31	
-//	a02 a12	a22	a32	
-//	a03 a13	a23	a33	
+//	a00 a10	a20	a30
+//	a01 a11	a21	a31
+//	a02 a12	a22	a32
+//	a03 a13	a23	a33
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 static float matrix44_ident[16] =
@@ -236,10 +236,10 @@ public:
 inline
 std::ostream& operator<< (std::ostream& stream, const CMatrix44& mat)
 {
-	//std::string mat = 
-	//b[0] + " " + b[4] + " " + b[8] + " " + b[12] + " \n" + 
-	//b[1] + " " + b[5] + " " + b[9] + " " + b[13] + " \n" + 
-	//b[2] + " " + b[6] + " " + b[10] + " " + b[14] + " \n" + 
+	//std::string mat =
+	//b[0] + " " + b[4] + " " + b[8] + " " + b[12] + " \n" +
+	//b[1] + " " + b[5] + " " + b[9] + " " + b[13] + " \n" +
+	//b[2] + " " + b[6] + " " + b[10] + " " + b[14] + " \n" +
 	//b[3] + " " + b[7] + " " + b[11] + " " + b[15] + " \n\n" ;
 	//LOG( mat );
 	// FIXME CA DEVRAIT ETRE L inverse
@@ -261,7 +261,7 @@ std::ostream& operator<< (std::ostream& stream, const CMatrix44& mat)
 }
 
 
-inline 
+inline
 void CMatrix44::SetTranslation(const CVector3& vec)
 {
 	b[12] = (float)vec.x;
@@ -276,7 +276,7 @@ void CMatrix44::SetTranslation(const CVector4& vec)
 	b[14] = (float)vec.z;
 }
 
-inline 
+inline
 void CMatrix44::Translate(const CVector3& vec)
 {
 	b[12] += (float)vec.x;
@@ -291,7 +291,7 @@ void CMatrix44::Translate(const CVector4& vec)
 	b[14] += (float)vec.z;
 }
 
-inline 
+inline
 CVector3 CMatrix44::GetTranslation() const
 {
 	return CVector3(b[12],b[13],b[14]);
@@ -299,13 +299,13 @@ CVector3 CMatrix44::GetTranslation() const
 
 
 
-inline 
+inline
 const float& CMatrix44::operator()	(unsigned int row, unsigned int col)	const
 {
 	return	m[col][row];
 }
 
-inline 
+inline
 float& CMatrix44::operator()	(unsigned int row, unsigned int col)
 {
 	return	m[col][row];

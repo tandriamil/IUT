@@ -3,7 +3,7 @@ algo secondeentemps
 var
 	reel h,m;
 	entier r1, r2, sec;
-	
+
 principal
 debut
 	saisir("Entrez un temps en secondes:", @sec);

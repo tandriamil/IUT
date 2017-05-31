@@ -33,5 +33,5 @@ public interface Table<E extends Comparable<E>, T> {
 
 	//test
 
-	
+
 }

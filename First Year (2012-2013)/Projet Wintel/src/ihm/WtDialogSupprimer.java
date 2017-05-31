@@ -23,9 +23,9 @@ public class WtDialogSupprimer extends WtDialog {
 
 
     /**
-     * Methode a appeler avant chaque (re-)affichage (on place la 
+     * Methode a appeler avant chaque (re-)affichage (on place la
      * fenetre relativement a la fenetre principale).
-     */    
+     */
     public void init() {
         //Recup du contact cible + ajout dans le champ nom
         Wintel parent = (Wintel)this.getOwner();

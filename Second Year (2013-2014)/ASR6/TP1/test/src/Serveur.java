@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Serveur {
 
 	public static void main(String[] args) {
-        try {    
+        try {
             int port = Integer.parseInt (args [0]);
             ServerSocket serversocket = new ServerSocket (port);
             System.err.println ("Start server on port : " +port);
@@ -35,12 +35,12 @@ public class Serveur {
                 //}
                 //System.err.println("socket closed");
                 for (;;) {
-                    
-                
+
+
 
 
                     BufferedReader in = new BufferedReader (new InputStreamReader (socket.getInputStream ()));
-                
+
                     String line = in.readLine();
                     if (line == null) {
                         break;
@@ -59,7 +59,7 @@ public class Serveur {
                     out.println (str);
                     out.flush();
                     socket.shutdownOutput();
-                    
+
                     out.close();
                 }
             }

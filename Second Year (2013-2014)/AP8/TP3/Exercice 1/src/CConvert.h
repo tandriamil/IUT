@@ -11,7 +11,7 @@ using namespace std;
 
 class CConvert {
 
-	private: 
+	private:
 		string m_Str;
 		double m_Dbl;
 

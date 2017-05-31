@@ -34,14 +34,14 @@ public class Game extends AbstractModel{
         Room outside, entreeDonjon, salleZangdar, magasinDonjon, tunnelMagasin, taverne, salleGolem, paradis;
       
         // create the rooms
-        outside = new Room("Vous êtes devant le donjon de Naheulbeuk");
-        entreeDonjon = new Room("Vous etes dans l'entrée. Souvenez-vous, les aventuriers ne vont jamais tout droit");
+        outside = new Room("Vous ï¿½tes devant le donjon de Naheulbeuk");
+        entreeDonjon = new Room("Vous etes dans l'entrÃ©e. Souvenez-vous, les aventuriers ne vont jamais tout droit");
         salleZangdar = new Room("Salle du Boss");
         magasinDonjon = new Room("Vous arrivez au magasin, vous n'avez pas d'argent, ne tuez pas la vendeuse SVP");
         tunnelMagasin = new Room("Vous avez pratiquer la ruse, et vous passez dans la trappe et vous fuyez les monstres");
         taverne = new Room("Y'a une bonne ambiance ici. Le groupe Tommy Verdatre joue au coin du feu");
         salleGolem = new Room("Le golem de fer est indestructible, l'elfe peut vous aider");
-        paradis = new Room("TAGAZOK à toi mon frère, ici c'est le voeux de bonne santé et de bonheur");
+        paradis = new Room("TAGAZOK Ã  toi mon frï¿½re, ici c'est le voeux de bonne santÃ  et de bonheur");
         
         
         
@@ -99,16 +99,16 @@ public class Game extends AbstractModel{
      */
     private void printWelcome() {
         System.out.println();
-        System.out.println("Et merde, on se les gêle ici. Tiens voila des gens");
+        System.out.println("Et merde, on se les gï¿½le ici. Tiens voila des gens");
         System.out.println("Nous sommes la compagnie.. euh.. nous sommes une compagnie");
-        System.out.println("Si vous etes paumé, faite 'help' ");
+        System.out.println("Si vous etes paumï¿½, faite 'help' ");
         System.out.println();
         this.printLocationInfo();
         //AVEC LA VUE
         mTextActuel = "<html>";
-        mTextActuel += "Et merde, on se les gêle ici. Tiens voila des gens<br>";
+        mTextActuel += "Et merde, on se les gï¿½le ici. Tiens voila des gens<br>";
         mTextActuel += "Nous sommes la compagnie.. euh.. nous sommes une compagnie<br>";
-        mTextActuel += "Si vous etes paumé, faite 'help'<br>";
+        mTextActuel += "Si vous etes paumï¿½, faite 'help'<br>";
         mTextActuel += "";
         this.printLocationInfo();
         
@@ -173,7 +173,7 @@ public class Game extends AbstractModel{
         nextRoom = currentRoom.getExits(direction);
 
         if (nextRoom == null) {
-            System.out.println("Il n'y a rien par là");
+            System.out.println("Il n'y a rien par lï¿½");
         }
         else {
             currentRoom = nextRoom;

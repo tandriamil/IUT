@@ -8,18 +8,18 @@
 
 
 //-----------------------------------------------------------------
-// On inclu les fichiers .h qui contiennent les déclarations des fonctions
-// Les implémentations de nos fonctions ont besoin de leurs déclarations 
-// ainsi que des déclarations des fonctions OPENGL
+// On inclu les fichiers .h qui contiennent les dÃ©clarations des fonctions
+// Les implÃ©mentations de nos fonctions ont besoin de leurs dÃ©clarations
+// ainsi que des dÃ©clarations des fonctions OPENGL
 //-----------------------------------------------------------------
 #include "CRenderer.h"
 
 #include <cmath>
 #include <iostream>					// utiliser par la fonction "cout"
 using namespace std;
-	
+
 /////////////////////////////////////////////////////////////
-/// Initialise le renderer 
+/// Initialise le renderer
 ///
 /// \return code d'erreur
 ////////////////////////////////////////////////////////////
@@ -29,32 +29,32 @@ bool CRenderer::Init()
 	//GLenum error = glewInit();
 
 	// Problem: glewInit failed, something is seriously wrong.
-	//if( GLEW_OK != error ) 
+	//if( GLEW_OK != error )
 	//{
 	//	std::cout << "GLEW ERROR !" << std::endl;
 	//	std::cout << glewGetErrorString( error ) << std::endl;
 	//	return false;
 	//}
 
-	// assurons nous que la caméra et la srtucture de config de la fenêtre a été bien intialisée
+	// assurons nous que la camÃ©ra et la srtucture de config de la fenÃªtre a Ã©tÃ© bien intialisÃ©e
 	if( (!m_camera->m_UserEvents) || (!m_windowSetup))
 		return false;
 
-	// intialisation de notre matrice de transformation de l'espace caméra à l'espace de projection
+	// intialisation de notre matrice de transformation de l'espace camÃ©ra Ã  l'espace de projection
 	CMatrix44 projection = CMatrix44::CreatePerspective(45.0f, static_cast<float>(m_windowSetup->m_width) / static_cast<float>(m_windowSetup->m_height), 0.2f, 5000.0f);
-	LoadProjectionMatrix(projection);	
+	LoadProjectionMatrix(projection);
 
-	// On donne une colueur à notre fond d'espace (background)
-	glClearColor(m_rendererSetup.m_clearColor[0], m_rendererSetup.m_clearColor[1], 
+	// On donne une colueur Ã  notre fond d'espace (background)
+	glClearColor(m_rendererSetup.m_clearColor[0], m_rendererSetup.m_clearColor[1],
 				 m_rendererSetup.m_clearColor[2], m_rendererSetup.m_clearColor[3]);
 
-	// OpenGL pour traiter les objets dans la scene a besoin de 2/3 routines, savoir dans quel ordre il affiche les éléments
-	// affiche t'on les faces caché (normale dans le sens de la caméra) 
+	// OpenGL pour traiter les objets dans la scene a besoin de 2/3 routines, savoir dans quel ordre il affiche les Ã©lÃ©ments
+	// affiche t'on les faces cachÃ© (normale dans le sens de la camÃ©ra)
 	// http://www.linuxgraphic.org/section3d/openGL/didacticiels/didac2/didac4.html
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
-	// spécifie la couleur de remplissage des faces (soit opengl calcule un dégradé entre les différents sommet de la face, soit vous remplissez
+	// spÃ©cifie la couleur de remplissage des faces (soit opengl calcule un dÃ©gradÃ© entre les diffÃ©rents sommet de la face, soit vous remplissez
 	// la face par la couleur d'un des sommets(GL_FLAT): http://rvirtual.free.fr/programmation/OpenGl/Debut_3D.htm)
 	glShadeModel(GL_SMOOTH);
 
@@ -66,18 +66,18 @@ bool CRenderer::Init()
 
 
 /////////////////////////////////////////////////////////////
-/// lance les méthodes communes à chaque frame
+/// lance les mÃ©thodes communes Ã  chaque frame
 ///
 ////////////////////////////////////////////////////////////
 void CRenderer::StartRender()
 {
-	// remet à zeros les buffer précédents
-	glClear(GL_COLOR_BUFFER_BIT |						// Efface le frame buffer (l'image précédente)
-			GL_DEPTH_BUFFER_BIT);						// Efface le Z-buffer (le calcul de profondeur l'image précédente)
+	// remet Ã  zeros les buffer prÃ©cÃ©dents
+	glClear(GL_COLOR_BUFFER_BIT |						// Efface le frame buffer (l'image prÃ©cÃ©dente)
+			GL_DEPTH_BUFFER_BIT);						// Efface le Z-buffer (le calcul de profondeur l'image prÃ©cÃ©dente)
 
-	// mise a jour des coordonnées de la caméra et on mets à jour la transformation de la caméra
+	// mise a jour des coordonnÃ©es de la camÃ©ra et on mets Ã  jour la transformation de la camÃ©ra
 	LoadViewMatrix(m_camera->Compute());
-	
+
 	// afficher le sol
 	if( m_rendererSetup.m_drawGround )
 		DrawGround(500.0f);
@@ -90,21 +90,21 @@ void CRenderer::StartRender()
 ////////////////////////////////////////////////////////////
 void CRenderer::LoadProjectionMatrix(CMatrix44& projection)
 {
-	glMatrixMode(GL_PROJECTION);						// on spécifie qu'on se positionne dans l'espase de projection
-	glLoadIdentity();									// on lui donne comme transformation la matrice identité
-	
-	// on envoit la matrice de projection à la carte graphique
+	glMatrixMode(GL_PROJECTION);						// on spÃ©cifie qu'on se positionne dans l'espase de projection
+	glLoadIdentity();									// on lui donne comme transformation la matrice identitÃ©
+
+	// on envoit la matrice de projection Ã  la carte graphique
 	glLoadMatrixf(&(projection.b[0]));
 
 	// Ancien code
 	//-------------------------
-	// on envoit la matrice de projection à la carte graphique
+	// on envoit la matrice de projection Ã  la carte graphique
 	//CMatrix44 projection = CMatrix44::CreatePerspective(45.0f, static_cast<float>(m_windowSetup->m_width) / static_cast<float>(m_windowSetup->m_height), 0.2f, 100.0f);
 	//glLoadMatrixf(&(projection.b[0]));
 
-	// Autre méthode: il existe une librairie directement intégré à OPENGL (glu) qui forunit directement une fonction 
-	//gluPerspective(45.0f, 800.0f/640.0f, 0.2f, 100.0f);	// Angle de la caméra, clipping entre 1 et 100 (pas à partir de 0,
-															// sinon on perd toute la précision du z-buffer)
+	// Autre mÃ©thode: il existe une librairie directement intÃ©grÃ© Ã  OPENGL (glu) qui forunit directement une fonction
+	//gluPerspective(45.0f, 800.0f/640.0f, 0.2f, 100.0f);	// Angle de la camÃ©ra, clipping entre 1 et 100 (pas Ã  partir de 0,
+															// sinon on perd toute la prÃ©cision du z-buffer)
 }
 
 /////////////////////////////////////////////////////////////
@@ -115,22 +115,22 @@ void CRenderer::LoadProjectionMatrix(CMatrix44& projection)
 void CRenderer::LoadViewMatrix(const CMatrix44& view)
 {
 	glMatrixMode(GL_MODELVIEW);							// on se place dans le repere de la camera
-	glLoadIdentity();									// on lui donne comme transformation la matrice identité
+	glLoadIdentity();									// on lui donne comme transformation la matrice identitÃ©
 
-	// matrice de vue 	
+	// matrice de vue
 	glLoadMatrixf(&(view.b[0]));
 
 	// Ancien code
 	//-------------------------
-	// matrice de vue 		
+	// matrice de vue
 	//CMatrix44 view = CMatrix44::CreatelookAt(CVector3(m_camera.m_posX, m_camera.m_posY, m_camera.m_posZ),		// position de la camera
-	//							 CVector3(m_camera.m_viewX, m_camera.m_viewY, m_camera.m_viewZ),	// endroit de la scene vers ou la caméra pointe (regarde)
+	//							 CVector3(m_camera.m_viewX, m_camera.m_viewY, m_camera.m_viewZ),	// endroit de la scene vers ou la camÃ©ra pointe (regarde)
 	//							 CVector3(m_camera.m_upX, m_camera.m_upY, m_camera.m_upZ));		// orientation verticale
 	//glLoadMatrixf(&(view.b[0])));
 
-	// Autre méthode: il existe une librairie directement intégré à OPENGL (glu) qui forunit directement une fonction 
+	// Autre mÃ©thode: il existe une librairie directement intÃ©grÃ© Ã  OPENGL (glu) qui forunit directement une fonction
 	//gluLookAt(m_camera.m_posX, m_camera.m_posY, m_camera.m_posZ,		// position de la camera
-	//			m_camera.m_viewX, m_camera.m_viewY, m_camera.m_viewZ,	// endroit de la scene vers ou la caméra pointe (regarde)
+	//			m_camera.m_viewX, m_camera.m_viewY, m_camera.m_viewZ,	// endroit de la scene vers ou la camÃ©ra pointe (regarde)
 	//			m_camera.m_upX, m_camera.m_upY, m_camera.m_upZ);		// orientation verticale
 
 }
@@ -144,7 +144,7 @@ void CRenderer::LoadViewMatrix(const CMatrix44& view)
 
 
 /////////////////////////////////////////////////////////////
-/// lancement d'une phase d'affichage 2D ( A appeler éventuellement dans OnRender()
+/// lancement d'une phase d'affichage 2D ( A appeler Ã©ventuellement dans OnRender()
 /////////////////////////////////////////////////////////////
 void CRenderer::Start2DRender()
 {
@@ -161,7 +161,7 @@ void CRenderer::Start2DRender()
 }
 
 /////////////////////////////////////////////////////////////
-/// fin d'affichage 2D ( A appeler éventuellement dans OnRender()
+/// fin d'affichage 2D ( A appeler Ã©ventuellement dans OnRender()
 /////////////////////////////////////////////////////////////
 void CRenderer::End2DRender()
 {
@@ -209,7 +209,7 @@ void CRenderer::DrawText(const std::string& text, int x, int y, TextSize s, CVec
 void CRenderer::DrawText(const std::string& text, int x, int y, void *police)
 {
 	glRasterPos2f(x, y);
-	for(std::string::const_iterator it = text.begin(); it < text.end(); it++) 
+	for(std::string::const_iterator it = text.begin(); it < text.end(); it++)
 		glutBitmapCharacter(police, *it);
 }
 
@@ -227,8 +227,8 @@ void CRenderer::DrawText(const std::string& text, int x, int y, void *police)
 ////////////////////////////////////////////////////////////
 void CRenderer::DrawGround(float _size)
 {
-	float step = _size/40; 
-	
+	float step = _size/40;
+
 	glDisable(GL_LIGHTING);
 	glColor3d(0.3,0.3,0.3);
 	unsigned int count = 0;
@@ -251,7 +251,7 @@ void CRenderer::DrawGround(float _size)
 		glVertex3d(_size,-0.01,_size);glVertex3d(_size,-0.01,-_size);
 	glEnd();
 }
- 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Partie Animation
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,7 +264,7 @@ void CGraphicCylinder::Draw(float radius, float x, float y, float z)
 		glVertex3f(0.0f,0.0f,0.0f);
 		glVertex3f(x, y, z) ;
 	glEnd();
-	    
+
 	glPopMatrix() ;
 }
 
@@ -279,34 +279,33 @@ void CGraphicSphere::Draw(float radius, CVector3 color)
 
 
 /////////////////////////////////////////////////////////////
-/// mets à jour les attributs de la caméra en fonction des évenements souris
+/// mets Ã  jour les attributs de la camÃ©ra en fonction des Ã©venements souris
 ///
 ////////////////////////////////////////////////////////////
 CMatrix44& CCameraLookAt::Compute()
 {
-	// si boutton du milieu on fait varier la distance entre la caméra et le point vers lequelle elle pointe
+	// si boutton du milieu on fait varier la distance entre la camÃ©ra et le point vers lequelle elle pointe
 	// le zoom quoi
 	if(m_UserEvents->mousebuttons[1]) // bouton droite
 	{
 
 	}
 
-	// si boutton de droite on fait tourner la caméra autour du point vers lequelle elle pointe
+	// si boutton de droite on fait tourner la camÃ©ra autour du point vers lequelle elle pointe
 	if(m_UserEvents->mousebuttons[2]) // boutton molette
 	{
-	}	
+	}
 
 	m_viewMatrix = CMatrix44::CreateLookAt(	CVector3(m_posX, m_posY, m_posZ),	// position de la camera
-											CVector3(m_viewX, m_viewY, m_viewZ),	// endroit de la scene vers ou la caméra pointe (regarde)
+											CVector3(m_viewX, m_viewY, m_viewZ),	// endroit de la scene vers ou la camÃ©ra pointe (regarde)
 											CVector3(m_upX, m_upY, m_upZ));		// orientation verticale
-	
-	// 
+
+	//
 	if(m_UserEvents->mousebuttons[0]) // boutton gauche
 	{
-	}	
+	}
 
 	m_viewMatrix.Translate(m_translate);
 
 	return m_viewMatrix;
-}	
-
+}

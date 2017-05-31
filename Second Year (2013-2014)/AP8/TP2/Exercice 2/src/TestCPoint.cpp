@@ -10,7 +10,7 @@ int main() {
 
 	CPoint c1(4, 8); // constructor with parameters
 	cout << "présentation de c1 : " << endl;
-	c1.presentation(); 
+	c1.presentation();
 
 	CPoint c2; // constructor without parameter
 	cout << "présentation de c2 : " << endl;
@@ -21,7 +21,7 @@ int main() {
 	c3.presentation();
 
 
-	// test of modificators 
+	// test of modificators
 
 	c1.setAbs(5);
 	c1.setOrd(6);

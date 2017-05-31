@@ -11,13 +11,13 @@ public class MailServer {
 	mailNb = 0;
 	items = new MailItem [SIZEMAX];
     }
-    
+
 //Accesseurs
     //Accès au nombre de messages d'un client
     public int howManyMailItems (String who) {
 	int ret;
 	String aqui;
-	
+
 	ret = 0;
 	for (int i = 0; i < this.mailNb; i++) {
 	    aqui = items[i].getTo();
@@ -35,7 +35,7 @@ public class MailServer {
 	MailItem ret;
 	int i;
 	boolean atteint = false;
-	
+
 	ret = new MailItem ("le serveur",who,"Pas de message pour vous.");
 	for (i = (mailNb-1); i >= 0; i--) {
 	    if (atteint == false) {
@@ -46,10 +46,10 @@ public class MailServer {
 		}
 	    }
 	}
-	
+
 	return ret;
     }
-    
+
 
     //Permet l'envoie de message
     public void post (MailItem item) {

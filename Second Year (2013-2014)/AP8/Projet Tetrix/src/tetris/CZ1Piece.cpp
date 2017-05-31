@@ -22,7 +22,7 @@ CZ1Piece::~CZ1Piece() {
 */
 void CZ1Piece::Turn() {
 	//Colors the grids in function of the actual new state
-	
+
 	switch (m_state)
 	{
 		//If it's top
@@ -72,7 +72,7 @@ void CZ1Piece::Turn() {
 			m_table[1][1]=1;
 			m_table[2][0]=1;
 			break;
-		} 
+		}
 		//If it's right
 		case S_Right:
 		{
@@ -90,11 +90,11 @@ void CZ1Piece::Turn() {
 			break;
 		}
 
-		// disposition des axes de la matrice sur la grille     	
+		// disposition des axes de la matrice sur la grille
 		//		j2	.	1	.
 		//		j1	.	1	.
 		//		j0	1	1	.
 		//		   x0   x1 	x2
 
-	}	
+	}
 }

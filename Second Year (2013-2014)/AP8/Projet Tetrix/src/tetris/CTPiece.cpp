@@ -22,7 +22,7 @@ CTPiece::~CTPiece() {
 */
 void CTPiece::Turn() {
 	//Colors the grids in function of the actual new state
-	
+
 	switch (m_state)
 	{
 		//If it's top
@@ -72,7 +72,7 @@ void CTPiece::Turn() {
 			m_table[1][2]=1;
 			m_table[2][1]=1;
 			break;
-		} 
+		}
 		//If it's right
 		case S_Right:
 		{
@@ -90,11 +90,11 @@ void CTPiece::Turn() {
 			break;
 		}
 
-		// disposition des axes de la matrice sur la grille avec la pièce    	
+		// disposition des axes de la matrice sur la grille avec la pièce
 		//		j2	.	.	.
 		//		j1	1	1	1
 		//		j0	.	1	.
 		//		   x0   x1 	x2
 
-	}	
+	}
 }

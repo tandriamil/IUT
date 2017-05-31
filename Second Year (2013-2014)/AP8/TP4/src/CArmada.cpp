@@ -39,15 +39,15 @@ int CArmada::getNbSub () {
 void CArmada::remplirStruct () {
 
 	string coordinates; // tmp chain containing the coordinates entered by the user
-	
+
 
 
 	for (int i=0; i < m_nbTotSSM; i++) {
-	
+
 		cout << "\n" << "Enter the coordinates of the submarine for the case " << i+1 << endl;
 		std::getline(std::cin, coordinates);
-		  
-		try {	
+
+		try {
 			this -> analyser (coordinates);
 			this -> m_pTabSousMarins[i] = coordinates;
 			cout << " You entered " << coordinates << " at the case " << i+1 << endl;
@@ -60,7 +60,7 @@ void CArmada::remplirStruct () {
     }
 }
 
-	
+
 
 /**
 * destructor of CArmada

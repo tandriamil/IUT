@@ -7,7 +7,7 @@ import javax.servlet.http.*;
  * @author lesommer
  */
 public interface ActionListener {
-   
+
     /**
      * Cette méthode traite la requête HTTP, et sauvegarde,le cas échéant, des
      * données dans la requête via la méthode
@@ -16,5 +16,5 @@ public interface ActionListener {
      * ces données via <code>request.getAttribute(cle)</code>.
      */
     public void handle(HttpServletRequest request);
-   
+
 }

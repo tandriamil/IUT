@@ -17,7 +17,7 @@ public class JeuDeDame implements Serializable {
 
 	//Pour eviter un warning
 	private static final long serialVersionUID = 1;
-	
+
 //Methodes
 	/**
 	*Constructeur de la classe JeuDeDame
@@ -26,7 +26,7 @@ public class JeuDeDame implements Serializable {
 		this.tailleDamier = 10;
 		this.couleurHumain = 1;
 	}
-	
+
 	/**
 	*Permet la creation d'une nouvelle sauvegarde
 	*/
@@ -36,7 +36,7 @@ public class JeuDeDame implements Serializable {
 
 		out = new FileOutputStream("svg.jdd"); //Creer le fichier de sortie
 		System.out.println("Fichier de sortie svg.jdd correctement cree.");
-		
+
 		fluxSortie = new ObjectOutputStream(out);
 		fluxSortie.writeObject(this);
 		fluxSortie.close();
@@ -51,11 +51,11 @@ public class JeuDeDame implements Serializable {
 		FileInputStream in = null;
 		ObjectInputStream fluxEntree = null;
 		JeuDeDame ret = null;
-	
-		
+
+
 		in = new FileInputStream("svg.jdd");
 		System.out.println("Fichier de sauvegarde svg.jdd trouvee.");
-		
+
 		fluxEntree = new ObjectInputStream(in);
 		ret = (JeuDeDame)fluxEntree.readObject();
 		fluxEntree.close();
@@ -94,7 +94,7 @@ public class JeuDeDame implements Serializable {
 			this.partieCourante = new Partie(this.damier, this.humain, this.ia, 60);
 		}
 	}
-	
+
 	/**
 	*Permet de configurer les parametres de la partie
 	*@param taille Taille du damier a configurer

@@ -9,12 +9,12 @@
 #include "CTetrisGame.h"
 
 /****************************************/
-CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned int boardWidth, unsigned int boardHeight, float dimCase) {	
+CTetrisGame::CTetrisGame(unsigned int gamePosX, unsigned int gamePosY, unsigned int boardWidth, unsigned int boardHeight, float dimCase) {
 
 	m_board = CTGameTable ( boardWidth, boardHeight );	// appel de CTGameTable ( int width, int height )
-	m_xPos = gamePosX; 
+	m_xPos = gamePosX;
 	m_yPos = gamePosY;
-	m_caseDim = dimCase; 
+	m_caseDim = dimCase;
 	m_pPiece = NULL;
 	m_randomizer = CRandomizer (1, 7);
 
@@ -46,13 +46,13 @@ unsigned int CTetrisGame::GetXPos() {
 /****************************************/
 
 unsigned int CTetrisGame::GetYPos() {
-	
+
 	return m_yPos;
 }
 
 /****************************************/
 
-float& CTetrisGame::GetCaseDim() 
+float& CTetrisGame::GetCaseDim()
 {
 	return m_caseDim;
 }
@@ -68,7 +68,7 @@ void CTetrisGame::AddPiece() {
 		const CVector3 color(0.0f, 1.0f, 0.0f);
 
 
-		switch (tirage) 
+		switch (tirage)
 		{
 			case 0:
 			{
@@ -89,7 +89,7 @@ void CTetrisGame::AddPiece() {
 				m_pPiece = new COPiece (3, 3, 17, color);
 				m_pPiece -> Turn();
 				break;
-			} 
+			}
 
 			case 3:
 			{
@@ -110,7 +110,7 @@ void CTetrisGame::AddPiece() {
 				m_pPiece = new CZ1Piece (3, 3, 17, color);
 				m_pPiece -> Turn();
 				break;
-			} 
+			}
 
 			case 6:
 			{
@@ -119,7 +119,7 @@ void CTetrisGame::AddPiece() {
 			}
 		}
 	}
-	
+
 }
 
 
@@ -153,7 +153,7 @@ ActionResult CTetrisGame::MovePiece(PieceAction action) {
 			m_pPiece -> SetIncDecColIndex(1);
 			m_pPiece -> Turn();
 			break;
-		} 
+		}
 
 		case PA_MoveLeft :
 		{
@@ -404,11 +404,11 @@ unsigned int CTetrisGame::GetScore() {
 
 
 ActionResult CTetrisGame::Update(unsigned int step) {
-	
+
 	if (step == 0) {
 		this->AddPiece();
 	}
-	
+
 
 	return AR_Ok;
 }

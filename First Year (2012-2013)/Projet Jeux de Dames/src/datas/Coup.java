@@ -63,7 +63,7 @@ public class Coup implements Serializable {
 		if (piecePrise != null) {
 			ret = ret + "La case suivante a ete supprimee: " + this.piecePrise.toString() + "\n";
 		}
-		
+
 		return ret;
 	}
 }

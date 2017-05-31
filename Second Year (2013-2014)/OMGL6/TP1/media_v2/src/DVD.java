@@ -1,10 +1,10 @@
 package media;
 
 /**
- * The DVD class represents a DVD object. Information about the 
- * DVD is stored and can be retrieved. We assume that we only deal 
+ * The DVD class represents a DVD object. Information about the
+ * DVD is stored and can be retrieved. We assume that we only deal
  * with movie DVDs at this stage.
- * 
+ *
  */
 public class DVD extends Item {
 

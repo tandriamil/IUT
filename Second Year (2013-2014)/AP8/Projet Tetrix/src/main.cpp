@@ -11,8 +11,8 @@
 #include "CProjetTetris.h"
 
 ////////////////////////////////////////////////////////////////////////
-/// la fonction main est spéciale 
-/// puisque la premiere lancée à l'execution automatiquement
+/// la fonction main est spÃ©ciale
+/// puisque la premiere lancÃ©e Ã  l'execution automatiquement
 ///
 /// return code de fin d'application
 ////////////////////////////////////////////////////////////////////////
@@ -21,13 +21,13 @@ int main ( int argc, char *argv[] ) {
 	CProjetTetris* monProjet = new CProjetTetris();
 
 	// initialize graphics
-	// cette méthode permet d'intialiser le fenetrage associé à votre application: CProjetTetris
+	// cette mÃ©thode permet d'intialiser le fenetrage associÃ  Ã  votre application: CProjetTetris
    	CGuiGlut::InitializeGraphics ( argc, argv, monProjet );
 
 	// run the main event processing loop
-	// on lance une boucle infinie de rendu/mise à jour de la fenêtre/mise à jour de votre jeu 
+	// on lance une boucle infinie de rendu/mise Ã  jour de la fenÃªtre/mise Ã  jour de votre jeu
 	// qui se finit uniquement quand l'utilisateur le demande !!! esc ou X
-	CGuiGlut::RunGraphics();  
+	CGuiGlut::RunGraphics();
 
 	delete monProjet;
 }

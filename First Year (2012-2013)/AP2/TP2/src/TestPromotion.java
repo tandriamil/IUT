@@ -22,11 +22,11 @@ public class TestPromotion {
 	//Affichage de la promotion
 	System.out.println (p1.enChaine());
 
-	
+
       //Test accesseurs
 	//Test getNom
 	System.out.println ("Le nom de la promotion est " + p1.getNom() + ".");
-	
+
 	//Test moyenne
 	System.out.println ("La moyenne de la promotion est de " + p1.moyenne() + ".");
 

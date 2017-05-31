@@ -28,9 +28,9 @@ public void setRules(ArrayList<UrlMapping> rules){
     for(int i = 0; i < rules.size(); i++){
         this.rules.put(rules.get(i).getPattern(),rules.get(i));
     }
-    
+
 }
-  
+
   public void processRequest(HttpServletRequest request,
                   HttpServletResponse response, ServletContext context)
     throws IOException, ServletException {
@@ -48,11 +48,11 @@ public void setRules(ArrayList<UrlMapping> rules){
       listener = rule.getListener();
       view = rule.getView();
   }
-  
+
   if(listener != null){
       listener.handle(request);
   }
-   
+
     RequestDispatcher dispatcher =  context.getRequestDispatcher(view);
       dispatcher.forward(request, response);
     }

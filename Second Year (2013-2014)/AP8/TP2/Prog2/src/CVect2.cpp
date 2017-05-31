@@ -25,4 +25,3 @@ CVect2 :: ~CVect2 () {
 	cout << "Destructeur objet - adr objet : " << this << " - adr vecteur: " << m_pAdr << endl;
 	delete[] m_pAdr;
 }
-

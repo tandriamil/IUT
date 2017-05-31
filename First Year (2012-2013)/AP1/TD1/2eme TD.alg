@@ -2,11 +2,11 @@
 
 var
 	reel pc, gc, perimetre;
-	
+
 principal
 debut
-	saisir("Entrez la valeur du petit côté:", @pc);
-	saisir("Entrez la valeur du grand côté:", @gc);
+	saisir("Entrez la valeur du petit cote:", @pc);
+	saisir("Entrez la valeur du grand cote:", @gc);
 	perimetre := 2*(pc+gc);
-	afficher("Le périmètre est donc égal à " + perimetre);
+	afficher("Le perimetre est donc egal a " + perimetre);
 fin

@@ -11,8 +11,7 @@ public class $1 implements ActionListener {
 
     request.setAttribute("data", "$1");
   }
-  
+
 }
 
 EOF
-

@@ -12,13 +12,13 @@ public class Client implements Runnable{
 	private BufferedReader in;
 	private PrintStream out;
 	private String nom;
-	
+
 	public Client(BufferedReader in, PrintStream out, Vector <Client> clients) {
 		this.in = in;
 		this.out = out;
 		this.clients = clients;
 	}
-	
+
 	public void run() {
 		try {
 			// On demande le nom au client
@@ -26,7 +26,7 @@ public class Client implements Runnable{
 			nom = in.readLine();
 			System.out.println(nom + " s'est connecte.");
 			out.println("Welcome " + nom);
-			
+
 			// On envoi le message de connection du nouveau client aux autres clients
 			synchronized(clients) {
 				for(int i = 0; i < clients.size(); i++) {
@@ -39,27 +39,27 @@ public class Client implements Runnable{
 
 			while(true) {
 				String lineIn = in.readLine();
-				
+
 				// Deconnection d'un client
 				if(lineIn == null) {
 					synchronized(clients){
 						clients.remove(this);
-						
+
 						for(int i = 0; i < clients.size(); i++) {
 							clients.get(i).getPrintStream().println(nom + " s'est deconnecte.");
-							clients.get(i).getPrintStream().flush();		
-						}	
+							clients.get(i).getPrintStream().flush();
+						}
 					}
-					
+
 					System.out.println(nom + " s'est deconnecte.");
 					System.out.flush();
 					break;
 				}
-				
+
 				// Affichage du message dans la console du serveur
 				System.out.println(nom + ": " + lineIn);
 				System.out.flush();
-				
+
 				// Envoi du message aux autres clients
 				synchronized(clients) {
 					for(int i = 0; i < clients.size(); i++) {
@@ -69,13 +69,13 @@ public class Client implements Runnable{
 						}
 					}
 				}
-			}	
-			
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
-	
+
 	public PrintStream getPrintStream() {
 		return out;
 	}

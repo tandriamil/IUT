@@ -23,7 +23,7 @@ public class Partie implements Serializable {
 
 	//Pour eviter un warning
 	private static final long serialVersionUID = 1;
-	
+
 	//Methodes
 	/**
 	*Constructeur de la classe
@@ -45,7 +45,7 @@ public class Partie implements Serializable {
 		//Demarre la partie en meme temps
 		this.demarrer();
 	}
-	
+
 	/**
 	*Permet de commencer la partie
 	**/
@@ -63,7 +63,7 @@ public class Partie implements Serializable {
 			System.out.println(this.ia.getNom() + " demarre la partie.");
 		}
 	}
-	
+
 	/**
 	*Permet de verifier si la partie est finie ou non
 	**/
@@ -84,7 +84,7 @@ public class Partie implements Serializable {
 
 		this.fini = ret;
 	}
-	
+
 	/**
 	*Permet de jouer un tour
 	*@return true si mouvement possible, false sinon
@@ -119,14 +119,14 @@ public class Partie implements Serializable {
 
 		return ret;
 	}
-	
+
 	/**
 	*Permet d'ajouter le coup courant a l'historique
 	**/
 	private void ajouterUnCoup() {
 		this.historiqueCoups.add(this.coupCourant);
 	}
-	
+
 	/**
 	*Permet d'afficher la partie en cours et son etat
 	**/

@@ -6,7 +6,7 @@ using namespace std;
 
 class CPoint {
 
-	private : 
+	private :
 		int m_Abs;
 		int m_Ord;
 

@@ -2,18 +2,18 @@ algo exo1TD4
 
 var
 	const entier taille := 10;
-	
+
 #La fonction
 fonction verif (reel note) : booleen
 debut
 	si ((note >=0) et (note <=20)) alors
 		retourne vrai;
 	finsi
-	
+
 	si (note == (-1)) alors
 		retourne vrai;
 	finsi
-	
+
 	retourne faux;
 fin
 
@@ -30,7 +30,7 @@ debut
 	pour i:=0 à taille-1
 		Tab [i] := 0;
 	finpour
-	
+
 	#Saisie du tableau
 	i := 0;
 	repeter

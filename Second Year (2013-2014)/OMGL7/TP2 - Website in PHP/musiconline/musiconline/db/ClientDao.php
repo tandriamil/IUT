@@ -79,7 +79,7 @@ class ClientDao implements DataAccessObject {
       $stmt->bindValue(':CodePostal',$do->getCOdePostal(),PDO::PARAM_STR);
       $stmt->bindValue(':Ville',$do->getVIlle(),PDO::PARAM_STR);
       $stmt->bindValue(':IdPays',$do->getIDPays(),PDO::PARAM_STR);
-      
+
       //Exécute la requête finale
       $stmt->execute();
    }
@@ -112,7 +112,7 @@ class ClientDao implements DataAccessObject {
       $stmt->bindValue(':CodePostal',$obj->getCOdePostal(),PDO::PARAM_STR);
       $stmt->bindValue(':Ville',$obj->getVIlle(),PDO::PARAM_STR);
       $stmt->bindValue(':IdPays',$obj->getIDPays(),PDO::PARAM_STR);
-      
+
       //Exécute la requête finale
       $stmt->execute();
   }
@@ -130,13 +130,13 @@ class ClientDao implements DataAccessObject {
 
       //Prépare la requête SQL
       $query = "DELETE FROM Client WHERE Login = :Login";
-    
+
       //Prépare la requête en dur avec la BDD et la requête correspondante
       $stmt = $dbc->prepare($query);
 
       //Remplace les paramètres
       $stmt->bindValue(':Login',$obj->getLOgin(),PDO::PARAM_STR);
-   
+
       //Exécute finallement la requête
       $stmt->execute();
   }

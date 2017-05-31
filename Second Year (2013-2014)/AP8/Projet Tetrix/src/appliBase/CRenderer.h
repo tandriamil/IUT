@@ -7,26 +7,26 @@
 //========================================================================
 
 //=====================================================================
-// classe CRenderer, s'occupe de gérer l'affichage de la scene
+// classe CRenderer, s'occupe de gÃ©rer l'affichage de la scene
 //=====================================================================
 //-----------------------------------------------------------------
-// Ici fichier des déclarations des fonctions. Une fonction ne peut être déclarée qu'une seule fois par le fichier principal (main.cpp)
-// d'ou l'ajout d'une routine qui dit que si votre fichier à déjà été inclu avant pas la peine de le re-inclure
+// Ici fichier des dÃ©clarations des fonctions. Une fonction ne peut Ãªtre dÃ©clarÃ©e qu'une seule fois par le fichier principal (main.cpp)
+// d'ou l'ajout d'une routine qui dit que si votre fichier Ã  dÃ©jÃ  Ã©tÃ© inclu avant pas la peine de le re-inclure
 //-----------------------------------------------------------------
-#ifndef __RENDERER_H__	// routine qui sert à pas inclure 2 fois le même fichier
+#ifndef __RENDERER_H__	// routine qui sert Ã  pas inclure 2 fois le mÃªme fichier
 #define __RENDERER_H__	//
 
 
 //-----------------------------------------------------------------
-// On inclu les fichiers .h qui contiennent les déclarations des fonctions dont a besion
-// On a besoin ici de la structure UserEvents contenant les déplacement de la souris à chaque frame
+// On inclu les fichiers .h qui contiennent les dÃ©clarations des fonctions dont a besion
+// On a besoin ici de la structure UserEvents contenant les dÃ©placement de la souris Ã  chaque frame
 //-----------------------------------------------------------------
-#include "Common.h"		// données liées à la souris
+#include "Common.h"		// donnÃ©es donnÃ©es Ã  la souris
 #include "GL/glut.h"
 
 
 ////////////////////////////////////////////////////////////////////////
-/// classe caméra: s'occupe de mettre à jour la position de la caméra dans la fonction gluLookAt
+/// classe camÃ©ra: s'occupe de mettre Ã  jour la position de la camÃ©ra dans la fonction gluLookAt
 ////////////////////////////////////////////////////////////////////////
 class CCamera
 {
@@ -46,15 +46,15 @@ public:
 	}
 
 	//----------------------------------------------------------
-	// compute met à jour les coordonnées de poistion de la caméra
+	// compute met Ã  jour les coordonnÃ©es de poistion de la camÃ©ra
 	//----------------------------------------------------------
 	virtual CMatrix44& Compute() = 0;
 
 
 	//----------------------------------------------------------
-	// Données membres
+	// donnÃ©es membres
 	//----------------------------------------------------------
-	UserEvents*		m_UserEvents				;		///< pointeur sur l'objet partagé mouse events mis à jour par le GUI
+	UserEvents*		m_UserEvents				;		///< pointeur sur l'objet partagÃ© mouse events mis Ã  jour par le GUI
 	CMatrix44		m_viewMatrix				;		///< matrice de transformation de la vue
 	float			m_XOffset, m_YOffset, m_ZOffset,	///< x,y rotate
 					m_rotateX, m_rotateY;				///< x,y,z offset
@@ -79,13 +79,13 @@ public:
 	~CCameraLookAt() {}
 
 	//----------------------------------------------------------
-	// compute met à jour les coordonnées de poistion de la caméra
+	// compute met Ã  jour les coordonnÃ©es de poistion de la camÃ©ra
 	//----------------------------------------------------------
 	CMatrix44& Compute();
 
 
 	//----------------------------------------------------------
-	// Données membres
+	// donnÃ©es membres
 	//----------------------------------------------------------
 	float m_posX,	m_posY,	 m_posZ	;	///< look at variables (pos)
 	float m_viewX,	m_viewY, m_viewZ;	///< look at variables (view)
@@ -97,8 +97,8 @@ public:
 ////////////////////////////////////////////////////////////////////////
 // opengl helper
 ////////////////////////////////////////////////////////////////////////
-/** \brief Noeud graphique représentant un cylindre.
-	Le cylindre est décrit par les rayons de lsa base et de son sommet, ainsi que par sa hauteur.
+/** \brief Noeud graphique reprÃ©sentant un cylindre.
+	Le cylindre est dÃ©crit par les rayons de lsa base et de son sommet, ainsi que par sa hauteur.
 	\warning : La hauteur se situe sur l'axe des Z.
 */
 struct CGraphicCylinder
@@ -111,12 +111,12 @@ struct CGraphicCylinder
 } ;
 
 
-/** \brief Noeud de géométrie représentant une sphère.
+/** \brief Noeud de gÃ©omÃ©trie reprÃ©sentant une sphÃ¨re.
 */
 struct CGraphicSphere
 {
 	/** \brief Gestion de l'affichage OpenGL
-		 \param radius : le rayon de la sphère
+		 \param radius : le rayon de la sphÃ¨re
 	*/
 	static void Draw(float radius, CVector3 color = CVector3(1.0f, 0.0f, 0.0f));
 };
@@ -126,10 +126,10 @@ struct CGraphicSphere
 ///  tutorial sympa pour commencer : http://www-evasion.imag.fr/Membres/Antoine.Bouthors/teaching/opengl/
 ///
 /// le renderer est notre classe qui va
-///		- intialiser notre matrice de transformation de l'espace caméra à l'espace de projection
-///		- initialiser notre matrice de transformation de l'espace monde à l'espace caméra
+///		- intialiser notre matrice de transformation de l'espace camÃ©ra Ã  l'espace de projection
+///		- initialiser notre matrice de transformation de l'espace monde Ã  l'espace camÃ©ra
 ///		- intialiser notre scene dans l'espace monde
-///		- dessiner des objets 3D, des gémométries
+///		- dessiner des objets 3D, des gÃ©momÃ¨tries
 ////////////////////////////////////////////////////////////////////////
 enum PrimitiveType
 {
@@ -140,38 +140,38 @@ enum PrimitiveType
 
 class CRenderer
 {
-public:		// les fonctions suivantes peuvent être appelées par d'autres classes / programmes
+public:		// les fonctions suivantes peuvent Ãªtre appelÃ©es par d'autres classes / programmes
 	//----------------------------------------------------------
-	// constructeur par défaut de l'objet (appeler automatiquement à la déclaration (si l'objet n'est pas un pointeur))
-	// rien à mettre dedans pour le moment, notre programme n'a pas besoin d'objets temporaires
+	// constructeur par dÃ©faut de l'objet (appeler automatiquement Ã  la DÃ©claration (si l'objet n'est pas un pointeur))
+	// rien Ã  mettre dedans pour le moment, notre programme n'a pas besoin d'objets temporaires
 	//----------------------------------------------------------
 	CRenderer();
 
 	//----------------------------------------------------------
-	// constructeur de l'objet (appelée uniquement par la classe CApplication !!!!!!)
+	// constructeur de l'objet (appelÃ©e uniquement par la classe CApplication !!!!!!)
 	//----------------------------------------------------------
 	CRenderer(WindowSetup* windowSetup, UserEvents* UserEvents, CCamera* camera);
 
 	//----------------------------------------------------------
-	// Autre façon de créer le renderer (appelée uniquement par la classe CApplication !!!!!!)
+	// Autre faÃ§on de crÃ©er le renderer (appelÃ©e uniquement par la classe CApplication !!!!!!)
 	//----------------------------------------------------------
 	void Create(WindowSetup* windowSetup, UserEvents* UserEvents, CCamera* camera);
 
 	//----------------------------------------------------------
-	// Destructeur de l'objet appeler automatiquement à la fin de la fonction main (si l'objet n'est pas un pointeur))
-	// rien à mettre dedans pour le moment, notre programme n'a pas besoin d'objets temporaires
+	// Destructeur de l'objet appeler automatiquement Ã  la fin de la fonction main (si l'objet n'est pas un pointeur))
+	// rien Ã  mettre dedans pour le moment, notre programme n'a pas besoin d'objets temporaires
 	//----------------------------------------------------------
 	~CRenderer();
 
 	//----------------------------------------------------------
-	// fonction d'initialisation, initialie OPENGL	(appelée uniquement par la classe CApplication !!!!!!)
+	// fonction d'initialisation, initialie OPENGL	(appelÃ©e uniquement par la classe CApplication !!!!!!)
 	//----------------------------------------------------------
 	bool Init();
 
 
 
 	//----------------------------------------------------------
-	// fonction d'affichage appelé à chaque bouche de rendu (appelée uniquement par la classe CApplication !!!!!!)
+	// fonction d'affichage appelÃ© Ã  chaque bouche de rendu (appelÃ©e uniquement par la classe CApplication !!!!!!)
 	//----------------------------------------------------------
 	void StartRender();
 
@@ -186,7 +186,7 @@ public:		// les fonctions suivantes peuvent être appelées par d'autres classes /
 	void LoadProjectionMatrix(CMatrix44& projection);
 
 	//----------------------------------------------------------
-	// fonction dde mise à jour de la transformation de vue
+	// fonction dde mise Ã  jour de la transformation de vue
 	//----------------------------------------------------------
 	void LoadViewMatrix(const CMatrix44& view);
 
@@ -194,12 +194,12 @@ public:		// les fonctions suivantes peuvent être appelées par d'autres classes /
 
 
 	//----------------------------------------------------------
-	// lancement d'une phase d'affichage 2D (A appeler éventuellement dans OnRender()
+	// lancement d'une phase d'affichage 2D (A appeler Ã©ventuellement dans OnRender()
 	//----------------------------------------------------------
 	void Start2DRender();
 
 	//----------------------------------------------------------
-	// fin d'affichage 2D (A appeler éventuellement dans OnRender()
+	// fin d'affichage 2D (A appeler Ã©ventuellement dans OnRender()
 	//----------------------------------------------------------
 	void End2DRender();
 
@@ -218,12 +218,12 @@ public:		// les fonctions suivantes peuvent être appelées par d'autres classes /
 
 
 
-protected:	// les fonctions suivantes peuvent être appelées seulement pas cettte même classe et les classes filles de cette classe
+protected:	// les fonctions suivantes peuvent Ãªtre appelÃ©es seulement pas cettte mÃªme classe et les classes filles de cette classe
 
 	//----------------------------------------------------------
-	// Données membres
+	// donnÃ©es membres
 	//----------------------------------------------------------
-	WindowSetup*	m_windowSetup	;	// config et evenement liés à la fenêtre
+	WindowSetup*	m_windowSetup	;	// config et evenement liÃ©s Ã  la fenÃªtre
 	CCamera*			m_camera		;	// la camera
 	RendererSetup	m_rendererSetup	;	// config et evenement du renderer
 
@@ -242,7 +242,7 @@ protected:	// les fonctions suivantes peuvent être appelées seulement pas cettte
 
 
 // les fonctions inline permette une optimisation du code. Brievement, le corps des fonctions suivantes
-// remplace les valeurs appelés dans le code par ces mêmes fonctions
+// remplace les valeurs appelÃ©s dans le code par ces mÃªmes fonctions
 inline	CRenderer::CRenderer() :m_camera() {}
 inline	CRenderer::~CRenderer(){m_windowSetup = 0;}
 inline	CRenderer::CRenderer(WindowSetup* windowSetup, UserEvents* UserEvents,  CCamera* camera)

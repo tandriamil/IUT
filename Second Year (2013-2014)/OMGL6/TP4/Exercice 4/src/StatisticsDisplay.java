@@ -12,9 +12,9 @@ public class StatisticsDisplay  {
 	private float minTemp = 10;
 	private float tempSum= 0;
 	private int numReadings;
-	
-	private WeatherData weatherData; 
-	
+
+	private WeatherData weatherData;
+
 	public StatisticsDisplay(WeatherData weatherData) {
 		this.weatherData = weatherData;
 		// ajouter l'enregistrement comme observer de weatherData
@@ -38,8 +38,8 @@ public class StatisticsDisplay  {
 		}
 		this.display();
 	}
-	
-	
+
+
 	public void display() {
 		System.out.println("Avg/Max/Min temperature = " + (tempSum / numReadings) + "/" + maxTemp + "/" + minTemp);
 	}

@@ -139,24 +139,24 @@ public class Wintel extends JFrame {
 	//Panel de droite contenant les informations
 		//Creation des elements
 
-		
+
 		nom = new JLabel("Nom : ");
 		afficheNom = new JTextField(20);
 		afficheNom.setEditable(false);
 		afficheNom.setBackground(Color.cyan);
-		
-		
+
+
 		prenom = new JLabel("Prénom : ");
 		affichePrenom = new JTextField(20);
 		affichePrenom.setEditable(false);
 		affichePrenom.setBackground(Color.cyan);
-		
-		
+
+
 		numero = new JLabel("Numéro : ");
 		afficheNumero = new JTextField(20);
 		afficheNumero.setEditable(false);
 		afficheNumero.setBackground(Color.cyan);
-		
+
 
 		butComposer = new JPanel();
 		composer = new JButton("Composer");

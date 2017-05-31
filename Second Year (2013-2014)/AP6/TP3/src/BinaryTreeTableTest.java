@@ -187,13 +187,13 @@ public class BinaryTreeTableTest extends TestCase {
 	@Test
 	public void testSelectNormalTree() {
 		System.out.println("\n" + "Test of select() with an existent key of a normal tree:");
-		
+
 		assertEquals(dataUn, normalTree.select(un));
 		System.out.println(normalTree.select(un).toString());
 
 		assertEquals(dataCinq, normalTree.select(cinq));
 		System.out.println(normalTree.select(cinq).toString());
-		
+
 		assertEquals(dataDix, normalTree.select(dix));
 		System.out.println(normalTree.select(dix).toString());
 

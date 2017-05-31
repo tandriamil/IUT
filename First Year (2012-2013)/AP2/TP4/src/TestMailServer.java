@@ -13,7 +13,7 @@ public class TestMailServer {
 	server.post(mail1);
 	server.post(mail2);
 	server.post(mail3);
-	
+
 	//Test howManyMailItems  //Fontcionne
 	System.out.println(mail1.getTo() + " a reçu " + server.howManyMailItems(mail1.getTo()) + " message(s).");
 	System.out.println(mail3.getTo() + " a reçu " + server.howManyMailItems(mail3.getTo()) + " message(s).");

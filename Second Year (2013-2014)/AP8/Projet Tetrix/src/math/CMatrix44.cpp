@@ -14,7 +14,7 @@ CMatrix44 CMatrix44::Identity = CMatrix44();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-///	
+///
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 CMatrix44::CMatrix44(const CVector3& x, const CVector3& y, const CVector3& z)
@@ -39,10 +39,10 @@ CMatrix44::CMatrix44(float* buff)
 
 
 
-CMatrix44 CMatrix44::operator*( const CMatrix44 &m ) const 
+CMatrix44 CMatrix44::operator*( const CMatrix44 &m ) const
 {
 	CMatrix44 mf = CMatrix44( );
-	
+
 	mf.b[0] = b[0] * m.b[0] + b[4] * m.b[1] + b[8] * m.b[2] + b[12] * m.b[3];
 	mf.b[1] = b[1] * m.b[0] + b[5] * m.b[1] + b[9] * m.b[2] + b[13] * m.b[3];
 	mf.b[2] = b[2] * m.b[0] + b[6] * m.b[1] + b[10] * m.b[2] + b[14] * m.b[3];
@@ -67,7 +67,7 @@ CMatrix44 CMatrix44::operator*( const CMatrix44 &m ) const
 }
 
 
-CVector4 CMatrix44::operator*( const CVector4 &v ) const 
+CVector4 CMatrix44::operator*( const CVector4 &v ) const
 {
 	return CVector4(
 	m[0][0] * v.x + m[1][0] * v.y + m[2][0] * v.z + m[3][0] * v.w,
@@ -76,7 +76,7 @@ CVector4 CMatrix44::operator*( const CVector4 &v ) const
 	m[0][3] * v.x + m[1][3] * v.y + m[2][3] * v.z + m[3][3] * v.w);
 }
 
-CVector3 CMatrix44::operator*( const CVector3 &v ) const 
+CVector3 CMatrix44::operator*( const CVector3 &v ) const
 {
 	return CVector3(
 	m[0][0] * v.x + m[1][0] * v.y + m[2][0] * v.z + m[3][0] * 1.0f,
@@ -129,7 +129,7 @@ CVector3 CMatrix44::operator*( const CVector3 &v ) const
 //	float s = det();
 //	if (s == 0.0) return;
 //	s = 1/s;
-//	
+//
 //	M11 = s*(M22*(M33*M44 - M34*M43) + M23*(M34*M42 - M32*M44) + M24*(M32*M43 - M33*M42));
 //	M12 = s*(M32*(M13*M44 - M14*M43) + M33*(M14*M42 - M12*M44) + M34*(M12*M43 - M13*M42));
 //	M13 = s*(M42*(M13*M24 - M14*M23) + M43*(M14*M22 - M12*M24) + M44*(M12*M23 - M13*M22));
@@ -204,7 +204,7 @@ void CMatrix44::invert()
 	float d = det();
 	if (d == 0.0) return;
 	d = 1/d;
-	
+
 
 	CMatrix44 temp = *this;
 
@@ -219,7 +219,7 @@ void CMatrix44::invert()
 	M02 = d *(temp(3,1) * (temp(0,2) * temp(1,3) - temp(0,3) * temp(1,2)) +
               temp(3,2) * (temp(0,3) * temp(1,1) - temp(0,1) * temp(1,3)) +
               temp(3,3) * (temp(0,1) * temp(1,2) - temp(0,2) * temp(1,1)));
-                 
+
 	M03 = d *(temp(0,1) * (temp(1,3) * temp(2,2) - temp(1,2) * temp(2,3)) +
 			  temp(0,2) * (temp(1,1) * temp(2,3) - temp(1,3) * temp(2,1)) +
 			  temp(0,3) * (temp(1,2) * temp(2,1) - temp(1,1) * temp(2,2)));
@@ -227,47 +227,47 @@ void CMatrix44::invert()
 	M10 = d *(temp(1,2) * (temp(2,0) * temp(3,3) - temp(2,3) * temp(3,0)) +
 			  temp(1,3) * (temp(2,2) * temp(3,0) - temp(2,0) * temp(3,2)) +
 			  temp(1,0) * (temp(2,3) * temp(3,2) - temp(2,2) * temp(3,3)));
-                
+
 	M11 = d * (temp(2,2) * (temp(0,0) * temp(3,3) - temp(0,3) * temp(3,0)) +
                temp(2,3) * (temp(0,2) * temp(3,0) - temp(0,0) * temp(3,2)) +
                temp(2,0) * (temp(0,3) * temp(3,2) - temp(0,2) * temp(3,3)));
-                
+
 	M12 = d * (temp(3,2) * (temp(0,0) * temp(1,3) - temp(0,3) * temp(1,0)) +
                temp(3,3) * (temp(0,2) * temp(1,0) - temp(0,0) * temp(1,2)) +
                temp(3,0) * (temp(0,3) * temp(1,2) - temp(0,2) * temp(1,3)));
-                
+
 	M13 = d * (temp(0,2) * (temp(1,3) * temp(2,0) - temp(1,0) * temp(2,3)) +
                temp(0,3) * (temp(1,0) * temp(2,2) - temp(1,2) * temp(2,0)) +
                temp(0,0) * (temp(1,2) * temp(2,3) - temp(1,3) * temp(2,2)));
-               
+
 	M20= d * (temp(1,3) * (temp(2,0) * temp(3,1) - temp(2,1) * temp(3,0)) +
               temp(1,0) * (temp(2,1) * temp(3,3) - temp(2,3) * temp(3,1)) +
               temp(1,1) * (temp(2,3) * temp(3,0) - temp(2,0) * temp(3,3)));
-               
+
 	M21 = d * (temp(2,3) * (temp(0,0) * temp(3,1) - temp(0,1) * temp(3,0)) +
                temp(2,0) * (temp(0,1) * temp(3,3) - temp(0,3) * temp(3,1)) +
                temp(2,1) * (temp(0,3) * temp(3,0) - temp(0,0) * temp(3,3)));
-                
+
 	M22 = d * (temp(3,3) * (temp(0,0) * temp(1,1) - temp(0,1) * temp(1,0)) +
                temp(3,0) * (temp(0,1) * temp(1,3) - temp(0,3) * temp(1,1)) +
                temp(3,1) * (temp(0,3) * temp(1,0) - temp(0,0) * temp(1,3)));
-               
+
 	M23 = d * (temp(0,3) * (temp(1,1) * temp(2,0) - temp(1,0) * temp(2,1)) +
                temp(0,0) * (temp(1,3) * temp(2,1) - temp(1,1) * temp(2,3)) +
                temp(0,1) * (temp(1,0) * temp(2,3) - temp(1,3) * temp(2,0)));
-               
+
 	M30 = d * (temp(1,0) * (temp(2,2) * temp(3,1) - temp(2,1) * temp(3,2)) +
                temp(1,1) * (temp(2,0) * temp(3,2) - temp(2,2) * temp(3,0)) +
                temp(1,2) * (temp(2,1) * temp(3,0) - temp(2,0) * temp(3,1)));
-                
+
 	M31 = d * (temp(2,0) * (temp(0,2) * temp(3,1) - temp(0,1) * temp(3,2)) +
                temp(2,1) * (temp(0,0) * temp(3,2) - temp(0,2) * temp(3,0)) +
                temp(2,2) * (temp(0,1) * temp(3,0) - temp(0,0) * temp(3,1)));
-                
+
 	M32 = d * (temp(3,0) * (temp(0,2) * temp(1,1) - temp(0,1) * temp(1,2)) +
                temp(3,1) * (temp(0,0) * temp(1,2) - temp(0,2) * temp(1,0)) +
                temp(3,2) * (temp(0,1) * temp(1,0) - temp(0,0) * temp(1,1)));
-               
+
 	M33 = d * (temp(0,0) * (temp(1,1) * temp(2,2) - temp(1,2) * temp(2,1)) +
                temp(0,1) * (temp(1,2) * temp(2,0) - temp(1,0) * temp(2,2)) +
                temp(0,2) * (temp(1,0) * temp(2,1) - temp(1,1) * temp(2,0)));
@@ -285,13 +285,13 @@ void CMatrix44::Perspective( float fovy, float aspect, float zNear, float zFar )
 {
 	//float f( 1.0f / std::tan( (fovy / 2)* 3.1415f / 180.f )  );
 	//float coeff(zNear - zFar);
-		
+
 	//m[0][0] = f/aspect;		m[0][1] = 0.0f;		m[0][2] = 0.0f;					m[0][3] = 0.0f;
 	//m[1][0] = 0.0f;			m[1][1] = f	  ;		m[1][2] = 0.0f;					m[1][3] = 0.0f;
 	//m[2][0] = 0.0f;			m[2][1] = 0.0f;		m[2][2] = (zNear+zFar)/coeff;	m[2][3] = perspective * (zNear*zFar)/coeff;
 	//m[3][0] = 0.0f;			m[3][1] = 0.0f;		m[3][2] = -1.0f;				m[3][3] = 0.0f;
 
-	float range = std::tan( (fovy / 2)* 3.1415f / 180.f ) * zNear;	
+	float range = std::tan( (fovy / 2)* 3.1415f / 180.f ) * zNear;
 	float left = -range * aspect;
 	float right = range * aspect;
 	float bottom = -range;
@@ -321,7 +321,7 @@ void CMatrix44::LookAt( const CVector3& eye, const CVector3& center, const CVect
 	CVector3 F(center-eye);
 	CVector3 f(F/F.Length());
 	CVector3 UP(up/up.Length());
-	
+
 	CVector3 s( Cross(f,UP) );
 	CVector3 u( Cross(s,f) );
 
@@ -356,7 +356,7 @@ void CMatrix44::Orthographic( float left, float right, float bottom, float top, 
 	float tx	( -(right+left)/cx )		;
 	float ty	( -(top+bottom)/cy )		;
 	float tz	( -(nearVal+farVal)/cz )	;
-	
+
 	m[0][0] = 2.0f/cx;		m[1][0] = 0.0f;		m[2][0] = 0.0f;		m[3][0] = tx;
 	m[0][1] = 0.0f;			m[1][1] = 2.0f/cy;	m[2][1] = 0.0f;		m[3][1] = ty;
 	m[0][2] = 0.0f;			m[1][2] = 0.0f;		m[2][2] = -2.0f/cz;	m[3][2] = tz;
@@ -370,11 +370,11 @@ CMatrix44 CMatrix44::CreateOrthographic( float left, float right, float bottom, 
 	return mat;
 }
 
- 
+
 CVector3 CMatrix44::GetScale()
 {
 	float d		(det());
-	float sign	(d / std::abs(d)); 
+	float sign	(d / std::abs(d));
 	return CVector3(	-sign * (m[0][0] / std::abs(m[0][0])) * std::sqrt( m[0][0]*m[0][0] + m[1][0]*m[1][0] + m[2][0]*m[2][0] ),
 						-sign * (m[1][1] / std::abs(m[1][1])) * std::sqrt( m[0][1]*m[0][1] + m[1][1]*m[1][1] + m[2][1]*m[2][1] ),
 						-sign * (m[2][2] / std::abs(m[2][2])) * std::sqrt( m[0][2]*m[0][2] + m[1][2]*m[1][2] + m[2][2]*m[2][2] ) );

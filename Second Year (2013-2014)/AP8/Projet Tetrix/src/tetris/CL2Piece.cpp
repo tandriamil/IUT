@@ -22,7 +22,7 @@ CL2Piece::~CL2Piece() {
 */
 void CL2Piece::Turn() {
 	//Colors the grids in function of the actual new state
-	
+
 	switch (m_state)
 	{
 		//If it's top
@@ -72,7 +72,7 @@ void CL2Piece::Turn() {
 			m_table[2][1]=1;
 			m_table[2][2]=1;
 			break;
-		} 
+		}
 		//If it's right
 		case S_Right:
 		{
@@ -90,11 +90,11 @@ void CL2Piece::Turn() {
 			break;
 		}
 
-		// disposition des axes de la matrice sur la grille     	
+		// disposition des axes de la matrice sur la grille
 		//		j2	.	1	.
 		//		j1	.	1	.
 		//		j0	1	1	.
 		//		   x0   x1 	x2
 
-	}	
+	}
 }

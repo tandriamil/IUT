@@ -16,7 +16,7 @@ public class Bag<E> extends AbstractCollection<E> {
 //Methods
 //The most of them are already defined in AbstractCollection so no need to define them
 //Like toString(), isEmpty(), contains(Object o), remove(Object o)
-	/** 
+	/**
 	 * Constructor of the Bag
 	 */
 	public Bag() {
@@ -40,14 +40,14 @@ public class Bag<E> extends AbstractCollection<E> {
 	}
 
 
-	/** 
+	/**
 	* Redefinition of the abstract method in AbstractCollection<E>
 	* @return A boolean at false if the size is over Integer.MAX VALUE
 	*/
 	public boolean add(E data) {
 		boolean ret = false;
 
-		//Creation of a new element containing the piece of data 
+		//Creation of a new element containing the piece of data
 		Element toInsert = new Element(data);
 
 		//If the bag contains nothing but the sentinel

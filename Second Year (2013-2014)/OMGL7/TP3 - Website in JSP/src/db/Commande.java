@@ -11,12 +11,12 @@ public class Commande {
 	private String clientCommande;
 	private String titreCommande;
 	private int total;
-	 
+
 	/**
 	* Constructeur de la classe Commande
 	*/
 	public Commande() {}
-	  
+
 	/**
 	* Méthode qui initialise les attributs de l'objet Commande
 	*/
@@ -26,7 +26,7 @@ public class Commande {
 		this.titreCommande = titCo;
 		this.total = total;
 	}
-	  
+
 	/**
 	* Accesseur de l'objet
 	* @return numeroCommande
@@ -34,14 +34,14 @@ public class Commande {
 	public int getNumeroCommande() {
 		return this.numeroCommande;
 	}
-	   
+
 	/**
 	* Modificateur de l'objet
 	*/
 	public void setNumeroCommande(int numCo) {
 		this.numeroCommande = numCo;
 	}
-	   
+
 	/**
 	* Accesseur de l'objet
 	* @return clientCommande
@@ -49,14 +49,14 @@ public class Commande {
 	public String getClientCommande() {
 		return this.clientCommande;
 	}
-		
+
 	/**
 	* Modificateur de l'objet
 	*/
 	public void setClientCommande(String cliCo){
 		this.clientCommande = cliCo;
 	}
-		
+
 	/**
 	* Accesseur de l'objet
 	* @return titreCommande
@@ -64,14 +64,14 @@ public class Commande {
 	public String getTitreCommande(){
 		return this.titreCommande;
 	}
-	   
+
 	/**
 	* Modificateur de l'objet
 	*/
 	public void setTitreCommande(String titCo){
 		this.titreCommande = titCo;
 	}
-	   
+
 	/**
 	* Accesseur de l'objet
 	* @return total

@@ -34,7 +34,7 @@ public class WtDialogQuitter extends JDialog {
 
 
 	/**
-	*Methode a appeler avant chaque (re)affichage qui permet de 
+	*Methode a appeler avant chaque (re)affichage qui permet de
 	*placer la fenetre relativement a la fenetre principale
 	*/
 	public void init() {

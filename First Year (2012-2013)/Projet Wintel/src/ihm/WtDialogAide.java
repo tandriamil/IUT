@@ -30,7 +30,7 @@ public class WtDialogAide extends JDialog {
 
 
 	/**
-	*Methode a appeler avant chaque (re)affichage qui permet de 
+	*Methode a appeler avant chaque (re)affichage qui permet de
 	*placer la fenetre relativement a la fenetre principale
 	*/
 	public void init() {
@@ -64,7 +64,7 @@ public class WtDialogAide extends JDialog {
 		this.setLayout(new BorderLayout());
 
 		//Creation des elements
-		
+
 		zoneAide = new JPanel();
 		boutonConfirmer = new JPanel();
 		confirmer = new JButton("Fermer");
@@ -72,11 +72,11 @@ public class WtDialogAide extends JDialog {
 
 		// spécifications de taille et de couleur des éléments
 
-		zoneAide.setPreferredSize(new Dimension(780, 400)); 
+		zoneAide.setPreferredSize(new Dimension(780, 400));
 		zoneAide.setBackground(Color.cyan);
 		zoneTexte.setEditable(false);
 		zoneTexte.setBackground(Color.cyan);
-		boutonConfirmer.setPreferredSize(new Dimension(80, 65));	 	
+		boutonConfirmer.setPreferredSize(new Dimension(80, 65));
 
 		// insertion des différents éléments
 

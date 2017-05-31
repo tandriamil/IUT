@@ -54,7 +54,7 @@ void CIPiece::Turn() {
 	}
 
 
-	// disposition des axes de la matrice sur la grille avec la pièce    	
+	// disposition des axes de la matrice sur la grille avec la pièce
 		//		j2	.	1	.
 		//		j1	.	1	.
 		//		j0	.	1	.

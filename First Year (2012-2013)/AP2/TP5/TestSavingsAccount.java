@@ -3,7 +3,7 @@ import bankap.*;
 
 public class TestSavingsAccount {
     public static void main (String [] args) {
-	
+
 //TestConstructeur  //Réussi
 	SavingsAccount acc1 = new SavingsAccount (55, 4);
 	SavingsAccount acc2 = new SavingsAccount (22, 3);
@@ -29,7 +29,7 @@ public class TestSavingsAccount {
 	//Test transfer  //Réussi
 	acc2.deposit (2000);
 	System.out.println ("Le compte 22 au départ:");
-	System.out.println (acc2.toString() + '\n');	
+	System.out.println (acc2.toString() + '\n');
 
 	acc1.transfer (500, acc2);
 
@@ -38,7 +38,7 @@ public class TestSavingsAccount {
 	System.out.println ("Le compte 22 après un virement de 500€ depuis le compte 55:");
 	System.out.println (acc2.toString() + '\n');
 
-	
+
 	//Test monthBalance + addInterest  //Réussi
 	acc1.monthBalance();
 	System.out.println ("Le compte 55 après l'ajout des interêts:");

@@ -12,7 +12,7 @@ CPoint :: CPoint (int x, int y) {
 
 	//Then prints a message
 	cout << "Construction et initialisation par paramètres de l'objet CPoint d'adresse : " << this << endl;
-	
+
 }
 
 
@@ -33,7 +33,7 @@ CPoint :: CPoint () {
  */
 CPoint :: CPoint (const CPoint& toCopy) {
 		this -> m_Abs = toCopy.m_Abs;
-		this -> m_Ord = toCopy.m_Ord; 
+		this -> m_Ord = toCopy.m_Ord;
 	cout << "Copy constructor operation is a success, sir, " << "and adress is " << this << "." << endl;
 }
 

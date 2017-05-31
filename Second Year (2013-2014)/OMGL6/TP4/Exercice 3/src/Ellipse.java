@@ -1,1 +1,1 @@
-package composite;/**  plays the "Leaf" in the Composite pattern */public class Ellipse implements Graphic {     //Prints the graphic.    public void print() {        System.out.println("Ellipse");    }}
+package composite;/**  plays the "Leaf" in the Composite pattern */public class Ellipse implements Graphic {    //Prints the graphic.    public void print() {        System.out.println("Ellipse");    }}

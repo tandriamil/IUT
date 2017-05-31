@@ -18,7 +18,7 @@ import java.awt.event.*;
  * par defaut (la fenetre est cachee quand on clique sur l'un ou l'autre
  * des boutons). Il suffit de redefinir les methodes confirmer() et annuler()
  * dans une sous-classe pour modifier le comportement associe au clic sur les boutons.
- * 
+ *
  * <BR>Cette classe est abstraite car la methode "confirmer()" est abstraite.
  * Elle doit etre redefinie dans les sous-classes.
  */
@@ -70,7 +70,7 @@ abstract class WtDialog extends JDialog {
 	 * Bouton pour annuler
 	 */
     protected JButton bAnnuler;
-   
+
     private JPanel pBoutons;
     private JPanel boutonConfirmer;
     private JPanel boutonAnnuler;
@@ -93,9 +93,9 @@ abstract class WtDialog extends JDialog {
 
 
     /**
-     * Methode a appeler avant chaque (re-)affichage (on place la 
+     * Methode a appeler avant chaque (re-)affichage (on place la
      * fenetre relativement a la fenetre principale).
-     */    
+     */
     public void init() {
     	Wintel parent = (Wintel)this.getOwner();
     	Dimension d = parent.getSize();
@@ -152,7 +152,7 @@ abstract class WtDialog extends JDialog {
         this.add(tfNumero);
         this.add(pBoutons);
     }
-    
+
 
     /**
      * Des auditeurs d'evenements sont lies aux boutons confirmer et
@@ -160,7 +160,7 @@ abstract class WtDialog extends JDialog {
      * <BR>Le clic sur le bouton confirmer entraine
      * l'appel a la methode confirmer() de WtDialog (ou celle
      * de sa sous-classe si elle est surchargee).
-     * <BR>De la meme maniere, le clic sur le bouton annuler 
+     * <BR>De la meme maniere, le clic sur le bouton annuler
      * entraine un appel a la methode annuler().
      */
     private void attacherComportements () {
@@ -188,14 +188,14 @@ abstract class WtDialog extends JDialog {
 
 
     /**
-     * Auditeur du bouton confirmer. 
+     * Auditeur du bouton confirmer.
      */
     public class AuditeurConfirmer implements  ActionListener {
     	public void actionPerformed(ActionEvent evt) {
     		confirmer();
     	}
     }
-    
+
 
     /**
      * Auditeur du bouton annuler.

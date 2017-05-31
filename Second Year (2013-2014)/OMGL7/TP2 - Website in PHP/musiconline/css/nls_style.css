@@ -6,9 +6,9 @@ html, body {
 
 div.header {
 	border:  1px solid #496fb0;
-	background-color: #fffeab; 
+	background-color: #fffeab;
 	font-weight: bold;
-	font-family: Arial, Helvetica, sans-serif; 
+	font-family: Arial, Helvetica, sans-serif;
 	font-size : 20pt;
 	padding: 2px;
 }
@@ -49,8 +49,8 @@ div.left_panel{
 
 
 .left_panel .menuBoxHeader {
-  background-color: #fffeab; 
-  border: 1px solid #496fb0; 
+  background-color: #fffeab;
+  border: 1px solid #496fb0;
   padding: 4px 2px 4px 6px;
   float: left;
   clear: left;
@@ -89,21 +89,21 @@ div.left_panel{
 
 
 H1 {
-	color: #000099; 
-	font-family:helvetica, sans-serif, times; 
-	font-size : 16pt; 
+	color: #000099;
+	font-family:helvetica, sans-serif, times;
+	font-size : 16pt;
 	font-weight: bold;
 	font-style : normal;
-	margin-bottom: 3mm; 
-	margin-top: 3mm; 
+	margin-bottom: 3mm;
+	margin-top: 3mm;
 	margin-left: 0mm;
 	margin-right: 0mm;
 	text-align: center
 }
 
 H1.withborder{
-	border: solid 2px ; 
-	border-color:#848181; 
+	border: solid 2px ;
+	border-color:#848181;
 	background: #fefeff  ;
 	color: #000099 ;
  	margin: 1em auto 2.5em auto;
@@ -113,17 +113,17 @@ H1.withborder{
 	font-style : normal;
 	font-weight: bold;
 	font-variant :small-caps ;
-	font-family:helvetica, sans-serif, times; 
+	font-family:helvetica, sans-serif, times;
 }
 
 H1.left {
-	color: #000099; 
-	font-family:helvetica, sans-serif, times; 
-	font-size : 16pt; 
+	color: #000099;
+	font-family:helvetica, sans-serif, times;
+	font-size : 16pt;
 	font-weight: bold;
 	font-style : normal;
-	margin-bottom: 3mm; 
-	margin-top: 3mm; 
+	margin-bottom: 3mm;
+	margin-top: 3mm;
 	margin-left: 0mm;
 	margin-right: 0mm;
 	text-align: left

@@ -33,31 +33,31 @@ public class LinkedListTest {
 		listeNormale.insert(data3);
 		listeSolo.insert(data1);
 	}
-	
-	
+
+
 //Test de toString
 	@Test
 	public void testToStringVide() {
 		System.out.println("Test du toString() sur liste vide:");
 		System.out.println(listeVide.toString() + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testToString() {
 		System.out.println("Test du toString() sur liste non vide:");
 		System.out.println(listeNormale.toString() + "\n");
 	}
-	
-	
+
+
 //Test de insert
 	@Test
 	public void testInsert() {
 		System.out.println("Test de insert():");
 		System.out.println(listeNormale.toString() + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testInsertVide() {
 		System.out.println("Test de insert() sur liste vide:");
@@ -65,8 +65,8 @@ public class LinkedListTest {
 		listeVide.insert(data1);
 		System.out.println("Apres:" + "\n" + listeVide.toString() + "\n");
 	}
-	
-	
+
+
 //Test de delete
 	@Test
 	public void testDeleteListeRemplie() {
@@ -75,8 +75,8 @@ public class LinkedListTest {
 		listeNormale.delete();
 		System.out.println("Apres:" + "\n" + listeNormale.toString());
 	}
-	
-	
+
+
 	@Test
 	public void testDeleteListeVide() {
 		System.out.println("Test de delete() sur liste vide:");
@@ -85,7 +85,7 @@ public class LinkedListTest {
 		System.out.println("Apres:" + "\n" + listeVide.toString() + "\n" + "\n");
 	}
 
-	
+
 //Test de contains
 	@Test
 	public void testContainsTrue() {
@@ -93,24 +93,24 @@ public class LinkedListTest {
 		assertEquals(true, listeNormale.contains(data1));
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testContainsFalse() {
 		System.out.println("Test du contains() avec data non contenu dans liste:");
 		assertEquals(false, listeNormale.contains(data4));
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testContainsVide() {
 		System.out.println("Test du contains() avec liste vide:");
 		assertEquals(false, listeVide.contains(data1));
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 //Test de getValue
 	@Test
 	public void testGetValueVide() {
@@ -118,16 +118,16 @@ public class LinkedListTest {
 		assertEquals(null, listeVide.getValue());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testGetValue() {
 		System.out.println("Test du getValue() avec une bonne valeur:");
 		assertEquals(data3, listeNormale.getValue());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 //Test de setValue
 	@Test
 	public void testSetValueVide() {
@@ -136,8 +136,8 @@ public class LinkedListTest {
 		listeVide.setValue(data4);
 		System.out.println("Apres:" + "\n" + listeVide.toString() + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testSetValue() {
 		System.out.println("Test du setValue() sur liste normale:");
@@ -145,8 +145,8 @@ public class LinkedListTest {
 		listeNormale.setValue(data4);
 		System.out.println("Apres:" + "\n" + listeNormale.toString() + "\n");
 	}
-	
-	
+
+
 //Test de isEmpty()
 	@Test
 	public void testIsEmptyTrue() {
@@ -154,16 +154,16 @@ public class LinkedListTest {
 		assertEquals(true, listeVide.isEmpty());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testIsEmptyFalse() {
 		System.out.println("Test de isEmpty() avec liste non vide:");
 		assertEquals(false, listeNormale.isEmpty());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 //Test de getSize()
 	@Test
 	public void testGetSizeVideDelete() {
@@ -173,16 +173,16 @@ public class LinkedListTest {
 		assertEquals(0, listeVide.getSize());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testGetSize() {
 		System.out.println("Test de getSize() avec liste normale:");
 		assertEquals(3, listeNormale.getSize());
 		System.out.println("Ok" + "\n" + "\n");
 	}
-	
-	
+
+
 //Test de goToHead
 	@Test
 	public void testGoToHead() {
@@ -192,8 +192,8 @@ public class LinkedListTest {
 		listeNormale.delete();
 		System.out.println("Apres:" + "\n" + listeNormale.toString() + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testGoToHeadVide() {
 		System.out.println("Test de goToHead() avec liste vide:");
@@ -202,8 +202,8 @@ public class LinkedListTest {
 		listeVide.delete();
 		System.out.println("Apres:" + "\n" + listeVide.toString() + "\n");
 	}
-	
-	
+
+
 //Test de goToEnd
 	@Test
 	public void testGoToEnd() {
@@ -213,8 +213,8 @@ public class LinkedListTest {
 		listeNormale.delete();
 		System.out.println("Apres:" + "\n" + listeNormale.toString() + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testGoToEndVide() {
 		System.out.println("Test de goToEnd() avec liste vide:");
@@ -223,8 +223,8 @@ public class LinkedListTest {
 		listeVide.delete();
 		System.out.println("Apres:" + "\n" + listeVide.toString() + "\n");
 	}
-	
-	
+
+
 //Test de previous
 	@Test
 	public void testPreviousVide() {
@@ -235,8 +235,8 @@ public class LinkedListTest {
 		listeVide.delete();
 		System.out.println("Apres suppression du current:" + "\n" + listeVide.toString() + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testPreviousNormal() {
 		System.out.println("Test de previous() avec liste normale:");
@@ -246,8 +246,8 @@ public class LinkedListTest {
 		listeNormale.delete();
 		System.out.println("Apres suppression du current:" + "\n" + listeNormale.toString() + "\n");
 	}
-	
-	
+
+
 //Test de next
 	@Test
 	public void testNextVide() {
@@ -258,8 +258,8 @@ public class LinkedListTest {
 		listeVide.delete();
 		System.out.println("Apres suppression du current:" + "\n" + listeVide.toString() + "\n");
 	}
-		
-		
+
+
 	@Test
 	public void testNextDernier() {
 		System.out.println("Test de next() avec liste normale mais current est le dernier element:");
@@ -269,8 +269,8 @@ public class LinkedListTest {
 		listeNormale.delete();
 		System.out.println("Apres suppression du current:" + "\n" + listeNormale.toString() + "\n");
 	}
-	
-	
+
+
 //Test de hasPrevious
 	@Test
 	public void testHasPreviousVide() {
@@ -278,24 +278,24 @@ public class LinkedListTest {
 		assertEquals(false, listeVide.hasPrevious());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testHasPreviousNormale() {
 		System.out.println("Test de hasPrevious() avec liste normale:");
 		assertEquals(true, listeNormale.hasPrevious());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testHasPreviousUnSeulElement() {
 		System.out.println("Test de hasPrevious() avec liste normale a un seul element:");
 		assertEquals(false, listeSolo.hasPrevious());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 //Test de hasNext
 	@Test
 	public void testHasNextVide() {
@@ -303,24 +303,24 @@ public class LinkedListTest {
 		assertEquals(false, listeVide.hasNext());
 		System.out.println("Ok" + "\n");
 	}
-		
-		
+
+
 	@Test
 	public void testHasNextNormale() {
 		System.out.println("Test de hasNext() avec liste normale:");
 		assertEquals(false, listeNormale.hasNext());
 		System.out.println("Ok" + "\n");
 	}
-		
-		
+
+
 	@Test
 	public void testHasNextUnSeulElement() {
 		System.out.println("Test de hasNext() avec liste normale a un seul element:");
 		assertEquals(false, listeSolo.hasNext());
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 //Test de getValueAt
 	@Test
 	public void testGetValueAtVide() {
@@ -328,8 +328,8 @@ public class LinkedListTest {
 		assertEquals(null, listeVide.getValueAt(1));
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testGetValueAtNormalBon() {
 		System.out.println("Test de getValueAt() avec liste normale:");
@@ -338,16 +338,16 @@ public class LinkedListTest {
 		assertEquals(data3, listeNormale.getValueAt(3));
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testGetValueAtTropGrand() {
 		System.out.println("Test de getValueAt() avec liste normale mais index trop grand:");
 		assertEquals(null, listeNormale.getValueAt(55));
 		System.out.println("Ok" + "\n");
 	}
-	
-	
+
+
 	@Test
 	public void testGetValueAtNegatif() {
 		System.out.println("Test de getValueAt() avec liste normale mais index negatif:");

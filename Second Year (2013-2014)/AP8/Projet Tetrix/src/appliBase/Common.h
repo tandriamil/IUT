@@ -8,18 +8,18 @@
 
 
 //=====================================================================
-// fichier common, contient des objets communs à plusieurs classes
+// fichier common, contient des objets communs Ã  plusieurs classes
 //=====================================================================
 //-----------------------------------------------------------------
-// Ici fichier des déclarations des fonctions. Une fonction ne peut être déclarée qu'une seule fois
-// d'ou l'ajout d'une routine qui dit que si votre fichier à déjà été inclu avant pas la peine de le re-inclure
+// Ici fichier des dÃ©clarations des fonctions. Une fonction ne peut Ãªtre dÃ©clarÃ©e qu'une seule fois
+// d'ou l'ajout d'une routine qui dit que si votre fichier Ã  dÃ©jÃ  Ã©tÃ© inclu avant pas la peine de le re-inclure
 //-----------------------------------------------------------------
-#ifndef __COMMON_H__	// routine qui sert à pas inclure 2 fois le même fichier
+#ifndef __COMMON_H__	// routine qui sert Ã  pas inclure 2 fois le mÃªme fichier
 #define __COMMON_H__	//
 
 
-// on va mettre tous les fichier .h des lib communes à tous nos fichiers dans ce fichier hitoire de pas
-// avoir à les déclarer à chaque fois
+// on va mettre tous les fichier .h des lib communes Ã  tous nos fichiers dans ce fichier hitoire de pas
+// avoir Ã  les dÃ©clarer Ã  chaque fois
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -34,8 +34,8 @@
 using namespace std;
 
 ////////////////////////////////////////////////////////////////////////
-// la structure WindowSetup est utilisée par l'objet interface utilisateur pour récupérer les données et
-// exploitée par le renderer (on calcul la matrice de projection en fonction de la taille de la fenêtre)
+// la structure WindowSetup est utilisÃ©e par l'objet interface utilisateur pour rÃ©cupÃ©rer les donnÃ©es et
+// exploitÃ©e par le renderer (on calcul la matrice de projection en fonction de la taille de la fenÃªtre)
 ////////////////////////////////////////////////////////////////////////
 struct WindowSetup {
 
@@ -50,8 +50,8 @@ struct WindowSetup {
 };
 
 ////////////////////////////////////////////////////////////////////////
-// la structure RendererSetup est utilisée par l'objet renderer
-// on pourra par exemple donner le choix à l'utilisateur de certain paramètres de la matrice de projection
+// la structure RendererSetup est utilisÃ©e par l'objet renderer
+// on pourra par exemple donner le choix Ã  l'utilisateur de certain paramÃªtres de la matrice de projection
 // couleur de fond, dessiner ou pas un sol ...
 ////////////////////////////////////////////////////////////////////////
 struct RendererSetup {
@@ -59,14 +59,14 @@ struct RendererSetup {
 	RendererSetup()
 		:m_drawGround(true)
 	{
-		// couleur de fond d'écran par défaut
+		// couleur de fond d'Ã©cran par dÃ©faut
 		m_clearColor[0] = 125.f/256.f	;
 		m_clearColor[1] = 125.f/256.f	;
 		m_clearColor[2] = 125.f/256.f	;
 		m_clearColor[3] = 0.0f			;
 	}
 
-	// couleur de fond d'écran
+	// couleur de fond d'Ã©cran
 	void SetClearColor(float red, float green, float blue, float alpha)
 	{
 		m_clearColor[0] = red	;
@@ -100,7 +100,7 @@ struct STLDelete {
 struct Helpers {
 
 	//----------------------------------------------------------
-	// retrouve le nombre de sous chaine de caractère contenu dans la chaine de caractère 'str'
+	// retrouve le nombre de sous chaine de caractÃ¨re contenu dans la chaine de caractÃ¨re 'str'
 	//----------------------------------------------------------
 	static unsigned int FindSubStrCount(const std::string& str, const std::string& subStr)
 	{
@@ -154,7 +154,7 @@ struct Helpers {
 };
 
 ////////////////////////////////////////////////////////////////////////
-// liste des touches du clavier (les mêmes que pour SDL)
+// liste des touches du clavier (les mÃªmes que pour SDL)
 //////////////////////////////////////////////////////////////////////////
 typedef enum {
 
@@ -415,9 +415,9 @@ typedef enum {
 } Key;
 
 ////////////////////////////////////////////////////////////////////////
-// on regroupe les évenements liés à la souris dans une structure
-// la structure UserEvents est utilisée par l'objet interface utilisateur pour récupérer les données et
-// exploitée par la caméra du renderer (la caméra bouge en fonction de la souris)
+// on regroupe les Ã©venements liÃ©s Ã  la souris dans une structure
+// la structure UserEvents est utilisÃ©e par l'objet interface utilisateur pour rÃ©cupÃ©rer les donnÃ©es et
+// exploitÃ©e par la camÃ©ra du renderer (la camÃ©ra bouge en fonction de la souris)
 ////////////////////////////////////////////////////////////////////////
 struct UserEvents {
 

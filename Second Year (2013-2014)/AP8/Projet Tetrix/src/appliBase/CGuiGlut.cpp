@@ -8,8 +8,8 @@
 
 
 //-----------------------------------------------------------------
-// On inclu les fichiers .h qui contiennent les déclarations des fonctions
-// Les implémentations de nos fonctions ont besoin de leurs déclarations
+// On inclu les fichiers .h qui contiennent les dÃ©clarations des fonctions
+// Les implÃ©mentations de nos fonctions ont besoin de leurs dÃ©clarations
 // ainsi que des fonctions open gl
 //-----------------------------------------------------------------
 #include "CGuiGlut.h"
@@ -82,13 +82,13 @@ void CGuiGlut::InitGL(void)
     // background = dark gray
     glClearColor (0.3f, 0.3f, 0.3f, 0);
 
-	// OpenGL pour traiter les objets dans la scene a besoin de 2/3 routines, savoir dans quel ordre il affiche les éléments
-	// affiche t'on les faces caché (normale dans le sens de la caméra)
+	// OpenGL pour traiter les objets dans la scene a besoin de 2/3 routines, savoir dans quel ordre il affiche les Ã©lÃ©ments
+	// affiche t'on les faces cachÃ© (normale dans le sens de la camÃ©ra)
 	// http://www.linuxgraphic.org/section3d/openGL/didacticiels/didac2/didac4.html
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
-	// spécifie la couleur de remplissage des faces (soit opengl calcule un dégradé entre les différents sommet de la face, soit vous remplissez
+	// spÃ©cifie la couleur de remplissage des faces (soit opengl calcule un dÃ©gradÃ© entre les diffÃ©rents sommet de la face, soit vous remplissez
 	// la face par la couleur d'un des sommets(GL_FLAT): http://rvirtual.free.fr/programmation/OpenGl/Debut_3D.htm)
 	glShadeModel(GL_SMOOTH);
 

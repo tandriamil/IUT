@@ -13,7 +13,7 @@ public class Damier implements Cloneable, Serializable {
 	private int currentX;
 	private int currentY;
 	private Piece[][] tabCases;
-	
+
 	//Pour eviter un warning
 	private static final long serialVersionUID = 1;
 
@@ -52,7 +52,7 @@ public class Damier implements Cloneable, Serializable {
 		Damier clone = new Damier(this.nombreCases, this.current, this.currentX, this.currentY, this.tabCases);
 		return clone;
 	}
-	
+
 	/**
 	*permet de connaitre le nombre de case du damier
 	*@return Le nombre de case du damier (en longueur)
@@ -120,7 +120,7 @@ public class Damier implements Cloneable, Serializable {
 
 		return ret;
 	}
-	
+
 	/**
 	*permet de (re)creer le Damier avec les pieces
 	**/
@@ -208,7 +208,7 @@ public class Damier implements Cloneable, Serializable {
 		if ((this.quellePiece(unePiece.getColonne(), unePiece.getLigne()) == 2) || (this.quellePiece(unePiece.getColonne(), unePiece.getLigne()) == 4)) {
 			possible = this.deplacable(2);
 		}
-		
+
 		if (!possible.isEmpty()) {
 			for (int i = 0; i < possible.size(); i++) {
 				if (unePiece.equals(possible.get(i))) {
@@ -638,7 +638,7 @@ public class Damier implements Cloneable, Serializable {
 
 		//Verifie d'abord si enumCases est vide ou pas
 		if (!(enumCases.isEmpty())) {
-			
+
 			//Recupere tout les elements de enumCases et verifie si la nouvelle case en fait partie
 			for (int i = 0; i < enumCases.size(); i++) {
 				temp = enumCases.get(i);
@@ -792,7 +792,7 @@ public class Damier implements Cloneable, Serializable {
 
 		//Si ce sont les pieces noires
 		if (couleurPiece == 2) {
-			
+
 			//Parcours du plateau
 			for (int i = 0; i < this.nombreCases; i++) {
 				for (int j = 0; j < this.nombreCases; j++) {

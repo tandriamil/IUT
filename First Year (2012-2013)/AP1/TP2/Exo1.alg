@@ -2,7 +2,7 @@ algo exo1TD2
 
 var
 	entier N, C, tmp;
-	
+
 principal
 debut
 	C:=0;

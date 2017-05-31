@@ -13,7 +13,7 @@ public class LinkedSortedList implements SortedList {
 	@SuppressWarnings("rawtypes")
 	private Class datType;
 
-	
+
 //Methods
 
 	/**
@@ -85,7 +85,7 @@ public class LinkedSortedList implements SortedList {
 
 		return ret;
 	}
-	
+
 
 	@Override
 	public int getSize() {
@@ -194,7 +194,7 @@ public class LinkedSortedList implements SortedList {
 		 */
 		public Element next() {
 			Element ret = null;
-			
+
 			if (hasNext()) {
 				//Move the iterator, the past current is the current
 				this.pastCurrent = this.current;
@@ -208,7 +208,7 @@ public class LinkedSortedList implements SortedList {
 			else {
 				System.out.println("Can't go to next");
 			}
-			
+
 			return ret;
 		}
 

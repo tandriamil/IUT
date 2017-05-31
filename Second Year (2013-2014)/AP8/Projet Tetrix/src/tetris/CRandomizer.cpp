@@ -50,16 +50,16 @@ int CRandomizer::Next() {
 	// on recup le premier
 	int tmp = m_next.front();
 
-	// puis on l'élimine
+	// puis on l'Ã©limine
 	m_next.erase(m_next.begin());
-	
+
 	// on renvoit le premier de la liste
 	return tmp;
 }
 
 /****************************************/
 
-/* renvoit la première valeur */
+/* renvoit la premiÃ¨re valeur */
 int CRandomizer::First() {
 
 	// on rempli la liste par la fin

@@ -8,27 +8,27 @@
 
 
 //=====================================================================
-// classe APPLICATION, s'occupe d'encapsuler l'ensemble des fonction communes à une application
+// classe APPLICATION, s'occupe d'encapsuler l'ensemble des fonction communes Ã  une application
 //=====================================================================
-#ifndef __APPLICATION_H__	// routine qui sert à pas inclure 2 fois le même fichier
+#ifndef __APPLICATION_H__	// routine qui sert Ã  pas inclure 2 fois le mÃªme fichier
 #define __APPLICATION_H__	//
 
 
 
 //-----------------------------------------------------------------
-// Notre programme va avoir besoin 
-// des fonctions spécifiques à l'utilisateur (iterface graphique utilisateur GUI) et
-// des fonctions nécéssaires au rendu d'un objet dans la scene
+// Notre programme va avoir besoin
+// des fonctions spÃ©cifiques Ã  l'utilisateur (iterface graphique utilisateur GUI) et
+// des fonctions nÃ©cÃ©ssaires au rendu d'un objet dans la scene
 //
-// On inclu les fichiers .h qui contiennent les déclarations des fonctions
+// On inclu les fichiers .h qui contiennent les dÃ©clarations des fonctions
 //-----------------------------------------------------------------
-#include "Common.h"				// données liées à la souris
+#include "Common.h"				// donnÃ©es donnÃ©es Ã  la souris
 #include "CRenderer.h"			// objet CRenderer
 
 
 ////////////////////////////////////////////////////////////////////////
-/// classe CApplication: elle encapsule l'ensemble de l'application à savoir l'utilisation du GUI et du renderer
-/// L'objectif étant qu'elle sert de classe commune à ttes applications qui se serviront des fonctions suivantes
+/// classe CApplication: elle encapsule l'ensemble de l'application Ã  savoir l'utilisation du GUI et du renderer
+/// L'objectif Ã©tant qu'elle sert de classe commune Ã  ttes applications qui se serviront des fonctions suivantes
 ////////////////////////////////////////////////////////////////////////
 class CApplication {
 
@@ -36,7 +36,7 @@ public:
 	//----------------------------------------------------------
 	// constructeur de l'objet
 	//----------------------------------------------------------
-	CApplication() 
+	CApplication()
 		:m_windowSetUp(new WindowSetup(800, 640)), m_UserEvents(0), m_camera(0)  {}
 
 	//----------------------------------------------------------
@@ -55,49 +55,49 @@ public:
 	void Render()		;
 
 	//----------------------------------------------------------
-	// fin de l'appli, destruction et nettoyage des objets utilisé*
+	// fin de l'appli, destruction et nettoyage des objets utilisÃ©*
 	// au cour de l'appli
 	//----------------------------------------------------------
 	void Release()	;
 
 
 	//----------------------------------------------------------
-	// appel à la structure des évènements utilisateur
+	// appel Ã  la structure des Ã©vÃ¨nements utilisateur
 	//----------------------------------------------------------
 	UserEvents*	GetUserEvents();
 
 	//----------------------------------------------------------
-	// appel à la structure de config de la fenêtre
+	// appel Ã  la structure de config de la fenÃªtre
 	//----------------------------------------------------------
 	WindowSetup*	GetWindowInfo();
 
 protected:
 
 	//==================================================================
-	// Méthodes dédiées à l'héritage
+	// MÃ©thodes dÃ©diÃ©es Ã  l'hÃ©ritage
 	//==================================================================
 	//----------------------------------------------------------
-	// l'appel à la fonction d'initialisation de notre sous objet "appli spécifique"
+	// l'appel Ã  la fonction d'initialisation de notre sous objet "appli spÃ©cifique"
 	//----------------------------------------------------------
 	virtual bool OnInit() = 0;
 
 	//----------------------------------------------------------
-	// l'appel à la fonction de  rendu de notre sous objet "appli spécifique"
+	// l'appel Ã  la fonction de  rendu de notre sous objet "appli spÃ©cifique"
 	//----------------------------------------------------------
 	virtual void OnRender() = 0;
 
 	//----------------------------------------------------------
-	// l'appel à la fonction de destruction de notre sous objet "appli spécifique"
+	// l'appel Ã  la fonction de destruction de notre sous objet "appli spÃ©cifique"
 	//----------------------------------------------------------
 	virtual void OnRelease() = 0;
 
 
 	//----------------------------------------------------------
-	// Données membres
+	// donnÃ©es membres
 	//----------------------------------------------------------
-	WindowSetup*	m_windowSetUp;	///< infos liées à la fenêtre (pointeur car paratagé par deux objets)
-	CRenderer		m_renderer	;	///< Déclaration du renderer 
-	UserEvents*		m_UserEvents;	///< infos liées à la souris/caméra (pointeur car paratagé par deux objets)
+	WindowSetup*	m_windowSetUp;	///< infos donnÃ©es Ã  la fenÃªtre (pointeur car paratagÃ© par deux objets)
+	CRenderer		m_renderer	;	///< DÃ©claration du renderer
+	UserEvents*		m_UserEvents;	///< infos donnÃ©es Ã  la souris/camÃ©ra (pointeur car paratagÃ© par deux objets)
 	CCamera*			m_camera	;	// la camera
 };
 

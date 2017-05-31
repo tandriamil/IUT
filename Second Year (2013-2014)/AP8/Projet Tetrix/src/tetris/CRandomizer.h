@@ -26,7 +26,7 @@ public:
 	/* Constructeurs / Desctructeurs */
 	CRandomizer(unsigned int sizeList, unsigned int maxRand);
 
-	/* renvoit la première valeur */
+	/* renvoit la premiÃ¨re valeur */
 	int First();
 
 

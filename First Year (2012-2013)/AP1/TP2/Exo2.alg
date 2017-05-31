@@ -2,7 +2,7 @@
 
 var
 	entier min, max, N;
-	
+
 principal
 debut
 	saisir("Entrez un entier:", @N);
@@ -11,7 +11,7 @@ debut
 	tantque (N>0)
 		saisir("Entrez un entier:", @N);
 		si (N<min) alors
-			min:=N;			
+			min:=N;
 		finsi
 		si (N>max) alors
 			max:=N;

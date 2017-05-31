@@ -3,10 +3,10 @@ package media;
 import java.util.ArrayList;
 
 /**
- * The database class provides a facility to store CD and video 
+ * The database class provides a facility to store CD and video
  * objects. A list of all CDs and videos can be printed to the
  * terminal.
- * 
+ *
  */
 public class Database
 {

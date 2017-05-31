@@ -18,14 +18,14 @@
 // Definition of constants
 //-----------------------------------------------------------------------------
 
-define("CLASSPATH", '.:..:/amd/ladyburn/ubs/ladyburn/projets.2/e_13_gl7_14_36/private_html', true);
+define("CLASSPATH", '.:..', true);
 define("APP_ROOT_DIR",getcwd(),true);
 
 //-----------------------------------------------------------------------------
 // Include files
 //-----------------------------------------------------------------------------
 
-include_once '/amd/ladyburn/ubs/ladyburn/projets.2/e_13_gl7_14_36/private_html/phpens/framework/util/import.php';
+include_once 'private_html/phpens/framework/util/import.php';
 
 // framework classes and interfaces
 import ('phpens.framework.*');

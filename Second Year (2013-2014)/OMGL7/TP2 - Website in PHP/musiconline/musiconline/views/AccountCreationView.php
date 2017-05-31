@@ -3,7 +3,7 @@
 * Groupe: B1
 * File: AccountCreationView.php
 */
-	
+
 //Les importations nécessaires
 import('phpens.framework.html.Page');
 import('phpens.framework.html.Header');
@@ -128,5 +128,5 @@ $page->addElement($divContenuPrincipal);
 
 //Affichage de toute la page
 echo $page;
- 
+
 ?>

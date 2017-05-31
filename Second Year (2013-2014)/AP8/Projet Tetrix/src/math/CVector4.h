@@ -19,13 +19,13 @@ class CVector4
 public :
 
     //----------------------------------------------------------
-    // Constructeur par défaut
+    // Constructeur par dÃ©faut
     //----------------------------------------------------------
     CVector4(float X = 0, float Y = 0, float Z = 0, float W = 0);
 	CVector4(const CVector3& vec, float W = 0);
 
     //----------------------------------------------------------
-    // Réinitialise le vecteur
+    // RÃ©initialise le vecteur
     //----------------------------------------------------------
     void Set(float X, float Y, float Z, float W);
 
@@ -35,7 +35,7 @@ public :
     float Length() const;
 
     //----------------------------------------------------------
-    // Renvoie la norme au carré du vecteur
+    // Renvoie la norme au carrÃ© du vecteur
     //----------------------------------------------------------
     float LengthSq() const;
 
@@ -45,38 +45,38 @@ public :
     void Normalize();
 
     //----------------------------------------------------------
-    // Opérateurs unaires + et -
+    // OpÃ©rateurs unaires + et -
     //----------------------------------------------------------
     CVector4 operator +() const;
     CVector4 operator -() const;
 
     //----------------------------------------------------------
-    // Opérateurs binaires + et -
+    // OpÃ©rateurs binaires + et -
     //----------------------------------------------------------
     CVector4 operator +(const CVector4& v) const;
     CVector4 operator -(const CVector4& v) const;
 
     //----------------------------------------------------------
-    // Opérateurs += et -=
+    // OpÃ©rateurs += et -=
     //----------------------------------------------------------
     const CVector4& operator +=(const CVector4& v);
     const CVector4& operator -=(const CVector4& v);
 
     //----------------------------------------------------------
-    // Opérateurs *= et /=
+    // OpÃ©rateurs *= et /=
     //----------------------------------------------------------
     const CVector4& operator *=(float t);
     const CVector4& operator /=(float t);
 
     //----------------------------------------------------------
-    // Opérateurs de comparaison
+    // OpÃ©rateurs de comparaison
     //----------------------------------------------------------
     bool operator ==(const CVector4& v) const;
     bool operator !=(const CVector4& v) const;
 
 
     //----------------------------------------------------------
-    // Données membres
+    // donnÃ©es membres
     //----------------------------------------------------------
     float x; ///< Composante X
     float y; ///< Composante Y
@@ -96,7 +96,7 @@ public :
 
 
  /////////////////////////////////////////////////////////////
-/// Constructeur par défaut
+/// Constructeur par dÃ©faut
 ///
 /// \param X : Composante X du vecteur
 /// \param Y : Composante Y du vecteur
@@ -112,7 +112,7 @@ inline CVector4::CVector4(const CVector3& vec, float W) : x(vec.x),y(vec.y),z(ve
 
 
 /////////////////////////////////////////////////////////////
-/// Réinitialise le vecteur
+/// RÃ©initialise le vecteur
 ///
 /// \param X : Composante X du vecteur
 /// \param Y : Composante Y du vecteur
@@ -131,7 +131,7 @@ inline void CVector4::Set(float X, float Y, float Z, float W)
 /////////////////////////////////////////////////////////////
 /// Renvoie la norme du vecteur
 ///
-/// \return Valeur de la norme du vecteur sqrt(x² + y² + z²)
+/// \return Valeur de la norme du vecteur sqrt(xÃ  + yÃ  + zï¿½)
 ///
 ////////////////////////////////////////////////////////////
 inline float CVector4::Length() const
@@ -141,9 +141,9 @@ inline float CVector4::Length() const
 
 
 /////////////////////////////////////////////////////////////
-/// Renvoie la norme au carré du vecteur
+/// Renvoie la norme au carrÃ© du vecteur
 ///
-/// \return Carré de la norme du vecteur (x² + y² + z²)
+/// \return carrÃ© de la norme du vecteur (xÃ  + yÃ  + zï¿½)
 ///
 ////////////////////////////////////////////////////////////
 inline float CVector4::LengthSq() const
@@ -171,9 +171,9 @@ inline void CVector4::Normalize()
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur unaire +
+/// OpÃ©rateur unaire +
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 inline CVector4 CVector4::operator +() const
@@ -183,9 +183,9 @@ inline CVector4 CVector4::operator +() const
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur unaire -
+/// OpÃ©rateur unaire -
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 
@@ -196,11 +196,11 @@ inline CVector4 CVector4::operator -() const
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur binaire +
+/// OpÃ©rateur binaire +
 ///
-/// \param v : Vecteur à additionner
+/// \param v : Vecteur Ã  additionner
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 
@@ -211,11 +211,11 @@ inline CVector4 CVector4::operator +(const CVector4& v) const
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur binaire -
+/// OpÃ©rateur binaire -
 ///
-/// \param v : Vecteur à soustraire
+/// \param v : Vecteur Ã  soustraire
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 
@@ -225,11 +225,11 @@ inline CVector4 CVector4::operator -(const CVector4& v) const
 }
 
 /////////////////////////////////////////////////////////////
-/// Opérateur +=
+/// OpÃ©rateur +=
 ///
-/// \param v : Vecteur à additioner
+/// \param v : Vecteur Ã  additioner
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 inline const CVector4& CVector4::operator +=(const CVector4& v)
@@ -244,11 +244,11 @@ inline const CVector4& CVector4::operator +=(const CVector4& v)
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur -=
+/// OpÃ©rateur -=
 ///
-/// \param v : Vecteur à soustraire
+/// \param v : Vecteur Ã  soustraire
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 inline const CVector4& CVector4::operator -=(const CVector4& v)
@@ -263,11 +263,11 @@ inline const CVector4& CVector4::operator -=(const CVector4& v)
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur *= avec un scalaire
+/// OpÃ©rateur *= avec un scalaire
 ///
 /// \param t : Scalaire
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 inline const CVector4& CVector4::operator *=(float t)
@@ -282,11 +282,11 @@ inline const CVector4& CVector4::operator *=(float t)
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur /= avec un scalaire
+/// OpÃ©rateur /= avec un scalaire
 ///
 /// \param t : Scalaire
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 inline const CVector4& CVector4::operator /=(float t)
@@ -301,9 +301,9 @@ inline const CVector4& CVector4::operator /=(float t)
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur de comparaison ==
+/// OpÃ©rateur de comparaison ==
 ///
-/// \param v : Vecteur à comparer
+/// \param v : Vecteur Ã  comparer
 ///
 /// \return True si les deux vecteurs sont identiques
 ///
@@ -318,11 +318,11 @@ inline bool CVector4::operator ==(const CVector4& v) const
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateur de comparaison !=
+/// OpÃ©rateur de comparaison !=
 ///
-/// \param v : Vecteur à comparer
+/// \param v : Vecteur Ã  comparer
 ///
-/// \return True si les deux vecteurs sont différents
+/// \return True si les deux vecteurs sont diffÃ©rents
 ///
 ////////////////////////////////////////////////////////////
 inline bool CVector4::operator !=(const CVector4& v) const
@@ -333,12 +333,12 @@ inline bool CVector4::operator !=(const CVector4& v) const
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateurs de multiplication avec un scalaire
+/// OpÃ©rateurs de multiplication avec un scalaire
 ///
 /// \param v : Vecteur
 /// \param t : Scalaire
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 inline CVector4 operator *(const CVector4& v, float t)
@@ -348,12 +348,12 @@ inline CVector4 operator *(const CVector4& v, float t)
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateurs de division par un scalaire
+/// OpÃ©rateurs de division par un scalaire
 ///
 /// \param v : Vecteur
 /// \param t : Scalaire
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 inline CVector4 operator /(const CVector4& v, float t)
@@ -363,12 +363,12 @@ inline CVector4 operator /(const CVector4& v, float t)
 
 
 /////////////////////////////////////////////////////////////
-/// Opérateurs de multiplication avec un scalaire
+/// OpÃ©rateurs de multiplication avec un scalaire
 ///
 /// \param t : Scalaire
 /// \param v : Vecteur
 ///
-/// \return Résultat de l'opération
+/// \return RÃ©sultat de l'OpÃ©ration
 ///
 ////////////////////////////////////////////////////////////
 inline CVector4 operator *(float t, const CVector4& v)
@@ -377,12 +377,12 @@ inline CVector4 operator *(float t, const CVector4& v)
 }
 
 /////////////////////////////////////////////////////////////
-/// Surcharge de l'opérateur >> entre un flux et un vecteur
+/// Surcharge de l'OpÃ©rateur >> entre un flux et un vecteur
 ///
-/// \param Stream : Flux d'entrée
+/// \param Stream : Flux d'entrÃ©e
 /// \param Vector : Vecteur
 ///
-/// \return Référence sur le flux d'entrée
+/// \return RÃ©fÃ©rence sur le flux d'entrÃ©e
 ///
 ////////////////////////////////////////////////////////////
 
@@ -393,12 +393,12 @@ inline std::istream& operator >>(std::istream& Stream, CVector4& Vector)
 
 
 /////////////////////////////////////////////////////////////
-/// Surcharge de l'opérateur << entre un flux et un vecteur
+/// Surcharge de l'OpÃ©rateur << entre un flux et un vecteur
 ///
 /// \param Stream : Flux de sortie
 /// \param Vector : Vecteur
 ///
-/// \return Référence sur le flux de sortie
+/// \return RÃ©fÃ©rence sur le flux de sortie
 ///
 ////////////////////////////////////////////////////////////
 

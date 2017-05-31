@@ -474,7 +474,7 @@ public class BagTest extends TestCase {
 
 		//The table where we'll save the array
 		Integer[] array = new Integer[10];
-		
+
 		//Repetition of the placement about 1000 times
 		for (int i = 1; i <= 1000; i++) {
 			/*System.out.println(i + " " + normalBag.toString());*/

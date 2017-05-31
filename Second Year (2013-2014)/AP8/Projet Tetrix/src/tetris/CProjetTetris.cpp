@@ -17,7 +17,7 @@ CProjetTetris::CProjetTetris() {
 	m_game = CTetrisGame(POSX_BOARD, POSY_BOARD, WIDTH_BOARD, HEIGHT_BOARD, DIM_CASE);
 	m_step = 0;
 
-	// attributs rajoutés pour montrer un exemple de pièce qui descend
+	// attributs rajoutÃ©s pour montrer un exemple de piÃ¨ce qui descend
 	m_posYPiece = HEIGHT_BOARD;
 	m_posXPiece = WIDTH_BOARD/2;
 }
@@ -30,8 +30,8 @@ CProjetTetris::~CProjetTetris() {
 }
 
 //----------------------------------------------------------
-// initilisation de notre appli (rien car dessiner un cube à l'écran ne nécéssite aucune initialisation)
-// !! Méthode appelée dans la méthode Init de la classe CApplication
+// initilisation de notre appli (rien car dessiner un cube Ã  l'Ã©cran ne nÃ©cÃ©ssite aucune initialisation)
+// !! mÃ©thode appelÃ©e dans la mÃ©thode Init de la classe CApplication
 //----------------------------------------------------------
 bool CProjetTetris::OnInit() {
 
@@ -39,52 +39,52 @@ bool CProjetTetris::OnInit() {
 }
 
 //----------------------------------------------------------
-// notre scène à dessiner
-// !! Méthode appelée dans la méthode Run de la classe CApplication
+// notre scÃ¨ne Ã  dessiner
+// !! mÃ©thode appelÃ©e dans la mÃ©thode Run de la classe CApplication
 //----------------------------------------------------------
 void CProjetTetris::OnRender() {
 
 	//-------------------------------------------------------
 	// gestion du temps
 	//-------------------------------------------------------
-	if ( m_step> 50 ) 
+	if ( m_step> 50 )
 	{
-		m_step = 0; 
-		//m_posYPiece--; // à chaque pas de temps, on fait évoluer la coordonnée en y de la pièce 
+		m_step = 0;
+		//m_posYPiece--; // Ã  chaque pas de temps, on fait Ã©voluer la coordonnÃ©e en y de la piÃ¨ce
 		CPieceAbstract* m_piece = m_game.GetPiece();
-		
+
 		m_piece -> SetIncDecRowIndex(-1);
 		m_game.CheckCollision();
-	
+
 	}
 
 	//-------------------------------------------------------
 	// commande utilisateur
 	//-------------------------------------------------------
 	if(m_UserEvents->m_keyBoardEvents[Key_a]) {
-		cout << "\n la touche 'a' a bien été utilisée" << endl;
+		cout << "\n la touche 'a' a bien Ã©tÃ© utilisÃ©e" << endl;
 		m_game.MovePiece(PA_RotateLeft);
 	}
 	if(m_UserEvents->m_keyBoardEvents[Key_z]) {
-		cout << "\n la touche 'z' a bien été utilisée" << endl;
+		cout << "\n la touche 'z' a bien Ã©tÃ© utilisÃ©e" << endl;
 		m_game.MovePiece(PA_RotateRight);
 	}
 	if(m_UserEvents->m_keyBoardEvents[Key_DOWN]) {
-		cout << "\n la touche flèche bas a bien été utilisée" << endl;
+		cout << "\n la touche flÃ¨che bas a bien Ã©tÃ© utilisÃ©e" << endl;
 		m_game.MovePiece(PA_MoveBottom);
 	}
 	if(m_UserEvents->m_keyBoardEvents[Key_RIGHT]) {
-		cout << "\n la touche flèche droite a bien été utilisée" << endl;
+		cout << "\n la touche flÃ¨che droite a bien Ã©tÃ© utilisÃ©e" << endl;
 		m_game.MovePiece(PA_MoveRight);
 	}
 	if(m_UserEvents->m_keyBoardEvents[Key_LEFT]) {
-		cout << "\n la touche flèche gauche a bien été utilisée" << endl;
+		cout << "\n la touche flÃ¨che gauche a bien Ã©tÃ© utilisÃ©e" << endl;
 		m_game.MovePiece(PA_MoveLeft);
 	}
 	if(m_UserEvents->m_keyBoardEvents[Key_SPACE]) {
-		cout << "la touche espace a bien été utilisée" << endl;
+		cout << "la touche espace a bien Ã©tÃ© utilisÃ©e" << endl;
 	}
-	
+
 	//-------------------------------------------------------
 	// affichage
 	//-------------------------------------------------------
@@ -93,7 +93,7 @@ void CProjetTetris::OnRender() {
 
 	// affichage du score
 	DrawInfo();
-	
+
 
 	// affichage du tetris
 	DrawTetris();
@@ -110,9 +110,9 @@ void CProjetTetris::OnRender() {
 			}
 		}
 	}
-	
 
-	
+
+
 	// fin du rendu 2d
 	m_renderer.End2DRender();
 
@@ -121,24 +121,24 @@ void CProjetTetris::OnRender() {
 }
 
 //----------------------------------------------------------
-// destruction de notre appli (rien car dessiner un cube à l'écran ne nécessite aucune destruction)
-// !! Méthode appelée dans la méthode Release de la classe CApplication
+// destruction de notre appli (rien car dessiner un cube Ã  l'Ã©cran ne nÃ©cessite aucune destruction)
+// !! mÃ©thode appelÃ©e dans la mÃ©thode Release de la classe CApplication
 //----------------------------------------------------------
 void CProjetTetris::OnRelease() {
 
 	// Rien a liberer
-}	
+}
 
 //----------------------------------------------------------
 //
 //----------------------------------------------------------
-void CProjetTetris::DrawInfo() 
+void CProjetTetris::DrawInfo()
 {
 	std::string title = Helpers::ToString("Mon Tetris");
 	std::string scoreStr = "Score : " + Helpers::ToString(200000);
-	
+
 	m_renderer.DrawText(title, 300, 500, CRenderer::TS_18, CVector3(1.0f, 1.0f, 1.0f));
-	m_renderer.DrawText(scoreStr, 500, 160, CRenderer::TS_12, CVector3(0.0f, 1.0f, 0.0f));	
+	m_renderer.DrawText(scoreStr, 500, 160, CRenderer::TS_12, CVector3(0.0f, 1.0f, 0.0f));
 }
 
 /****************************************/
@@ -152,24 +152,24 @@ void CProjetTetris::DrawTetris() {
 	// couleur de fond du tetris
 	DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(153.0f/255.0f,153.0f/255.0f,153.0f/255.0f) );
 	//DrawFillRect ( m_game.GetXPos(), m_game.GetYPos(), tetrisWidth, tetrisHeight, CVector3(17.0f/255.0f,218.0f/255.0f,84.0f/255.0f) );
-	
+
 	// affichage du "cadre" tetris
 	DrawRect ( m_game.GetXPos()-0.1f, m_game.GetYPos()-0.1f, (tetrisWidth+0.2f), (tetrisHeight+0.2f), CVector3(213.0f/255.0f,213.0f/255.0f,213.0f/255.0f) );
 
-	
-	
+
+
 	// affichage du tableau tetris
 
 
-	// affichage de la pîece en cours
-	
+	// affichage de la pï¿½ece en cours
 
-		
+
+
 
 }
 
 //----------------------------------------------------------
-// quelques outils pour afficher des carré et des rectangles
+// quelques outils pour afficher des carrÃ© et des rectangles
 //----------------------------------------------------------
 void CProjetTetris::DrawFillRect(int x, int y, float w, float h, const CVector3 &color) {
 

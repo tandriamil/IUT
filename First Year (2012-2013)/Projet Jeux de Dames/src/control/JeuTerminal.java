@@ -48,7 +48,7 @@ public class JeuTerminal {
 		if (nombreCases == 3) {
 			game.configurerTaille(8);
 		}
-		
+
 		scan.nextLine();
 	}
 
@@ -230,7 +230,7 @@ public class JeuTerminal {
 		if (!(game.getPartieCourante().isFini())) {
 			fenetreIA();
 		}
-		
+
 		if (game.getPartieCourante().isFini()) {
 			fenetreFinDePartie();
 		}
@@ -316,7 +316,7 @@ public class JeuTerminal {
 				scan2.nextLine();
 				i = scan2.nextInt();
 				i = i - 1;
-			} 
+			}
 		}
 		catch (InputMismatchException ime) {
 			System.out.println("Coordonnee non valide, veuillez reessayer:");
@@ -368,7 +368,7 @@ public class JeuTerminal {
 			fenetreChoix();
 		}
 	}
- 
+
 	/**
 	*Fenetre pour la fin de partie
 	*/
@@ -524,7 +524,7 @@ public class JeuTerminal {
 		}
 
 		game.setNom(nomJoueur);
-		
+
 		//Affichage de l'acceuil
 		fenetreAcceuil();
 	}

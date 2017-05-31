@@ -3,7 +3,7 @@ algo Ex3
 var
 	tableau_de entier Tab [4];
 	entier count:=0;
-	
+
 principal
 
 debut
@@ -25,4 +25,3 @@ debut
 	afficher(Tab[0]);
 
 fin
-		

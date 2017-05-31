@@ -3,14 +3,14 @@
 //
 //------------------------------------------------------------------------
 // Copyright (c) 2010-2011 Equipe SAMSARA (T. LE NAOUR, N. COURTY, S. GIBET)
-// VALORIA - UBS 
+// VALORIA - UBS
 //========================================================================
 
 
 //-----------------------------------------------------------------
-// On inclut les fichiers .h qui contiennent les déclarations des méthodes
-// Les implémentations de nos méthodes ont besoin de leurs déclarations 
-// ainsi que des déclarations des fonctions OPENGL
+// On inclut les fichiers .h qui contiennent les dÃ©clarations des mÃ©thodes
+// Les implÃ©mentations de nos mÃ©thodes ont besoin de leurs dÃ©clarations
+// ainsi que des dÃ©clarations des fonctions OPENGL
 //-----------------------------------------------------------------
 #include "CApplication.h"
 
@@ -21,41 +21,41 @@
 ////////////////////////////////////////////////////////////
 void CApplication::Init() {
 
-	// infos liées à la souris/caméra (pointeur car paratagé par deux objets)
+	// infos liÃ©es Ã  la souris/camÃ©ra (pointeur car paratagÃ© par deux objets)
 	m_UserEvents = new UserEvents				;
 
-	// construction de la caméra
+	// construction de la camÃ©ra
 	m_camera = new CCameraLookAt();
 
-	// Déclaration du renderer (le renderer va automatiquement appeler son contructeur)
+	// DÃ©claration du renderer (le renderer va automatiquement appeler son contructeur)
 	m_renderer.Create(m_windowSetUp, m_UserEvents, m_camera)	;
 
-	// appel à la méthode de début enfant
+	// appel Ã  la mÃ©thode de dÃ©but enfant
 	OnInit();
 
 }
 
 
 /////////////////////////////////////////////////////////////
-/// lance la boucle d'affichage, gère les évenements système et le rendu de la scène
+/// lance la boucle d'affichage, gÃ¨re les Ã©venements systÃ¨me et le rendu de la scÃ¨ne
 ///
 ////////////////////////////////////////////////////////////
 void CApplication::Render() {
 
-	// appel à la méthode de rendu enfant
+	// appel Ã  la mÃ©thode de rendu enfant
 	OnRender();
 }
 
 /////////////////////////////////////////////////////////////
-/// Fini l'application: détruit les objets plus utilisés
+/// Fini l'application: dÃ©truit les objets plus utilisÃ©s
 ///
 ////////////////////////////////////////////////////////////
 void CApplication::Release() {
 
-	// appel à la méthode de fin enfant
+	// appel Ã  la mÃ©thode de fin enfant
 	OnRelease();
 
-	//// on supprime la mémoire allouée aux objets gui et mouse events
+	//// on supprime la mÃ©moire allouÃ©e aux objets gui et mouse events
 	//delete m_camera		;
 	delete m_windowSetUp;
 	delete m_UserEvents;

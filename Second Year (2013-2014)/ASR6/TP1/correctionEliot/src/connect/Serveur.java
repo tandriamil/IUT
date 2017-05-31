@@ -16,7 +16,7 @@ public class Serveur {
 			clients = new Vector<Client>();
 			ServerSocket serverSocket = new ServerSocket(port);
 			System.err.println("Start server on port: " + port);
-			
+
 			for(;;) {
 				// On accepte la connection d'un nouveau client
 				Socket call = serverSocket.accept();
@@ -25,18 +25,18 @@ public class Serveur {
 				// On recupere les flux d'entree et de sortie
 				BufferedReader in = new BufferedReader(new InputStreamReader(call.getInputStream()));
 				PrintStream out = new PrintStream(call.getOutputStream(), true);
-				
+
 				// On cree et ajoute un nouveau client a notre liste
 				Client client = new Client(in, out, clients);
 				synchronized(clients) {
 					clients.add(client);
 				}
-				
+
 				// On lance le thread du nouveau client
 				Thread conv = new Thread(client);
 				conv.start();
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

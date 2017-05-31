@@ -28,7 +28,7 @@ class Etudiant {
 	if (i >= 0 && i < this.notes.length) {
 	a = this.notes[i];
 	}
-	
+
 	else {
 	    System.out.println ("L'indice est en dehors des bornes du tableau.");
 	}
@@ -46,7 +46,7 @@ class Etudiant {
 	//Variables locales - Initialisation
 	int i;
 	double rand;
-	
+
 	//Méthode - Initialisation
 	for (i = 0; i < this.notes.length; i++) {
 	    rand = Math.random ();
@@ -74,16 +74,16 @@ class Etudiant {
 	    //Division par le total
 	    moyenneretournee = totalnote / this.notes.length;
 	}
-	
+
 	else {
 	    System.out.println ("Tableau vide!");
 	}
-	    
+
        //Retour
        return moyenneretournee;
     }
 
-    
+
     //Affichage nom + notes
     String enChaine() {
 	//Variables locales - enChaine

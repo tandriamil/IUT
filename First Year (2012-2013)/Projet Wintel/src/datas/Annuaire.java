@@ -33,7 +33,7 @@ public class Annuaire implements Serializable {
 		if (this.tabFiche.containsKey(cle)) {
 			throw new Exception("ERREUR: Cle deja presente dans l'Annuaire!");
 		}
-			
+
 		//Si la cle est non valide (null)
 		if (cle == null) {
 			throw new IllegalArgumentException("ERREUR: Cle nulle!");
@@ -176,7 +176,7 @@ public class Annuaire implements Serializable {
 		FileInputStream in = null;
 		ObjectInputStream fluxEntree = null;
 		Annuaire ret = null;
-		
+
 		try {
 			in = new FileInputStream("annuaire.out");
 		}

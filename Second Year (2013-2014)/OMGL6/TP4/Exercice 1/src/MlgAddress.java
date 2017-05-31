@@ -4,7 +4,7 @@
 public class MlgAddress extends Address {
 	//The constant variable for the name of the country
     private static final String COUNTRY = "MADAGASCAR";
-    
+
     /**
      * Gets the name of the country
      * @return The name of this country
@@ -12,7 +12,7 @@ public class MlgAddress extends Address {
     public String getCountry() {
     	return COUNTRY;
     }
-    
+
 
     /**
      * Permits to get the full address

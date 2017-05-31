@@ -50,10 +50,10 @@ testCZ2Piece: CPieceAbstract.o CZ2Piece.o CZ1Piece.o CL2Piece.o CL1Piece.o COPie
 # compilation projet tetris
 #------------------------------------------------------------
 CProjetTetrisPiece.o: $(SRC)/dossier_de_test/CProjetTetrisPiece.cpp
-	$(GPP) -o $(BIN)/CProjetTetrisPiece.o -c $(SRC)/dossier_de_test/CProjetTetrisPiece.cpp 
+	$(GPP) -o $(BIN)/CProjetTetrisPiece.o -c $(SRC)/dossier_de_test/CProjetTetrisPiece.cpp
 
 CTetrisGame.o: $(SRC)/tetris/CTetrisGame.cpp
-	$(GPP) -o $(BIN)/CTetrisGame.o -c $(SRC)/tetris/CTetrisGame.cpp 
+	$(GPP) -o $(BIN)/CTetrisGame.o -c $(SRC)/tetris/CTetrisGame.cpp
 
 CPieceAbstract.o: $(SRC)/tetris/CPieceAbstract.cpp
 	$(GPP) -o $(BIN)/CPieceAbstract.o -c $(SRC)/tetris/CPieceAbstract.cpp
@@ -80,25 +80,25 @@ CZ2Piece.o: $(SRC)/tetris/CZ2Piece.cpp
 	$(GPP) -o $(BIN)/CZ2Piece.o -c $(SRC)/tetris/CZ2Piece.cpp
 
 CRandomizer.o: $(SRC)/tetris/CRandomizer.cpp
-	$(GPP) -o $(BIN)/CRandomizer.o -c $(SRC)/tetris/CRandomizer.cpp 
+	$(GPP) -o $(BIN)/CRandomizer.o -c $(SRC)/tetris/CRandomizer.cpp
 
 CTGameTable.o: $(SRC)/tetris/CTGameTable.cpp
-	$(GPP) -o $(BIN)/CTGameTable.o -c $(SRC)/tetris/CTGameTable.cpp 
-		
+	$(GPP) -o $(BIN)/CTGameTable.o -c $(SRC)/tetris/CTGameTable.cpp
+
 #------------------------------------------------------------
 # compilation application 3D + Matrix44
 #------------------------------------------------------------
 CGuiGlut.o:  $(SRC)/appliBase/CGuiGlut.cpp
-	$(GPP) -o $(BIN)/CGuiGlut.o -c $(SRC)/appliBase/CGuiGlut.cpp  
+	$(GPP) -o $(BIN)/CGuiGlut.o -c $(SRC)/appliBase/CGuiGlut.cpp
 
 CApplication.o: $(SRC)/appliBase/CApplication.cpp
-	$(GPP) -o $(BIN)/CApplication.o -c $(SRC)/appliBase/CApplication.cpp 
+	$(GPP) -o $(BIN)/CApplication.o -c $(SRC)/appliBase/CApplication.cpp
 
-CRenderer.o: $(SRC)/appliBase/CRenderer.cpp 
-	$(GPP) -o $(BIN)/CRenderer.o -c $(SRC)/appliBase/CRenderer.cpp 
+CRenderer.o: $(SRC)/appliBase/CRenderer.cpp
+	$(GPP) -o $(BIN)/CRenderer.o -c $(SRC)/appliBase/CRenderer.cpp
 
 CMatrix44.o: $(SRC)/math/CMatrix44.cpp
-	$(GPP) -o $(BIN)/CMatrix44.o -c $(SRC)/math/CMatrix44.cpp 
+	$(GPP) -o $(BIN)/CMatrix44.o -c $(SRC)/math/CMatrix44.cpp
 
 main.o: $(SRC)/main.cpp
 	$(GPP) -o $(BIN)/main.o -c $(SRC)/main.cpp

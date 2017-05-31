@@ -6,7 +6,7 @@
 // IRISA - UBS  / IUT Informatique Vannes
 //========================================================================
 
-#ifndef __CTETRIS_GAME_H__	// routine qui sert à éviter l'inclusion multiple
+#ifndef __CTETRIS_GAME_H__	// routine qui sert Ã  ï¿½viter l'inclusion multiple
 #define __CTETRIS_GAME_H__	//
 
 #include "CPieceAbstract.h"
@@ -25,50 +25,50 @@ class CTetrisGame {
 
 public:
 	/**
-		\brief constructeur par défaut de la piece
+		\brief constructeur par dÃ©faut de la piece
 	*/
 	CTetrisGame() {;}
 
 	/**
-		\brief constructeur 
+		\brief constructeur
 	*/
 	CTetrisGame ( unsigned int gamePosX, unsigned int gamePosY, unsigned int boardWidth, unsigned int boardHeight, float dimCase );
-	
+
 	/**
 		\brief destructeur de CTetrisGame
 	*/
 	~CTetrisGame();
 
 	/**
-		\brief	met à jour le tetris en fonction du temps passé (le nombre de fois que la boucle de rendu est appelée)
-				la méthode descend automatiquement la pièce courante
-				check si collision, si ligne à détruire, le score et si game over
-		\return l'état du jeu (ok ou game over)
+		\brief	met Ã  jour le tetris en fonction du temps passÃ  (le nombre de fois que la boucle de rendu est appelÃ©e)
+				la mÃ©thode descend automatiquement la piÃ¨ce courante
+				check si collision, si ligne Ã  dÃ©truire, le score et si game over
+		\return l'Ã©tat du jeu (ok ou game over)
 	*/
 	ActionResult Update(unsigned int step);
 
 	/**
 		\brief	modifie la position et l'orientation de la piece courante
-		\param action à faire
-		\return l'état du jeu (ok, collision ou game over)
+		\param action Ã  faire
+		\return l'Ã©tat du jeu (ok, collision ou game over)
 	*/
 	ActionResult MovePiece(PieceAction action);
 
 	/**
-		\brief renvoit le tableau du jeu avec les cases occupées et leur couleur
+		\brief renvoit le tableau du jeu avec les cases occupÃ©es et leur couleur
 		\return le tableau du jeu
 	*/
 	CTGameTable& GetBoard();
 
 	/**
-		\brief renvoit position du jeu dans la fenètre openGL
+		\brief renvoit position du jeu dans la fenÃªtre openGL
 		\return entier en abcisse
 	*/
 	unsigned int GetXPos();
 
 	/**
-		\brief renvoit position du jeu dans la fenètre openGL
-		\return entier en ordonnée
+		\brief renvoit position du jeu dans la fenÃªtre openGL
+		\return entier en ordonnÃ©e
 	*/
 	unsigned int GetYPos();
 
@@ -79,7 +79,7 @@ public:
 	float& GetCaseDim();
 
 	/**
-		\brief renvoit un pointeur sur la pièce courante
+		\brief renvoit un pointeur sur la piÃ¨ce courante
 		\return poniteur sur CPieceAbstract
 	*/
 	CPieceAbstract* GetPiece();
@@ -99,11 +99,11 @@ public:
 private:
 
 	/**
-		\brief ajout d'une piece aléatoire
+		\brief ajout d'une piece alÃ©atoire
 	*/
 	void AddPiece();
 
-	
+
 
 	/**
 		\brief collision avec les bords du jeu ?
@@ -116,7 +116,7 @@ private:
 	void InsertPiece();
 
 	/**
-		\brief cherche la première ligne pleine
+		\brief cherche la premiÃ¨re ligne pleine
 		\return index de la ligne pleine , -1 sinon !!!
 	*/
 	int GetFullRow();
@@ -128,34 +128,34 @@ private:
 	void DeleteRow(unsigned int rowIndex);
 
 	/**
-		\brief check si la partie est terminée
+		\brief check si la partie est terminï¿½e
 		\return vrai si c'est le cas
 	*/
 	bool IsGameOver();
 
 	/**
-		\brief renvoit par un entier signé le nombre de colonne du tableau
-		\return entier signé de la largeur du tableau
+		\brief renvoit par un entier signÃ  le nombre de colonne du tableau
+		\return entier signÃ  de la largeur du tableau
 	*/
 	int NbBoardCols();
 
 
 	/**
-		\brief renvoit par un entier signé le nombre de lignes du tableau
-		\return entier signé de la largeur du tableau
+		\brief renvoit par un entier signÃ  le nombre de lignes du tableau
+		\return entier signÃ  de la largeur du tableau
 	*/
 	int NbBoardRows();
 
 
 	//----------------------------------------------------------
-	// Données membres
+	// donnÃ©es membres
 	//----------------------------------------------------------
-	CTGameTable		m_board				;	///< le tableau du jeu avec les cases occupées et leur couleur
-	unsigned int	m_xPos				;	///< position en abcisse du jeu dans la fenètre openGL
-	unsigned int	m_yPos				;	///< position en ordonnée du jeu dans la fenètre openGL
+	CTGameTable		m_board				;	///< le tableau du jeu avec les cases occupÃ©es et leur couleur
+	unsigned int	m_xPos				;	///< position en abcisse du jeu dans la fenÃªtre openGL
+	unsigned int	m_yPos				;	///< position en ordonnÃ©e du jeu dans la fenÃªtre openGL
 	float			m_caseDim			;	///< taille d'une case du tetris
-	CRandomizer		m_randomizer		;   ///< 
-	CPieceAbstract*	m_pPiece			;	///< une pièce de type abstract
+	CRandomizer		m_randomizer		;   ///<
+	CPieceAbstract*	m_pPiece			;	///< une piÃ¨ce de type abstract
 	unsigned int	m_dim				;	///< dimension de la piece
 	unsigned int	m_score				;	///< score actuel du joueur
 };

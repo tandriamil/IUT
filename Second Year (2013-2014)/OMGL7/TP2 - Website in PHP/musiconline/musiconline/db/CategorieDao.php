@@ -52,7 +52,7 @@ class CategorieDao implements DataAccessObject {
     return $results;
    }
 
-  
+
   //Permet d'ajouter un tuple
   public final function insert(DataObject $do) {
 
@@ -64,7 +64,7 @@ class CategorieDao implements DataAccessObject {
 
       //Prépare la requête SQL
       $query = "insert into Categorie(IdCategorie,LibelleCategorie) values (:IdCategorie,:LibelleCategorie)";
-    
+
       //Prépare la requête en dur avec la BDD et la requête correspondante
       $stmt = $dbc->prepare($query);
 
@@ -76,7 +76,7 @@ class CategorieDao implements DataAccessObject {
       $stmt->execute($data);
    }
  }
- 
+
   //Permet de mettre à jour un tuple
   public function update(DataObject $obj) {
 
@@ -88,19 +88,19 @@ class CategorieDao implements DataAccessObject {
 
       //Prépare la requête SQL
       $query = "UPDATE Categorie SET LibelleCategorie = :LibelleCategorie WHERE IdCategorie = :IdCategorie";
-      
+
       //Prépare la requête en dur avec la BDD et la requête correspondante
       $stmt = $dbc->prepare($query);
 
       //Remplace les paramètres
       $stmt->bindValue(':IdCategorie',$obj->getIDCategorie(),PDO::PARAM_STR);
       $stmt->bindValue(':LibelleCategorie',$obj->getLIbelleCategorie(),PDO::PARAM_STR);
-   
+
       //Exécute finallement la requête
       $stmt->execute($data);
    }
   }
-  
+
 
   //Permet de supprimer un tuple
   public function delete(DataObject $obj) {
@@ -113,13 +113,13 @@ class CategorieDao implements DataAccessObject {
 
       //Prépare la requête SQL
       $query = "DELETE FROM Categorie WHERE IdCategorie = :IdCategorie";
-    
+
       //Prépare la requête en dur avec la BDD et la requête correspondante
       $stmt = $dbc->prepare($query);
 
       //Remplace les paramètres
       $stmt->bindValue(':IdCategorie',$obj->getIDCategorie(),PDO::PARAM_STR);
-   
+
       //Exécute finallement la requête
       $stmt->execute($data);
     }

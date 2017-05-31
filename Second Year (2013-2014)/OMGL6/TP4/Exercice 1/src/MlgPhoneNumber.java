@@ -7,7 +7,7 @@ public class MlgPhoneNumber extends PhoneNumber {
 
     //And the one for the length of the phone number (A tab of 9 have 10 chars!!!)
     private static final int NUMBER_LENGTH = 9;
-    
+
 
     /**
      * Gets the country code

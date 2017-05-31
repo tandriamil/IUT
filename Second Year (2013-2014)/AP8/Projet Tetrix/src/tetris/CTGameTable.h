@@ -31,7 +31,7 @@ class CTGameTable {
 		CTGameTable () {};							// constructeur par défaut obligatoire pour la déclaration CTGameTable m_board dans CTetrisGame
 
 		friend ostream& operator<< ( ostream& out, const CTGameTable& obj ); 	// affichage de la grille au terminal
-		
+
 		// Accesseur
 		vector<TGameRow>& GetGameTable();
 };

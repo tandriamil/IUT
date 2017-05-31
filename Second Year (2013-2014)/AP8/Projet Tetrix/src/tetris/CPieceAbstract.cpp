@@ -119,7 +119,7 @@ void CPieceAbstract::TurnRight() {
 			this -> m_state = S_Top;
 			cout << "état de la pièce après rotation = S_Top";
 			break;
-		} 
+		}
 
 		case S_Right:
 		{
@@ -127,7 +127,7 @@ void CPieceAbstract::TurnRight() {
 			cout << "état de la pièce après rotation = S_Bottom";
 		}
 	}
-	
+
 }
 
 /**************************************/
@@ -156,7 +156,7 @@ void CPieceAbstract::TurnLeft() {
 			this -> m_state = S_Bottom;
 			cout << "état de la pièce après rotation = S_Bottom";
 			break;
-		} 
+		}
 
 		case S_Right:
 		{
@@ -165,10 +165,10 @@ void CPieceAbstract::TurnLeft() {
 		}
 	}
 
-}		
+}
 
 /*************************************/
-/* method overriding the output stream */ 
+/* method overriding the output stream */
 ostream& operator<< ( ostream& flux, const CPieceAbstract& p ) {
 	int count = 0;
 	for (int i=0; i< 3; i++) {
@@ -179,7 +179,7 @@ ostream& operator<< ( ostream& flux, const CPieceAbstract& p ) {
 			}
 			else {
 				flux  << p.m_table[i][j] << "-";
-			} 
+			}
 		}
 	}
 	return flux;

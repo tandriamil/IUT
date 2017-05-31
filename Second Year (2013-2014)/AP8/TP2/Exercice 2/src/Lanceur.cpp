@@ -43,5 +43,5 @@ void functionByPointer (CPoint *cPoint) {
 
 
 /**
-* Function using the object sent by table 
+* Function using the object sent by table
 */

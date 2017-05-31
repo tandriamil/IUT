@@ -9,7 +9,7 @@ public class Humain extends Joueur implements Serializable {
 //Attributs
 	//Pour eviter un warning
 	private static final long serialVersionUID = 1;
-	
+
 //Methodes
 	/**
 	*Constructeur de la classe Humain

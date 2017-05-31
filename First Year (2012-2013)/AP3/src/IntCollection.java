@@ -119,7 +119,7 @@ public class IntCollection {
 		if (this.sortCheck() == true) {
 			System.out.println("Le tableau est correctement trié!");
 		}
-		
+
 		else {
 			System.out.println("Le tableau est mal trié! ERREUR!");
 		}
@@ -231,7 +231,7 @@ public class IntCollection {
 		for (int i = 0; i <= this.flag; i++) {
 
 			if (this.tab[i] == value) {
-				
+
 				//Décalage des valeurs du tableau
 				 for (int j = i; j < this.flag; j++) {
 				 	tab[j] = tab[j + 1];
@@ -354,7 +354,7 @@ public class IntCollection {
 		return count;
 	}
 
-	
+
 	/**
 	*Effectue un tri par séparation monodirectionnelle
 	*@param start Valeur de début

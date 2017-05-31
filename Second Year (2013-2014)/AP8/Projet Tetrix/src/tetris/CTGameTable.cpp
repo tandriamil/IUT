@@ -5,7 +5,7 @@ CTGameTable::CTGameTable ( int width, int height ) {
 	Case uneCase = Case ( );
 
 	TGameRow uneLgn ( width, uneCase );
-	
+
 	m_GameTable = vector<TGameRow>( height, uneLgn );
 }
 

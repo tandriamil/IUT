@@ -45,12 +45,12 @@ public class FrontController extends HttpServlet {
 	throws IOException, ServletException {
    		processRequest(request, response);
     }
-  
+
     private void processRequest(HttpServletRequest request,
 				  HttpServletResponse response)
-	throws IOException, ServletException {    
+	throws IOException, ServletException {
     this.appController.processRequest(request,
 				   response, getServletContext());
 	}
-  
+
 }

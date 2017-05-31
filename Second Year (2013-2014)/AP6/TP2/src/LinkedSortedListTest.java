@@ -117,7 +117,7 @@ public class LinkedSortedListTest extends TestCase {
 		assertEquals(false, emptyList.getIterator().hasNext());
 		System.out.println("OK");
 	}
-	
+
 	//With a normal list
 	@Test
 	public void testHasNextOnNormalList() {
@@ -228,7 +228,7 @@ public class LinkedSortedListTest extends TestCase {
 		assertEquals(0, emptyList.getSize());
 		System.out.println("OK");
 	}
-	
+
 	//With a normal list
 	@Test
 	public void testGetSizeOnNormalList() {

@@ -2,7 +2,7 @@
 
 var
 	reel pc, gc, perimetre;
-	
+
 principal
 debut
 	saisir("Entrez la valeur du petit côté:", @pc);

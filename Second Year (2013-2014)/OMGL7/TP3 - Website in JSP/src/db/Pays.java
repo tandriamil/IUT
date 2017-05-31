@@ -10,12 +10,12 @@ public class Pays{
 //Attributs
 	private int idPays;
 	private String nom;
-	 
+
 	/**
 	*Constructeur de la classe Pays
 	*/
 	public Pays(){}
-	  
+
 	/**
 	* Méthode qui initialise les attributs de l'objet Pays
 	*/
@@ -23,7 +23,7 @@ public class Pays{
 		this.idPays = idp;
 		this.nom = name;
 	}
-	  
+
 	/**
 	* Accesseur de l'objet
 	* @return IdPays
@@ -31,14 +31,14 @@ public class Pays{
 	public int getIdPays(){
 		return this.idPays;
 	}
-	   
+
 	/**
 	* Modificateur de l'objet
 	*/
 	public void setIdPays(int idp){
 		this.idPays = idp;
 	}
-	   
+
 	/**
 	* Accesseur de l'objet
 	* @return nom
@@ -46,7 +46,7 @@ public class Pays{
 	public String getNom(){
 		return this.nom;
 	}
-		
+
 	/**
 	* Modificateur de l'objet
 	*/

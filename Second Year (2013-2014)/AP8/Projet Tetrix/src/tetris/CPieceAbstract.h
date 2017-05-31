@@ -8,12 +8,12 @@
 
 
 
-#ifndef __CPIECE_ABSTRACT_H__	// routine qui sert à éviter l'inclusion multiple
+#ifndef __CPIECE_ABSTRACT_H__	// routine qui sert Ã  ï¿½viter l'inclusion multiple
 #define __CPIECE_ABSTRACT_H__	//
 
 #include "Common.h"
 
-typedef vector<int> TPieceRow;	// 1 = case coloriée, 0 = case vide
+typedef vector<int> TPieceRow;	// 1 = case coloriÃ©e, 0 = case vide
 typedef vector<TPieceRow> TPieceTable;
 
 //-------------------------------------------------------------------------------------------------------------------
@@ -38,18 +38,18 @@ public:
 	void TurnLeft();
 
 	/**
-		\brief rotation de la piece en fonction de l'état courant (à redéfinir dans les classes filles)
+		\brief rotation de la piece en fonction de l'Ã©tat courant (Ã  redÃ©finir dans les classes filles)
 	*/
 	virtual void Turn() = 0;
 
 	/**
-		\brief renvoit la matrice d'état courante
+		\brief renvoit la matrice d'Ã©tat courante
 		\return la matrice de la piece
 	*/
 	TPieceTable& GetTable();
 
 	/**
-		\brief modifie la matrice d'état de la piece
+		\brief modifie la matrice d'Ã©tat de la piece
 		\param la matrice de la piece
 	*/
 	void SetTable(const TPieceTable& table);
@@ -61,20 +61,20 @@ public:
 	int GetColIndex();
 
 	/**
-		\brief index en ordonnée de la piece dans le tetrix
-		\return entier de l'index en ordonnée de la piece dans le tetrix
+		\brief index en ordonnÃ©e de la piece dans le tetrix
+		\return entier de l'index en ordonnÃ©e de la piece dans le tetrix
 	*/
 	int GetRowIndex();
 
 	/**
-		\brief incrémentation ou décrémentation de l'index de ligne (ordonnée)
-		\param la valeur de l'incrémentation (>0) ou décrémentation (<0)
+		\brief incrÃ©mentation ou dÃ©crÃ©mentation de l'index de ligne (ordonnÃ©e)
+		\param la valeur de l'incrÃ©mentation (>0) ou dÃ©crÃ©mentation (<0)
 	*/
 	void SetIncDecRowIndex ( int val );
 
 	/**
-		\brief incrémentation ou décrémentation de l'index de colonne (abscisse)
-		\param la valeur de l'incrémentation (>0) ou décrémentation (<0)
+		\brief incrÃ©mentation ou dÃ©crÃ©mentation de l'index de colonne (abscisse)
+		\param la valeur de l'incrÃ©mentation (>0) ou dÃ©crÃ©mentation (<0)
 	*/
 	void SetIncDecColIndex ( int val );
 
@@ -84,7 +84,7 @@ public:
 	void SetColIndex ( int newColIndex );
 
 	/**
-		\brief permet de modifier l'index en ordonnée de la piece dans le tetrix
+		\brief permet de modifier l'index en ordonnÃ©e de la piece dans le tetrix
 	*/
 	void SetRowIndex ( int newRowIndex );
 
@@ -94,26 +94,26 @@ public:
 	const CVector3& GetColor();
 
 	/**
-		affiche le contenu de la matrice TPieceTable à l'écran
+		affiche le contenu de la matrice TPieceTable Ã  l'Ã©cran
 	*/
 	friend ostream& operator<< ( ostream& flux, const CPieceAbstract& p );
 
 protected:
 	/**
 		\brief constructeur de piece
-		\param dim: obligé pour initialiser le tableau (la matrice)
+		\param dim: obligÃ  pour initialiser le tableau (la matrice)
 		\param entier de l'index en abcisse de la piece dans le tetrix
-		\param entier de l'index en ordonnée de la piece dans le tetrix
+		\param entier de l'index en ordonnÃ©e de la piece dans le tetrix
 		\param vecteur 3 sur la couleur rgb de la piece
-		\remarque initialisation d'un état par défaut, du tableau
+		\remarque initialisation d'un Ã©tat par dÃ©faut, du tableau
 	*/
 	CPieceAbstract ( unsigned int dim, int iX, int iY, const CVector3& color );
 
-	// Eventuellement à cause de l'héritage => appel par la sous-classe du constructeur vide
+	// Eventuellement Ã  cause de l'hÃ©ritage => appel par la sous-classe du constructeur vide
 	CPieceAbstract() {;}
 
 	//----------------------------------------------------------
-	// Enumération de l'état/posture de la piece
+	// EnumÃ©ration de l'Ã©tat/posture de la piece
 	//----------------------------------------------------------
 
 	// dans le sens horlogique
@@ -125,13 +125,13 @@ protected:
 	};
 
 	//----------------------------------------------------------
-	// Données membres
+	// donnÃ©es membres
 	//----------------------------------------------------------
 	unsigned int		m_dim	;		///< dimension de la piece
-	TPieceTable		m_table;		///< matrice d'état de la piece
-	State			m_state	;		///< posture de la pièce
-	int			m_colIndex;		///< index en abcisse de la pièce dans le tetrix
-	int			m_rowIndex;		///< index en ordonnée de la pièce dans le tetrix
+	TPieceTable		m_table;		///< matrice d'Ã©tat de la piece
+	State			m_state	;		///< posture de la piÃ¨ce
+	int			m_colIndex;		///< index en abcisse de la piÃ¨ce dans le tetrix
+	int			m_rowIndex;		///< index en ordonnÃ©e de la piÃ¨ce dans le tetrix
 	CVector3		m_color	;		///< la couleur de la piece
 
 };

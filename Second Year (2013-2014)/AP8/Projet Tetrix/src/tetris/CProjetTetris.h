@@ -8,22 +8,22 @@
 
 
 
-#ifndef __PROJET_TETRIS_H__	// routine qui sert ‡ pas inclure 2 fois le mÍme fichier
+#ifndef __PROJET_TETRIS_H__	// routine qui sert √† pas inclure 2 fois le m√™me fichier
 #define __PROJET_TETRIS_H__	//
 
 //-----------------------------------------------------------------
-// Notre programme va avoir besoin 
-// des fonctions spÈcifiques ‡ l'utilisateur (iterface graphique utilisateur GUI) et
-// des fonctions nÈcÈssaires au rendu (dessin) d'un objet dans la scene
+// Notre programme va avoir besoin
+// des fonctions sp√©cifiques √† l'utilisateur (iterface graphique utilisateur GUI) et
+// des fonctions n√©c√©ssaires au rendu (dessin) d'un objet dans la scene
 //
-// On inclu les fichiers .h qui contiennent les dÈclarations des fonctions
+// On inclu les fichiers .h qui contiennent les d√©clarations des fonctions
 //-----------------------------------------------------------------
-#include "CApplication.h"		// ensemble des fonctions contenant notre environnement de dÈveloppement
-#include "CTetrisGame.h"			// le jeu tÈtris (pas d'affichage dedans  !!!!!)
+#include "CApplication.h"		// ensemble des fonctions contenant notre environnement de d√©veloppement
+#include "CTetrisGame.h"			// le jeu t√©tris (pas d'affichage dedans  !!!!!)
 
 ////////////////////////////////////////////////////////////////////////
-/// classe Demo: elle est notre classe cliente, elle possËde l'ensemble des propriÈtÈs de la classe CApplication
-/// et donc utilise le GUI et le renderer. 
+/// classe Demo: elle est notre classe cliente, elle poss√®de l'ensemble des propri√©t√©s de la classe CApplication
+/// et donc utilise le GUI et le renderer.
 //
 // Projet Tetris
 //
@@ -31,8 +31,8 @@
 class CProjetTetris: public CApplication {
 
 public:
-	/** 
-		\brief constructeur par dÈfaut de CProjetTetris
+	/**
+		\brief constructeur par d√©faut de CProjetTetris
 	*/
 	CProjetTetris();
 
@@ -42,43 +42,43 @@ public:
 	~CProjetTetris();
 
 	/**
-		\brief initilisation de notre appli (rien car dessiner un cube ‡ l'Ècran ne nÈcÈssite aucune initialisation)
-		 !! MÈthode appelÈe dans la mÈthode Init de la classe CApplication
+		\brief initilisation de notre appli (rien car dessiner un cube √† l'√©cran ne n√©c√©ssite aucune initialisation)
+		 !! m√©thode appel√©e dans la m√©thode Init de la classe CApplication
 	*/
 	bool OnInit();
 
 	/**
-		\brief notre scËne ‡ dessiner
-		 !! MÈthode appelÈe dans la mÈthode Run de la classe CApplication
+		\brief notre sc√®ne √† dessiner
+		 !! m√©thode appel√©e dans la m√©thode Run de la classe CApplication
 	*/
 	void OnRender();
 
 	/**
-		\brief destructuion de notre appli (rien car dessiner un cube ‡ l'Ècran ne nÈcÈssite aucune destruction)
-		 !! MÈthode appelÈe dans la mÈthode Release de la classe CApplication
+		\brief destructuion de notre appli (rien car dessiner un cube √† l'√©cran ne n√©c√©ssite aucune destruction)
+		 !! m√©thode appel√©e dans la m√©thode Release de la classe CApplication
 	*/
 	void OnRelease();
 
 
 private:
-	
+
 	//----------------------------------------------------------
-	// DonnÈes membres
+	// donn√©es membres
 	//----------------------------------------------------------
-	unsigned int		m_step;			///< compteur de passage dans la mÈthode onRender() permet de gÈrer implicitement le temps
+	unsigned int		m_step;			///< compteur de passage dans la m√©thode onRender() permet de g√©rer implicitement le temps
 	CTetrisGame		m_game;			///< le jeu !!
-	
+
 	// Attributs temporaires
-	// Il s'agit d'un test i.e. un carrÈ qui descend pour vous montrer comment Èvolue le jeu au cours du temps
-	int				m_posYPiece;			
+	// Il s'agit d'un test i.e. un carr√© qui descend pour vous montrer comment √©volue le jeu au cours du temps
+	int				m_posYPiece;
 	int				m_posXPiece;
 
-	/** 
+	/**
 		\brief affichage de la grille de jeu
 	*/
 	void DrawTetris();
 
-	/** 
+	/**
 		\brief affichage des informations du jeu
 	*/
 	void DrawInfo();
@@ -87,27 +87,27 @@ private:
 
 
 	//----------------------------------------------------------
-	// quelques outils pour afficher des carrÈ et des rectangles
+	// quelques outils pour afficher des carr√© et des rectangles
 	//----------------------------------------------------------
-	/** 
-		\brief affiche un carrÈ plein
-		\param 1&2 coordonnÈes
-		\param 3: dimension (cotÈ) du carrÈ
+	/**
+		\brief affiche un carr√© plein
+		\param 1&2 coordonn√©es
+		\param 3: dimension (cotÔøΩ) du carr√©
 		\param 4: couleur
 	*/
 	void DrawFillSquare(int x, int y, float dim, const CVector3 &color) ;
-	
-	/** 
+
+	/**
 		\brief affiche un rectangle plein
-		\param 1&2 coordonnÈes
+		\param 1&2 coordonn√©es
 		\param 3&4: largeur et hauteur
 		\param 4: couleur
 	*/
 	void DrawFillRect(int x, int y, float w, float h, const CVector3 &color) ;
 
-	/** 
-		\brief affiche le contour d'un rectangle 
-		\param 1&2 coordonnÈes
+	/**
+		\brief affiche le contour d'un rectangle
+		\param 1&2 coordonn√©es
 		\param 3&4: largeur et hauteur
 		\param 4: couleur
 		\param 5: taille de la ligne

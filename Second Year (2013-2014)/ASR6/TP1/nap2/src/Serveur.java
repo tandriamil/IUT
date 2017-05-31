@@ -24,7 +24,7 @@ public class Serveur {
 
 
 //Methods
-    /** 
+    /**
      * The constructor
      * @param port The number of the port to use
      */

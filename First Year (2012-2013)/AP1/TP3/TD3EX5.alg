@@ -16,5 +16,5 @@ debut
 		finsi
 	finpour
 	afficher("nombre d'occurence de la reference :"+count);
-	
-fin		
+
+fin

@@ -25,7 +25,7 @@ class TestPoint {
 	p1.setY(50);
 	int var3 = p1.getX();
 	int var4 = p1.getY();
-	
+
 	if (var3 == 40) {
 	    System.out.println ("Test setX réussi!");
 	}
@@ -39,10 +39,10 @@ class TestPoint {
 	else {
 	    System.out.println ("Test setY échoué!");
 	}
-	    
+
 	// Test du calcul de la distance par rapport à l'origine
 	Point p2 = new Point(0, 8);
-	
+
 	double var5 = p2.distOrig();
 
 	if (var5 == 8) {

@@ -49,7 +49,7 @@ public class EcouteurListeGauche extends MouseAdapter {
 
 		JTextField affichePrenom = datWin.getFieldPrenom();
 		affichePrenom.setText(f.getPrenom());
-		
+
 		JTextField afficheNumero = datWin.getFieldNumero();
 		afficheNumero.setText(f.getNumTel());
 	}

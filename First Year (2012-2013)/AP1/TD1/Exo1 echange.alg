@@ -2,7 +2,7 @@ algo exo1
 
 var
 	entier var1, var2, aux;
-	
+
 principal
 
 debut
@@ -11,6 +11,6 @@ debut
 	aux := var1;
 	var1 := var2;
 	var2 := aux;
-	afficherln("var1 est égal à " + var1);
-	afficher("var2 est égal à " + var2);
-fin	
+	afficherln("var1 est egal a " + var1);
+	afficher("var2 est egal a " + var2);
+fin

@@ -106,5 +106,5 @@ $page->addElement($divContenuPrincipal);
 
 //Affichage de toute la page
 echo $page;
- 
+
 ?>

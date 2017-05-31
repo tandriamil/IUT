@@ -3,7 +3,7 @@
 // Application name
 //------------------------------------------------------------------------------
 $config['app_name']="musiconline";
-$config['app_url']="http//www-i.univ-ubs.fr/etud/projets/e_13_gl7_14_36/musiconline";
+$config['app_url']="";
 
 //------------------------------------------------------------------------------
 // Debug mode
@@ -14,7 +14,7 @@ $config['debug_mode']=TRUE;
 // Language and charset
 //------------------------------------------------------------------------------
 // Language can en (english), fr (french), ...
-// Default language used in the Web pages 
+// Default language used in the Web pages
 $config['language']='fr';
 $config['charset']='UTF-8';
 
@@ -30,11 +30,11 @@ $config['compress_output']=FALSE;
 // dbType can be none, mysql or sqlite
 // db_host, db_login and db_password are not required for sqlite
 $config['db_type']='mysql';
-$config['db_host']='wamba.univ-ubs.fr';
+$config['db_host']='';
 // if the database is a SQLite3 database, you must specify the file name
-$config['db_name']='e_13_gl7_14_36';   
-$config['db_login']='e_13_gl7_14_36';
-$config['db_password']='pe_13_gl7_14_36p';
+$config['db_name']='';
+$config['db_login']='';
+$config['db_password']='';
 
 //------------------------------------------------------------------------------
 // Template
@@ -66,7 +66,7 @@ $config['cookie_path']="/musiconline";
 $config['cookie_secure']=FALSE;
 
 //------------------------------------------------------------------------------
-// Session 
+// Session
 // session_expiration:      The number of SECONDS you want the session to last.
 // session_expire_on_close: Whether to cause the session to expire automatically
 //                          when the browser window is closed
@@ -88,4 +88,3 @@ $config['log']=false;
 include_once $config['app_name']."/controllers/controllers.php";
 
 ?>
-

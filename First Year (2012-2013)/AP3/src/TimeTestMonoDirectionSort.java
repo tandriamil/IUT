@@ -13,7 +13,7 @@ public class TimeTestMonoDirectionSort {
 
 		//Méthodes pour mesure de la recherche dichotomique
 		for (int index = 1; index <= NBTEST; index++) {
- 
+
 			//De 1000 à 20 000
 			System.gc();	//Appel du garbage collector à chaque fois
 			nbdata = MULTIPLE * index;
@@ -22,18 +22,18 @@ public class TimeTestMonoDirectionSort {
 
 			//Début mesure
 			startTime = System.currentTimeMillis();
- 
+
 			//Algo recherche
 			collection.monoDirectionSort(START, (nbdata - 2));
 
 			//Fin mesure
 			stopTime = System.currentTimeMillis();
 
-			//Calcul du temps mis 
+			//Calcul du temps mis
 			time = stopTime - startTime;
 
 			System.out.println("Nombre de valeurs: " + nbdata + " | Durée: " + time + " ms.");
-			
+
 			//Création du fichier de sortie .csv pour chaque plage
 			try {
 				FileWriter file = new FileWriter ("resultat_monodirectionsort.csv", true);

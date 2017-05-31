@@ -4,7 +4,7 @@ var
 	tableau_de reel Tab [5];
 	reel Max , Min;
 	entier count:=0 , PosMax:=1 , PosMin:=1;
-	
+
 principal
 
 debut

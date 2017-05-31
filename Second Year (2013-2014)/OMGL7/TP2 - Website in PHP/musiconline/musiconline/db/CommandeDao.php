@@ -63,7 +63,7 @@ class CommandeDao implements DataAccessObject{
 
       //Prépare la requête
       $query = "insert into Commande(NumeroCommande,ClientCommande,TitreCommande,Total) values (:NumeroCommande,:ClientCommande,:TitreCommande,:Total)";
-    
+
       //Prépare la requête en dur
       $stmt = $dbc->prepare($query);
 
@@ -77,7 +77,7 @@ class CommandeDao implements DataAccessObject{
       $stmt->execute($data);
     }
  }
- 
+
 
   //Permet de mettre à jour un tuple
   public function update(DataObject $obj){
@@ -90,7 +90,7 @@ class CommandeDao implements DataAccessObject{
 
       //Prépare la requête
       $query = "UPDATE Commande SET TitreCommande = :TitreCommande, Total = :Total WHERE NumeroCommande = :NumeroCommande AND ClientCommande = :ClientCommande";
-    
+
       //Prépare la requête en dur
       $stmt = $dbc->prepare($query);
 
@@ -103,7 +103,7 @@ class CommandeDao implements DataAccessObject{
       //Exécute la requête
       $stmt->execute($data);
   }
-  
+
   public function delete(DataObject $obj){
 
     //Vérifie si l'objet entré est instance de commande
@@ -114,7 +114,7 @@ class CommandeDao implements DataAccessObject{
 
       //Prépare la requête
       $query = "DELETE FROM Commande WHERE NumeroCommande = :NumeroCommande AND ClientCommande = :ClientCommande";
-    
+
       //Prépare la requête en dur
       $stmt = $dbc->prepare($query);
 

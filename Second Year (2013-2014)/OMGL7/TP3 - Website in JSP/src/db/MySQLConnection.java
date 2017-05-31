@@ -11,10 +11,10 @@ import com.mysql.jdbc.*;
 class MySQLConnection {
 
     // !!REMPLACER 36X par vos paramètres de BDD mysql.
-    private String dsn = "jdbc:mysql://wamba.univ-ubs.fr/e_11_gl7_12_36";
-    private String username= "e_13_gl7_14_36";
-    private String password= "pe_13_gl7_14_36p";
-    
+    private String dsn = "jdbc:mysql:...";
+    private String username= "";
+    private String password= "";
+
     private java.sql.Connection connect;
     private static MySQLConnection theInst = null;
 
